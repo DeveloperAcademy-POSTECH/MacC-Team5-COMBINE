@@ -10,6 +10,7 @@
 		A80B88252ADB99CA00091FF5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88242ADB99CA00091FF5 /* SnapKit */; };
 		A80B88282ADB9A2400091FF5 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88272ADB9A2400091FF5 /* RxCocoa */; };
 		A80B882A2ADB9A2400091FF5 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88292ADB9A2400091FF5 /* RxRelay */; };
+		A80B883C2ADBA3EC00091FF5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */; };
 		A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */; };
 		A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83392A02ADAB35D009BA7E2 /* SceneDelegate.swift */; };
 		A83392A32ADAB35D009BA7E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83392A22ADAB35D009BA7E2 /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A833929B2ADAB35D009BA7E2 /* Codingdong-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codingdong-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A83392A02ADAB35D009BA7E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		A83392922ADAB35D009BA7E2 = {
 			isa = PBXGroup;
 			children = (
+				A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */,
 				A833929D2ADAB35D009BA7E2 /* Codingdong-iOS */,
 				A83392B42ADAB35E009BA7E2 /* Codingdong-iOSTests */,
 				A83392BE2ADAB35E009BA7E2 /* Codingdong-iOSUITests */,
@@ -169,6 +172,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A83392C52ADAB35E009BA7E2 /* Build configuration list for PBXNativeTarget "Codingdong-iOS" */;
 			buildPhases = (
+				A80B883A2ADBA38200091FF5 /* SwiftLint Script */,
 				A83392972ADAB35D009BA7E2 /* Sources */,
 				A83392982ADAB35D009BA7E2 /* Frameworks */,
 				A83392992ADAB35D009BA7E2 /* Resources */,
@@ -275,6 +279,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A80B883C2ADBA3EC00091FF5 /* .swiftlint.yml in Resources */,
 				A83392AB2ADAB35E009BA7E2 /* LaunchScreen.storyboard in Resources */,
 				A83392A82ADAB35E009BA7E2 /* Assets.xcassets in Resources */,
 			);
@@ -295,6 +300,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A80B883A2ADBA38200091FF5 /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A83392972ADAB35D009BA7E2 /* Sources */ = {
@@ -478,6 +505,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XGHDQG66U5;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -507,6 +535,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XGHDQG66U5;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
