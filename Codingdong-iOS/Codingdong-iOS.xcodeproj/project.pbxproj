@@ -80,6 +80,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A80B882B2ADB9A8400091FF5 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A83392A02ADAB35D009BA7E2 /* SceneDelegate.swift */,
+				A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A80B882C2ADB9A9800091FF5 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				A80B882D2ADB9AA000091FF5 /* Resources */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		A80B882D2ADB9AA000091FF5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A83392A92ADAB35E009BA7E2 /* LaunchScreen.storyboard */,
+				A83392AC2ADAB35E009BA7E2 /* Info.plist */,
+				A83392A72ADAB35E009BA7E2 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A80B882E2ADB9ABC00091FF5 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				A83392A22ADAB35D009BA7E2 /* ViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		A83392922ADAB35D009BA7E2 = {
 			isa = PBXGroup;
 			children = (
@@ -103,12 +138,9 @@
 		A833929D2ADAB35D009BA7E2 /* Codingdong-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */,
-				A83392A02ADAB35D009BA7E2 /* SceneDelegate.swift */,
-				A83392A22ADAB35D009BA7E2 /* ViewController.swift */,
-				A83392A72ADAB35E009BA7E2 /* Assets.xcassets */,
-				A83392A92ADAB35E009BA7E2 /* LaunchScreen.storyboard */,
-				A83392AC2ADAB35E009BA7E2 /* Info.plist */,
+				A80B882B2ADB9A8400091FF5 /* Application */,
+				A80B882E2ADB9ABC00091FF5 /* Presentation */,
+				A80B882C2ADB9A9800091FF5 /* Util */,
 			);
 			path = "Codingdong-iOS";
 			sourceTree = "<group>";
