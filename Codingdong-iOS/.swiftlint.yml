@@ -1,0 +1,28 @@
+# MARK: SwiftLint 룰 참고: https://realm.github.io/SwiftLint/rule-directory.html
+
+disabled_rules:
+# 기본적으로 설정된 룰 중에 비활성화 시키고 싶은 룰들
+- trailing_whitespace
+- colon
+- comma
+- control_statement
+
+opt_in_rules:
+# 기본적으로 설정되지 않은 룰 중에 활성화 시키고 싶은 룰들
+
+included:
+# 검사에 포함할 파일 경로
+
+excluded:
+#검사에서 제외할 대상
+- Application/*
+- Codingdong-iOSTests/*
+- Codingdong-iOSUITests/*
+
+function_body_length:
+# From: https://realm.github.io/SwiftLint/function_body_length.html
+    error: 200
+
+line_length:
+# From https://realm.github.io/SwiftLint/line_length.html
+    error: 240

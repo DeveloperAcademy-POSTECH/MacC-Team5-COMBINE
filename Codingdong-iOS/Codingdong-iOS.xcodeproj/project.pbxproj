@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A80B88252ADB99CA00091FF5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88242ADB99CA00091FF5 /* SnapKit */; };
+		A80B88282ADB9A2400091FF5 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88272ADB9A2400091FF5 /* RxCocoa */; };
+		A80B882A2ADB9A2400091FF5 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88292ADB9A2400091FF5 /* RxRelay */; };
+		A80B883C2ADBA3EC00091FF5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */; };
 		A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */; };
 		A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83392A02ADAB35D009BA7E2 /* SceneDelegate.swift */; };
 		A83392A32ADAB35D009BA7E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83392A22ADAB35D009BA7E2 /* ViewController.swift */; };
-		A83392A62ADAB35D009BA7E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A83392A42ADAB35D009BA7E2 /* Main.storyboard */; };
 		A83392A82ADAB35E009BA7E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A83392A72ADAB35E009BA7E2 /* Assets.xcassets */; };
 		A83392AB2ADAB35E009BA7E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A83392A92ADAB35E009BA7E2 /* LaunchScreen.storyboard */; };
 		A83392B62ADAB35E009BA7E2 /* Codingdong_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83392B52ADAB35E009BA7E2 /* Codingdong_iOSTests.swift */; };
@@ -36,11 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A833929B2ADAB35D009BA7E2 /* Codingdong-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codingdong-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A83392A02ADAB35D009BA7E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A83392A22ADAB35D009BA7E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A83392A52ADAB35D009BA7E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A83392A72ADAB35E009BA7E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A83392AA2ADAB35E009BA7E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A83392AC2ADAB35E009BA7E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +59,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A80B882A2ADB9A2400091FF5 /* RxRelay in Frameworks */,
+				A80B88282ADB9A2400091FF5 /* RxCocoa in Frameworks */,
+				A80B88252ADB99CA00091FF5 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,9 +82,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A80B882B2ADB9A8400091FF5 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A83392A02ADAB35D009BA7E2 /* SceneDelegate.swift */,
+				A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A80B882C2ADB9A9800091FF5 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				A80B882D2ADB9AA000091FF5 /* Resources */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		A80B882D2ADB9AA000091FF5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A83392A92ADAB35E009BA7E2 /* LaunchScreen.storyboard */,
+				A83392AC2ADAB35E009BA7E2 /* Info.plist */,
+				A83392A72ADAB35E009BA7E2 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A80B882E2ADB9ABC00091FF5 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				A83392A22ADAB35D009BA7E2 /* ViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		A83392922ADAB35D009BA7E2 = {
 			isa = PBXGroup;
 			children = (
+				A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */,
 				A833929D2ADAB35D009BA7E2 /* Codingdong-iOS */,
 				A83392B42ADAB35E009BA7E2 /* Codingdong-iOSTests */,
 				A83392BE2ADAB35E009BA7E2 /* Codingdong-iOSUITests */,
@@ -99,13 +141,9 @@
 		A833929D2ADAB35D009BA7E2 /* Codingdong-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */,
-				A83392A02ADAB35D009BA7E2 /* SceneDelegate.swift */,
-				A83392A22ADAB35D009BA7E2 /* ViewController.swift */,
-				A83392A42ADAB35D009BA7E2 /* Main.storyboard */,
-				A83392A72ADAB35E009BA7E2 /* Assets.xcassets */,
-				A83392A92ADAB35E009BA7E2 /* LaunchScreen.storyboard */,
-				A83392AC2ADAB35E009BA7E2 /* Info.plist */,
+				A80B882B2ADB9A8400091FF5 /* Application */,
+				A80B882E2ADB9ABC00091FF5 /* Presentation */,
+				A80B882C2ADB9A9800091FF5 /* Util */,
 			);
 			path = "Codingdong-iOS";
 			sourceTree = "<group>";
@@ -134,6 +172,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A83392C52ADAB35E009BA7E2 /* Build configuration list for PBXNativeTarget "Codingdong-iOS" */;
 			buildPhases = (
+				A80B883A2ADBA38200091FF5 /* SwiftLint Script */,
 				A83392972ADAB35D009BA7E2 /* Sources */,
 				A83392982ADAB35D009BA7E2 /* Frameworks */,
 				A83392992ADAB35D009BA7E2 /* Resources */,
@@ -143,6 +182,11 @@
 			dependencies = (
 			);
 			name = "Codingdong-iOS";
+			packageProductDependencies = (
+				A80B88242ADB99CA00091FF5 /* SnapKit */,
+				A80B88272ADB9A2400091FF5 /* RxCocoa */,
+				A80B88292ADB9A2400091FF5 /* RxRelay */,
+			);
 			productName = "Codingdong-iOS";
 			productReference = A833929B2ADAB35D009BA7E2 /* Codingdong-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +259,10 @@
 				Base,
 			);
 			mainGroup = A83392922ADAB35D009BA7E2;
+			packageReferences = (
+				A80B88232ADB99CA00091FF5 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				A80B88262ADB9A2400091FF5 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = A833929C2ADAB35D009BA7E2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,9 +279,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A80B883C2ADBA3EC00091FF5 /* .swiftlint.yml in Resources */,
 				A83392AB2ADAB35E009BA7E2 /* LaunchScreen.storyboard in Resources */,
 				A83392A82ADAB35E009BA7E2 /* Assets.xcassets in Resources */,
-				A83392A62ADAB35D009BA7E2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +300,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A80B883A2ADBA38200091FF5 /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A83392972ADAB35D009BA7E2 /* Sources */ = {
@@ -297,14 +367,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A83392A42ADAB35D009BA7E2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A83392A52ADAB35D009BA7E2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A83392A92ADAB35E009BA7E2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -443,8 +505,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XGHDQG66U5;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Codingdong-iOS/Info.plist";
+				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -455,7 +518,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.combine.Codingdong-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -472,8 +535,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XGHDQG66U5;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Codingdong-iOS/Info.plist";
+				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -484,7 +548,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.combine.Codingdong-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -609,6 +673,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A80B88232ADB99CA00091FF5 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+		A80B88262ADB9A2400091FF5 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A80B88242ADB99CA00091FF5 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A80B88232ADB99CA00091FF5 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		A80B88272ADB9A2400091FF5 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A80B88262ADB9A2400091FF5 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		A80B88292ADB9A2400091FF5 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A80B88262ADB9A2400091FF5 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A83392932ADAB35D009BA7E2 /* Project object */;
 }
