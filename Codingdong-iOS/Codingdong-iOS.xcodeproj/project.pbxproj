@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67E63EFF2ADE67D000C79863 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E63EFE2ADE67D000C79863 /* UIColorExtension.swift */; };
 		A80B88252ADB99CA00091FF5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88242ADB99CA00091FF5 /* SnapKit */; };
 		A80B88282ADB9A2400091FF5 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88272ADB9A2400091FF5 /* RxCocoa */; };
 		A80B882A2ADB9A2400091FF5 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88292ADB9A2400091FF5 /* RxRelay */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		67E63EFE2ADE67D000C79863 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A833929B2ADAB35D009BA7E2 /* Codingdong-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codingdong-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		67E63F002ADE801200C79863 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				67E63EFE2ADE67D000C79863 /* UIColorExtension.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
 		A80B882B2ADB9A8400091FF5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +104,7 @@
 		A80B882C2ADB9A9800091FF5 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				67E63F002ADE801200C79863 /* Colors */,
 				A80B882D2ADB9AA000091FF5 /* Resources */,
 			);
 			path = Util;
@@ -331,6 +342,7 @@
 				A83392A32ADAB35D009BA7E2 /* ViewController.swift in Sources */,
 				A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */,
 				A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */,
+				67E63EFF2ADE67D000C79863 /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
