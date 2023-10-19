@@ -51,6 +51,7 @@
 		A83392C02ADAB35E009BA7E2 /* Codingdong_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83392BF2ADAB35E009BA7E2 /* Codingdong_iOSUITests.swift */; };
 		A83392C22ADAB35E009BA7E2 /* Codingdong_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83392C12ADAB35E009BA7E2 /* Codingdong_iOSUITestsLaunchTests.swift */; };
 		A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864F00C2AE03FC3007F4012 /* ConfigUI.swift */; };
+		A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864F0122AE041C8007F4012 /* CommonButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		A83392BF2ADAB35E009BA7E2 /* Codingdong_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codingdong_iOSUITests.swift; sourceTree = "<group>"; };
 		A83392C12ADAB35E009BA7E2 /* Codingdong_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codingdong_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A864F00C2AE03FC3007F4012 /* ConfigUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigUI.swift; sourceTree = "<group>"; };
+		A864F0122AE041C8007F4012 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 			children = (
 				A81637232ADFC5FD0070DAC9 /* Constants.swift */,
 				A864F00C2AE03FC3007F4012 /* ConfigUI.swift */,
+				A864F0122AE041C8007F4012 /* CommonButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */,
 				A83392A32ADAB35D009BA7E2 /* ViewController.swift in Sources */,
 				A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */,
 				116A95532ADF72AB0096760A /* FontManager.swift in Sources */,
