@@ -268,6 +268,7 @@
 		A87217C42AE2129C003C0D5C /* Ttekkkochi */ = {
 			isa = PBXGroup;
 			children = (
+				A8BC0DB32AE3432600AD5C9A /* View */,
 				A87217C52AE212AA003C0D5C /* ViewController */,
 				A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */,
 			);
@@ -287,6 +288,13 @@
 				A8BC0DB12AE3401800AD5C9A /* Codingblock.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A8BC0DB32AE3432600AD5C9A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

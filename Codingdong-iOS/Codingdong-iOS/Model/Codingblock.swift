@@ -10,6 +10,7 @@ import UIKit
 struct Codingblock: Identifiable, Hashable, Equatable {
     var id = UUID().uuidString
     var value: String
+    var isShowing: Bool = false
 }
 
 var codingblocks: [Codingblock] = [
