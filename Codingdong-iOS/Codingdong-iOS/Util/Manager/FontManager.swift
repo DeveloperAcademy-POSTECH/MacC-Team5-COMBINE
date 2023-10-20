@@ -5,7 +5,6 @@
 //  Created by BAE on 2023/10/18.
 //
 
-
 import UIKit
 
 /// AX1 가이드라인 준수
@@ -94,5 +93,3 @@ extension FontManager {
     }
     
 }
-
-

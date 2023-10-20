@@ -53,6 +53,7 @@
 		A83392C22ADAB35E009BA7E2 /* Codingdong_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83392C12ADAB35E009BA7E2 /* Codingdong_iOSUITestsLaunchTests.swift */; };
 		A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864F00C2AE03FC3007F4012 /* ConfigUI.swift */; };
 		A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864F0122AE041C8007F4012 /* CommonButton.swift */; };
+		A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		A83392C12ADAB35E009BA7E2 /* Codingdong_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codingdong_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A864F00C2AE03FC3007F4012 /* ConfigUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigUI.swift; sourceTree = "<group>"; };
 		A864F0122AE041C8007F4012 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
+		A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TtekkkochiViewController.swift; path = ViewController/TtekkkochiViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 		A80B882E2ADB9ABC00091FF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A87217C42AE2129C003C0D5C /* Ttekkkochi */,
 				A81637202ADFC51F0070DAC9 /* Common */,
 				A83392A22ADAB35D009BA7E2 /* ViewController.swift */,
 			);
@@ -257,6 +260,22 @@
 				A83392C12ADAB35E009BA7E2 /* Codingdong_iOSUITestsLaunchTests.swift */,
 			);
 			path = "Codingdong-iOSUITests";
+			sourceTree = "<group>";
+		};
+		A87217C42AE2129C003C0D5C /* Ttekkkochi */ = {
+			isa = PBXGroup;
+			children = (
+				A87217C52AE212AA003C0D5C /* ViewController */,
+				A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */,
+			);
+			path = Ttekkkochi;
+			sourceTree = "<group>";
+		};
+		A87217C52AE212AA003C0D5C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,6 +471,7 @@
 				A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */,
 				A83392A32ADAB35D009BA7E2 /* ViewController.swift in Sources */,
 				A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */,
+				A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */,
 				116A95532ADF72AB0096760A /* FontManager.swift in Sources */,
 				A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */,
 				A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */,
