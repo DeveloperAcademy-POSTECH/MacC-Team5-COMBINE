@@ -78,7 +78,7 @@ extension TtekkkochiViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TtekkkochiCollectionViewCell.identifier, for: indexPath) as? TtekkkochiCollectionViewCell else { fatalError() }
         cell.block = codingBlocks[indexPath.row]
-        cell.configUI(.selected) //
+        cell.configUI(.selected) 
         return cell
     }
 }

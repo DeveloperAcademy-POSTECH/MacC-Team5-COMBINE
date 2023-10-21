@@ -14,7 +14,7 @@ enum CellState {
 
 final class TtekkkochiCollectionViewCell: UICollectionViewCell {
 
-    static let identifier = "TtekkochiCollectionViewCell"
+    static let identifier = "TtekkkochiCollectionViewCell"
     
     var block: CodingBlock {
         didSet {
