@@ -10,6 +10,8 @@ import SnapKit
 
 final class TtekkkochiSelectionView: UIView {
     
+    var viewModel: TtekkkochiViewModelRepresentable?
+    
     let containerView: UIView = {
        let view = UIView()
         view.backgroundColor = .gs60
@@ -50,7 +52,7 @@ final class TtekkkochiSelectionView: UIView {
     }
 }
 
-// MARK: Extension
+// MARK: - Extension
 extension TtekkkochiSelectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
@@ -63,8 +65,21 @@ extension TtekkkochiSelectionView: UICollectionViewDataSource {
     }
 }
 
+extension TtekkkochiSelectionView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? TtekkkochiCollectionViewCell else { return }
+       // print(cell.block.value)
+    }
+}
+
 extension TtekkkochiSelectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 200, height: 64)
+    }
+}
+
+extension TtekkkochiSelectionView: TtekkkochiViewRepresentable {
+    func setup(with viewModel: TtekkkochiViewModelRepresentable) {
+        self.viewModel = viewModel
     }
 }
