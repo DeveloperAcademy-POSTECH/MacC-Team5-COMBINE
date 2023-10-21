@@ -54,7 +54,7 @@
 		A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864F00C2AE03FC3007F4012 /* ConfigUI.swift */; };
 		A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864F0122AE041C8007F4012 /* CommonButton.swift */; };
 		A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */; };
-		A8BC0DB22AE3401800AD5C9A /* Codingblock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DB12AE3401800AD5C9A /* Codingblock.swift */; };
+		A8BC0DB22AE3401800AD5C9A /* CodingBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */; };
 		A8BC0DB72AE3571D00AD5C9A /* TtekkochiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DB62AE3571D00AD5C9A /* TtekkochiCollectionViewCell.swift */; };
 		A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DB82AE358BF00AD5C9A /* BasePaddingLabel.swift */; };
 /* End PBXBuildFile section */
@@ -105,7 +105,7 @@
 		A864F00C2AE03FC3007F4012 /* ConfigUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigUI.swift; sourceTree = "<group>"; };
 		A864F0122AE041C8007F4012 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
 		A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TtekkkochiViewController.swift; path = ViewController/TtekkkochiViewController.swift; sourceTree = "<group>"; };
-		A8BC0DB12AE3401800AD5C9A /* Codingblock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codingblock.swift; sourceTree = "<group>"; };
+		A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingBlock.swift; sourceTree = "<group>"; };
 		A8BC0DB62AE3571D00AD5C9A /* TtekkochiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkochiCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8BC0DB82AE358BF00AD5C9A /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -290,7 +290,7 @@
 		A8BC0DB02AE33FBB00AD5C9A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A8BC0DB12AE3401800AD5C9A /* Codingblock.swift */,
+				A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -501,7 +501,7 @@
 				116A95532ADF72AB0096760A /* FontManager.swift in Sources */,
 				A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */,
 				A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */,
-				A8BC0DB22AE3401800AD5C9A /* Codingblock.swift in Sources */,
+				A8BC0DB22AE3401800AD5C9A /* CodingBlock.swift in Sources */,
 				A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */,
 				A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */,
 				67E63EFF2ADE67D000C79863 /* UIColorExtension.swift in Sources */,

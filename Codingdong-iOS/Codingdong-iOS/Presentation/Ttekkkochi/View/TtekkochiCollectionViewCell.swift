@@ -16,7 +16,7 @@ final class TtekkochiCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "TtekkochiCollectionViewCell"
     
-    var block: Codingblock {
+    var block: CodingBlock {
         didSet {
             nameLabel.text = block.value
         }
@@ -34,7 +34,7 @@ final class TtekkochiCollectionViewCell: UICollectionViewCell {
     }()
     
     override init(frame: CGRect) {
-        self.block = Codingblock(value: "", bgColor: .gs70)
+        self.block = CodingBlock(value: "", bgColor: .gs70)
         super.init(frame: frame)
         addSubview(nameLabel)
         nameLabel.snp.makeConstraints {
