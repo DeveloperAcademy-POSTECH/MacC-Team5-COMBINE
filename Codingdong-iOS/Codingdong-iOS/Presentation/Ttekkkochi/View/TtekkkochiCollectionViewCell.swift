@@ -19,6 +19,7 @@ final class TtekkkochiCollectionViewCell: UICollectionViewCell {
     var block: CodingBlock {
         didSet {
             nameLabel.text = block.value
+            nameLabel.backgroundColor = block.bgColor
         }
     }
     
@@ -27,7 +28,6 @@ final class TtekkkochiCollectionViewCell: UICollectionViewCell {
         label.font = FontManager.p_semiBold(.body)
         label.textAlignment = .center
         label.textColor = .gs70
-        label.backgroundColor = .secondary1
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 32
         return label

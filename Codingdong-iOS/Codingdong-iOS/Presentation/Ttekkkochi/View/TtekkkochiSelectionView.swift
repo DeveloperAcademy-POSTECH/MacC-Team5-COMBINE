@@ -17,7 +17,7 @@ final class TtekkkochiSelectionView: UIView {
         return view
     }()
     
-    private lazy var ttekkkochiCollectionView: UICollectionView = {
+    lazy var ttekkkochiCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         let view = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
@@ -58,24 +58,10 @@ extension TtekkkochiSelectionView: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TtekkkochiCollectionViewCell.identifier, for: indexPath) as? TtekkkochiCollectionViewCell else { fatalError() }
-        cell.block = codingBlocks[indexPath.row]
-        cell.configUI(.selected)
+        cell.block = selectBlocks[indexPath.row]
         return cell
     }
 }
-
-extension TtekkkochiSelectionView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? TtekkkochiCollectionViewCell else { return }
-        cell.configUI(.selected)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? TtekkkochiCollectionViewCell else { return }
-        cell.configUI(.unselected)
-    }
-}
-
 
 extension TtekkkochiSelectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
