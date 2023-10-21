@@ -35,8 +35,8 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
         return view
     }()
     
-    private var bottomView: UIView?
-    
+    private let bottomView = TtekkkochiSelectionView()
+
     // MARK: - View init
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +51,7 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
     }
     
     func addComponents() {
-        [titleLabel, ttekkkochiCollectionView].forEach { view.addSubview($0) }
+        [titleLabel, ttekkkochiCollectionView, bottomView].forEach { view.addSubview($0) }
     }
     
     func setConstraints() {
@@ -66,6 +66,13 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
             $0.left.equalToSuperview().offset(95)
             $0.right.equalToSuperview().offset(-95)
             $0.bottom.equalToSuperview().offset(-226)
+        }
+        
+        bottomView.snp.makeConstraints {
+            $0.top.equalTo(ttekkkochiCollectionView.snp.bottom).offset(114)
+            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
+            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
+            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
         }
     }
 }
