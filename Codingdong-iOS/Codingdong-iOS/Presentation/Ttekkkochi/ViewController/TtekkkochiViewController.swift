@@ -28,7 +28,7 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
     
     private lazy var ttekkochiCollectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        view.register(TtekkochiCollectionViewCell.self, forCellWithReuseIdentifier: TtekkochiCollectionViewCell.identifier)
+        view.register(TtekkkochiCollectionViewCell.self, forCellWithReuseIdentifier: TtekkkochiCollectionViewCell.identifier)
         view.backgroundColor = .gs90
         view.dataSource = self
         view.delegate = self
@@ -76,7 +76,7 @@ extension TtekkkochiViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TtekkochiCollectionViewCell.identifier, for: indexPath) as? TtekkochiCollectionViewCell else { fatalError() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TtekkkochiCollectionViewCell.identifier, for: indexPath) as? TtekkkochiCollectionViewCell else { fatalError() }
         cell.block = codingBlocks[indexPath.row]
         cell.configUI(.selected) //
         return cell

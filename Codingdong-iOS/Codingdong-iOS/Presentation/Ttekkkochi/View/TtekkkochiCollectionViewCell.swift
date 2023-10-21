@@ -12,7 +12,7 @@ enum CellState {
     case unselected
 }
 
-final class TtekkochiCollectionViewCell: UICollectionViewCell {
+final class TtekkkochiCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "TtekkochiCollectionViewCell"
     
