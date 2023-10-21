@@ -104,7 +104,7 @@
 		A83392C12ADAB35E009BA7E2 /* Codingdong_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codingdong_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A864F00C2AE03FC3007F4012 /* ConfigUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigUI.swift; sourceTree = "<group>"; };
 		A864F0122AE041C8007F4012 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
-		A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TtekkkochiViewController.swift; path = ViewController/TtekkkochiViewController.swift; sourceTree = "<group>"; };
+		A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiViewController.swift; sourceTree = "<group>"; };
 		A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingBlock.swift; sourceTree = "<group>"; };
 		A8BC0DB62AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8BC0DB82AE358BF00AD5C9A /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
@@ -203,8 +203,8 @@
 		A80B882E2ADB9ABC00091FF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				A87217C42AE2129C003C0D5C /* Ttekkkochi */,
 				A81637202ADFC51F0070DAC9 /* Common */,
+				A87217C42AE2129C003C0D5C /* Ttekkkochi */,
 				A83392A22ADAB35D009BA7E2 /* ViewController.swift */,
 			);
 			path = Presentation;
@@ -275,7 +275,6 @@
 			children = (
 				A8BC0DB32AE3432600AD5C9A /* View */,
 				A87217C52AE212AA003C0D5C /* ViewController */,
-				A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */,
 			);
 			path = Ttekkkochi;
 			sourceTree = "<group>";
@@ -283,6 +282,7 @@
 		A87217C52AE212AA003C0D5C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";

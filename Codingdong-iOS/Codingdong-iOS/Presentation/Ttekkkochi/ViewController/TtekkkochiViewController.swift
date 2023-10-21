@@ -26,7 +26,7 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
         return view
     }()
     
-    private lazy var ttekkochiCollectionView: UICollectionView = {
+    private lazy var ttekkkochiCollectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.register(TtekkkochiCollectionViewCell.self, forCellWithReuseIdentifier: TtekkkochiCollectionViewCell.identifier)
         view.backgroundColor = .gs90
@@ -51,7 +51,7 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
     }
     
     func addComponents() {
-        [titleLabel, ttekkochiCollectionView].forEach { view.addSubview($0) }
+        [titleLabel, ttekkkochiCollectionView].forEach { view.addSubview($0) }
     }
     
     func setConstraints() {
@@ -61,7 +61,7 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
             $0.right.equalToSuperview().offset(-16)
         }
         
-        ttekkochiCollectionView.snp.makeConstraints {
+        ttekkkochiCollectionView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(76)
             $0.left.equalToSuperview().offset(95)
             $0.right.equalToSuperview().offset(-95)
@@ -78,7 +78,7 @@ extension TtekkkochiViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TtekkkochiCollectionViewCell.identifier, for: indexPath) as? TtekkkochiCollectionViewCell else { fatalError() }
         cell.block = codingBlocks[indexPath.row]
-        cell.configUI(.selected) 
+        cell.configUI(.selected)
         return cell
     }
 }
