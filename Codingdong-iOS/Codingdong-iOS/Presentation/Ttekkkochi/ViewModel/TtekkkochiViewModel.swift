@@ -2,7 +2,7 @@
 //  TtekkkochiViewModel.swift
 //  Codingdong-iOS
 //
-//  Created by Joy on 10/21/23.
+//  Created by Joy on 10/22/23.
 //
 
 import UIKit
