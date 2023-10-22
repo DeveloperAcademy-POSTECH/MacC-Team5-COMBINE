@@ -10,11 +10,11 @@ import UIKit
 struct CodingBlock: Identifiable, Hashable, Equatable {
     var id = UUID().uuidString
     var value: String
-    var isShowing: Bool = false
+    var isShowing: Bool = true
     var bgColor: UIColor
 }
 
-var codingBlocks: [CodingBlock] = [
+var answerBlocks: [CodingBlock] = [
     CodingBlock(value: "만약에", bgColor: .secondary1),
     CodingBlock(value: "떡이 없다면", bgColor: .secondary2),
     CodingBlock(value: "잡아 먹힌다", bgColor: .secondary2),

@@ -11,6 +11,8 @@ import SnapKit
 final class TtekkkochiSelectionView: UIView {
     
     var viewModel: TtekkkochiViewModelRepresentable?
+    @Published var selectedValue = ""
+    @Published var blockIndex = -1
     
     let containerView: UIView = {
        let view = UIView()
@@ -68,7 +70,8 @@ extension TtekkkochiSelectionView: UICollectionViewDataSource {
 extension TtekkkochiSelectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? TtekkkochiCollectionViewCell else { return }
-       // print(cell.block.value)
+        selectedValue = cell.block.value
+        blockIndex += 1
     }
 }
 
@@ -79,6 +82,7 @@ extension TtekkkochiSelectionView: UICollectionViewDelegateFlowLayout {
 }
 
 extension TtekkkochiSelectionView: TtekkkochiViewRepresentable {
+
     func setup(with viewModel: TtekkkochiViewModelRepresentable) {
         self.viewModel = viewModel
     }

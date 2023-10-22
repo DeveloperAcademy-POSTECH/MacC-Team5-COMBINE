@@ -19,7 +19,7 @@ final class TtekkkochiCollectionViewCell: UICollectionViewCell {
     var block: CodingBlock {
         didSet {
             nameLabel.text = block.value
-            nameLabel.backgroundColor = block.bgColor
+            nameLabel.backgroundColor = block.isShowing ? block.bgColor : .gs60 
         }
     }
     

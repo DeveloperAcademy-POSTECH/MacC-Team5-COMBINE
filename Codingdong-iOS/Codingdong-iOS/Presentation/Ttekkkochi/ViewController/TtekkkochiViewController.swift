@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import Combine
 
 final class TtekkkochiViewController: ViewController, ConfigUI {
-
+    var viewModel = TtekkkochiViewModel()
+    private var cancellable = Set<AnyCancellable>()
+    
     // MARK: - Components
     private let titleLabel: UILabel = {
        let label = UILabel()
@@ -45,9 +48,13 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
         // TODO: NavBar 디자인 component로 나오면 수정하기
         self.navigationController?.navigationBar.topItem?.title = "호랑이를 마주친 엄마"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.p_semiBold(.footnote)] //TODO: 폰트 수정해야 함
-        
         addComponents()
         setConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        binding()
     }
     
     func addComponents() {
@@ -75,16 +82,27 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
             $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
         }
     }
+    
+    func binding() {
+        self.bottomView.$selectedValue
+            .zip(bottomView.$blockIndex)
+            //상단의 collection 빠로 뷰로 빼기 (블록 상황에 따라 => Update)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] value in
+                print(value)
+            }
+            .store(in: &cancellable)
+    }
 }
 
 extension TtekkkochiViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return answerBlocks.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TtekkkochiCollectionViewCell.identifier, for: indexPath) as? TtekkkochiCollectionViewCell else { fatalError() }
-        cell.block = codingBlocks[indexPath.row]
+        cell.block = answerBlocks[indexPath.row]
         return cell
     }
 }

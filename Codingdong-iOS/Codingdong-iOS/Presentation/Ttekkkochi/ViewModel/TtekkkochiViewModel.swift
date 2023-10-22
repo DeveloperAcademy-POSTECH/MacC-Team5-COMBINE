@@ -10,7 +10,7 @@ import Combine
 
 // MARK: - Protocol
 protocol TtekkkochiViewRepresentable where Self: UIView {
-    func setup(with viewModel: TtekkkochiViewModel)
+    func setup(with viewModel: TtekkkochiViewModelRepresentable)
 }
 
 protocol TtekkkochiViewModelRepresentable {
@@ -18,12 +18,11 @@ protocol TtekkkochiViewModelRepresentable {
 }
 
 // MARK: - Class
-final class TtekkkochiViewModel {
-    @Published var blockValue: String?
+final class TtekkkochiViewModel: TtekkkochiViewModelRepresentable {
     
     private var cancellables = Set<AnyCancellable>()
     
     func selectItem() {
-        print("친구 추가")
+        print("선택됨")
     }
 }
