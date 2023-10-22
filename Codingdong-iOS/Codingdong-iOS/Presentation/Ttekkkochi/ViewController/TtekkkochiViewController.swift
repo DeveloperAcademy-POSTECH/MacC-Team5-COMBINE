@@ -93,7 +93,7 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
                     self?.ttekkkochiCollectionView.reloadData()
                     self?.blockIndex += 1
                 } else {
-                    //TODO: 오답 시 튕기고, 햅틱 반응 주기
+                    // TODO: 오답 시 튕기고, 햅틱 반응 주기
                 }
             }
             .store(in: &cancellable)
