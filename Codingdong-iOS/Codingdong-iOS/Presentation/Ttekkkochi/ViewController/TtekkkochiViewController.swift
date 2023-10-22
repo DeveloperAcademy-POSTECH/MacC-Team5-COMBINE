@@ -87,10 +87,13 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
     func binding() {
         self.bottomView.$selectedValue
             .sink { [weak self] value in
-                if (self?.blockIndex ?? 0 < 5) && (answerBlocks[self?.blockIndex ?? 0].value == value) {
-                    answerBlocks[self?.blockIndex ?? 0].isShowing = true
+                guard var index = self?.blockIndex else { return }
+                if (index > -1 && index < 5) && (answerBlocks[index].value == value) {
+                    answerBlocks[index].isShowing = true
                     self?.ttekkkochiCollectionView.reloadData()
                     self?.blockIndex += 1
+                } else {
+                    //TODO: 오답 시 튕기고, 햅틱 반응 주기
                 }
             }
             .store(in: &cancellable)
