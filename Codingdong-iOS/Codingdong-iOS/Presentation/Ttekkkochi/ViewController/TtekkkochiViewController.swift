@@ -16,7 +16,7 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
     // MARK: - Components
     private let titleLabel: UILabel = {
        let label = UILabel()
-        label.text = "조건문이 적힌 떡을 터치해서 꼬치에 순서대로 끼워 주세요."
+        label.text = "떡 블록을 탭해서 꼬치에 순서대로 끼워 주세요."
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = FontManager.p_Regular(.body)
         label.textColor = .gs10
