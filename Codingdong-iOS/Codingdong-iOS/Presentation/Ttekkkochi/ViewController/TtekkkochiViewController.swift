@@ -21,19 +21,21 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
         label.font = FontManager.p_Regular(.body)
         label.textColor = .gs10
         label.numberOfLines = 0
+        label.lineBreakMode = .byCharWrapping
         return label
     }()
     
     private let stickView: UIView = {
        let view = UIView()
         view.backgroundColor = .white
+        view.layer.cornerRadius = 5
         return view
     }()
     
     private lazy var ttekkkochiCollectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.register(TtekkkochiCollectionViewCell.self, forCellWithReuseIdentifier: TtekkkochiCollectionViewCell.identifier)
-        view.backgroundColor = .gs90
+        view.backgroundColor = .clear
         view.dataSource = self
         view.delegate = self
         return view
@@ -59,7 +61,7 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
     }
     
     func addComponents() {
-        [titleLabel, ttekkkochiCollectionView, bottomView].forEach { view.addSubview($0) }
+        [titleLabel, ttekkkochiCollectionView, bottomView, stickView].forEach { view.addSubview($0) }
     }
     
     func setConstraints() {
@@ -75,6 +77,16 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
             $0.right.equalToSuperview().offset(-95)
             $0.bottom.equalToSuperview().offset(-226)
         }
+        
+        stickView.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(70)
+            $0.left.equalToSuperview().offset(190)
+            $0.width.equalTo(8)
+            $0.bottom.equalTo(bottomView.snp.top).offset(-50)
+        }
+        
+        self.view.sendSubviewToBack(stickView)
+        
         
         bottomView.snp.makeConstraints {
             $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
