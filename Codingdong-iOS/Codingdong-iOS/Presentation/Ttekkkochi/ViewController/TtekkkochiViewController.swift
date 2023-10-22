@@ -11,6 +11,7 @@ import Combine
 final class TtekkkochiViewController: ViewController, ConfigUI {
     var viewModel = TtekkkochiViewModel()
     private var cancellable = Set<AnyCancellable>()
+    private var blockIndex: Int = 0
     
     // MARK: - Components
     private let titleLabel: UILabel = {
@@ -76,20 +77,21 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
         }
         
         bottomView.snp.makeConstraints {
-            $0.top.equalTo(ttekkkochiCollectionView.snp.bottom).offset(114)
             $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
             $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
             $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
+            $0.height.equalTo(112)
         }
     }
     
     func binding() {
         self.bottomView.$selectedValue
-            .zip(bottomView.$blockIndex)
-            //상단의 collection 빠로 뷰로 빼기 (블록 상황에 따라 => Update)
-            .receive(on: DispatchQueue.main)
             .sink { [weak self] value in
-                print(value)
+                if (self?.blockIndex ?? 0 < 5) && (answerBlocks[self?.blockIndex ?? 0].value == value) {
+                    answerBlocks[self?.blockIndex ?? 0].isShowing = true
+                    self?.ttekkkochiCollectionView.reloadData()
+                    self?.blockIndex += 1
+                }
             }
             .store(in: &cancellable)
     }

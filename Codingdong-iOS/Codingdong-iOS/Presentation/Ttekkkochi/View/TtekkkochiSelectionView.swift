@@ -21,6 +21,7 @@ final class TtekkkochiSelectionView: UIView {
         return view
     }()
     
+    // TODO: disable 처리나 accessbilityLabel을 안 읽는 방향으로
     lazy var ttekkkochiCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
