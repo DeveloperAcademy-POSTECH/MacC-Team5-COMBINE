@@ -12,7 +12,6 @@ final class TtekkkochiSelectionView: UIView {
     
     var viewModel: TtekkkochiViewModelRepresentable?
     @Published var selectedValue = ""
-    @Published var blockIndex = -1
     
     let containerView: UIView = {
        let view = UIView()
@@ -72,7 +71,6 @@ extension TtekkkochiSelectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? TtekkkochiCollectionViewCell else { return }
         selectedValue = cell.block.value
-        blockIndex += 1
     }
 }
 
