@@ -59,6 +59,7 @@
 		A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DB82AE358BF00AD5C9A /* BasePaddingLabel.swift */; };
 		A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F41D252AE4F94400BB0260 /* SoundManager.swift */; };
 		A8F41D2D2AE4FC4200BB0260 /* piano.wav in Resources */ = {isa = PBXBuildFile; fileRef = A8F41D2C2AE4FC4200BB0260 /* piano.wav */; };
+		A8F41D2F2AE5001F00BB0260 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F41D2E2AE5001F00BB0260 /* HapticManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		A8BC0DB82AE358BF00AD5C9A /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
 		A8F41D252AE4F94400BB0260 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		A8F41D2C2AE4FC4200BB0260 /* piano.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = piano.wav; sourceTree = "<group>"; };
+		A8F41D2E2AE5001F00BB0260 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			children = (
 				116A95522ADF72AB0096760A /* FontManager.swift */,
 				A8F41D252AE4F94400BB0260 /* SoundManager.swift */,
+				A8F41D2E2AE5001F00BB0260 /* HapticManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 			files = (
 				A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */,
 				A83392A32ADAB35D009BA7E2 /* ViewController.swift in Sources */,
+				A8F41D2F2AE5001F00BB0260 /* HapticManager.swift in Sources */,
 				A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */,
 				A8BC0DB72AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift in Sources */,
 				A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */,
