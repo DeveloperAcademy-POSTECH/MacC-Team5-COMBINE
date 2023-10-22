@@ -101,14 +101,14 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
             .zip(bottomView.$initialValue)
             .sink { [weak self] value in
                 guard var index = self?.blockIndex else { return }
-                if(value.1 == true) {
-                    if (index > -1 && index < 5) && (answerBlocks[index].value == value.0) {
-                        answerBlocks[index].isShowing = true
-                        self?.ttekkkochiCollectionView.reloadData()
-                        self?.blockIndex += 1
-                    } else {
-                        //TODO: 오답 시 튕기고, 햅틱 반응 주기
-                    }
+                guard value.1 else { return }
+                
+                if (index > -1 && index < 5) && (answerBlocks[index].value == value.0) {
+                    answerBlocks[index].isShowing = true
+                    self?.ttekkkochiCollectionView.reloadData()
+                    self?.blockIndex += 1
+                } else {
+                    //TODO: 오답 시 튕기고, 햅틱 반응 주기
                 }
             }
             .store(in: &cancellable)
