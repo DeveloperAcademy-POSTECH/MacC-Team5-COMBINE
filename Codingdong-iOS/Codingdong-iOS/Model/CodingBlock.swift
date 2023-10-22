@@ -10,22 +10,22 @@ import UIKit
 struct CodingBlock: Identifiable, Hashable, Equatable {
     var id = UUID().uuidString
     var value: String
-    var isShowing: Bool = true
+    var isShowing: Bool
     var bgColor: UIColor
 }
 
 var answerBlocks: [CodingBlock] = [
-    CodingBlock(value: "만약에", bgColor: .secondary1),
-    CodingBlock(value: "떡이 없다면", bgColor: .secondary2),
-    CodingBlock(value: "잡아 먹힌다", bgColor: .secondary2),
-    CodingBlock(value: "아니면", bgColor: .secondary1),
-    CodingBlock(value: "고개 넘는다", bgColor: .secondary2)
+    CodingBlock(value: "만약에", isShowing: false, bgColor: .secondary1),
+    CodingBlock(value: "떡이 없다면", isShowing: false, bgColor: .secondary2),
+    CodingBlock(value: "잡아 먹힌다", isShowing: false, bgColor: .secondary2),
+    CodingBlock(value: "아니면", isShowing: false, bgColor: .secondary1),
+    CodingBlock(value: "고개 넘는다", isShowing: false, bgColor: .secondary2)
 ]
 
 var selectBlocks: [CodingBlock] = [
-    CodingBlock(value: "떡이 없다면", bgColor: .secondary2),
-    CodingBlock(value: "아니면", bgColor: .secondary1),
-    CodingBlock(value: "잡아 먹힌다", bgColor: .secondary2),
-    CodingBlock(value: "만약에", bgColor: .secondary1),
-    CodingBlock(value: "고개 넘는다", bgColor: .secondary2)
+    CodingBlock(value: "떡이 없다면", isShowing: true, bgColor: .secondary2),
+    CodingBlock(value: "아니면", isShowing: true, bgColor: .secondary1),
+    CodingBlock(value: "잡아 먹힌다", isShowing: true, bgColor: .secondary2),
+    CodingBlock(value: "만약에", isShowing: true, bgColor: .secondary1),
+    CodingBlock(value: "고개 넘는다", isShowing: true, bgColor: .secondary2)
 ]

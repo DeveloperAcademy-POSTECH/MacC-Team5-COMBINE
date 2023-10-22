@@ -19,7 +19,8 @@ final class TtekkkochiCollectionViewCell: UICollectionViewCell {
     var block: CodingBlock {
         didSet {
             nameLabel.text = block.value
-            nameLabel.backgroundColor = block.isShowing ? block.bgColor : .gs60 
+            nameLabel.textColor = block.isShowing ? .gs70 : .gs60
+            nameLabel.backgroundColor = block.isShowing ? block.bgColor : .gs60
         }
     }
     
@@ -34,7 +35,7 @@ final class TtekkkochiCollectionViewCell: UICollectionViewCell {
     }()
     
     override init(frame: CGRect) {
-        self.block = CodingBlock(value: "", bgColor: .gs70)
+        self.block = CodingBlock(value: "", isShowing: false, bgColor: .gs70)
         super.init(frame: frame)
         addSubview(nameLabel)
         nameLabel.snp.makeConstraints {
