@@ -57,6 +57,8 @@
 		A8BC0DB22AE3401800AD5C9A /* CodingBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */; };
 		A8BC0DB72AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DB62AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift */; };
 		A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DB82AE358BF00AD5C9A /* BasePaddingLabel.swift */; };
+		A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F41D252AE4F94400BB0260 /* SoundManager.swift */; };
+		A8F41D2D2AE4FC4200BB0260 /* piano.wav in Resources */ = {isa = PBXBuildFile; fileRef = A8F41D2C2AE4FC4200BB0260 /* piano.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +110,8 @@
 		A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingBlock.swift; sourceTree = "<group>"; };
 		A8BC0DB62AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8BC0DB82AE358BF00AD5C9A /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
+		A8F41D252AE4F94400BB0260 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		A8F41D2C2AE4FC4200BB0260 /* piano.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = piano.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				116A95522ADF72AB0096760A /* FontManager.swift */,
+				A8F41D252AE4F94400BB0260 /* SoundManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 		A80B882D2ADB9AA000091FF5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A8F41D2B2AE4FC3900BB0260 /* Sound */,
 				116A952C2ADF723D0096760A /* Font */,
 				A83392A92ADAB35E009BA7E2 /* LaunchScreen.storyboard */,
 				A83392AC2ADAB35E009BA7E2 /* Info.plist */,
@@ -301,6 +307,14 @@
 				A8BC0DB62AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A8F41D2B2AE4FC3900BB0260 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				A8F41D2C2AE4FC4200BB0260 /* piano.wav */,
+			);
+			path = Sound;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,6 +431,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8F41D2D2AE4FC4200BB0260 /* piano.wav in Resources */,
 				116A95452ADF72570096760A /* Pretendard-ExtraLight.otf in Resources */,
 				A80B883C2ADBA3EC00091FF5 /* .swiftlint.yml in Resources */,
 				116A95422ADF72570096760A /* Pretendard-Bold.otf in Resources */,
@@ -497,6 +512,7 @@
 				A83392A32ADAB35D009BA7E2 /* ViewController.swift in Sources */,
 				A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */,
 				A8BC0DB72AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift in Sources */,
+				A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */,
 				A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */,
 				116A95532ADF72AB0096760A /* FontManager.swift in Sources */,
 				A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */,
