@@ -12,6 +12,7 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
     var viewModel = TtekkkochiViewModel()
     private var cancellable = Set<AnyCancellable>()
     private var blockIndex: Int = 0
+    private var hapticManager: HapticManager?
     
     // MARK: - Components
     private let titleLabel: UILabel = {
@@ -108,6 +109,8 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
                     self?.ttekkkochiCollectionView.reloadData()
                     self?.blockIndex += 1
                 } else {
+                    self?.hapticManager = HapticManager()
+                    self?.hapticManager?.playNomNom()
                     //TODO: 오답 시 튕기고, 햅틱 반응 주기
                 }
             }
