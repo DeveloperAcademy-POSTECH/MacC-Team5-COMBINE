@@ -43,6 +43,11 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
     }()
     
     private let bottomView = TtekkkochiSelectionView()
+    
+    private let settingButton = CommonButton()
+    private lazy var settingButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.p_semiBold(.subhead), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
+        Logger().info("다음으로 이벤트 발생")
+    }
 
     // MARK: - View init
     override func viewDidLoad() {
@@ -54,6 +59,8 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.p_semiBold(.footnote)] //TODO: 폰트 수정해야 함
         addComponents()
         setConstraints()
+        settingButton.setup(model: settingButtonViewModel)
+        settingButton.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,7 +69,7 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
     }
     
     func addComponents() {
-        [titleLabel, ttekkkochiCollectionView, bottomView, stickView].forEach { view.addSubview($0) }
+        [titleLabel, ttekkkochiCollectionView, bottomView, settingButton, stickView].forEach { view.addSubview($0) }
     }
     
     func setConstraints() {
@@ -88,12 +95,18 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
         
         self.view.sendSubviewToBack(stickView)
         
-        
         bottomView.snp.makeConstraints {
             $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
             $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
             $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
             $0.height.equalTo(112)
+        }
+        
+        settingButton.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
+            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
+            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
+            $0.height.equalTo(72)
         }
     }
     
@@ -103,29 +116,42 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
             .sink { [weak self] value in
                 guard var index = self?.blockIndex else { return }
                 guard value.1 else { return }
+                guard let self = self else { return }
         
                 if (index > -1 && index < 5) && (answerBlocks[index].value == value.0) {
                     answerBlocks[index].isShowing = true
-                    self?.ttekkkochiCollectionView.reloadData()
-                    self?.blockIndex += 1
+                    self.ttekkkochiCollectionView.reloadData()
+                    self.blockIndex += 1
                     
                     switch index {
-                    case 4: //TODO: 다음 버튼 등장, 음악(✅), 떡 확대(✅)
-                        self?.bottomView.isHidden = true
-                        self?.ttekkkochiCollectionView.snp.remakeConstraints {
-                            $0.top.equalTo((self?.titleLabel.snp.bottom)!).offset(60)
+                    case 4: //TODO: 다음 버튼 등장(✅), 음악(✅), 떡 확대(✅), 읽어 주기(tts)
+                        DispatchQueue.global().async {
+                            SoundManager.shared.playSound(sound: .bell)
+                        }
+    
+                        self.bottomView.isHidden = true
+                        self.settingButton.isHidden = false
+                        
+                        self.stickView.snp.remakeConstraints {
+                            $0.top.equalTo(self.titleLabel.snp.bottom).offset(50)
+                            $0.left.equalToSuperview().offset(190)
+                            $0.width.equalTo(8)
+                            $0.bottom.equalTo(self.settingButton.snp.top).offset(-30)
+                        }
+                        
+                        self.ttekkkochiCollectionView.snp.remakeConstraints {
+                            $0.top.equalTo(self.titleLabel.snp.bottom).offset(60)
                             $0.left.equalToSuperview().offset(70)
                             $0.right.equalToSuperview().offset(-70)
                             $0.bottom.equalToSuperview().offset(-100)
                         }
-                        SoundManager.shared.playSound(sound: .bell)
                     default:
                         return
                     }
                     
                 } else {
-                    self?.hapticManager = HapticManager()
-                    self?.hapticManager?.playNomNom()
+                    self.hapticManager = HapticManager()
+                    self.hapticManager?.playNomNom()
                 }
             }
             .store(in: &cancellable)
