@@ -98,14 +98,17 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
     
     func binding() {
         self.bottomView.$selectedValue
+            .zip(bottomView.$initialValue)
             .sink { [weak self] value in
                 guard var index = self?.blockIndex else { return }
-                if (index > -1 && index < 5) && (answerBlocks[index].value == value) {
-                    answerBlocks[index].isShowing = true
-                    self?.ttekkkochiCollectionView.reloadData()
-                    self?.blockIndex += 1
-                } else {
-                    //TODO: 오답 시 튕기고, 햅틱 반응 주기
+                if(value.1 == true) {
+                    if (index > -1 && index < 5) && (answerBlocks[index].value == value.0) {
+                        answerBlocks[index].isShowing = true
+                        self?.ttekkkochiCollectionView.reloadData()
+                        self?.blockIndex += 1
+                    } else {
+                        //TODO: 오답 시 튕기고, 햅틱 반응 주기
+                    }
                 }
             }
             .store(in: &cancellable)
