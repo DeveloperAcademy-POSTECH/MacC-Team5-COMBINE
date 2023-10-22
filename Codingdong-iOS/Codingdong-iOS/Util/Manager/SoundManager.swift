@@ -14,10 +14,11 @@ class SoundManager {
     
     enum SoundList: String {
         case piano 
+        case bell
     }
     
     func playSound(sound: SoundList) {
-        guard let url = Bundle.main.url(forResource: sound.rawValue, withExtension: ".wav") else { return }
+        guard let url = Bundle.main.url(forResource: sound.rawValue, withExtension: ".mp3") else { return }
         do {
             player = try AVAudioPlayer(contentsOf: url)
             player?.play()

@@ -103,15 +103,29 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
             .sink { [weak self] value in
                 guard var index = self?.blockIndex else { return }
                 guard value.1 else { return }
-                
+        
                 if (index > -1 && index < 5) && (answerBlocks[index].value == value.0) {
                     answerBlocks[index].isShowing = true
                     self?.ttekkkochiCollectionView.reloadData()
                     self?.blockIndex += 1
+                    
+                    switch index {
+                    case 4: //TODO: 다음 버튼 등장, 음악(✅), 떡 확대(✅)
+                        self?.bottomView.isHidden = true
+                        self?.ttekkkochiCollectionView.snp.remakeConstraints {
+                            $0.top.equalTo((self?.titleLabel.snp.bottom)!).offset(60)
+                            $0.left.equalToSuperview().offset(70)
+                            $0.right.equalToSuperview().offset(-70)
+                            $0.bottom.equalToSuperview().offset(-100)
+                        }
+                        SoundManager.shared.playSound(sound: .bell)
+                    default:
+                        return
+                    }
+                    
                 } else {
                     self?.hapticManager = HapticManager()
                     self?.hapticManager?.playNomNom()
-                    //TODO: 오답 시 튕기고, 햅틱 반응 주기
                 }
             }
             .store(in: &cancellable)
