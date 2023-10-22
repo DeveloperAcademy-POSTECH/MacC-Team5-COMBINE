@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import Combine
 
 final class TtekkkochiViewController: ViewController, ConfigUI {
-
+    var viewModel = TtekkkochiViewModel()
+    private var cancellable = Set<AnyCancellable>()
+    private var blockIndex: Int = 0
+    
     // MARK: - Components
     private let titleLabel: UILabel = {
        let label = UILabel()
@@ -26,7 +30,7 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
         return view
     }()
     
-    private lazy var ttekkochiCollectionView: UICollectionView = {
+    private lazy var ttekkkochiCollectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.register(TtekkkochiCollectionViewCell.self, forCellWithReuseIdentifier: TtekkkochiCollectionViewCell.identifier)
         view.backgroundColor = .gs90
@@ -35,8 +39,8 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
         return view
     }()
     
-    private var bottomView: UIView?
-    
+    private let bottomView = TtekkkochiSelectionView()
+
     // MARK: - View init
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,13 +49,17 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
         // TODO: NavBar 디자인 component로 나오면 수정하기
         self.navigationController?.navigationBar.topItem?.title = "호랑이를 마주친 엄마"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.p_semiBold(.footnote)] //TODO: 폰트 수정해야 함
-        
         addComponents()
         setConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        binding()
+    }
+    
     func addComponents() {
-        [titleLabel, ttekkochiCollectionView].forEach { view.addSubview($0) }
+        [titleLabel, ttekkkochiCollectionView, bottomView].forEach { view.addSubview($0) }
     }
     
     func setConstraints() {
@@ -61,24 +69,45 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
             $0.right.equalToSuperview().offset(-16)
         }
         
-        ttekkochiCollectionView.snp.makeConstraints {
+        ttekkkochiCollectionView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(76)
             $0.left.equalToSuperview().offset(95)
             $0.right.equalToSuperview().offset(-95)
             $0.bottom.equalToSuperview().offset(-226)
         }
+        
+        bottomView.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
+            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
+            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
+            $0.height.equalTo(112)
+        }
+    }
+    
+    func binding() {
+        self.bottomView.$selectedValue
+            .sink { [weak self] value in
+                guard var index = self?.blockIndex else { return }
+                if (index > -1 && index < 5) && (answerBlocks[index].value == value) {
+                    answerBlocks[index].isShowing = true
+                    self?.ttekkkochiCollectionView.reloadData()
+                    self?.blockIndex += 1
+                } else {
+                    //TODO: 오답 시 튕기고, 햅틱 반응 주기
+                }
+            }
+            .store(in: &cancellable)
     }
 }
 
 extension TtekkkochiViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return answerBlocks.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TtekkkochiCollectionViewCell.identifier, for: indexPath) as? TtekkkochiCollectionViewCell else { fatalError() }
-        cell.block = codingBlocks[indexPath.row]
-        cell.configUI(.selected) //
+        cell.block = answerBlocks[indexPath.row]
         return cell
     }
 }

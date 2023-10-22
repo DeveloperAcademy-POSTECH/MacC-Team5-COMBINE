@@ -14,11 +14,13 @@ enum CellState {
 
 final class TtekkkochiCollectionViewCell: UICollectionViewCell {
 
-    static let identifier = "TtekkochiCollectionViewCell"
+    static let identifier = "TtekkkochiCollectionViewCell"
     
     var block: CodingBlock {
         didSet {
             nameLabel.text = block.value
+            nameLabel.textColor = block.isShowing ? .gs70 : .gs60
+            nameLabel.backgroundColor = block.isShowing ? block.bgColor : .gs60
         }
     }
     
@@ -27,14 +29,13 @@ final class TtekkkochiCollectionViewCell: UICollectionViewCell {
         label.font = FontManager.p_semiBold(.body)
         label.textAlignment = .center
         label.textColor = .gs70
-        label.backgroundColor = .secondary1
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 32
         return label
     }()
     
     override init(frame: CGRect) {
-        self.block = CodingBlock(value: "", bgColor: .gs70)
+        self.block = CodingBlock(value: "", isShowing: false, bgColor: .gs70)
         super.init(frame: frame)
         addSubview(nameLabel)
         nameLabel.snp.makeConstraints {

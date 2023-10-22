@@ -54,9 +54,11 @@
 		A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864F00C2AE03FC3007F4012 /* ConfigUI.swift */; };
 		A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864F0122AE041C8007F4012 /* CommonButton.swift */; };
 		A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */; };
+		A8873CE82AE3F5B8003D2A54 /* TtekkkochiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8873CE72AE3F5B8003D2A54 /* TtekkkochiViewModel.swift */; };
 		A8BC0DB22AE3401800AD5C9A /* CodingBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */; };
 		A8BC0DB72AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DB62AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift */; };
 		A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DB82AE358BF00AD5C9A /* BasePaddingLabel.swift */; };
+		A8BC0DBE2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DBD2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,10 +106,13 @@
 		A83392C12ADAB35E009BA7E2 /* Codingdong_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codingdong_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A864F00C2AE03FC3007F4012 /* ConfigUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigUI.swift; sourceTree = "<group>"; };
 		A864F0122AE041C8007F4012 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
-		A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TtekkkochiViewController.swift; path = ViewController/TtekkkochiViewController.swift; sourceTree = "<group>"; };
+		A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiViewController.swift; sourceTree = "<group>"; };
+		A8873CE72AE3F5B8003D2A54 /* TtekkkochiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiViewModel.swift; sourceTree = "<group>"; };
 		A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingBlock.swift; sourceTree = "<group>"; };
 		A8BC0DB62AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8BC0DB82AE358BF00AD5C9A /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
+		A8BC0DBC2AE3855B00AD5C9A /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		A8BC0DBD2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiSelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,14 +208,14 @@
 		A80B882E2ADB9ABC00091FF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A81637202ADFC51F0070DAC9 /* Components */,
 				A87217C42AE2129C003C0D5C /* Ttekkkochi */,
-				A81637202ADFC51F0070DAC9 /* Common */,
 				A83392A22ADAB35D009BA7E2 /* ViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
 		};
-		A81637202ADFC51F0070DAC9 /* Common */ = {
+		A81637202ADFC51F0070DAC9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				A81637232ADFC5FD0070DAC9 /* Constants.swift */,
@@ -218,7 +223,7 @@
 				A864F0122AE041C8007F4012 /* CommonButton.swift */,
 				A8BC0DB82AE358BF00AD5C9A /* BasePaddingLabel.swift */,
 			);
-			path = Common;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		A83392922ADAB35D009BA7E2 = {
@@ -273,9 +278,9 @@
 		A87217C42AE2129C003C0D5C /* Ttekkkochi */ = {
 			isa = PBXGroup;
 			children = (
+				A8873CE62AE3F5A2003D2A54 /* ViewModel */,
 				A8BC0DB32AE3432600AD5C9A /* View */,
 				A87217C52AE212AA003C0D5C /* ViewController */,
-				A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */,
 			);
 			path = Ttekkkochi;
 			sourceTree = "<group>";
@@ -283,8 +288,17 @@
 		A87217C52AE212AA003C0D5C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A8873CE62AE3F5A2003D2A54 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A8873CE72AE3F5B8003D2A54 /* TtekkkochiViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		A8BC0DB02AE33FBB00AD5C9A /* Model */ = {
@@ -299,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				A8BC0DB62AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift */,
+				A8BC0DBD2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -390,11 +405,12 @@
 			};
 			buildConfigurationList = A83392962ADAB35D009BA7E2 /* Build configuration list for PBXProject "Codingdong-iOS" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = A83392922ADAB35D009BA7E2;
 			packageReferences = (
@@ -496,11 +512,13 @@
 				A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */,
 				A83392A32ADAB35D009BA7E2 /* ViewController.swift in Sources */,
 				A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */,
+				A8BC0DBE2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift in Sources */,
 				A8BC0DB72AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift in Sources */,
 				A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */,
 				116A95532ADF72AB0096760A /* FontManager.swift in Sources */,
 				A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */,
 				A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */,
+				A8873CE82AE3F5B8003D2A54 /* TtekkkochiViewModel.swift in Sources */,
 				A8BC0DB22AE3401800AD5C9A /* CodingBlock.swift in Sources */,
 				A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */,
 				A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */,
@@ -547,6 +565,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A83392AA2ADAB35E009BA7E2 /* Base */,
+				A8BC0DBC2AE3855B00AD5C9A /* ko */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -559,6 +578,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -622,6 +642,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -686,8 +707,8 @@
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -715,8 +736,8 @@
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
