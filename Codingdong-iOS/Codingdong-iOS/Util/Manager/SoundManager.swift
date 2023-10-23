@@ -13,16 +13,29 @@ class SoundManager {
     var player: AVAudioPlayer?
     
     enum SoundList: String {
-        case piano 
+        case piano
+        case bell
     }
     
     func playSound(sound: SoundList) {
-        guard let url = Bundle.main.url(forResource: sound.rawValue, withExtension: ".wav") else { return }
+        guard let url = Bundle.main.url(forResource: sound.rawValue, withExtension: ".mp3") else { return }
         do {
             player = try AVAudioPlayer(contentsOf: url)
             player?.play()
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    func playTTS(_ text: String) {
+        let speechSynthesizer = AVSpeechSynthesizer()
+        let utterance: AVSpeechUtterance = {
+            let utterance = AVSpeechUtterance(string: text)
+            utterance.voice = AVSpeechSynthesisVoice(language: "ko-KR")
+            utterance.rate = 0.5
+            return utterance
+        }()
+        
+        speechSynthesizer.speak(utterance)
     }
 }

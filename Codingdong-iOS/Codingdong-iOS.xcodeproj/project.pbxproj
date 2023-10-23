@@ -59,6 +59,8 @@
 		A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864F00C2AE03FC3007F4012 /* ConfigUI.swift */; };
 		A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864F0122AE041C8007F4012 /* CommonButton.swift */; };
 		A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */; };
+		A8A482052AE5DBDC00FDE35C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A482042AE5DBDC00FDE35C /* Logger.swift */; };
+		A8A482072AE5E7EB00FDE35C /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A8A482062AE5E7EA00FDE35C /* bell.mp3 */; };
 		A8A725032AE55F7C004840A6 /* TtekkkochiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A725022AE55F7C004840A6 /* TtekkkochiViewModel.swift */; };
 		A8BC0DB22AE3401800AD5C9A /* CodingBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */; };
 		A8BC0DB72AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DB62AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift */; };
@@ -119,6 +121,8 @@
 		A864F00C2AE03FC3007F4012 /* ConfigUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigUI.swift; sourceTree = "<group>"; };
 		A864F0122AE041C8007F4012 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
 		A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiViewController.swift; sourceTree = "<group>"; };
+		A8A482042AE5DBDC00FDE35C /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		A8A482062AE5E7EA00FDE35C /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
 		A8A725022AE55F7C004840A6 /* TtekkkochiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiViewModel.swift; sourceTree = "<group>"; };
 		A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingBlock.swift; sourceTree = "<group>"; };
 		A8BC0DB62AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -249,7 +253,7 @@
 		A80B882D2ADB9AA000091FF5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				11504B0B2AE58EA100AED5C0 /* Lottie */,
+				A8A482042AE5DBDC00FDE35C /* Logger.swift */,
 				A8F41D2B2AE4FC3900BB0260 /* Sound */,
 				116A952C2ADF723D0096760A /* Font */,
 				A83392A92ADAB35E009BA7E2 /* LaunchScreen.storyboard */,
@@ -376,6 +380,7 @@
 		A8F41D2B2AE4FC3900BB0260 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				A8A482062AE5E7EA00FDE35C /* bell.mp3 */,
 				A8F41D2C2AE4FC4200BB0260 /* piano.wav */,
 			);
 			path = Sound;
@@ -501,6 +506,7 @@
 				A8F41D2D2AE4FC4200BB0260 /* piano.wav in Resources */,
 				116A95452ADF72570096760A /* Pretendard-ExtraLight.otf in Resources */,
 				A80B883C2ADBA3EC00091FF5 /* .swiftlint.yml in Resources */,
+				A8A482072AE5E7EB00FDE35C /* bell.mp3 in Resources */,
 				116A95422ADF72570096760A /* Pretendard-Bold.otf in Resources */,
 				11504B0D2AE58EC000AED5C0 /* TigerAnimation.json in Resources */,
 				A83392AB2ADAB35E009BA7E2 /* LaunchScreen.storyboard in Resources */,
@@ -586,6 +592,7 @@
 				11504B0A2AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift in Sources */,
 				A8BC0DB72AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift in Sources */,
 				A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */,
+				A8A482052AE5DBDC00FDE35C /* Logger.swift in Sources */,
 				A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */,
 				116A95532ADF72AB0096760A /* FontManager.swift in Sources */,
 				A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */,
