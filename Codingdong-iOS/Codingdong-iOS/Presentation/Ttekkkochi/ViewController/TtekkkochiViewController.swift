@@ -25,7 +25,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
        let label = UILabel()
         label.text = "떡 블록을 탭해서 꼬치에 순서대로 끼워 주세요."
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = FontManager.p_Regular(.body)
+        label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
         label.lineBreakMode = .byCharWrapping
@@ -51,7 +51,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     private let bottomView = TtekkkochiSelectionView()
     
     private let settingButton = CommonButton()
-    private lazy var settingButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.p_semiBold(.subhead), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
+    private lazy var settingButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
         self?.viewModel.selectItem()
     }
 
@@ -72,8 +72,14 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     }
     
     func setupNavigationBar() {
+        view.addSubview(naviLine)
+        naviLine.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(106)
+            $0.left.right.equalToSuperview()
+            $0.height.equalTo(0.33)
+        }
         self.navigationController?.navigationBar.topItem?.title = "호랑이를 마주친 엄마"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.p_semiBold(.footnote)] //TODO: 폰트 수정해야 함
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.navigationtitle()]
         self.navigationController?.navigationBar.tintColor = .gs20
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "books.vertical"),
@@ -84,16 +90,10 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [naviLine, titleLabel, ttekkkochiCollectionView, bottomView, settingButton, stickView].forEach { view.addSubview($0) }
+        [titleLabel, ttekkkochiCollectionView, bottomView, settingButton, stickView].forEach { view.addSubview($0) }
     }
     
     func setConstraints() {
-        naviLine.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(106)
-            $0.left.right.equalToSuperview()
-            $0.height.equalTo(0.33)
-        }
-        
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(122)
             $0.left.equalToSuperview().offset(16)
