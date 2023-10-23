@@ -10,6 +10,8 @@ import SnapKit
 
 class GiveTtekkViewController: UIViewController {
     
+    private var hapticManager: HapticManager?
+    
     private var maxShakeCount = 5
     
     private let rectanglesContainerView = UIView()
@@ -48,11 +50,12 @@ class GiveTtekkViewController: UIViewController {
     
     private func handleShake() {
         maxShakeCount -= 1
-        print("Shaked! Count: \(maxShakeCount)")
         
         if !ttekkRectangleArray.isEmpty {
             let removeTukk = ttekkRectangleArray.removeLast()
             removeTukk.removeFromSuperview()
+            self.hapticManager = HapticManager()
+            self.hapticManager?.playNomNom()
         }
     }
     
