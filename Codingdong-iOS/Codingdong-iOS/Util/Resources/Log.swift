@@ -1,5 +1,5 @@
 //
-//  Logger.swift
+//  Log.swift
 //  Codingdong-iOS
 //
 //  Created by Joy on 10/23/23.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public let log = Logger()
+public let log = Log()
 
-public class Logger {
+public class Log {
     enum Level {
         case verbose
         case debug
