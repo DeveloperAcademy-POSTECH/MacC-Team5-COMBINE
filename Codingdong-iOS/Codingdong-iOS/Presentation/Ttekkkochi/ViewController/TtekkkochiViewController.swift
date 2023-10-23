@@ -52,17 +52,18 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     
     private let settingButton = CommonButton()
     private lazy var settingButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
-        self?.viewModel.selectItem()
+        //self?.viewModel.selectItem()
+        // TODO: 나중에 ViewModel로 분리하기
+        self?.navigationController?.pushViewController(GiveTtekkViewController(), animated: false)
     }
 
     // MARK: - View init
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        //setupNavigationBar()
+        setupNavigationBar()
         addComponents()
         setConstraints()
-   
         settingButton.isHidden = true
     }
     
@@ -78,7 +79,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
             $0.left.right.equalToSuperview()
             $0.height.equalTo(0.33)
         }
-        self.navigationController?.navigationBar.topItem?.title = "호랑이를 마주친 엄마"
+        self.title = "호랑이를 마주친 엄마"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.navigationtitle()]
         self.navigationController?.navigationBar.tintColor = .gs20
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(

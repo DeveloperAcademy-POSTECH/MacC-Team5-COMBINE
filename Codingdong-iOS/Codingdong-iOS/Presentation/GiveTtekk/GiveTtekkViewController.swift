@@ -21,6 +21,12 @@ class GiveTtekkViewController: UIViewController {
     let ttekkWidth: CGFloat = 382
     let ttekkheight: CGFloat = 112
     
+    private let naviLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white.withAlphaComponent(0.15)
+        return view
+    }()
+    
     private let storyLabel : UILabel = {
         let label = UILabel()
         label.text = "앗! 호랑이가 또 떡을 요구해요! 기기를 흔들어서 떡을 주세요!"
@@ -34,10 +40,7 @@ class GiveTtekkViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .gs90
         
-        // TODO: NavBar 디자인 component로 나오면 수정하기
-        self.navigationController?.navigationBar.topItem?.title = "호랑이를 마주친 엄마"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.p_semiBold(.footnote)]
-        
+        setupNavigationBar()
         view.addSubview(storyLabel)
         storyLabel.snp.makeConstraints {
             $0.height.equalTo(68)
@@ -70,6 +73,25 @@ class GiveTtekkViewController: UIViewController {
         }
     }
     
+    func setupNavigationBar() {
+        view.addSubview(naviLine)
+        naviLine.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(106)
+            $0.left.right.equalToSuperview()
+            $0.height.equalTo(0.33)
+        }
+
+        self.title = "호랑이를 마주친 엄마"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.navigationtitle()]
+        self.navigationController?.navigationBar.tintColor = .gs20
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "books.vertical"),
+            style: .plain,
+            target: self,
+            action: .none
+        )
+    }
+    
     private func handleShake() {
         maxShakeCount -= 1
         
@@ -79,6 +101,8 @@ class GiveTtekkViewController: UIViewController {
             self.hapticManager = HapticManager()
             self.hapticManager?.playNomNom()
             SoundManager.shared.playTTS("\(maxShakeCount)개")
+        } else {
+            self.navigationController?.pushViewController(NoTtekkViewController(), animated: false)
         }
     }
     
