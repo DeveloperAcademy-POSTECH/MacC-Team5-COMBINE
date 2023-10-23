@@ -63,10 +63,7 @@ final class TigerAnimationViewController: UIViewController {
         }
         
         animationView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(0)
-            $0.left.equalToSuperview().offset(0)
-            $0.right.equalToSuperview().offset(0)
-            $0.bottom.equalToSuperview().offset(0)
+            $0.top.left.right.bottom.equalToSuperview()
         }
         
         btnBottomConstraints = nextButton.bottomAnchor.constraint(equalTo: super.view.bottomAnchor, constant: 72)
