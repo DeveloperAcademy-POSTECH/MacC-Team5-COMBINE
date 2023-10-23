@@ -1,5 +1,5 @@
 <!--제목 작성 방법 -->
-<!--[FEAT/SETTING/DESIGN/FIX/REFACTOR/DOCS] #이슈번호 - 관련 내용 기재 -->
+<!--[FEAT/SETTING/DESIGN/FIX/REFACTOR/DOCS] 관련 내용 기재 -->
 
 ## 🛠️ 작업 내용
 
