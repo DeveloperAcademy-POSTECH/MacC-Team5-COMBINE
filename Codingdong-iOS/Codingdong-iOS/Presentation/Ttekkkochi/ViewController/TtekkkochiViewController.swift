@@ -114,21 +114,21 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         self.bottomView.$selectedValue
             .zip(bottomView.$initialValue)
             .sink { [weak self] value in
-                guard var index = self?.blockIndex else { return }
+                guard let index = self?.blockIndex else { return }
                 guard value.1 else { return }
                 guard let self = self else { return }
         
                 if (index > -1 && index < 5) && (answerBlocks[index].value == value.0) {
                     answerBlocks[index].isShowing = true
+                    DispatchQueue.global().async {
+                        SoundManager.shared.playSound(sound: .bell)
+                    }
+
                     self.ttekkkochiCollectionView.reloadData()
                     self.blockIndex += 1
                     
                     switch index {
                     case 4: //TODO: 다음 버튼 등장(✅), 음악(✅), 떡 확대(✅), 읽어 주기(tts)
-                        DispatchQueue.global().async {
-                            SoundManager.shared.playSound(sound: .bell)
-                        }
-    
                         self.bottomView.isHidden = true
                         self.settingButton.isHidden = false
                         
