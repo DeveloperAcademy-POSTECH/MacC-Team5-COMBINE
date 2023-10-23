@@ -6,6 +6,8 @@ disabled_rules:
 - colon
 - comma
 - control_statement
+- identifier_name
+- line_length
 
 opt_in_rules:
 # 기본적으로 설정되지 않은 룰 중에 활성화 시키고 싶은 룰들
