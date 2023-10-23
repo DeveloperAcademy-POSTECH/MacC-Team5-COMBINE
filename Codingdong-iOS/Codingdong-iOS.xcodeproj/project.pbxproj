@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		112003D12AE574FB00924FAB /* LottieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112003D02AE574FB00924FAB /* LottieManager.swift */; };
+		112003D42AE5752300924FAB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 112003D32AE5752300924FAB /* Lottie */; };
+		112003D82AE5792600924FAB /* TigerAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112003D72AE5792600924FAB /* TigerAnimationViewController.swift */; };
+		11504B0A2AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */; };
 		116A95362ADF72570096760A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 116A952D2ADF72550096760A /* Pretendard-Black.otf */; };
 		116A95372ADF72570096760A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 116A952D2ADF72550096760A /* Pretendard-Black.otf */; };
 		116A95382ADF72570096760A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 116A952D2ADF72550096760A /* Pretendard-Black.otf */; };
@@ -39,6 +43,8 @@
 		116A95552ADF72AB0096760A /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A95522ADF72AB0096760A /* FontManager.swift */; };
 		67816A4A2AE26FEF00B121B6 /* Quiz1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67816A492AE26FEF00B121B6 /* Quiz1ViewController.swift */; };
 		67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E63EFE2ADE67D000C79863 /* UIColor+.swift */; };
+		1186768E2AE664290012FAFC /* TigerAnimation_HD.json in Resources */ = {isa = PBXBuildFile; fileRef = 1186768D2AE664290012FAFC /* TigerAnimation_HD.json */; };
+		67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */; };
 		A80B88252ADB99CA00091FF5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88242ADB99CA00091FF5 /* SnapKit */; };
 		A80B88282ADB9A2400091FF5 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88272ADB9A2400091FF5 /* RxCocoa */; };
 		A80B882A2ADB9A2400091FF5 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88292ADB9A2400091FF5 /* RxRelay */; };
@@ -85,6 +91,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		112003D02AE574FB00924FAB /* LottieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieManager.swift; sourceTree = "<group>"; };
+		112003D72AE5792600924FAB /* TigerAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerAnimationViewController.swift; sourceTree = "<group>"; };
+		11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerLottieAnimationVIew.swift; sourceTree = "<group>"; };
+		11504B0C2AE58EC000AED5C0 /* TigerAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TigerAnimation.json; sourceTree = "<group>"; };
 		116A952D2ADF72550096760A /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		116A952E2ADF72560096760A /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		116A952F2ADF72560096760A /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
@@ -97,6 +107,8 @@
 		116A95522ADF72AB0096760A /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		67816A492AE26FEF00B121B6 /* Quiz1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz1ViewController.swift; sourceTree = "<group>"; };
 		67E63EFE2ADE67D000C79863 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		1186768D2AE664290012FAFC /* TigerAnimation_HD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TigerAnimation_HD.json; sourceTree = "<group>"; };
+		67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveTtekkViewController.swift; sourceTree = "<group>"; };
 		A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A81637232ADFC5FD0070DAC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A833929B2ADAB35D009BA7E2 /* Codingdong-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codingdong-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +147,7 @@
 				A80B882A2ADB9A2400091FF5 /* RxRelay in Frameworks */,
 				A80B88282ADB9A2400091FF5 /* RxCocoa in Frameworks */,
 				A80B88252ADB99CA00091FF5 /* SnapKit in Frameworks */,
+				112003D42AE5752300924FAB /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +168,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		112003D52AE575A000924FAB /* TigerAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				11504B082AE57D9B00AED5C0 /* View */,
+				112003D62AE5790600924FAB /* VIewController */,
+			);
+			path = TigerAnimation;
+			sourceTree = "<group>";
+		};
+		112003D62AE5790600924FAB /* VIewController */ = {
+			isa = PBXGroup;
+			children = (
+				112003D72AE5792600924FAB /* TigerAnimationViewController.swift */,
+			);
+			path = VIewController;
+			sourceTree = "<group>";
+		};
+		11504B082AE57D9B00AED5C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		11504B0E2AE6495300AED5C0 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				11504B0C2AE58EC000AED5C0 /* TigerAnimation.json */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		11504B162AE64AAA00AED5C0 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				1186768D2AE664290012FAFC /* TigerAnimation_HD.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 		116A952C2ADF723D0096760A /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,16 +231,17 @@
 				116A95522ADF72AB0096760A /* FontManager.swift */,
 				A8F41D252AE4F94400BB0260 /* SoundManager.swift */,
 				A8F41D2E2AE5001F00BB0260 /* HapticManager.swift */,
+				112003D02AE574FB00924FAB /* LottieManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		67816A482AE26FCB00B121B6 /* Quiz1 */ = {
+		67816A482AE26FCB00B121B6 /* GiveTtekk */ = {
 			isa = PBXGroup;
 			children = (
-				67816A492AE26FEF00B121B6 /* Quiz1ViewController.swift */,
+				67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */,
 			);
-			path = Quiz1;
+			path = GiveTtekk;
 			sourceTree = "<group>";
 		};
 		67E63F002ADE801200C79863 /* Colors */ = {
@@ -219,6 +274,7 @@
 		A80B882D2ADB9AA000091FF5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				11504B162AE64AAA00AED5C0 /* Lottie */,
 				A8A482042AE5DBDC00FDE35C /* Logger.swift */,
 				A8F41D2B2AE4FC3900BB0260 /* Sound */,
 				116A952C2ADF723D0096760A /* Font */,
@@ -232,9 +288,10 @@
 		A80B882E2ADB9ABC00091FF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				112003D52AE575A000924FAB /* TigerAnimation */,
 				A81637202ADFC51F0070DAC9 /* Components */,
 				A87217C42AE2129C003C0D5C /* Ttekkkochi */,
-				67816A482AE26FCB00B121B6 /* Quiz1 */,
+				67816A482AE26FCB00B121B6 /* GiveTtekk */,
 				A83392A22ADAB35D009BA7E2 /* ViewController.swift */,
 			);
 			path = Presentation;
@@ -259,6 +316,7 @@
 				A83392B42ADAB35E009BA7E2 /* Codingdong-iOSTests */,
 				A83392BE2ADAB35E009BA7E2 /* Codingdong-iOSUITests */,
 				A833929C2ADAB35D009BA7E2 /* Products */,
+				11504B0E2AE6495300AED5C0 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -373,6 +431,7 @@
 				A80B88242ADB99CA00091FF5 /* SnapKit */,
 				A80B88272ADB9A2400091FF5 /* RxCocoa */,
 				A80B88292ADB9A2400091FF5 /* RxRelay */,
+				112003D32AE5752300924FAB /* Lottie */,
 			);
 			productName = "Codingdong-iOS";
 			productReference = A833929B2ADAB35D009BA7E2 /* Codingdong-iOS.app */;
@@ -450,6 +509,7 @@
 			packageReferences = (
 				A80B88232ADB99CA00091FF5 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				A80B88262ADB9A2400091FF5 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				112003D22AE5752300924FAB /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = A833929C2ADAB35D009BA7E2 /* Products */;
 			projectDirPath = "";
@@ -471,6 +531,7 @@
 				116A95452ADF72570096760A /* Pretendard-ExtraLight.otf in Resources */,
 				A80B883C2ADBA3EC00091FF5 /* .swiftlint.yml in Resources */,
 				A8A482072AE5E7EB00FDE35C /* bell.mp3 in Resources */,
+				1186768E2AE664290012FAFC /* TigerAnimation_HD.json in Resources */,
 				116A95422ADF72570096760A /* Pretendard-Bold.otf in Resources */,
 				A83392AB2ADAB35E009BA7E2 /* LaunchScreen.storyboard in Resources */,
 				116A953F2ADF72570096760A /* Pretendard-ExtraBold.otf in Resources */,
@@ -546,23 +607,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */,
+				112003D82AE5792600924FAB /* TigerAnimationViewController.swift in Sources */,
 				A8A725032AE55F7C004840A6 /* TtekkkochiViewModel.swift in Sources */,
 				A83392A32ADAB35D009BA7E2 /* ViewController.swift in Sources */,
 				A8F41D2F2AE5001F00BB0260 /* HapticManager.swift in Sources */,
 				A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */,
 				A8BC0DBE2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift in Sources */,
+				11504B0A2AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift in Sources */,
 				A8BC0DB72AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift in Sources */,
 				A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */,
 				A8A482052AE5DBDC00FDE35C /* Logger.swift in Sources */,
 				A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */,
 				116A95532ADF72AB0096760A /* FontManager.swift in Sources */,
 				A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */,
+				112003D12AE574FB00924FAB /* LottieManager.swift in Sources */,
 				A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */,
 				A8BC0DB22AE3401800AD5C9A /* CodingBlock.swift in Sources */,
 				A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */,
 				A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */,
 				67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* Quiz1ViewController.swift in Sources */,
+				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -910,6 +975,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		112003D22AE5752300924FAB /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.3;
+			};
+		};
 		A80B88232ADB99CA00091FF5 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -929,6 +1002,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		112003D32AE5752300924FAB /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 112003D22AE5752300924FAB /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		A80B88242ADB99CA00091FF5 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A80B88232ADB99CA00091FF5 /* XCRemoteSwiftPackageReference "SnapKit" */;

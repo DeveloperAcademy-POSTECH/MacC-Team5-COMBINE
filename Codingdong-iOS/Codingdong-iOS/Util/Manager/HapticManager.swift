@@ -29,8 +29,7 @@ class HapticManager {
         let generator = UIImpactFeedbackGenerator(style: style)
         generator.impactOccurred()
     }
-    
-    
+        
     // MARK: CoreHaptics 사용할 때
     // Failable initializer: the game will ignore haptics if the manager is nil
     init?() {
@@ -291,4 +290,3 @@ extension HapticManager {
         return try CHHapticPattern(events: events, parameters: [])
     }
 }
-
