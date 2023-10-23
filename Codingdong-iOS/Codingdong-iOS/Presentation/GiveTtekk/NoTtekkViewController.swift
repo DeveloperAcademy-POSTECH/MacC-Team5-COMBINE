@@ -23,9 +23,8 @@ final class NoTtekkViewController: UIViewController {
     private let nextButton = CommonButton()
     
     private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
-        Logger().info("다음으로 이벤트 발생")
+        self?.navigationController?.pushViewController(TigerAnimationViewController(), animated: true)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
