@@ -56,6 +56,7 @@ class GiveTtekkViewController: UIViewController {
             removeTukk.removeFromSuperview()
             self.hapticManager = HapticManager()
             self.hapticManager?.playNomNom()
+            SoundManager.shared.playTTS("\(maxShakeCount)개")
         }
     }
     
