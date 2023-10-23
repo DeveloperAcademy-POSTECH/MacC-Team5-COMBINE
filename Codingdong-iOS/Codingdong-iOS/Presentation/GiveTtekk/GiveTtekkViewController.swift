@@ -8,7 +8,9 @@
 import UIKit
 import SnapKit
 
-class Quiz1ViewController: UIViewController {
+class GiveTtekkViewController: UIViewController {
+    
+    private var hapticManager: HapticManager?
     
     private var maxShakeCount = 5
     
@@ -48,11 +50,13 @@ class Quiz1ViewController: UIViewController {
     
     private func handleShake() {
         maxShakeCount -= 1
-        print("Shaked! Count: \(maxShakeCount)")
         
         if !ttekkRectangleArray.isEmpty {
             let removeTukk = ttekkRectangleArray.removeLast()
             removeTukk.removeFromSuperview()
+            self.hapticManager = HapticManager()
+            self.hapticManager?.playNomNom()
+            SoundManager.shared.playTTS("\(maxShakeCount)개")
         }
     }
     
