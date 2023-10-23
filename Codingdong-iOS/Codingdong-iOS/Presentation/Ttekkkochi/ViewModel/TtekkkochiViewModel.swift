@@ -25,4 +25,5 @@ final class TtekkkochiViewModel: TtekkkochiViewModelRepresentable {
     func selectItem() {
         Log().info("다음으로 버튼이 클릭됨")
     }
+
 }
