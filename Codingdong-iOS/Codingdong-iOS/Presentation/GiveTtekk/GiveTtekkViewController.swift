@@ -21,9 +21,31 @@ class GiveTtekkViewController: UIViewController {
     let ttekkWidth: CGFloat = 382
     let ttekkheight: CGFloat = 112
     
+    private let storyLabel : UILabel = {
+        let label = UILabel()
+        label.text = "앗! 호랑이가 또 떡을 요구해요! 기기를 흔들어서 떡을 주세요!"
+        label.font = FontManager.body()
+        label.textColor = .gs10
+        label.numberOfLines = 0
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemYellow
+        view.backgroundColor = .gs90
+        
+        // TODO: NavBar 디자인 component로 나오면 수정하기
+        self.navigationController?.navigationBar.topItem?.title = "호랑이를 마주친 엄마"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.p_semiBold(.footnote)]
+        
+        view.addSubview(storyLabel)
+        storyLabel.snp.makeConstraints {
+            $0.height.equalTo(68)
+            $0.width.equalTo(358)
+            $0.leading.equalToSuperview().offset(16)
+            $0.top.equalToSuperview().offset(122)
+        }
+        
         view.addSubview(rectanglesContainerView)
         rectanglesContainerView.backgroundColor = UIColor.clear
         
