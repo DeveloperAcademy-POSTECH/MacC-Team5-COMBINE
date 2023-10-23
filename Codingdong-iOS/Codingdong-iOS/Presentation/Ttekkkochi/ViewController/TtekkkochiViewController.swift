@@ -64,6 +64,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         setupNavigationBar()
         addComponents()
         setConstraints()
+        setupAccessibility()
         settingButton.isHidden = true
     }
     
@@ -131,6 +132,8 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
             $0.height.equalTo(72)
         }
     }
+    
+    func setupAccessibility(){}
     
     func binding() {
         self.bottomView.$selectedValue

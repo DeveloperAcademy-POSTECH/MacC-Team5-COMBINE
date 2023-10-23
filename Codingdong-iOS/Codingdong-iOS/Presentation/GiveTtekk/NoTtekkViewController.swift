@@ -42,6 +42,7 @@ final class NoTtekkViewController: UIViewController, ConfigUI {
         setupNavigationBar()
         addComponents()
         setConstraints()
+        setupAccessibility()
         nextButton.setup(model: nextButtonViewModel)
     }
     
@@ -83,4 +84,6 @@ final class NoTtekkViewController: UIViewController, ConfigUI {
             $0.height.equalTo(72)
         }
     }
+    
+    func setupAccessibility(){}
 }

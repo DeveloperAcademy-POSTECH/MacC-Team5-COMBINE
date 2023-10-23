@@ -46,6 +46,7 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
         setupNavigationBar()
         addComponents()
         setConstraints()
+        setupAccessibility()
         nextButton.setup(model: nextButtonViewModel)
         
         LottieManager.shared.playAnimation(inView: animationView.lottieView) { (finished) in
@@ -119,6 +120,8 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
             $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
         }
     }
+    
+    func setupAccessibility(){}
 }
 
 extension TigerAnimationViewController {
