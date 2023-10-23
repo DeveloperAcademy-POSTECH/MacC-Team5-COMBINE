@@ -15,11 +15,17 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     private var hapticManager: HapticManager?
     
     // MARK: - Components
+    private let naviLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white.withAlphaComponent(0.15)
+        return view
+    }()
+    
     private let titleLabel: UILabel = {
        let label = UILabel()
         label.text = "떡 블록을 탭해서 꼬치에 순서대로 끼워 주세요."
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = FontManager.p_Regular(.body)
+        label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
         label.lineBreakMode = .byCharWrapping
@@ -45,27 +51,42 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     private let bottomView = TtekkkochiSelectionView()
     
     private let settingButton = CommonButton()
-    private lazy var settingButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.p_semiBold(.subhead), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
-        Logger().info("다음으로 이벤트 발생")
+    private lazy var settingButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
+        self?.viewModel.selectItem()
     }
 
     // MARK: - View init
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        
-        // TODO: NavBar 디자인 component로 나오면 수정하기
-        self.navigationController?.navigationBar.topItem?.title = "호랑이를 마주친 엄마"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.p_semiBold(.footnote)] //TODO: 폰트 수정해야 함
+        //setupNavigationBar()
         addComponents()
         setConstraints()
-        settingButton.setup(model: settingButtonViewModel)
+   
         settingButton.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         binding()
+    }
+    
+    func setupNavigationBar() {
+        view.addSubview(naviLine)
+        naviLine.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(106)
+            $0.left.right.equalToSuperview()
+            $0.height.equalTo(0.33)
+        }
+        self.navigationController?.navigationBar.topItem?.title = "호랑이를 마주친 엄마"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.navigationtitle()]
+        self.navigationController?.navigationBar.tintColor = .gs20
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "books.vertical"),
+            style: .plain,
+            target: self,
+            action: .none
+        )
     }
     
     func addComponents() {
@@ -88,7 +109,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         
         stickView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(70)
-            $0.left.equalToSuperview().offset(190)
+            $0.centerX.equalToSuperview()
             $0.width.equalTo(8)
             $0.bottom.equalTo(bottomView.snp.top).offset(-50)
         }
@@ -128,13 +149,14 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
                     self.blockIndex += 1
                     
                     switch index {
-                    case 4: //TODO: 다음 버튼 등장(✅), 음악(✅), 떡 확대(✅), 읽어 주기(tts)
+                    case 4: // TODO: 읽어 주기(tts)
                         self.bottomView.isHidden = true
                         self.settingButton.isHidden = false
+                        settingButton.setup(model: settingButtonViewModel)
                         
                         self.stickView.snp.remakeConstraints {
                             $0.top.equalTo(self.titleLabel.snp.bottom).offset(50)
-                            $0.left.equalToSuperview().offset(190)
+                            $0.centerX.equalToSuperview()
                             $0.width.equalTo(8)
                             $0.bottom.equalTo(self.settingButton.snp.top).offset(-30)
                         }
@@ -158,6 +180,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     }
 }
 
+// MARK: - Extension
 extension TtekkkochiViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return answerBlocks.count
