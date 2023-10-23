@@ -8,38 +8,46 @@
 import UIKit
 import Combine
 
-final class TtekkkochiViewController: ViewController, ConfigUI {
+final class TtekkkochiViewController: UIViewController, ConfigUI {
     var viewModel = TtekkkochiViewModel()
     private var cancellable = Set<AnyCancellable>()
     private var blockIndex: Int = 0
+    private var hapticManager: HapticManager?
     
     // MARK: - Components
     private let titleLabel: UILabel = {
        let label = UILabel()
-        label.text = "조건문이 적힌 떡을 터치해서 꼬치에 순서대로 끼워 주세요."
+        label.text = "떡 블록을 탭해서 꼬치에 순서대로 끼워 주세요."
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = FontManager.p_Regular(.body)
         label.textColor = .gs10
         label.numberOfLines = 0
+        label.lineBreakMode = .byCharWrapping
         return label
     }()
     
     private let stickView: UIView = {
        let view = UIView()
         view.backgroundColor = .white
+        view.layer.cornerRadius = 5
         return view
     }()
     
     private lazy var ttekkkochiCollectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.register(TtekkkochiCollectionViewCell.self, forCellWithReuseIdentifier: TtekkkochiCollectionViewCell.identifier)
-        view.backgroundColor = .gs90
+        view.backgroundColor = .clear
         view.dataSource = self
         view.delegate = self
         return view
     }()
     
     private let bottomView = TtekkkochiSelectionView()
+    
+    private let settingButton = CommonButton()
+    private lazy var settingButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.p_semiBold(.subhead), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
+        Logger().info("다음으로 이벤트 발생")
+    }
 
     // MARK: - View init
     override func viewDidLoad() {
@@ -51,6 +59,8 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.p_semiBold(.footnote)] //TODO: 폰트 수정해야 함
         addComponents()
         setConstraints()
+        settingButton.setup(model: settingButtonViewModel)
+        settingButton.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,7 +69,7 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
     }
     
     func addComponents() {
-        [titleLabel, ttekkkochiCollectionView, bottomView].forEach { view.addSubview($0) }
+        [titleLabel, ttekkkochiCollectionView, bottomView, settingButton, stickView].forEach { view.addSubview($0) }
     }
     
     func setConstraints() {
@@ -76,24 +86,72 @@ final class TtekkkochiViewController: ViewController, ConfigUI {
             $0.bottom.equalToSuperview().offset(-226)
         }
         
+        stickView.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(70)
+            $0.left.equalToSuperview().offset(190)
+            $0.width.equalTo(8)
+            $0.bottom.equalTo(bottomView.snp.top).offset(-50)
+        }
+        
+        self.view.sendSubviewToBack(stickView)
+        
         bottomView.snp.makeConstraints {
             $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
             $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
             $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
             $0.height.equalTo(112)
         }
+        
+        settingButton.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
+            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
+            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
+            $0.height.equalTo(72)
+        }
     }
     
     func binding() {
         self.bottomView.$selectedValue
+            .zip(bottomView.$initialValue)
             .sink { [weak self] value in
-                guard var index = self?.blockIndex else { return }
-                if (index > -1 && index < 5) && (answerBlocks[index].value == value) {
+                guard let index = self?.blockIndex else { return }
+                guard value.1 else { return }
+                guard let self = self else { return }
+        
+                if (index > -1 && index < 5) && (answerBlocks[index].value == value.0) {
                     answerBlocks[index].isShowing = true
-                    self?.ttekkkochiCollectionView.reloadData()
-                    self?.blockIndex += 1
+                    DispatchQueue.global().async {
+                        SoundManager.shared.playSound(sound: .bell)
+                    }
+
+                    self.ttekkkochiCollectionView.reloadData()
+                    self.blockIndex += 1
+                    
+                    switch index {
+                    case 4: //TODO: 다음 버튼 등장(✅), 음악(✅), 떡 확대(✅), 읽어 주기(tts)
+                        self.bottomView.isHidden = true
+                        self.settingButton.isHidden = false
+                        
+                        self.stickView.snp.remakeConstraints {
+                            $0.top.equalTo(self.titleLabel.snp.bottom).offset(50)
+                            $0.left.equalToSuperview().offset(190)
+                            $0.width.equalTo(8)
+                            $0.bottom.equalTo(self.settingButton.snp.top).offset(-30)
+                        }
+                        
+                        self.ttekkkochiCollectionView.snp.remakeConstraints {
+                            $0.top.equalTo(self.titleLabel.snp.bottom).offset(60)
+                            $0.left.equalToSuperview().offset(70)
+                            $0.right.equalToSuperview().offset(-70)
+                            $0.bottom.equalToSuperview().offset(-100)
+                        }
+                    default:
+                        return
+                    }
+                    
                 } else {
-                    //TODO: 오답 시 튕기고, 햅틱 반응 주기
+                    self.hapticManager = HapticManager()
+                    self.hapticManager?.playNomNom()
                 }
             }
             .store(in: &cancellable)
