@@ -22,10 +22,12 @@ final class TigerAnimationViewController: UIViewController {
     
     private let animationView = TigerLottieAnimationVIew()
     
-    private let btnBottomConstraints: NSLayoutConstraint? = nil
+    private var btnBottomConstraints: NSLayoutConstraint? = nil
     
     // TODO: 조부장님 이거 이렇게 쓰는거 맞나요?
-//    private let nextButton = CommonButton(model: CommonbuttonModel(font: FontManager.p_semiBold(.body), titleColor: .primary1, backgroundColor: .primary2))
+    private let nextButton = CommonButton()
+    
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2, height: 72, didTouchUpInside: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +39,9 @@ final class TigerAnimationViewController: UIViewController {
         
         addComponents()
         setConstraints()
+        
         // TODO: 조부장님께 CommonButton 사용법 여쭙고 버튼 추가하기
+        nextButton.setup(model: nextButtonViewModel)
         
         // TODO: titleLabel을 읽고 실행하도록 수정해야함.
         LottieManager.shared.playAnimation(inView: animationView) { (finished) in
@@ -47,7 +51,7 @@ final class TigerAnimationViewController: UIViewController {
     }
     
     func addComponents() {
-        [titleLabel, animationView/*, nextButton*/].forEach {
+        [titleLabel, animationView, nextButton].forEach {
             view.addSubview($0)
         }
     }
@@ -66,14 +70,14 @@ final class TigerAnimationViewController: UIViewController {
             $0.bottom.equalToSuperview().offset(0)
         }
         
-//        btnBottomConstraints = nextButton.bottomAnchor.constraint(equalTo: super.view.bottomAnchor, constant: 72)
-//        
-//        nextButton.snp.makeConstraints {
-//            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
-//            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
-//            $0.bottom.equalToSuperview().offset(btnBottomConstraints)
-//            $0.height.equalTo(72)
-//        }
+        btnBottomConstraints = nextButton.bottomAnchor.constraint(equalTo: super.view.bottomAnchor, constant: 72)
+        guard let bottomConstraints = btnBottomConstraints else { return }
+        bottomConstraints.isActive = true
+        
+        nextButton.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
+            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
+        }
     }
 }
 
@@ -88,8 +92,8 @@ extension TigerAnimationViewController {
             guard let self = self else { return }
             
             // TODO: CustomButton 사용법 조부장님께 확인 받고 bottomConstraints 지정하기
-//            self.bottomConstraint?.constant = -20
-//            self.view.layoutIfNeeded()
+            self.btnBottomConstraints?.constant = -Constants.Button.buttonPadding * 2
+            self.view.layoutIfNeeded()
         } completion: { _ in
             
         }
