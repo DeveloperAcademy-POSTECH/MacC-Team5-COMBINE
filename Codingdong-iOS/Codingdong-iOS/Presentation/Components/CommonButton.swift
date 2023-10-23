@@ -43,6 +43,7 @@ final class CommonButton: UIView {
     }
     
     public func setup(model: CommonbuttonModel) {
+        self.model = model
         self.backgroundColor = model.backgroundColor
         self.button.setTitle(model.title, for: .normal)
         self.button.setTitleColor(model.titleColor, for: .normal)
@@ -76,7 +77,7 @@ final class CommonbuttonModel: NSObject {
                 backgroundColor: UIColor,
                 height: CGFloat = 72,
                 cornerRadius: CGFloat = 36,
-                didTouchUpInside: ( () -> Void)? = nil) {
+                didTouchUpInside: (() -> Void)? = nil) {
         self.title = title
         self.font = font
         self.titleColor = titleColor

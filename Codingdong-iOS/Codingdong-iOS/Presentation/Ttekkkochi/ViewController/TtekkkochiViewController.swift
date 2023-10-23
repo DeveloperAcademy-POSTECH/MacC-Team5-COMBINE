@@ -46,7 +46,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     
     private let settingButton = CommonButton()
     private lazy var settingButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.p_semiBold(.subhead), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
-        Logger().info("다음으로 이벤트 발생")
+        self?.viewModel.selectItem()
     }
 
     // MARK: - View init
@@ -59,7 +59,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.p_semiBold(.footnote)] //TODO: 폰트 수정해야 함
         addComponents()
         setConstraints()
-        settingButton.setup(model: settingButtonViewModel)
+   
         settingButton.isHidden = true
     }
     
@@ -131,6 +131,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
                     case 4: //TODO: 다음 버튼 등장(✅), 음악(✅), 떡 확대(✅), 읽어 주기(tts)
                         self.bottomView.isHidden = true
                         self.settingButton.isHidden = false
+                        settingButton.setup(model: settingButtonViewModel)
                         
                         self.stickView.snp.remakeConstraints {
                             $0.top.equalTo(self.titleLabel.snp.bottom).offset(50)
