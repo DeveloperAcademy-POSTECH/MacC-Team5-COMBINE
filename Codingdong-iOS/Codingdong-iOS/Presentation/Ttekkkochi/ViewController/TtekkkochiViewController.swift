@@ -52,7 +52,9 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     
     private let settingButton = CommonButton()
     private lazy var settingButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
-        self?.viewModel.selectItem()
+        //self?.viewModel.selectItem()
+        // TODO: 나중에 ViewModel로 분리하기
+        self?.navigationController?.pushViewController(GiveTtekkViewController(), animated: true)
     }
 
     // MARK: - View init
