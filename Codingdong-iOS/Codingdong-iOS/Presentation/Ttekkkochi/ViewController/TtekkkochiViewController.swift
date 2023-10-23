@@ -62,9 +62,9 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         super.viewDidLoad()
         view.backgroundColor = .gs90
         setupNavigationBar()
+        setupAccessibility()
         addComponents()
         setConstraints()
-        setupAccessibility()
         settingButton.isHidden = true
     }
     
@@ -133,7 +133,12 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         }
     }
     
-    func setupAccessibility(){}
+    func setupAccessibility(){
+        view.accessibilityElements = [titleLabel, bottomView]
+        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        titleLabel.accessibilityTraits = .none
+        titleLabel.accessibilityHint = "자, 다음부터 꼬치 종류를 들려 드릴테니, 주의 깊게 들어 주세요"
+    }
     
     func binding() {
         self.bottomView.$selectedValue
@@ -148,7 +153,8 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
                     DispatchQueue.global().async {
                         SoundManager.shared.playSound(sound: .bell)
                     }
-
+                   
+                    // TODO: TTS 해당 블록 무엇인지 읽히도록 하기
                     self.ttekkkochiCollectionView.reloadData()
                     self.blockIndex += 1
                     
