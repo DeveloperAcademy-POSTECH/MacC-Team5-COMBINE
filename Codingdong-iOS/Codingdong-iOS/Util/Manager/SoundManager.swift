@@ -13,7 +13,7 @@ class SoundManager {
     var player: AVAudioPlayer?
     
     enum SoundList: String {
-        case piano 
+        case piano
         case bell
     }
     
@@ -25,5 +25,17 @@ class SoundManager {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    func playTts(_ text: String) {
+        let speechSynthesizer = AVSpeechSynthesizer()
+        let utterance: AVSpeechUtterance = {
+            let utterance = AVSpeechUtterance(string: text)
+            utterance.voice = AVSpeechSynthesisVoice(language: "ko-KR")
+            utterance.rate = 0.5
+            return utterance
+        }()
+        
+        speechSynthesizer.speak(utterance)
     }
 }
