@@ -41,10 +41,9 @@
 		116A95532ADF72AB0096760A /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A95522ADF72AB0096760A /* FontManager.swift */; };
 		116A95542ADF72AB0096760A /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A95522ADF72AB0096760A /* FontManager.swift */; };
 		116A95552ADF72AB0096760A /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A95522ADF72AB0096760A /* FontManager.swift */; };
-		67816A4A2AE26FEF00B121B6 /* Quiz1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67816A492AE26FEF00B121B6 /* Quiz1ViewController.swift */; };
-		67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E63EFE2ADE67D000C79863 /* UIColor+.swift */; };
 		1186768E2AE664290012FAFC /* TigerAnimation_HD.json in Resources */ = {isa = PBXBuildFile; fileRef = 1186768D2AE664290012FAFC /* TigerAnimation_HD.json */; };
 		67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */; };
+		67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E63EFE2ADE67D000C79863 /* UIColor+.swift */; };
 		A80B88252ADB99CA00091FF5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88242ADB99CA00091FF5 /* SnapKit */; };
 		A80B88282ADB9A2400091FF5 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88272ADB9A2400091FF5 /* RxCocoa */; };
 		A80B882A2ADB9A2400091FF5 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88292ADB9A2400091FF5 /* RxRelay */; };
@@ -105,10 +104,9 @@
 		116A95342ADF72560096760A /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		116A95352ADF72560096760A /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		116A95522ADF72AB0096760A /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
-		67816A492AE26FEF00B121B6 /* Quiz1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz1ViewController.swift; sourceTree = "<group>"; };
-		67E63EFE2ADE67D000C79863 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		1186768D2AE664290012FAFC /* TigerAnimation_HD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TigerAnimation_HD.json; sourceTree = "<group>"; };
 		67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveTtekkViewController.swift; sourceTree = "<group>"; };
+		67E63EFE2ADE67D000C79863 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A81637232ADFC5FD0070DAC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A833929B2ADAB35D009BA7E2 /* Codingdong-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codingdong-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -626,7 +624,7 @@
 				A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */,
 				A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */,
 				67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */,
-				67816A4A2AE26FEF00B121B6 /* Quiz1ViewController.swift in Sources */,
+				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -806,7 +804,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5BC63NF7HR;
+				DEVELOPMENT_TEAM = XGHDQG66U5;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
@@ -835,7 +833,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5BC63NF7HR;
+				DEVELOPMENT_TEAM = XGHDQG66U5;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
