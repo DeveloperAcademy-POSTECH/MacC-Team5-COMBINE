@@ -11,7 +11,6 @@
 		112003D42AE5752300924FAB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 112003D32AE5752300924FAB /* Lottie */; };
 		112003D82AE5792600924FAB /* TigerAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112003D72AE5792600924FAB /* TigerAnimationViewController.swift */; };
 		11504B0A2AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */; };
-		11504B182AE64AB700AED5C0 /* TigerAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 11504B172AE64AB700AED5C0 /* TigerAnimation.json */; };
 		116A95362ADF72570096760A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 116A952D2ADF72550096760A /* Pretendard-Black.otf */; };
 		116A95372ADF72570096760A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 116A952D2ADF72550096760A /* Pretendard-Black.otf */; };
 		116A95382ADF72570096760A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 116A952D2ADF72550096760A /* Pretendard-Black.otf */; };
@@ -42,6 +41,7 @@
 		116A95532ADF72AB0096760A /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A95522ADF72AB0096760A /* FontManager.swift */; };
 		116A95542ADF72AB0096760A /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A95522ADF72AB0096760A /* FontManager.swift */; };
 		116A95552ADF72AB0096760A /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A95522ADF72AB0096760A /* FontManager.swift */; };
+		1186768E2AE664290012FAFC /* TigerAnimation_HD.json in Resources */ = {isa = PBXBuildFile; fileRef = 1186768D2AE664290012FAFC /* TigerAnimation_HD.json */; };
 		67E63EFF2ADE67D000C79863 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E63EFE2ADE67D000C79863 /* UIColorExtension.swift */; };
 		A80B88252ADB99CA00091FF5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88242ADB99CA00091FF5 /* SnapKit */; };
 		A80B88282ADB9A2400091FF5 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88272ADB9A2400091FF5 /* RxCocoa */; };
@@ -93,7 +93,6 @@
 		112003D72AE5792600924FAB /* TigerAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerAnimationViewController.swift; sourceTree = "<group>"; };
 		11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerLottieAnimationVIew.swift; sourceTree = "<group>"; };
 		11504B0C2AE58EC000AED5C0 /* TigerAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TigerAnimation.json; sourceTree = "<group>"; };
-		11504B172AE64AB700AED5C0 /* TigerAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TigerAnimation.json; sourceTree = "<group>"; };
 		116A952D2ADF72550096760A /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		116A952E2ADF72560096760A /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		116A952F2ADF72560096760A /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
@@ -104,6 +103,7 @@
 		116A95342ADF72560096760A /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		116A95352ADF72560096760A /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		116A95522ADF72AB0096760A /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		1186768D2AE664290012FAFC /* TigerAnimation_HD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TigerAnimation_HD.json; sourceTree = "<group>"; };
 		67E63EFE2ADE67D000C79863 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A81637232ADFC5FD0070DAC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -200,7 +200,7 @@
 		11504B162AE64AAA00AED5C0 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				11504B172AE64AB700AED5C0 /* TigerAnimation.json */,
+				1186768D2AE664290012FAFC /* TigerAnimation_HD.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -518,8 +518,8 @@
 				116A95452ADF72570096760A /* Pretendard-ExtraLight.otf in Resources */,
 				A80B883C2ADBA3EC00091FF5 /* .swiftlint.yml in Resources */,
 				A8A482072AE5E7EB00FDE35C /* bell.mp3 in Resources */,
+				1186768E2AE664290012FAFC /* TigerAnimation_HD.json in Resources */,
 				116A95422ADF72570096760A /* Pretendard-Bold.otf in Resources */,
-				11504B182AE64AB700AED5C0 /* TigerAnimation.json in Resources */,
 				A83392AB2ADAB35E009BA7E2 /* LaunchScreen.storyboard in Resources */,
 				116A953F2ADF72570096760A /* Pretendard-ExtraBold.otf in Resources */,
 				116A954E2ADF72570096760A /* Pretendard-Light.otf in Resources */,
