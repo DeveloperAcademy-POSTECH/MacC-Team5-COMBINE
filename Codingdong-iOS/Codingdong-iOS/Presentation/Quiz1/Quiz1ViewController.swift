@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import CoreMotion
 
 class Quiz1ViewController: UIViewController {
     
@@ -45,21 +44,6 @@ class Quiz1ViewController: UIViewController {
                 $0.bottom.equalToSuperview().offset(-4 - i*118)
             }
         }
-        
-        // CoreMotion을 사용한 방법
-        // Threshold를 조절해서 인식 강도 조절 가능
-//        if motionManager.isAccelerometerAvailable {
-//            motionManager.accelerometerUpdateInterval = 0.2  // Adjust the interval as needed
-//            motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data, error) in
-//                if let acceleration = data?.acceleration {
-//                    let shakeThreshold = 2.0  // 흔들기 인식 강도
-//                    if acceleration.x >= shakeThreshold || acceleration.y >= shakeThreshold || acceleration.z >= shakeThreshold {
-//                        // A shake motion is detected
-//                        self.handleShake()
-//                    }
-//                }
-//            }
-//        }
     }
     
     private func handleShake() {
@@ -80,24 +64,4 @@ class Quiz1ViewController: UIViewController {
         }
     }
     
-}
-
-import SwiftUI
-
-struct Quiz1ViewControllerRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = Quiz1ViewController
-    
-    func makeUIViewController(context: Context) -> Quiz1ViewController {
-        return Quiz1ViewController()
-    }
-    
-    func updateUIViewController(_ uiViewController: Quiz1ViewController, context: Context) {
-    }
-}
-
-@available(iOS 13.0.0, *)
-struct ViewPreview: PreviewProvider {
-    static var previews: some View{
-        Quiz1ViewControllerRepresentable()
-    }
 }
