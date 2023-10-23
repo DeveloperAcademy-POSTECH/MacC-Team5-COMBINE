@@ -20,7 +20,7 @@ final class TigerAnimationViewController: UIViewController {
         return label
     }()
     
-    private let animationView = TigerLottieAnimationVIew()
+    private let animationView = TigerLottieAnimationView()
     
     private var btnBottomConstraints: NSLayoutConstraint? = nil
     
@@ -43,7 +43,7 @@ final class TigerAnimationViewController: UIViewController {
         // TODO: 조부장님께 CommonButton 사용법 여쭙고 버튼 추가하기
         nextButton.setup(model: nextButtonViewModel)
         
-        // TODO: titleLabel을 읽고 실행하도록 수정해야함.
+        // TODO: VoiceOver가 titleLabel을 읽고 실행하도록 수정해야함.
         LottieManager.shared.playAnimation(inView: animationView) { (finished) in
             if finished { self.bottomBtnSpringAnimation() }
         }
@@ -104,3 +104,7 @@ extension TigerAnimationViewController {
         LottieManager.shared.removeAnimation(inView: animationView)
     }
 }
+
+//#Preview{
+//    TigerLottieAnimationView()
+//}

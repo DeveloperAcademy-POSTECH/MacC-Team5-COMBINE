@@ -8,7 +8,7 @@
 import Lottie
 import UIKit
 
-final class TigerLottieAnimationVIew: UIView {
+final class TigerLottieAnimationView: UIView {
     private let lottieView: UIView = {
        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
