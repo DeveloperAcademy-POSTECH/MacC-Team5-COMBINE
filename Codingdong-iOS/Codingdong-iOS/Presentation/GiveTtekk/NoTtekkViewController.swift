@@ -8,7 +8,13 @@
 import UIKit
 import SnapKit
 
-final class NoTtekkViewController: UIViewController {
+final class NoTtekkViewController: UIViewController, ConfigUI {
+
+    private let naviLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white.withAlphaComponent(0.15)
+        return view
+    }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -23,7 +29,7 @@ final class NoTtekkViewController: UIViewController {
     private let nextButton = CommonButton()
     
     private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
-        self?.navigationController?.pushViewController(TigerAnimationViewController(), animated: true)
+        self?.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
     }
     
     override func viewDidLoad() {
@@ -33,10 +39,28 @@ final class NoTtekkViewController: UIViewController {
         // TODO: NavBar 디자인 component로 나오면 수정하기
         self.navigationController?.navigationBar.topItem?.title = "호랑이를 마주친 엄마"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.p_semiBold(.footnote)]
-        
+        setupNavigationBar()
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonViewModel)
+    }
+    
+    func setupNavigationBar() {
+        view.addSubview(naviLine)
+        naviLine.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(106)
+            $0.left.right.equalToSuperview()
+            $0.height.equalTo(0.33)
+        }
+        self.title = "호랑이를 마주친 엄마"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.navigationtitle()]
+        self.navigationController?.navigationBar.tintColor = .gs20
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "books.vertical"),
+            style: .plain,
+            target: self,
+            action: .none
+        )
     }
     
     func addComponents() {

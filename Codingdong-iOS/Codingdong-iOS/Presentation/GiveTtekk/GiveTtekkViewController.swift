@@ -80,8 +80,8 @@ class GiveTtekkViewController: UIViewController {
             $0.left.right.equalToSuperview()
             $0.height.equalTo(0.33)
         }
-        self.navigationController?.navigationBar.topItem?.title = "호랑이를 마주친 엄마"
-        self.navigationController?.navigationBar.topItem?.titleView?.tintColor = .yellow
+
+        self.title = "호랑이를 마주친 엄마"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.navigationtitle()]
         self.navigationController?.navigationBar.tintColor = .gs20
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(
@@ -102,7 +102,7 @@ class GiveTtekkViewController: UIViewController {
             self.hapticManager?.playNomNom()
             SoundManager.shared.playTTS("\(maxShakeCount)개")
         } else {
-            self.navigationController?.pushViewController(NoTtekkViewController(), animated: true)
+            self.navigationController?.pushViewController(NoTtekkViewController(), animated: false)
         }
     }
     

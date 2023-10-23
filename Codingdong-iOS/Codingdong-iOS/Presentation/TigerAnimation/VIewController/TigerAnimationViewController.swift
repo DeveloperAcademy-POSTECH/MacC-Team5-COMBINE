@@ -7,7 +7,13 @@
 
 import UIKit
 
-final class TigerAnimationViewController: UIViewController {
+final class TigerAnimationViewController: UIViewController, ConfigUI {
+    
+    private let naviLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white.withAlphaComponent(0.15)
+        return view
+    }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -37,8 +43,7 @@ final class TigerAnimationViewController: UIViewController {
         view.backgroundColor = .gs90
         
         // TODO: NavBar 디자인 component로 나오면 수정하기
-        setNavigationBar()
-        
+        setupNavigationBar()
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonViewModel)
@@ -63,13 +68,27 @@ final class TigerAnimationViewController: UIViewController {
         
     }
     
-    func setNavigationBar() {
-        self.navigationController?.navigationBar.topItem?.title = "호랑이를 마주친 엄마"
+    func setupNavigationBar() {
+        view.addSubview(naviLine)
+        naviLine.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(106)
+            $0.left.right.equalToSuperview()
+            $0.height.equalTo(0.33)
+        }
+        self.title = "호랑이를 마주친 엄마"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.navigationtitle()]
+        self.navigationController?.navigationBar.tintColor = .gs20
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "books.vertical"),
+            style: .plain,
+            target: self,
+            action: .none
+        )
         //        self.navigationController?.navigationBar.isAccessibilityElement = true
         //        self.navigationController?.navigationBar.accessibilityTraits = .header
         //        self.navigationController?.navigationBar.accessibilityLabel = ("호랑이를 마주친 엄마")
     }
+    
     
     func addComponents() {
         [titleLabel, animationView, nextButton].forEach {
