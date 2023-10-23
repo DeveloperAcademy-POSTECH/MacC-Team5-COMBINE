@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-final class TtekkkochiViewController: ViewController, ConfigUI {
+final class TtekkkochiViewController: UIViewController, ConfigUI {
     var viewModel = TtekkkochiViewModel()
     private var cancellable = Set<AnyCancellable>()
     private var blockIndex: Int = 0
