@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class Quiz1ViewController: UIViewController {
+class GiveTtekkViewController: UIViewController {
     
     private var maxShakeCount = 5
     
