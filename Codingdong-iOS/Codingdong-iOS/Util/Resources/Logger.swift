@@ -19,11 +19,11 @@ public class Logger {
 
         var prefix: String {
             switch self {
-            case .verbose: return "💜 VERBOSE"
-            case .debug: return "💙 DEBUG"
-            case .info: return "💚 INFO"
-            case .warning: return "💛 WARNING"
-            case .error: return "❤️ ERROR"
+            case .verbose: return "💬 VERBOSE"
+            case .debug: return "🐛 DEBUG"
+            case .info: return "ℹ️ INFO"
+            case .warning: return "🔥 WARNING"
+            case .error: return "🛠️ ERROR"
             }
         }
     }

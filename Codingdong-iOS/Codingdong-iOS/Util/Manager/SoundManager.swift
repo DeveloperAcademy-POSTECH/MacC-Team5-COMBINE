@@ -27,7 +27,7 @@ class SoundManager {
         }
     }
     
-    func playTts(_ text: String) {
+    func playTTS(_ text: String) {
         let speechSynthesizer = AVSpeechSynthesizer()
         let utterance: AVSpeechUtterance = {
             let utterance = AVSpeechUtterance(string: text)
