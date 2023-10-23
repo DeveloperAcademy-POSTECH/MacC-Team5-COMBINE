@@ -88,7 +88,8 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         
         stickView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(70)
-            $0.left.equalToSuperview().offset(190)
+            //$0.left.equalToSuperview().offset(190)
+            $0.centerX.equalToSuperview()
             $0.width.equalTo(8)
             $0.bottom.equalTo(bottomView.snp.top).offset(-50)
         }
