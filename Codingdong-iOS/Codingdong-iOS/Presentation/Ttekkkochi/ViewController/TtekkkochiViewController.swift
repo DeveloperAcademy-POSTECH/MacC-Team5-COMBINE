@@ -59,7 +59,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        setupNavigationBar()
+        //setupNavigationBar()
         addComponents()
         setConstraints()
    

@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 protocol ConfigUI {
+    /// 네비게이션 바 설정
+    func setupNavigationBar()
+    
     /// 컴포넌트를 추가
     func addComponents()
     
