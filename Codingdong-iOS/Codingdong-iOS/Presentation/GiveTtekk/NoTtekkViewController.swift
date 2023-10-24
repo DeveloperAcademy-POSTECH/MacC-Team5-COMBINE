@@ -44,7 +44,6 @@ final class NoTtekkViewController: UIViewController, ConfigUI {
     
     func setupAccessibility(){
         view.accessibilityElements = [titleLabel, nextButton]
-        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
         titleLabel.accessibilityTraits = .none
         nextButton.accessibilityLabel = "다음"
         nextButton.accessibilityTraits = .button
@@ -66,6 +65,7 @@ final class NoTtekkViewController: UIViewController, ConfigUI {
             target: self,
             action: .none
         )
+        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
     }
     
     func addComponents() {

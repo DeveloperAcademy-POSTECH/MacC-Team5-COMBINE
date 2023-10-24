@@ -88,6 +88,7 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
         //        self.navigationController?.navigationBar.isAccessibilityElement = true
         //        self.navigationController?.navigationBar.accessibilityTraits = .header
         //        self.navigationController?.navigationBar.accessibilityLabel = ("호랑이를 마주친 엄마")
+        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
     }
     
     
