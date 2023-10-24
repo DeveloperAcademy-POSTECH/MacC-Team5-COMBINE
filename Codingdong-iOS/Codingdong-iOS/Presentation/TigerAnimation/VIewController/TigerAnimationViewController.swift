@@ -43,10 +43,10 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
         view.backgroundColor = .gs90
         
         // TODO: NavBar 디자인 component로 나오면 수정하기
+        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
-        setupAccessibility()
         nextButton.setup(model: nextButtonViewModel)
         
         LottieManager.shared.playAnimation(inView: animationView.lottieView) { (finished) in
@@ -121,7 +121,13 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
         }
     }
     
-    func setupAccessibility(){}
+    func setupAccessibility() {
+        view.accessibilityElements = [titleLabel, nextButton]
+        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        titleLabel.accessibilityTraits = .none
+        nextButton.accessibilityLabel = "다음"
+        nextButton.accessibilityTraits = .button
+    }
 }
 
 extension TigerAnimationViewController {
@@ -133,6 +139,7 @@ extension TigerAnimationViewController {
                        initialSpringVelocity: 0.4,
                        options: []) { [weak self] in
             guard let self = self else { return }
+            self.navigationController?.navigationBar.isHidden = true
             self.btnBottomConstraints?.constant = -Constants.Button.buttonPadding * 2
             self.view.layoutIfNeeded()
         } completion: { _ in
