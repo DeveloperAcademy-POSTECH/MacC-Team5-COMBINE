@@ -43,6 +43,7 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
         view.backgroundColor = .gs90
         
         // TODO: NavBar 디자인 component로 나오면 수정하기
+        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
@@ -87,6 +88,7 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
         //        self.navigationController?.navigationBar.isAccessibilityElement = true
         //        self.navigationController?.navigationBar.accessibilityTraits = .header
         //        self.navigationController?.navigationBar.accessibilityLabel = ("호랑이를 마주친 엄마")
+        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
     }
     
     
@@ -119,6 +121,14 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
             $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
         }
     }
+    
+    func setupAccessibility() {
+        view.accessibilityElements = [titleLabel, nextButton]
+        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        titleLabel.accessibilityTraits = .none
+        nextButton.accessibilityLabel = "다음"
+        nextButton.accessibilityTraits = .button
+    }
 }
 
 extension TigerAnimationViewController {
@@ -130,6 +140,7 @@ extension TigerAnimationViewController {
                        initialSpringVelocity: 0.4,
                        options: []) { [weak self] in
             guard let self = self else { return }
+            self.navigationController?.navigationBar.isHidden = true
             self.btnBottomConstraints?.constant = -Constants.Button.buttonPadding * 2
             self.view.layoutIfNeeded()
         } completion: { _ in

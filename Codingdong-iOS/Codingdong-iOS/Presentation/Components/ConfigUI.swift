@@ -17,4 +17,7 @@ protocol ConfigUI {
     
     /// 위치 설정
     func setConstraints()
+    
+    ///  VoiceOver 설정용
+    func setupAccessibility()
 }

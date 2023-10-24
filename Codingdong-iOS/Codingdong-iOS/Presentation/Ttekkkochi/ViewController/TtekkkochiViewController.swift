@@ -23,7 +23,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     
     private let titleLabel: UILabel = {
        let label = UILabel()
-        label.text = "떡 블록을 탭해서 꼬치에 순서대로 끼워 주세요."
+        label.text = "떡 블록을 탭 해서 꼬치에 순서대로 끼워 주세요."
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = FontManager.body()
         label.textColor = .gs10
@@ -50,7 +50,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     
     private let bottomView = TtekkkochiSelectionView()
     
-    private let settingButton = CommonButton()
+    private let nextButton = CommonButton()
     private lazy var settingButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
         //self?.viewModel.selectItem()
         // TODO: 나중에 ViewModel로 분리하기
@@ -62,9 +62,10 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         super.viewDidLoad()
         view.backgroundColor = .gs90
         setupNavigationBar()
+        setupAccessibility()
         addComponents()
         setConstraints()
-        settingButton.isHidden = true
+        nextButton.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,7 +92,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [titleLabel, ttekkkochiCollectionView, bottomView, settingButton, stickView].forEach { view.addSubview($0) }
+        [titleLabel, ttekkkochiCollectionView, bottomView, nextButton, stickView].forEach { view.addSubview($0) }
     }
     
     func setConstraints() {
@@ -124,12 +125,21 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
             $0.height.equalTo(112)
         }
         
-        settingButton.snp.makeConstraints {
+        nextButton.snp.makeConstraints {
             $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
             $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
             $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
             $0.height.equalTo(72)
         }
+    }
+    
+    func setupAccessibility(){
+        view.accessibilityElements = [titleLabel, bottomView, nextButton]
+        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        ttekkkochiCollectionView.isAccessibilityElement = false
+        titleLabel.accessibilityTraits = .none
+        nextButton.accessibilityLabel = "다음"
+        nextButton.accessibilityTraits = .button
     }
     
     func binding() {
@@ -145,21 +155,22 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
                     DispatchQueue.global().async {
                         SoundManager.shared.playSound(sound: .bell)
                     }
-
+                   
                     self.ttekkkochiCollectionView.reloadData()
                     self.blockIndex += 1
                     
                     switch index {
                     case 4: // TODO: 읽어 주기(tts)
                         self.bottomView.isHidden = true
-                        self.settingButton.isHidden = false
-                        settingButton.setup(model: settingButtonViewModel)
+                        self.nextButton.isHidden = false
+                        nextButton.setup(model: settingButtonViewModel)
+
                         
                         self.stickView.snp.remakeConstraints {
                             $0.top.equalTo(self.titleLabel.snp.bottom).offset(50)
                             $0.centerX.equalToSuperview()
                             $0.width.equalTo(8)
-                            $0.bottom.equalTo(self.settingButton.snp.top).offset(-30)
+                            $0.bottom.equalTo(self.nextButton.snp.top).offset(-30)
                         }
                         
                         self.ttekkkochiCollectionView.snp.remakeConstraints {

@@ -22,7 +22,7 @@ final class NoTtekkViewController: UIViewController, ConfigUI {
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
-        
+        label.lineBreakMode = .byCharWrapping
         return label
     }()
     
@@ -35,16 +35,20 @@ final class NoTtekkViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        
-        // TODO: NavBar 디자인 component로 나오면 수정하기
-        self.navigationController?.navigationBar.topItem?.title = "호랑이를 마주친 엄마"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.p_semiBold(.footnote)]
+        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonViewModel)
     }
     
+    func setupAccessibility(){
+        view.accessibilityElements = [titleLabel, nextButton]
+        titleLabel.accessibilityTraits = .none
+        nextButton.accessibilityLabel = "다음"
+        nextButton.accessibilityTraits = .button
+    }
+
     func setupNavigationBar() {
         view.addSubview(naviLine)
         naviLine.snp.makeConstraints {
@@ -61,6 +65,7 @@ final class NoTtekkViewController: UIViewController, ConfigUI {
             target: self,
             action: .none
         )
+        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
     }
     
     func addComponents() {

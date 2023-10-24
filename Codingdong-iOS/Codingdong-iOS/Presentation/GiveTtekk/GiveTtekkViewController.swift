@@ -41,6 +41,7 @@ class GiveTtekkViewController: UIViewController {
         view.backgroundColor = .gs90
         
         setupNavigationBar()
+        setupAccessibility()
         view.addSubview(storyLabel)
         storyLabel.snp.makeConstraints {
             $0.height.equalTo(68)
@@ -71,6 +72,11 @@ class GiveTtekkViewController: UIViewController {
                 $0.bottom.equalToSuperview().offset(-4 - i*118)
             }
         }
+    }
+    
+    func setupAccessibility() {
+        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        storyLabel.accessibilityTraits = .none
     }
     
     func setupNavigationBar() {

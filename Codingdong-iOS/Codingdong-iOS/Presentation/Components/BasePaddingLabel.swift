@@ -14,6 +14,7 @@ class BasePaddingLabel: UILabel {
     convenience init(padding: UIEdgeInsets) {
         self.init()
         self.padding = padding
+        self.accessibilityTraits = .none
     }
     
     override func drawText(in rect: CGRect) {
