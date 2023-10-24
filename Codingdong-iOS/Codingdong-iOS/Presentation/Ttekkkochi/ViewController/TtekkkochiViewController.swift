@@ -136,6 +136,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     func setupAccessibility(){
         view.accessibilityElements = [titleLabel, bottomView, nextButton]
         self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        ttekkkochiCollectionView.isAccessibilityElement = false
         titleLabel.accessibilityTraits = .none
         nextButton.accessibilityLabel = "다음"
         nextButton.accessibilityTraits = .button

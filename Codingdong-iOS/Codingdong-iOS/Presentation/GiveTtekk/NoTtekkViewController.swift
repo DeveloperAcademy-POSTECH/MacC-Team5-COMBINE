@@ -35,10 +35,6 @@ final class NoTtekkViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        
-        // TODO: NavBar 디자인 component로 나오면 수정하기
-        self.navigationController?.navigationBar.topItem?.title = "호랑이를 마주친 엄마"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.p_semiBold(.footnote)]
         setupAccessibility()
         setupNavigationBar()
         addComponents()
