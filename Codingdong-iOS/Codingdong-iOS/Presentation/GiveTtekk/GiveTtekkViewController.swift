@@ -18,8 +18,6 @@ class GiveTtekkViewController: UIViewController {
     private var ttekkRectangleArray: [UIView] = []
     
     lazy var rectangleTtekkView = UIView(frame: .zero)
-    let ttekkWidth: CGFloat = 382
-    let ttekkheight: CGFloat = 112
     
     private let naviLine: UIView = {
         let view = UIView()
@@ -66,10 +64,10 @@ class GiveTtekkViewController: UIViewController {
             ttekkRectangleArray.append(rect)
             
             rect.snp.makeConstraints {
-                $0.width.equalTo(ttekkWidth)
-                $0.height.equalTo(ttekkheight)
                 $0.leading.equalToSuperview().offset(4)
+                $0.trailing.equalToSuperview().offset(-4)
                 $0.bottom.equalToSuperview().offset(-4 - i*118)
+                $0.top.equalToSuperview().offset(728 - i*118)
             }
         }
     }
