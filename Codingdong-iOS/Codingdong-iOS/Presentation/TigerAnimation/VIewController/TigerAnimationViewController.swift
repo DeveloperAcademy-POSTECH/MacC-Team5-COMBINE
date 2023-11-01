@@ -32,7 +32,7 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
     
     private let animationView = TigerLottieAnimationView()
     
-    private var btnBottomConstraints: NSLayoutConstraint? = nil
+    private var btnBottomConstraints: NSLayoutConstraint?
     
     private let nextButton = CommonButton()
     
@@ -66,7 +66,6 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
         //            }
         //        }
         
-        
     }
     
     func setupNavigationBar() {
@@ -83,6 +82,7 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
             image: UIImage(systemName: "books.vertical"),
             style: .plain,
             target: self,
+            // TODO: StorySelectView 작업 후 연결하기
             action: .none
         )
         //        self.navigationController?.navigationBar.isAccessibilityElement = true
@@ -90,7 +90,6 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
         //        self.navigationController?.navigationBar.accessibilityLabel = ("호랑이를 마주친 엄마")
         self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
     }
-    
     
     func addComponents() {
         [titleLabel, animationView, nextButton].forEach {
