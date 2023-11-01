@@ -14,10 +14,19 @@ class GiveTtekkViewController: UIViewController {
     
     private var maxShakeCount = 5
     
-    private let rectanglesContainerView = UIView()
+    private let rectanglesContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.clear
+        return view
+    }()
+    
     private var ttekkRectangleArray: [UIView] = []
     
-    lazy var rectangleTtekkView = UIView(frame: .zero)
+    lazy var rectangleTtekkView: UIView = {
+        let view = UIView()
+        view.frame = .zero
+        return view
+    }()
     
     private let naviLine: UIView = {
         let view = UIView()
@@ -37,39 +46,10 @@ class GiveTtekkViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        
         setupNavigationBar()
         setupAccessibility()
-        view.addSubview(storyLabel)
-        storyLabel.snp.makeConstraints {
-            $0.height.equalTo(68)
-            $0.width.equalTo(358)
-            $0.leading.equalToSuperview().offset(16)
-            $0.top.equalToSuperview().offset(122)
-        }
-        
-        view.addSubview(rectanglesContainerView)
-        rectanglesContainerView.backgroundColor = UIColor.clear
-        
-        rectanglesContainerView.snp.makeConstraints {
-            $0.width.equalToSuperview()
-            $0.height.equalToSuperview()
-        }
-        
-        for i in 0..<maxShakeCount {
-            let rect = UIView()
-            rect.backgroundColor = UIColor.white
-            rect.layer.cornerRadius = 60
-            rectanglesContainerView.addSubview(rect)
-            ttekkRectangleArray.append(rect)
-            
-            rect.snp.makeConstraints {
-                $0.leading.equalToSuperview().offset(4)
-                $0.trailing.equalToSuperview().offset(-4)
-                $0.bottom.equalToSuperview().offset(-4 - i*118)
-                $0.top.equalToSuperview().offset(728 - i*118)
-            }
-        }
+        addComponents()
+        setConstraints()
     }
     
     func setupAccessibility() {
@@ -96,6 +76,25 @@ class GiveTtekkViewController: UIViewController {
         )
     }
     
+    func addComponents() {
+        [storyLabel, rectanglesContainerView].forEach { view.addSubview($0) }
+        ttekkStackView()
+    }
+    
+    func setConstraints() {
+        storyLabel.snp.makeConstraints {
+            $0.height.equalTo(68)
+            $0.width.equalTo(358)
+            $0.leading.equalToSuperview().offset(16)
+            $0.top.equalToSuperview().offset(122)
+        }
+        
+        rectanglesContainerView.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.height.equalToSuperview()
+        }
+    }
+    
     private func handleShake() {
         maxShakeCount -= 1
         
@@ -115,6 +114,23 @@ class GiveTtekkViewController: UIViewController {
     public override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             handleShake()
+        }
+    }
+    
+    private func ttekkStackView() {
+        for i in 0..<maxShakeCount {
+            let rect = UIView()
+            rect.backgroundColor = UIColor.white
+            rect.layer.cornerRadius = 60
+            rectanglesContainerView.addSubview(rect)
+            ttekkRectangleArray.append(rect)
+            
+            rect.snp.makeConstraints {
+                $0.leading.equalToSuperview().offset(4)
+                $0.trailing.equalToSuperview().offset(-4)
+                $0.bottom.equalToSuperview().offset(-4 - i*118)
+                $0.top.equalToSuperview().offset(728 - i*118)
+            }
         }
     }
     
