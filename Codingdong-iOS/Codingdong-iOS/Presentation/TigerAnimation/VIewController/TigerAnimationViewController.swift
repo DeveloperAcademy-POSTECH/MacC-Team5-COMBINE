@@ -23,9 +23,6 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
         label.textColor = .gs10
         label.numberOfLines = 0
         label.lineBreakMode = .byCharWrapping
-        //        label.isAccessibilityElement =  true
-        //        label.accessibilityTraits = .none
-        //        label.accessibilityLabel = "떡을 모두 빼앗긴 엄마는 호랑이에게 잡아먹히고 말았어요."
         
         return label
     }()
@@ -38,20 +35,41 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
     
     private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2, height: 72, didTouchUpInside: didClickNextButton)
     
+    private let leftBarButtonItem: UIBarButtonItem = {
+        let leftBarButton = UIBarButtonItem(
+            image: UIImage(systemName: "books.vertical"),
+            style: .plain,
+            target: self,
+            // TODO: StorySelectView 작업 후 연결하기
+            action: .none
+        )
+        
+        return leftBarButton
+    }()
+    
+    private let navigationTitle: UILabel = {
+        let label = UILabel()
+        label.text = "호랑이를 마주친 엄마"
+        label.font = FontManager.navigationtitle()
+        label.textColor = .gs20
+        
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
         
         // TODO: NavBar 디자인 component로 나오면 수정하기
-        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonViewModel)
+        setupAccessibility()
         
-        LottieManager.shared.playAnimation(inView: animationView.lottieView) { (finished) in
-            if finished { self.bottomBtnSpringAnimation() }
-        }
+//        LottieManager.shared.playAnimation(inView: animationView.lottieView) { (finished) in
+//            if finished { self.bottomBtnSpringAnimation() }
+//        }
         
         // TODO: VoiceOver가 titleLabel을 읽고 실행하도록 수정해야함.
         //        if UIAccessibility.isVoiceOverRunning {
@@ -75,29 +93,15 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
             $0.left.right.equalToSuperview()
             $0.height.equalTo(0.33)
         }
-        self.title = "호랑이를 마주친 엄마"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.navigationtitle()]
         self.navigationController?.navigationBar.tintColor = .gs20
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "books.vertical"),
-            style: .plain,
-            target: self,
-            // TODO: StorySelectView 작업 후 연결하기
-            action: .none
-        )
-        //        self.navigationController?.navigationBar.isAccessibilityElement = true
-        //        self.navigationController?.navigationBar.accessibilityTraits = .header
-        //        self.navigationController?.navigationBar.accessibilityLabel = ("호랑이를 마주친 엄마")
-        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        self.navigationItem.titleView = self.navigationTitle
+        self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
     }
     
     func addComponents() {
         [titleLabel, animationView, nextButton].forEach {
             view.addSubview($0)
         }
-        //        nextButton.isAccessibilityElement = true
-        //        nextButton.accessibilityLabel = "다음 화면으로 넘어가기"
-        //        nextButton.accessibilityTraits = .button
     }
     
     func setConstraints() {
@@ -122,9 +126,18 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        view.accessibilityElements = [titleLabel, nextButton]
-        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        view.accessibilityElements = [leftBarButtonItem, navigationTitle, titleLabel, nextButton]
+        
+        leftBarButtonItem.accessibilityLabel = "내 책장"
+        leftBarButtonItem.accessibilityTraits = .button
+        
+        navigationTitle.accessibilityLabel = "호랑이를 마주친 엄마"
+        navigationTitle.accessibilityTraits = .header
+        navigationTitle.accessibilityHint = "세 페이지 중에 마지막 페이지"
+        
+        titleLabel.accessibilityLabel = "떡을 모두 빼앗긴 엄마는 호랑이에게 잡아먹히고 말았어요."
         titleLabel.accessibilityTraits = .none
+        
         nextButton.accessibilityLabel = "다음"
         nextButton.accessibilityTraits = .button
     }
@@ -153,6 +166,7 @@ extension TigerAnimationViewController {
         LottieManager.shared.removeAnimation(inView: animationView)
         self.navigationController?.isNavigationBarHidden = true
         print("너무 아름다운 다운 다운 다운 View")
+        return
     }
     
     private func notifyUserAfterReading() {
