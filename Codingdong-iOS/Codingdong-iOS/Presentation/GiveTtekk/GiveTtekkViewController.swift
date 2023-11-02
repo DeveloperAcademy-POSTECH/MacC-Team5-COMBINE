@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import CoreMotion
 
 class GiveTtekkViewController: UIViewController {
     
@@ -21,6 +22,8 @@ class GiveTtekkViewController: UIViewController {
     }()
     
     private var ttekkRectangleArray: [UIView] = []
+    
+    private lazy var motionManager = CMMotionManager()
     
     lazy var rectangleTtekkView: UIView = {
         let view = UIView()
@@ -50,6 +53,7 @@ class GiveTtekkViewController: UIViewController {
         setupAccessibility()
         addComponents()
         setConstraints()
+        countShake()
     }
     
     func setupAccessibility() {
@@ -105,15 +109,25 @@ class GiveTtekkViewController: UIViewController {
             self.hapticManager?.playNomNom()
             SoundManager.shared.playTTS("\(maxShakeCount)개")
         } else {
-            self.navigationController?.pushViewController(NoTtekkViewController(), animated: false)
+            self.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
         }
     }
     
-    // 한번씩 끊어서 흔들기 인식
-    // 연속해서 흔드는 것은 멈출때까지 1번이라고 인식
-    public override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        if motion == .motionShake {
-            handleShake()
+    private func countShake() {
+        
+        // CoreMotion을 사용한 방법
+        // Threshold를 조절해서 인식 강도 조절 가능
+        if motionManager.isAccelerometerAvailable {
+            motionManager.accelerometerUpdateInterval = 0.2
+            motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data, error) in
+                if let acceleration = data?.acceleration {
+                    let shakeThreshold = 2.0  // 흔들기 인식 강도
+                    // 흔들기 감지
+                    if acceleration.x >= shakeThreshold || acceleration.y >= shakeThreshold || acceleration.z >= shakeThreshold {
+                        self.handleShake()
+                    }
+                }
+            }
         }
     }
     
