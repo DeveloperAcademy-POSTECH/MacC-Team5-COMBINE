@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import CoreMotion
 
-class GiveTtekkViewController: UIViewController {
+final class GiveTtekkViewController: UIViewController {
     
     private var hapticManager: HapticManager?
     
@@ -23,7 +23,7 @@ class GiveTtekkViewController: UIViewController {
     
     private var ttekkRectangleArray: [UIView] = []
     
-    private lazy var motionManager = CMMotionManager()
+    private let motionManager = CMMotionManager()
     
     lazy var rectangleTtekkView: UIView = {
         let view = UIView()
