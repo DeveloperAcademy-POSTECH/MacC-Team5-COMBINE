@@ -7,19 +7,29 @@
 
 import UIKit
 import SnapKit
+import CoreMotion
 
-class GiveTtekkViewController: UIViewController {
+final class GiveTtekkViewController: UIViewController {
     
     private var hapticManager: HapticManager?
     
     private var maxShakeCount = 5
     
-    private let rectanglesContainerView = UIView()
+    private let rectanglesContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.clear
+        return view
+    }()
+    
     private var ttekkRectangleArray: [UIView] = []
     
-    lazy var rectangleTtekkView = UIView(frame: .zero)
-    let ttekkWidth: CGFloat = 382
-    let ttekkheight: CGFloat = 112
+    private let motionManager = CMMotionManager()
+    
+    lazy var rectangleTtekkView: UIView = {
+        let view = UIView()
+        view.frame = .zero
+        return view
+    }()
     
     private let naviLine: UIView = {
         let view = UIView()
@@ -33,45 +43,18 @@ class GiveTtekkViewController: UIViewController {
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
+        label.lineBreakMode = .byCharWrapping
         return label
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        
         setupNavigationBar()
         setupAccessibility()
-        view.addSubview(storyLabel)
-        storyLabel.snp.makeConstraints {
-            $0.height.equalTo(68)
-            $0.width.equalTo(358)
-            $0.leading.equalToSuperview().offset(16)
-            $0.top.equalToSuperview().offset(122)
-        }
-        
-        view.addSubview(rectanglesContainerView)
-        rectanglesContainerView.backgroundColor = UIColor.clear
-        
-        rectanglesContainerView.snp.makeConstraints {
-            $0.width.equalToSuperview()
-            $0.height.equalToSuperview()
-        }
-        
-        for i in 0..<maxShakeCount {
-            let rect = UIView()
-            rect.backgroundColor = UIColor.white
-            rect.layer.cornerRadius = 60
-            rectanglesContainerView.addSubview(rect)
-            ttekkRectangleArray.append(rect)
-            
-            rect.snp.makeConstraints {
-                $0.width.equalTo(ttekkWidth)
-                $0.height.equalTo(ttekkheight)
-                $0.leading.equalToSuperview().offset(4)
-                $0.bottom.equalToSuperview().offset(-4 - i*118)
-            }
-        }
+        addComponents()
+        setConstraints()
+        countShake()
     }
     
     func setupAccessibility() {
@@ -98,6 +81,24 @@ class GiveTtekkViewController: UIViewController {
         )
     }
     
+    func addComponents() {
+        [storyLabel, rectanglesContainerView].forEach { view.addSubview($0) }
+        ttekkStackView()
+    }
+    
+    func setConstraints() {
+        storyLabel.snp.makeConstraints {
+            $0.height.equalTo(68)
+            $0.width.equalTo(358)
+            $0.leading.equalToSuperview().offset(16)
+            $0.top.equalToSuperview().offset(122)
+        }
+        
+        rectanglesContainerView.snp.makeConstraints {
+            $0.width.height.equalToSuperview()
+        }
+    }
+    
     private func handleShake() {
         maxShakeCount -= 1
         
@@ -108,15 +109,42 @@ class GiveTtekkViewController: UIViewController {
             self.hapticManager?.playNomNom()
             SoundManager.shared.playTTS("\(maxShakeCount)개")
         } else {
-            self.navigationController?.pushViewController(NoTtekkViewController(), animated: false)
+            self.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
         }
     }
     
-    // 한번씩 끊어서 흔들기 인식
-    // 연속해서 흔드는 것은 멈출때까지 1번이라고 인식
-    public override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        if motion == .motionShake {
-            handleShake()
+    private func countShake() {
+        
+        // CoreMotion을 사용한 방법
+        // Threshold를 조절해서 인식 강도 조절 가능
+        if motionManager.isAccelerometerAvailable {
+            motionManager.accelerometerUpdateInterval = 0.2
+            motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data, error) in
+                if let acceleration = data?.acceleration {
+                    let shakeThreshold = 2.0  // 흔들기 인식 강도
+                    // 흔들기 감지
+                    if acceleration.x >= shakeThreshold || acceleration.y >= shakeThreshold || acceleration.z >= shakeThreshold {
+                        self.handleShake()
+                    }
+                }
+            }
+        }
+    }
+    
+    private func ttekkStackView() {
+        for i in 0..<maxShakeCount {
+            let rect = UIView()
+            rect.backgroundColor = UIColor.white
+            rect.layer.cornerRadius = 60
+            rectanglesContainerView.addSubview(rect)
+            ttekkRectangleArray.append(rect)
+            
+            rect.snp.makeConstraints {
+                $0.leading.equalToSuperview().offset(4)
+                $0.trailing.equalToSuperview().offset(-4)
+                $0.bottom.equalToSuperview().offset(-4 - i*118)
+                $0.top.equalToSuperview().offset(728 - i*118)
+            }
         }
     }
     
