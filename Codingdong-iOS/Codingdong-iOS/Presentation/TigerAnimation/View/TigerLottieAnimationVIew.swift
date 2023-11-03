@@ -9,12 +9,6 @@ import UIKit
 import SnapKit
 
 final class TigerLottieAnimationView: UIView {
-//    
-//    let containerView: UIView = {
-//        let view = UIView()
-//        view.backgroundColor = .clear
-//        return view
-//    }()
     
     lazy var lottieView: UIView = {
        let view = UIView()
@@ -36,4 +30,5 @@ final class TigerLottieAnimationView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
 }

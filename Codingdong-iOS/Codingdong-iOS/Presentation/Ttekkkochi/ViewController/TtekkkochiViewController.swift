@@ -52,7 +52,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     
     private let nextButton = CommonButton()
     private lazy var settingButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
-        //self?.viewModel.selectItem()
+        // self?.viewModel.selectItem()
         // TODO: 나중에 ViewModel로 분리하기
         self?.navigationController?.pushViewController(GiveTtekkViewController(), animated: false)
     }
@@ -133,7 +133,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         }
     }
     
-    func setupAccessibility(){
+    func setupAccessibility() {
         view.accessibilityElements = [titleLabel, bottomView, nextButton]
         self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
         ttekkkochiCollectionView.isAccessibilityElement = false
@@ -165,7 +165,6 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
                         self.nextButton.isHidden = false
                         nextButton.setup(model: settingButtonViewModel)
 
-                        
                         self.stickView.snp.remakeConstraints {
                             $0.top.equalTo(self.titleLabel.snp.bottom).offset(50)
                             $0.centerX.equalToSuperview()

@@ -42,7 +42,7 @@ final class NoTtekkViewController: UIViewController, ConfigUI {
         nextButton.setup(model: nextButtonViewModel)
     }
     
-    func setupAccessibility(){
+    func setupAccessibility() {
         view.accessibilityElements = [titleLabel, nextButton]
         titleLabel.accessibilityTraits = .none
         nextButton.accessibilityLabel = "다음"
