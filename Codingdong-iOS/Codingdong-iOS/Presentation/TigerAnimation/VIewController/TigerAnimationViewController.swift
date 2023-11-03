@@ -109,9 +109,8 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-//        guard let nextButton = nextButton.button else { return }
         navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [titleLabel, nextButton/*, nextButton*/]
+        view.accessibilityElements = [titleLabel, nextButton]
         
         leftBarButtonItem.accessibilityLabel = "내 책장"
         leftBarButtonItem.accessibilityTraits = .button
@@ -119,7 +118,6 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
         
         titleLabel.accessibilityLabel = "본문"
         titleLabel.accessibilityValue = "떡을 모두 빼앗긴 엄마는 호랑이에게 잡아먹히고 말았어요."
-        
     }
     
     deinit {
@@ -160,4 +158,5 @@ extension TigerAnimationViewController {
             }
         }
     }
+    
 }
