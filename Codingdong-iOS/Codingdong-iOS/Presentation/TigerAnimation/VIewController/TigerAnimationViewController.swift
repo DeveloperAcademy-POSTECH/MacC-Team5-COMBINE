@@ -113,16 +113,13 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
         navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
         view.accessibilityElements = [titleLabel, nextButton/*, nextButton*/]
         
-        leftBarButtonItem.accessibilityLabel = "홈"
+        leftBarButtonItem.accessibilityLabel = "내 책장"
         leftBarButtonItem.accessibilityTraits = .button
-        leftBarButtonItem.accessibilityHint = "더블 탭 하면 이야기 선택 창으로 돌아갑니다."
-        
-        navigationTitle.accessibilityHint = "세 페이지 중에 마지막 페이지"
+//        leftBarButtonItem.accessibilityHint = "내 책장으로 돌아갑니다."
         
         titleLabel.accessibilityLabel = "본문"
         titleLabel.accessibilityValue = "떡을 모두 빼앗긴 엄마는 호랑이에게 잡아먹히고 말았어요."
         
-//        nextButton.accessibilityHint = "더블 탭 하면 다음 화면으로 넘어갑니다."
     }
     
     deinit {
