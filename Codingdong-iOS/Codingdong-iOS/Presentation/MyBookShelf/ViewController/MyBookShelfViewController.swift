@@ -72,6 +72,8 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     
     private let storyList = StoryListTableView()
     
+    private let badgeCollection = BadgeCollectionView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
@@ -94,7 +96,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [storyTitle, badgeTitle, moreStoryButton, moreBadgeButton, storyList].forEach {
+        [storyTitle, badgeTitle, moreStoryButton, moreBadgeButton, storyList, badgeCollection].forEach {
             view.addSubview($0)
         }
     }
@@ -102,21 +104,21 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     func setConstraints() {
         storyTitle.snp.makeConstraints {
             $0.top.equalToSuperview().offset(122)
-            $0.left.equalToSuperview().offset(16)
+            $0.left.equalToSuperview().offset(18)
         }
         
         badgeTitle.snp.makeConstraints {
             $0.top.equalTo(storyList.snp.bottom).offset(32)
-            $0.left.equalToSuperview().offset(16)
+            $0.left.equalToSuperview().offset(18)
         }
         
         moreStoryButton.snp.makeConstraints {
-            $0.right.equalToSuperview().offset(-16)
+            $0.right.equalToSuperview().offset(-18)
             $0.bottom.equalTo(storyTitle.snp.bottom)
         }
         
         moreBadgeButton.snp.makeConstraints {
-            $0.right.equalToSuperview().offset(-16)
+            $0.right.equalToSuperview().offset(-18)
             $0.bottom.equalTo(badgeTitle.snp.bottom)
         }
         
@@ -125,6 +127,13 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
             $0.left.equalToSuperview().offset(16)
             $0.right.equalToSuperview().offset(-16)
             $0.height.equalTo(180)
+        }
+        
+        badgeCollection.snp.makeConstraints {
+            $0.top.equalTo(badgeTitle.snp.bottom).offset(16)
+            $0.left.equalTo(16)
+            $0.right.equalTo(-16)
+            $0.bottom.equalToSuperview().offset(-32)
         }
     }
     

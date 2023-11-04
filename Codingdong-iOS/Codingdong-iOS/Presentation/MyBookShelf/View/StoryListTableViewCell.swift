@@ -11,7 +11,7 @@ final class StoryListTableViewCell: UITableViewCell {
     
     static let identifier = "StoryListTableViewCell"
     
-    private let container: UIView = {
+    private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .gs80
         
@@ -29,8 +29,10 @@ final class StoryListTableViewCell: UITableViewCell {
     private let isReadSymbolImage: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .clear
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.tintColor = .secondary1
+//        imageView.layer.borderWidth = 1
+//        imageView.layer.borderColor = UIColor.white.cgColor
         
         return imageView
     }()
@@ -40,6 +42,8 @@ final class StoryListTableViewCell: UITableViewCell {
         label.font = FontManager.caption1()
         label.textColor = .white
         label.backgroundColor = .gs80
+//        label.layer.borderWidth = 1
+//        label.layer.borderColor = UIColor.white.cgColor
 
         return label
     }()
@@ -57,28 +61,28 @@ final class StoryListTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         self.storyTitle = StoryTitle(title: "", isRead: false)
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(container)
-        container.addSubview(isReadSymbolImage)
-        container.addSubview(titleLabel)
-        container.addSubview(isReadChevronImage)
+        addSubview(containerView)
+        containerView.addSubview(isReadSymbolImage)
+        containerView.addSubview(titleLabel)
+        containerView.addSubview(isReadChevronImage)
         
-        container.snp.makeConstraints {
+        containerView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         
         isReadSymbolImage.snp.makeConstraints {
-            $0.centerY.equalTo(container.snp.centerY)
+            $0.centerY.equalTo(containerView.snp.centerY)
             $0.left.equalToSuperview().offset(25)
-            $0.height.equalTo(22)
+            $0.height.equalTo(25)
         }
         
         titleLabel.snp.makeConstraints {
-            $0.centerY.equalTo(container.snp.centerY)
+            $0.centerY.equalTo(containerView.snp.centerY)
             $0.left.equalTo(isReadSymbolImage.snp.right).offset(14)
         }
         
         isReadChevronImage.snp.makeConstraints {
-            $0.centerY.equalTo(container.snp.centerY)
+            $0.centerY.equalTo(containerView.snp.centerY)
             $0.right.equalToSuperview().offset(-20)
         }
     }
