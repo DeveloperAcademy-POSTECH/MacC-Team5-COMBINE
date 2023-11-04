@@ -10,6 +10,10 @@
 		112003D12AE574FB00924FAB /* LottieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112003D02AE574FB00924FAB /* LottieManager.swift */; };
 		112003D42AE5752300924FAB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 112003D32AE5752300924FAB /* Lottie */; };
 		112003D82AE5792600924FAB /* TigerAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112003D72AE5792600924FAB /* TigerAnimationViewController.swift */; };
+		1143C6832AF4D6440032CE53 /* MyBookShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6822AF4D6440032CE53 /* MyBookShelfViewController.swift */; };
+		1143C6882AF6A31F0032CE53 /* StoryListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */; };
+		1143C68C2AF6B01E0032CE53 /* StoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */; };
+		1143C68E2AF6B0DE0032CE53 /* StoryTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C68D2AF6B0DE0032CE53 /* StoryTitle.swift */; };
 		11504B0A2AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */; };
 		116A95362ADF72570096760A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 116A952D2ADF72550096760A /* Pretendard-Black.otf */; };
 		116A95372ADF72570096760A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 116A952D2ADF72550096760A /* Pretendard-Black.otf */; };
@@ -91,6 +95,10 @@
 /* Begin PBXFileReference section */
 		112003D02AE574FB00924FAB /* LottieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieManager.swift; sourceTree = "<group>"; };
 		112003D72AE5792600924FAB /* TigerAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerAnimationViewController.swift; sourceTree = "<group>"; };
+		1143C6822AF4D6440032CE53 /* MyBookShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookShelfViewController.swift; sourceTree = "<group>"; };
+		1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListTableView.swift; sourceTree = "<group>"; };
+		1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListTableViewCell.swift; sourceTree = "<group>"; };
+		1143C68D2AF6B0DE0032CE53 /* StoryTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTitle.swift; sourceTree = "<group>"; };
 		11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerLottieAnimationVIew.swift; sourceTree = "<group>"; };
 		11504B0C2AE58EC000AED5C0 /* TigerAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TigerAnimation.json; sourceTree = "<group>"; };
 		116A952D2ADF72550096760A /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
@@ -179,6 +187,32 @@
 				112003D72AE5792600924FAB /* TigerAnimationViewController.swift */,
 			);
 			path = VIewController;
+			sourceTree = "<group>";
+		};
+		1143C6802AF4D6160032CE53 /* MyBookShelf */ = {
+			isa = PBXGroup;
+			children = (
+				1143C6842AF6A1EF0032CE53 /* View */,
+				1143C6812AF4D6270032CE53 /* ViewController */,
+			);
+			path = MyBookShelf;
+			sourceTree = "<group>";
+		};
+		1143C6812AF4D6270032CE53 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1143C6822AF4D6440032CE53 /* MyBookShelfViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1143C6842AF6A1EF0032CE53 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */,
+				1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		11504B082AE57D9B00AED5C0 /* View */ = {
@@ -284,6 +318,7 @@
 		A80B882E2ADB9ABC00091FF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				1143C6802AF4D6160032CE53 /* MyBookShelf */,
 				A81637202ADFC51F0070DAC9 /* Components */,
 				A87217C42AE2129C003C0D5C /* Ttekkkochi */,
 				67816A482AE26FCB00B121B6 /* GiveTtekk */,
@@ -383,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */,
+				1143C68D2AF6B0DE0032CE53 /* StoryTitle.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -601,22 +637,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1143C6832AF4D6440032CE53 /* MyBookShelfViewController.swift in Sources */,
 				A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */,
 				112003D82AE5792600924FAB /* TigerAnimationViewController.swift in Sources */,
 				A8A725032AE55F7C004840A6 /* TtekkkochiViewModel.swift in Sources */,
 				A8F41D2F2AE5001F00BB0260 /* HapticManager.swift in Sources */,
 				A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */,
 				A8BC0DBE2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift in Sources */,
+				1143C68C2AF6B01E0032CE53 /* StoryListTableViewCell.swift in Sources */,
 				11504B0A2AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift in Sources */,
 				A8BC0DB72AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift in Sources */,
 				A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */,
 				A8A482052AE5DBDC00FDE35C /* Log.swift in Sources */,
+				1143C6882AF6A31F0032CE53 /* StoryListTableView.swift in Sources */,
 				A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */,
 				116A95532ADF72AB0096760A /* FontManager.swift in Sources */,
 				A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */,
 				112003D12AE574FB00924FAB /* LottieManager.swift in Sources */,
 				A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */,
 				A8BC0DB22AE3401800AD5C9A /* CodingBlock.swift in Sources */,
+				1143C68E2AF6B0DE0032CE53 /* StoryTitle.swift in Sources */,
 				A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */,
 				A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */,
 				67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */,
@@ -800,7 +840,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = XGHDQG66U5;
+				DEVELOPMENT_TEAM = W43DLLFB4Q;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
@@ -829,7 +869,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = XGHDQG66U5;
+				DEVELOPMENT_TEAM = W43DLLFB4Q;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";

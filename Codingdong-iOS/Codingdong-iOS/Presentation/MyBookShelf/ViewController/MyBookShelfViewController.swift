@@ -70,6 +70,8 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         return label
     }()
     
+    private let storyList = StoryListTableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
@@ -92,7 +94,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [storyTitle, badgeTitle, moreStoryButton, moreBadgeButton].forEach {
+        [storyTitle, badgeTitle, moreStoryButton, moreBadgeButton, storyList].forEach {
             view.addSubview($0)
         }
     }
@@ -104,7 +106,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         }
         
         badgeTitle.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(381)
+            $0.top.equalTo(storyList.snp.bottom).offset(32)
             $0.left.equalToSuperview().offset(16)
         }
         
@@ -118,6 +120,12 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
             $0.bottom.equalTo(badgeTitle.snp.bottom)
         }
         
+        storyList.snp.makeConstraints {
+            $0.top.equalTo(storyTitle.snp.bottom).offset(16)
+            $0.left.equalToSuperview().offset(16)
+            $0.right.equalToSuperview().offset(-16)
+            $0.height.equalTo(180)
+        }
     }
     
     func setupAccessibility() {
@@ -137,6 +145,7 @@ extension MyBookShelfViewController {
     
     @objc
     func handleButtonTapped(_ sender: UITapGestureRecognizer) {
+        // TODO: 각 버튼 별 더보기 뷰로 내비게이션 구현해야함.
         if let type = MoreButtonType(rawValue: sender.view?.tag ?? 0) {
             switch type {
             case .moreStory:
