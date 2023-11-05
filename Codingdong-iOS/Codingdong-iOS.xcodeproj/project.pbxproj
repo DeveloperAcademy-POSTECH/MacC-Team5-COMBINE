@@ -14,6 +14,9 @@
 		1143C6882AF6A31F0032CE53 /* StoryListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */; };
 		1143C68C2AF6B01E0032CE53 /* StoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */; };
 		1143C68E2AF6B0DE0032CE53 /* StoryTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C68D2AF6B0DE0032CE53 /* StoryTitle.swift */; };
+		1143C6902AF6ED1B0032CE53 /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C68F2AF6ED1B0032CE53 /* BadgeCollectionViewCell.swift */; };
+		1143C6922AF6ED7B0032CE53 /* BadgeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6912AF6ED7B0032CE53 /* BadgeList.swift */; };
+		1143C6952AF6F3760032CE53 /* BadgeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6942AF6F3760032CE53 /* BadgeCollectionView.swift */; };
 		11504B0A2AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */; };
 		116A95362ADF72570096760A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 116A952D2ADF72550096760A /* Pretendard-Black.otf */; };
 		116A95372ADF72570096760A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 116A952D2ADF72550096760A /* Pretendard-Black.otf */; };
@@ -99,6 +102,9 @@
 		1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListTableView.swift; sourceTree = "<group>"; };
 		1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListTableViewCell.swift; sourceTree = "<group>"; };
 		1143C68D2AF6B0DE0032CE53 /* StoryTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTitle.swift; sourceTree = "<group>"; };
+		1143C68F2AF6ED1B0032CE53 /* BadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewCell.swift; sourceTree = "<group>"; };
+		1143C6912AF6ED7B0032CE53 /* BadgeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeList.swift; sourceTree = "<group>"; };
+		1143C6942AF6F3760032CE53 /* BadgeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionView.swift; sourceTree = "<group>"; };
 		11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerLottieAnimationVIew.swift; sourceTree = "<group>"; };
 		11504B0C2AE58EC000AED5C0 /* TigerAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TigerAnimation.json; sourceTree = "<group>"; };
 		116A952D2ADF72550096760A /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
@@ -211,8 +217,17 @@
 			children = (
 				1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */,
 				1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */,
+				1143C6942AF6F3760032CE53 /* BadgeCollectionView.swift */,
+				1143C68F2AF6ED1B0032CE53 /* BadgeCollectionViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1143C6932AF6EEB00032CE53 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		11504B082AE57D9B00AED5C0 /* View */ = {
@@ -304,6 +319,7 @@
 		A80B882D2ADB9AA000091FF5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1143C6932AF6EEB00032CE53 /* New Group */,
 				A8A482042AE5DBDC00FDE35C /* Log.swift */,
 				11504B162AE64AAA00AED5C0 /* Lottie */,
 				A8F41D2B2AE4FC3900BB0260 /* Sound */,
@@ -419,6 +435,7 @@
 			children = (
 				A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */,
 				1143C68D2AF6B0DE0032CE53 /* StoryTitle.swift */,
+				1143C6912AF6ED7B0032CE53 /* BadgeList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -639,6 +656,7 @@
 			files = (
 				1143C6832AF4D6440032CE53 /* MyBookShelfViewController.swift in Sources */,
 				A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */,
+				1143C6952AF6F3760032CE53 /* BadgeCollectionView.swift in Sources */,
 				112003D82AE5792600924FAB /* TigerAnimationViewController.swift in Sources */,
 				A8A725032AE55F7C004840A6 /* TtekkkochiViewModel.swift in Sources */,
 				A8F41D2F2AE5001F00BB0260 /* HapticManager.swift in Sources */,
@@ -648,9 +666,11 @@
 				11504B0A2AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift in Sources */,
 				A8BC0DB72AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift in Sources */,
 				A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */,
+				1143C6922AF6ED7B0032CE53 /* BadgeList.swift in Sources */,
 				A8A482052AE5DBDC00FDE35C /* Log.swift in Sources */,
 				1143C6882AF6A31F0032CE53 /* StoryListTableView.swift in Sources */,
 				A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */,
+				1143C6902AF6ED1B0032CE53 /* BadgeCollectionViewCell.swift in Sources */,
 				116A95532ADF72AB0096760A /* FontManager.swift in Sources */,
 				A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */,
 				112003D12AE574FB00924FAB /* LottieManager.swift in Sources */,
