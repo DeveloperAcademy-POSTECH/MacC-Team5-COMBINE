@@ -69,7 +69,6 @@ extension StoryListTableView: UITableViewDataSource {
 extension StoryListTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO: 전래동화 선택시 해당 뷰로 내비게이션 연결해야함
-//        tableView.cellForRow(at: indexPath)?.backgroundColor = .red
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
