@@ -65,11 +65,9 @@ extension StoryListTableView: UITableViewDataSource {
 //        cell.configure(with: storyList[indexPath.row])
 
         if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
-            // 마지막 셀의 경우 구분선을 숨깁니다.
             cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: cell.bounds.size.width - 20)
         } else {
-            // 다른 셀의 경우 기본 구분선을 사용합니다.
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) // 원하는 여백 설정
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
         
         return cell

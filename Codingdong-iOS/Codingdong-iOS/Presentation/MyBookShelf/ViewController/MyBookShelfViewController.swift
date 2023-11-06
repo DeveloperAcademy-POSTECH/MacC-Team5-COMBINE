@@ -20,7 +20,6 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         label.text = "내 책장"
         label.font = FontManager.navigationtitle()
         label.textColor = .gs20
-        
         return label
     }()
     
@@ -29,7 +28,6 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         label.text = "전래동화"
         label.font = FontManager.subhead()
         label.textColor = .gs10
-        
         return label
     }()
     
@@ -38,7 +36,6 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         label.text = "개념 간식 모음"
         label.font = FontManager.subhead()
         label.textColor = .gs10
-        
         return label
     }()
     
@@ -49,10 +46,8 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         label.textColor = .secondary1
         label.tag = MoreButtonType.moreStory.rawValue
         label.isUserInteractionEnabled = true
-        
         let labelTap = UITapGestureRecognizer(target: self, action: #selector(handleButtonTapped))
         label.addGestureRecognizer(labelTap)
-        
         return label
     }()
     
@@ -63,10 +58,8 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         label.textColor = .secondary1
         label.tag = MoreButtonType.moreBadge.rawValue
         label.isUserInteractionEnabled = true
-        
         let labelTap = UITapGestureRecognizer(target: self, action: #selector(handleButtonTapped))
         label.addGestureRecognizer(labelTap)
-        
         return label
     }()
     
@@ -140,6 +133,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     func setupAccessibility() {
         navigationItem.accessibilityElements = [navigationTitle]
         view.accessibilityElements = [storyTitle, moreStoryButton, badgeTitle, moreBadgeButton]
+        // TODO: 각 요소에 Accessibility 적용
     }
     
 }
