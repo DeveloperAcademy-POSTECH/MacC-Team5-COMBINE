@@ -25,7 +25,6 @@ final class StoryListTableView: UIView {
         view.backgroundColor = .gs80
         
         view.separatorStyle = .singleLine
-        view.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         view.separatorInsetReference = .fromAutomaticInsets
         view.separatorColor = .white
         
@@ -62,14 +61,7 @@ extension StoryListTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: StoryListTableViewCell.identifier , for: indexPath) as? StoryListTableViewCell else { fatalError() }
         cell.storyTitle = storyList[indexPath.row]
-//        cell.configure(with: storyList[indexPath.row])
-
-        if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: cell.bounds.size.width - 20)
-        } else {
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        }
-        
+        cell.separatorInset = indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 ? UIEdgeInsets(top: 0, left: 0, bottom: 0, right: cell.bounds.size.width - 20) : UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         return cell
     }
 }
