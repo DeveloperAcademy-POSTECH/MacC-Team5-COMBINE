@@ -119,7 +119,7 @@ final class GiveTtekkViewController: UIViewController {
         // Threshold를 조절해서 인식 강도 조절 가능
         if motionManager.isAccelerometerAvailable {
             motionManager.accelerometerUpdateInterval = 0.2
-            motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data, error) in
+            motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data, _) in
                 if let acceleration = data?.acceleration {
                     let shakeThreshold = 2.0  // 흔들기 인식 강도
                     // 흔들기 감지
