@@ -42,7 +42,7 @@ final class CardView: UIView {
         label.numberOfLines = 0
         return label
     }()
-    
+        
     private lazy var conceptImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -68,6 +68,7 @@ final class CardView: UIView {
         }
         
         [titleLabel, separator, contentLabel, conceptImageView].forEach { containerView.addSubview($0) }
+        
         titleLabel.snp.makeConstraints {
             $0.left.equalToSuperview().offset(Constants.Card.cardPadding)
             $0.top.equalToSuperview().offset(20)
@@ -83,10 +84,11 @@ final class CardView: UIView {
             $0.left.equalToSuperview().offset(Constants.Card.cardPadding)
             $0.right.equalToSuperview().offset(-Constants.Card.cardPadding)
         }
+        
         conceptImageView.snp.makeConstraints {
-            $0.bottom.equalToSuperview().offset(-76)
-            $0.left.equalToSuperview().offset(117)
-            $0.right.equalToSuperview().offset(-117)
+            $0.bottom.equalTo(containerView.snp.bottom).offset(-76)
+            $0.centerX.equalToSuperview()
+
             $0.size.equalTo(CGSize(width: Constants.Card.cardSize, height: Constants.Card.cardSize))
         }
     }
@@ -116,4 +118,3 @@ extension CardView {
         self.conceptImageView.image = UIImage(named: model.cardImage ?? "")
     }
 }
-
