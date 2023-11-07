@@ -106,7 +106,6 @@
 		1143C6912AF6ED7B0032CE53 /* BadgeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeList.swift; sourceTree = "<group>"; };
 		1143C6942AF6F3760032CE53 /* BadgeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionView.swift; sourceTree = "<group>"; };
 		11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerLottieAnimationVIew.swift; sourceTree = "<group>"; };
-		11504B0C2AE58EC000AED5C0 /* TigerAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TigerAnimation.json; sourceTree = "<group>"; };
 		116A952D2ADF72550096760A /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		116A952E2ADF72560096760A /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		116A952F2ADF72560096760A /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
@@ -231,14 +230,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		11504B0E2AE6495300AED5C0 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				11504B0C2AE58EC000AED5C0 /* TigerAnimation.json */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		11504B162AE64AAA00AED5C0 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,7 +344,6 @@
 				A83392B42ADAB35E009BA7E2 /* Codingdong-iOSTests */,
 				A83392BE2ADAB35E009BA7E2 /* Codingdong-iOSUITests */,
 				A833929C2ADAB35D009BA7E2 /* Products */,
-				11504B0E2AE6495300AED5C0 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};

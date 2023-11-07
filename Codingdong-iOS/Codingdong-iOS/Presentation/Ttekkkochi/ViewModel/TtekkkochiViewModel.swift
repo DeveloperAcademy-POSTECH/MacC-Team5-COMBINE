@@ -24,7 +24,7 @@ final class TtekkkochiViewModel: TtekkkochiViewModelRepresentable {
     private var cancellables = Set<AnyCancellable>()
     
     func selectItem() {
-        Log.ia("다음으로 버튼이 클릭됨")
+        Log.i("다음으로 버튼이 클릭됨")
     }
 
 }
