@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Log
 
 final class OnboardingViewController: UIViewController {
     
@@ -51,16 +52,20 @@ final class OnboardingViewController: UIViewController {
         return label
     }()
     
-    // TODO: 버튼 추가
+    private let doneButton = CommonButton()
+    private lazy var doneButtonViewModel = CommonbuttonModel(title: "완료", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .gs10) {[weak self] in
+        Log.i("다음 화면으로 이동 추가")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        //setupAccessibility()
     }
     
     private func setupView() {
-        [voiceOverStackView, voiceOverTitle, voiceOverDescription].forEach { view.addSubview($0) }
+        [voiceOverStackView, voiceOverTitle, voiceOverDescription, doneButton].forEach { view.addSubview($0) }
+        
+        doneButton.setup(model: doneButtonViewModel)
         
         voiceOverStackView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(220)
@@ -79,9 +84,15 @@ final class OnboardingViewController: UIViewController {
             $0.left.equalToSuperview().offset(16)
             $0.right.equalToSuperview().offset(-16)
         }
+        
+        doneButton.snp.makeConstraints {
+            $0.top.equalTo(voiceOverDescription.snp.bottom).offset(139)
+            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
+            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
+            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
+        }
     }
 
     // TODO: 보이스오버 추가
     private func setupAccessibility() {}
-    
 }
