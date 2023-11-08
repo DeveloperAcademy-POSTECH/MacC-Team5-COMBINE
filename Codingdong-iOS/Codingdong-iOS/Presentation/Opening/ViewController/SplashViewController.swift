@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import Combine
 
 final class SplashViewController: UIViewController {
     
-    private lazy var containerView: UIStackView = {
+    private var cancellable = Set<AnyCancellable>()
+
+    // MARK: Splash
+    private lazy var splashContainerView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 32
@@ -25,7 +29,7 @@ final class SplashViewController: UIViewController {
         return imageView
     }()
     
-    private let nameLabel: UILabel = {
+    private let appNameLabel: UILabel = {
         let label = UILabel()
         label.text = "CODINGDONG"
         label.textColor = .gs10
@@ -34,6 +38,7 @@ final class SplashViewController: UIViewController {
         return label
     }()
     
+    //MARK: - View init
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
@@ -42,16 +47,16 @@ final class SplashViewController: UIViewController {
     }
     
     func setupView() {
-        view.addSubview(containerView)
-        [logoImageView, nameLabel].forEach { containerView.addArrangedSubview($0) }
-        containerView.snp.makeConstraints { $0.centerX.centerY.equalToSuperview() }
+        view.addSubview(splashContainerView)
+        [logoImageView, appNameLabel].forEach { splashContainerView.addArrangedSubview($0) }
+
+        splashContainerView.snp.makeConstraints { $0.centerX.centerY.equalToSuperview() }
     }
     
     // TODO: 보이스오버 체크
-    func setupAccessibility() {
-        view.accessibilityElements = [logoImageView, nameLabel]
+    private func setupAccessibility() {
+        view.accessibilityElements = [logoImageView, appNameLabel]
         logoImageView.accessibilityLabel = "코딩동 로고"
-        nameLabel.accessibilityLabel = "코딩동"
+        appNameLabel.accessibilityLabel = "코딩동"
     }
-    
 }
