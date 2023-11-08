@@ -9,8 +9,6 @@ import UIKit
 import Combine
 
 final class SplashViewController: UIViewController {
-    
-    private var cancellable = Set<AnyCancellable>()
 
     // MARK: Splash
     private lazy var splashContainerView: UIStackView = {
@@ -46,7 +44,7 @@ final class SplashViewController: UIViewController {
         setupAccessibility()
     }
     
-    func setupView() {
+    private func setupView() {
         view.addSubview(splashContainerView)
         [logoImageView, appNameLabel].forEach { splashContainerView.addArrangedSubview($0) }
 
