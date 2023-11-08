@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Log
 
 final class MyBookShelfViewController: UIViewController, ConfigUI {
     
@@ -152,11 +153,11 @@ extension MyBookShelfViewController {
         if let type = MoreButtonType(rawValue: sender.view?.tag ?? 0) {
             switch type {
             case .moreStory:
-                Log().info("moreStory")
+                Log.i("더보기:스토리")
             case .moreBadge:
-                Log().info("moreBadge")
+                Log.i("더보기:뱃지")
             case .defaultValue:
-                Log().info("Item has no tag")
+                Log.c("디폴트")
             }
         }
     }
