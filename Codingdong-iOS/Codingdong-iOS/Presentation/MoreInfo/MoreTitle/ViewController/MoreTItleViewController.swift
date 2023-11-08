@@ -34,6 +34,8 @@ final class MoreTItleViewController: UIViewController, ConfigUI {
         return leftBarButton
     }()
     
+    private let storyList = StoryListTableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
@@ -57,11 +59,18 @@ final class MoreTItleViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        
+        [storyList].forEach {
+            view.addSubview($0)
+        }
     }
     
     func setConstraints() {
-        
+        storyList.snp.makeConstraints {
+            $0.top.equalTo(naviLine.snp.bottom).offset(16)
+            $0.left.equalToSuperview().offset(16)
+            $0.right.equalToSuperview().offset(-16)
+            $0.height.equalTo(dummyStories.count * 60)
+        }
     }
     
     func setupAccessibility() {

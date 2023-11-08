@@ -61,7 +61,7 @@ extension StoryListTableView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: StoryListTableViewCell.identifier , for: indexPath) as? StoryListTableViewCell else { fatalError() }
-        cell.storyTitle = storyList[indexPath.row]
+        cell.storyTitle = dummyStories[indexPath.row]
         cell.separatorInset = indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 ? UIEdgeInsets(top: 0, left: 0, bottom: 0, right: cell.bounds.size.width - 20) : UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         return cell
     }
