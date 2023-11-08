@@ -12,4 +12,9 @@ struct Constants {
     enum Button {
         static let buttonPadding: CGFloat = 16
     }
+    
+    enum Card {
+        static let cardPadding: CGFloat = 24
+        static let cardSize: CGFloat = 124
+    }
 }
