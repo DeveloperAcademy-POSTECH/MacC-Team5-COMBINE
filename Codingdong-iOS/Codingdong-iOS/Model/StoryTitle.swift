@@ -13,7 +13,7 @@ struct StoryTitle: Identifiable, Hashable, Equatable {
     var isRead: Bool
 }
 
-var storyList: [StoryTitle] = [
+var dummyStories: [StoryTitle] = [
     StoryTitle(title: "해님달님", isRead: true),
     StoryTitle(title: "콩쥐팥쥐", isRead: false),
     StoryTitle(title: "별주부전", isRead: false)
