@@ -86,7 +86,10 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        
+        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
+        view.accessibilityElements = [
+            labelComponents.containerView, nextButton
+        ]
     }
 }
 

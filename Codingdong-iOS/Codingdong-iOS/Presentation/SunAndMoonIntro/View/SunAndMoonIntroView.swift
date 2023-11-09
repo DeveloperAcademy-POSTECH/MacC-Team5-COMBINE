@@ -10,7 +10,7 @@ import SnapKit
 
 final class SunAndMoonIntroView: UIView, ConfigUI {
     
-    private let containerView: UIView = {
+    let containerView: UIView = {
         let view = UIView()
         return view
     }()
@@ -89,14 +89,14 @@ final class SunAndMoonIntroView: UIView, ConfigUI {
     
     private override init(frame: CGRect) {
         super.init(frame: frame)
-        
         addSubview(containerView)
-        
         containerView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        setupAccessibility()
         addComponents()
         setConstraints()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -143,7 +143,7 @@ final class SunAndMoonIntroView: UIView, ConfigUI {
             $0.right.equalToSuperview().offset(-basicPadding)
             $0.top.equalTo(secondConceptLabel.snp.bottom).offset(basicPadding / 2)
         }
-    
+        
         thirdConceptLabel.snp.makeConstraints {
             $0.left.equalToSuperview().offset(basicPadding)
             $0.right.equalToSuperview().offset(-basicPadding)
@@ -158,6 +158,28 @@ final class SunAndMoonIntroView: UIView, ConfigUI {
     }
     
     func setupAccessibility() {
+        containerView.accessibilityElements = [
+            introLabel,
+            firstConceptLabel,
+            firstDescriptionLabel,
+            secondConceptLabel,
+            secondDescriptionLabel,
+            thirdConceptLabel,
+            thirdDescriptionLabel
+        ]
         
+        introLabel.accessibilityTraits = .none
+        firstConceptLabel.accessibilityTraits = .none
+        firstDescriptionLabel.accessibilityTraits = .none
+        secondConceptLabel.accessibilityTraits = .none
+        secondDescriptionLabel.accessibilityTraits = .none
+        thirdConceptLabel.accessibilityTraits = .none
+        thirdDescriptionLabel.accessibilityTraits = .none
+        firstDescriptionLabel.accessibilityLabel = "내용"
+        secondDescriptionLabel.accessibilityLabel = "내용"
+        thirdDescriptionLabel.accessibilityLabel = "내용"
+        firstDescriptionLabel.accessibilityValue = "호랑이랑 마주친 엄마"
+        secondDescriptionLabel.accessibilityValue = "남매의 집에 도착한 호랑이"
+        thirdDescriptionLabel.accessibilityValue = "동아줄을 잡은 남매와 호랑이"
     }
 }
