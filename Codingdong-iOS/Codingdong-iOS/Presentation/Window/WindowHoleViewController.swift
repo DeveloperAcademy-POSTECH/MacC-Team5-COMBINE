@@ -35,7 +35,19 @@ final class WindowHoleViewController: UIViewController {
     
     private let tigerHandHoleImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "tigerHandsHoleBefore.png")
+        imageView.image = UIImage(named: "tigerHandHoleBefore")
+        return imageView
+    }()
+    
+    private let tigerNoseHoleImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "tigerNoseHoleBefore")
+        return imageView
+    }()
+    
+    private let tigerTailHoleImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "tigerTailHoleBefore")
         return imageView
     }()
     
@@ -68,7 +80,7 @@ final class WindowHoleViewController: UIViewController {
     }
     
     func addComponents() {
-        [titleLabel, windowImageView, tigerHandHoleImageView, nextButton].forEach {
+        [titleLabel, windowImageView, tigerHandHoleImageView, tigerNoseHoleImageView, tigerTailHoleImageView, nextButton].forEach {
             view.addSubview($0)
         }
     }
@@ -96,6 +108,23 @@ final class WindowHoleViewController: UIViewController {
         tigerHandHoleImageView.snp.makeConstraints {
             $0.left.equalToSuperview().offset(102)
             $0.top.equalToSuperview().offset(401)
+        }
+        
+        tigerNoseHoleImageView.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(226)
+            $0.top.equalToSuperview().offset(305)
+        }
+        
+        tigerTailHoleImageView.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(204)
+            $0.top.equalToSuperview().offset(537)
+        }
+        
+        nextButton.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
+            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
+            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
+            $0.height.equalTo(72)
         }
     }
     
