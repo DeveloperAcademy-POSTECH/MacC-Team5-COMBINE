@@ -21,6 +21,7 @@
 		1143C6BE2AFB61800032CE53 /* MoreTItleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6BD2AFB61800032CE53 /* MoreTItleViewController.swift */; };
 		1143C6C02AFB666A0032CE53 /* MoreBadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6BF2AFB666A0032CE53 /* MoreBadgeViewController.swift */; };
 		1143C6C42AFB829F0032CE53 /* SunAndMoonIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6C32AFB829F0032CE53 /* SunAndMoonIntroViewController.swift */; };
+		1143C6C72AFD39880032CE53 /* SunAndMoonIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6C62AFD39880032CE53 /* SunAndMoonIntroView.swift */; };
 		11504B0A2AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */; };
 		116A95362ADF72570096760A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 116A952D2ADF72550096760A /* Pretendard-Black.otf */; };
 		116A95372ADF72570096760A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 116A952D2ADF72550096760A /* Pretendard-Black.otf */; };
@@ -116,6 +117,7 @@
 		1143C6BD2AFB61800032CE53 /* MoreTItleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTItleViewController.swift; sourceTree = "<group>"; };
 		1143C6BF2AFB666A0032CE53 /* MoreBadgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBadgeViewController.swift; sourceTree = "<group>"; };
 		1143C6C32AFB829F0032CE53 /* SunAndMoonIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunAndMoonIntroViewController.swift; sourceTree = "<group>"; };
+		1143C6C62AFD39880032CE53 /* SunAndMoonIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunAndMoonIntroView.swift; sourceTree = "<group>"; };
 		11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerLottieAnimationVIew.swift; sourceTree = "<group>"; };
 		116A952D2ADF72550096760A /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		116A952E2ADF72560096760A /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 		1143C6C12AFB822E0032CE53 /* SunAndMoonIntro */ = {
 			isa = PBXGroup;
 			children = (
+				1143C6C52AFD391E0032CE53 /* View */,
 				1143C6C22AFB82880032CE53 /* ViewController */,
 			);
 			path = SunAndMoonIntro;
@@ -291,6 +294,14 @@
 				1143C6C32AFB829F0032CE53 /* SunAndMoonIntroViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1143C6C52AFD391E0032CE53 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1143C6C62AFD39880032CE53 /* SunAndMoonIntroView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		11504B082AE57D9B00AED5C0 /* View */ = {
@@ -761,6 +772,7 @@
 				1143C6C42AFB829F0032CE53 /* SunAndMoonIntroViewController.swift in Sources */,
 				A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */,
 				67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */,
+				1143C6C72AFD39880032CE53 /* SunAndMoonIntroView.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
 				1143C6C02AFB666A0032CE53 /* MoreBadgeViewController.swift in Sources */,
@@ -942,7 +954,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = XGHDQG66U5;
+				DEVELOPMENT_TEAM = W43DLLFB4Q;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
@@ -971,7 +983,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = XGHDQG66U5;
+				DEVELOPMENT_TEAM = W43DLLFB4Q;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
