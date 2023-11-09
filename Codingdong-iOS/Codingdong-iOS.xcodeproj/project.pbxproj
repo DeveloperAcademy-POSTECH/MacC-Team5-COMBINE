@@ -20,6 +20,7 @@
 		1143C6B72AFB5BDF0032CE53 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6B62AFB5BDF0032CE53 /* CardView.swift */; };
 		1143C6BE2AFB61800032CE53 /* MoreTItleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6BD2AFB61800032CE53 /* MoreTItleViewController.swift */; };
 		1143C6C02AFB666A0032CE53 /* MoreBadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6BF2AFB666A0032CE53 /* MoreBadgeViewController.swift */; };
+		1143C6C42AFB829F0032CE53 /* SunAndMoonIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6C32AFB829F0032CE53 /* SunAndMoonIntroViewController.swift */; };
 		11504B0A2AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */; };
 		116A95362ADF72570096760A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 116A952D2ADF72550096760A /* Pretendard-Black.otf */; };
 		116A95372ADF72570096760A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 116A952D2ADF72550096760A /* Pretendard-Black.otf */; };
@@ -111,6 +112,7 @@
 		1143C6B62AFB5BDF0032CE53 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		1143C6BD2AFB61800032CE53 /* MoreTItleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTItleViewController.swift; sourceTree = "<group>"; };
 		1143C6BF2AFB666A0032CE53 /* MoreBadgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBadgeViewController.swift; sourceTree = "<group>"; };
+		1143C6C32AFB829F0032CE53 /* SunAndMoonIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunAndMoonIntroViewController.swift; sourceTree = "<group>"; };
 		11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerLottieAnimationVIew.swift; sourceTree = "<group>"; };
 		116A952D2ADF72550096760A /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		116A952E2ADF72560096760A /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -269,6 +271,22 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		1143C6C12AFB822E0032CE53 /* SunAndMoonIntro */ = {
+			isa = PBXGroup;
+			children = (
+				1143C6C22AFB82880032CE53 /* ViewController */,
+			);
+			path = SunAndMoonIntro;
+			sourceTree = "<group>";
+		};
+		1143C6C22AFB82880032CE53 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1143C6C32AFB829F0032CE53 /* SunAndMoonIntroViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		11504B082AE57D9B00AED5C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +381,7 @@
 		A80B882E2ADB9ABC00091FF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				1143C6C12AFB822E0032CE53 /* SunAndMoonIntro */,
 				1143C6B82AFB61070032CE53 /* MoreInfo */,
 				1143C6802AF4D6160032CE53 /* MyBookShelf */,
 				A81637202ADFC51F0070DAC9 /* Components */,
@@ -711,6 +730,7 @@
 				1143C68E2AF6B0DE0032CE53 /* StoryTitle.swift in Sources */,
 				A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */,
 				1143C6BE2AFB61800032CE53 /* MoreTItleViewController.swift in Sources */,
+				1143C6C42AFB829F0032CE53 /* SunAndMoonIntroViewController.swift in Sources */,
 				A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */,
 				67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,

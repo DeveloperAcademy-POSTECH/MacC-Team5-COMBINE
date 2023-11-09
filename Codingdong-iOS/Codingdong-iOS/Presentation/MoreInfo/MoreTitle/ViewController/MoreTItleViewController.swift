@@ -43,7 +43,6 @@ final class MoreTItleViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         setupAccessibility()
-        
     }
     
     func setupNavigationBar() {
