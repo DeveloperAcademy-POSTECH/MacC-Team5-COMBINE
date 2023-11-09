@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 final class TigerAnimationViewController: UIViewController, ConfigUI {
     
@@ -142,13 +143,15 @@ extension TigerAnimationViewController {
         }
     }
     
-    @objc func didClickNextButton() {
+    @objc
+    func didClickNextButton() {
         // TODO: 다음 화면으로 내비게이션 연결 추가해야함.
         // TODO: 버튼에 액션 연결되지 않은 상태.
         print("너무 아름다운 다운 다운 다운 View")
     }
     
-    @objc func voiceOverFocusChanged(_ notification: Notification) {
+    @objc
+    func voiceOverFocusChanged(_ notification: Notification) {
         if UIAccessibility.isVoiceOverRunning {
             if let focusedElement = notification.userInfo?[UIAccessibility.focusedElementUserInfoKey] as? NSObject, focusedElement === titleLabel {
                 LottieManager.shared.playAnimation(inView: animationView.lottieView, completion: nil)

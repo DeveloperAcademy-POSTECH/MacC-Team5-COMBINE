@@ -1,5 +1,5 @@
 //
-//  MoreTItleViewController.swift
+//  SunAndMoonIntroViewController.swift
 //  Codingdong-iOS
 //
 //  Created by BAE on 2023/11/08.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class MoreTItleViewController: UIViewController, ConfigUI {
+final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     
     private let naviLine: UIView = {
         let view = UIView()
@@ -18,7 +18,7 @@ final class MoreTItleViewController: UIViewController, ConfigUI {
     
     private let navigationTitle: UILabel = {
         let label = UILabel()
-        label.text = "전래동화"
+        label.text = "해님 달님"
         label.font = FontManager.navigationtitle()
         label.textColor = .gs20
         return label
@@ -34,7 +34,13 @@ final class MoreTItleViewController: UIViewController, ConfigUI {
         return leftBarButton
     }()
     
-    private let storyList = StoryListTableView()
+    private let labelComponents = SunAndMoonIntroView()
+    
+    private let nextButton = CommonButton()
+    
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "시작하기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .gs10, height: 72, didTouchUpInside: didClickNextButton)
+    
+    private let basicPadding = Constants.Button.buttonPadding
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +49,7 @@ final class MoreTItleViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         setupAccessibility()
+        nextButton.setup(model: nextButtonViewModel)
     }
     
     func setupNavigationBar() {
@@ -58,26 +65,43 @@ final class MoreTItleViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [storyList].forEach {
+        [labelComponents, nextButton].forEach {
             view.addSubview($0)
         }
+        
     }
     
     func setConstraints() {
-        storyList.snp.makeConstraints {
-            $0.top.equalTo(naviLine.snp.bottom).offset(16)
-            $0.left.equalToSuperview().offset(16)
-            $0.right.equalToSuperview().offset(-16)
-            $0.height.equalTo(dummyStories.count * 60)
+        labelComponents.snp.makeConstraints {
+            $0.left.equalToSuperview()
+            $0.right.equalToSuperview()
+            $0.top.equalTo(naviLine).offset(basicPadding)
+        }
+        
+        nextButton.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(basicPadding)
+            $0.right.equalToSuperview().offset(-basicPadding)
+            $0.bottom.equalToSuperview().offset(-basicPadding * 2)
         }
     }
     
     func setupAccessibility() {
-        
+        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
+        view.accessibilityElements = [
+            labelComponents.containerView, nextButton
+        ]
     }
 }
 
-extension MoreTItleViewController {
+extension SunAndMoonIntroViewController {
+    
+    @objc
+    func didClickNextButton() {
+        // TODO: 다음 화면으로 내비게이션 연결 추가해야함.
+        // TODO: 버튼에 액션 연결되지 않은 상태.
+        print("너무 아름다운 다운 다운 다운 View")
+    }
+    
     @objc
     func popThisView() {
         self.navigationController?.popToRootViewController(animated: false)
