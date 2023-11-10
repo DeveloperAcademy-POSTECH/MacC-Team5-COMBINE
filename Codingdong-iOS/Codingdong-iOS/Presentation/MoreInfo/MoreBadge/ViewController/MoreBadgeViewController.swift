@@ -41,7 +41,6 @@ final class MoreBadgeViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         setupAccessibility()
-        
     }
     
     func setupNavigationBar() {

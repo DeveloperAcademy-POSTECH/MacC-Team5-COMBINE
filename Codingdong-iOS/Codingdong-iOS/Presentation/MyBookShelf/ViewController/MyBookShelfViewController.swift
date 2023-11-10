@@ -136,11 +136,9 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         view.accessibilityElements = [storyTitle, moreTitleButton, badgeTitle, moreBadgeButton]
         // TODO: 각 요소에 Accessibility 적용
     }
-    
 }
 
 extension MyBookShelfViewController {
-    
     enum MoreButtonType: Int {
         case moreTitle = 1
         case moreBadge = 2
@@ -149,7 +147,6 @@ extension MyBookShelfViewController {
     
     @objc
     func handleButtonTapped(_ sender: UITapGestureRecognizer) {
-        // TODO: 각 버튼 별 더보기 뷰로 내비게이션 구현해야함.
         if let type = MoreButtonType(rawValue: sender.view?.tag ?? 0) {
             switch type {
             case .moreTitle:
@@ -163,5 +160,4 @@ extension MyBookShelfViewController {
             }
         }
     }
-    
 }

@@ -14,7 +14,6 @@ final class StoryListTableViewCell: UITableViewCell {
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .gs80
-        
         return view
     }()
     
@@ -31,9 +30,6 @@ final class StoryListTableViewCell: UITableViewCell {
         imageView.backgroundColor = .clear
         imageView.contentMode = .scaleAspectFill
         imageView.tintColor = .secondary1
-//        imageView.layer.borderWidth = 1
-//        imageView.layer.borderColor = UIColor.white.cgColor
-        
         return imageView
     }()
     
@@ -42,9 +38,6 @@ final class StoryListTableViewCell: UITableViewCell {
         label.font = FontManager.caption1()
         label.textColor = .white
         label.backgroundColor = .gs80
-//        label.layer.borderWidth = 1
-//        label.layer.borderColor = UIColor.white.cgColor
-
         return label
     }()
     
@@ -90,10 +83,4 @@ final class StoryListTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//    func configure(with model: StoryTitle) {
-//        titleLabel.text = model.title
-//        isReadSymbolImage.image = storyTitle.isRead ? UIImage(systemName: "play.square") : UIImage(systemName: "lock.fill")
-//        isReadChevronImage.isHidden = storyTitle.isRead ? false : true
-//    }
 }

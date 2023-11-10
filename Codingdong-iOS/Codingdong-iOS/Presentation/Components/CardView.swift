@@ -40,6 +40,7 @@ final class CardView: UIView {
         label.font = FontManager.body()
         label.textColor = .white
         label.numberOfLines = 0
+        label.lineBreakMode = .byCharWrapping
         return label
     }()
         
@@ -88,7 +89,7 @@ final class CardView: UIView {
         conceptImageView.snp.makeConstraints {
             $0.bottom.equalTo(containerView.snp.bottom).offset(-76)
             $0.centerX.equalToSuperview()
-
+            
             $0.size.equalTo(CGSize(width: Constants.Card.cardSize, height: Constants.Card.cardSize))
         }
     }

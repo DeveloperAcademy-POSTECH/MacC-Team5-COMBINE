@@ -16,7 +16,6 @@ class BadgeCollectionViewCell: UICollectionViewCell {
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
-        
         return view
     }()
     
@@ -32,7 +31,6 @@ class BadgeCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.backgroundColor = .clear
         imageView.contentMode = .scaleAspectFit
-        
         return imageView
     }()
     
@@ -40,17 +38,8 @@ class BadgeCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = FontManager.caption2()
         label.textColor = .gs40
-        
         return label
     }()
-    
-//    let themeLabel: UILabel = {
-//        
-//    }
-//    
-//    let titleLabel: UILabel = {
-//        
-//    }
     
     override init(frame: CGRect) {
         self.badgeItem = Badge(title: "", theme: "", date: Date(), image: UIImage(systemName: "exclamationmark.triangle.fill")!, haveBadge: false)
@@ -78,5 +67,4 @@ class BadgeCollectionViewCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

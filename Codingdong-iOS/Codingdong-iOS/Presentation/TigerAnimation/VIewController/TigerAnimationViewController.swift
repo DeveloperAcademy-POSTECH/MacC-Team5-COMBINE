@@ -115,7 +115,6 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
         
         leftBarButtonItem.accessibilityLabel = "내 책장"
         leftBarButtonItem.accessibilityTraits = .button
-//        leftBarButtonItem.accessibilityHint = "내 책장으로 돌아갑니다."
         
         titleLabel.accessibilityLabel = "본문"
         titleLabel.accessibilityValue = "떡을 모두 빼앗긴 엄마는 호랑이에게 잡아먹히고 말았어요."
@@ -148,6 +147,7 @@ extension TigerAnimationViewController {
         // TODO: 다음 화면으로 내비게이션 연결 추가해야함.
         // TODO: 버튼에 액션 연결되지 않은 상태.
         print("너무 아름다운 다운 다운 다운 View")
+        self.navigationController?.pushViewController(IfConceptViewController(), animated: false)
     }
     
     @objc
