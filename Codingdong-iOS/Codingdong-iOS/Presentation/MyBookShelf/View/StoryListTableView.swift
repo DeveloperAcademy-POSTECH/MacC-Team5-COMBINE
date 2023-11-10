@@ -23,6 +23,7 @@ final class StoryListTableView: UIView {
         view.dataSource = self
         view.delegate = self
         view.backgroundColor = .gs80
+        view.isScrollEnabled = false
         
         view.separatorStyle = .singleLine
         view.separatorInsetReference = .fromAutomaticInsets
@@ -55,12 +56,12 @@ final class StoryListTableView: UIView {
 
 extension StoryListTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storyList.count
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: StoryListTableViewCell.identifier , for: indexPath) as? StoryListTableViewCell else { fatalError() }
-        cell.storyTitle = storyList[indexPath.row]
+        cell.storyTitle = dummyStories[indexPath.row]
         cell.separatorInset = indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 ? UIEdgeInsets(top: 0, left: 0, bottom: 0, right: cell.bounds.size.width - 20) : UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         return cell
     }

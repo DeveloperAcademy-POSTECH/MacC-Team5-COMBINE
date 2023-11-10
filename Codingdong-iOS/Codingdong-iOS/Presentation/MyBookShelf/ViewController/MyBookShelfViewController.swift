@@ -40,12 +40,12 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         return label
     }()
     
-    private lazy var moreStoryButton: UILabel = {
+    private lazy var moreTitleButton: UILabel = {
         let label = UILabel()
         label.text = "더보기"
         label.font = FontManager.caption2()
         label.textColor = .secondary1
-        label.tag = MoreButtonType.moreStory.rawValue
+        label.tag = MoreButtonType.moreTitle.rawValue
         label.isUserInteractionEnabled = true
         let labelTap = UITapGestureRecognizer(target: self, action: #selector(handleButtonTapped))
         label.addGestureRecognizer(labelTap)
@@ -90,7 +90,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [storyTitle, badgeTitle, moreStoryButton, moreBadgeButton, storyList, badgeCollection].forEach {
+        [storyTitle, badgeTitle, moreTitleButton, moreBadgeButton, storyList, badgeCollection].forEach {
             view.addSubview($0)
         }
     }
@@ -106,7 +106,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
             $0.left.equalToSuperview().offset(18)
         }
         
-        moreStoryButton.snp.makeConstraints {
+        moreTitleButton.snp.makeConstraints {
             $0.right.equalToSuperview().offset(-18)
             $0.bottom.equalTo(storyTitle.snp.bottom)
         }
@@ -133,7 +133,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     
     func setupAccessibility() {
         navigationItem.accessibilityElements = [navigationTitle]
-        view.accessibilityElements = [storyTitle, moreStoryButton, badgeTitle, moreBadgeButton]
+        view.accessibilityElements = [storyTitle, moreTitleButton, badgeTitle, moreBadgeButton]
         // TODO: 각 요소에 Accessibility 적용
     }
     
@@ -142,7 +142,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
 extension MyBookShelfViewController {
     
     enum MoreButtonType: Int {
-        case moreStory = 1
+        case moreTitle = 1
         case moreBadge = 2
         case defaultValue = 0
     }
@@ -152,10 +152,12 @@ extension MyBookShelfViewController {
         // TODO: 각 버튼 별 더보기 뷰로 내비게이션 구현해야함.
         if let type = MoreButtonType(rawValue: sender.view?.tag ?? 0) {
             switch type {
-            case .moreStory:
+            case .moreTitle:
                 Log.i("더보기:스토리")
+                self.navigationController?.pushViewController(MoreTItleViewController(), animated: false)
             case .moreBadge:
                 Log.i("더보기:뱃지")
+                self.navigationController?.pushViewController(MoreBadgeViewController(), animated: false)
             case .defaultValue:
                 Log.c("디폴트")
             }

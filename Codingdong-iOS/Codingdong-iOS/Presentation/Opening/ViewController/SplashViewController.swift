@@ -36,7 +36,7 @@ final class SplashViewController: UIViewController {
         return label
     }()
     
-    //MARK: - View init
+    // MARK: - View init
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
