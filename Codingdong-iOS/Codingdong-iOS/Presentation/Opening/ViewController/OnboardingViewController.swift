@@ -55,6 +55,8 @@ final class OnboardingViewController: UIViewController {
     private let doneButton = CommonButton()
     private lazy var doneButtonViewModel = CommonbuttonModel(title: "완료", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .gs10) {[weak self] in
         Log.i("다음 화면으로 이동 추가")
+        self?.navigationController?.pushViewController(MyBookShelfViewController(), animated: false)
+        self?.navigationController?.setViewControllers([MyBookShelfViewController()], animated: false)
     }
     
     override func viewDidLoad() {

@@ -1,14 +1,14 @@
 //
-//  SunAndMoonIntroViewController.swift
+//  TigerEncountViewController.swift
 //  Codingdong-iOS
 //
-//  Created by BAE on 2023/11/08.
+//  Created by BAE on 2023/11/10.
 //
 
 import UIKit
 import SnapKit
 
-final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
+final class TigerEncountViewController: UIViewController, ConfigUI {
     
     private let naviLine: UIView = {
         let view = UIView()
@@ -18,7 +18,7 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     
     private let navigationTitle: UILabel = {
         let label = UILabel()
-        label.text = "해님 달님"
+        label.text = "호랑이를 마주친 엄마"
         label.font = FontManager.navigationtitle()
         label.textColor = .gs20
         return label
@@ -26,7 +26,7 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     
     private lazy var leftBarButtonItem: UIBarButtonItem = {
         let leftBarButton = UIBarButtonItem(
-            image: UIImage(systemName: "chevron.backward"),
+            image: UIImage(systemName: "books.vertical"),
             style: .plain,
             target: self,
             action: #selector(popThisView)
@@ -34,11 +34,11 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
         return leftBarButton
     }()
     
-    private let labelComponents = SunAndMoonIntroView()
+    private let labelComponents = TigerEncountView()
     
     private let nextButton = CommonButton()
     
-    private lazy var nextButtonViewModel = CommonbuttonModel(title: "시작하기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .gs10, height: 72, didTouchUpInside: didClickNextButton)
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "떡꼬치 만들기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2, height: 72, didTouchUpInside: didClickNextButton)
     
     private let basicPadding = Constants.Button.buttonPadding
     
@@ -68,7 +68,6 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
         [labelComponents, nextButton].forEach {
             view.addSubview($0)
         }
-        
     }
     
     func setConstraints() {
@@ -90,19 +89,20 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
         view.accessibilityElements = [
             labelComponents.containerView, nextButton
         ]
+        leftBarButtonItem.accessibilityLabel = "내 책장"
     }
 }
 
-extension SunAndMoonIntroViewController {
+extension TigerEncountViewController {
     @objc
     func didClickNextButton() {
         // TODO: 다음 화면으로 내비게이션 연결 추가해야함.
         // TODO: 버튼에 액션 연결되지 않은 상태.
-        self.navigationController?.pushViewController(TigerEncountViewController(), animated: false)
+        print("너무 아름다운 다운 다운 다운 View")
     }
     
     @objc
     func popThisView() {
-        self.navigationController?.popViewController(animated: false)
+        self.navigationController?.popToRootViewController(animated: false)
     }
 }
