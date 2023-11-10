@@ -14,7 +14,6 @@ final class BadgeCollectionView: UIView {
         let view = UIView()
         view.backgroundColor = .gs80
         view.layer.cornerRadius = 10
-        
         return view
     }()
     
@@ -27,7 +26,6 @@ final class BadgeCollectionView: UIView {
         view.dataSource = self
         view.delegate = self
         view.backgroundColor = .clear
-        
         return view
     }()
     

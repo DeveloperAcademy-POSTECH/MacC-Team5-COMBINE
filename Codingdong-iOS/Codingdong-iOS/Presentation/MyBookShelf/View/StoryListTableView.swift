@@ -33,8 +33,6 @@ final class StoryListTableView: UIView {
         return view
     }()
     
-    let data = ["해님달님", "콩쥐팥쥐", "별주부전"]
-    
     private override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -72,10 +70,9 @@ extension StoryListTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO: 전래동화 선택시 해당 뷰로 내비게이션 연결해야함
         Log.i("didSelect")
-        
         let selectedRow = indexPath.row
-        
         var destinationViewController: UIViewController?
+        
         switch selectedRow {
         case 0:
             destinationViewController = SunAndMoonIntroViewController()
