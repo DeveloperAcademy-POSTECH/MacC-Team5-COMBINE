@@ -10,6 +10,9 @@ import SnapKit
 
 final class WindowVoiceViewController: UIViewController {
     
+    var mTimer: Timer?
+    var initialCountNumber: Int = 3
+    
     private let naviLine: UIView = {
         let view = UIView()
         view.backgroundColor = .white.withAlphaComponent(0.15)
@@ -27,12 +30,29 @@ final class WindowVoiceViewController: UIViewController {
         return label
     }()
     
+    private let doorWithHolesImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "doorWithHoles")
+        return imageView
+    }()
+    
     private let speechButton = CommonButton()
-    private lazy var speechButtonViewModel = CommonbuttonModel(title: "누르고 말하기", font: FontManager.textbutton(), titleColor: .primary2, backgroundColor: .primary1)
+    private lazy var speechButtonViewModel = CommonbuttonModel(title: "누르고 말하기", font: FontManager.textbutton(), titleColor: .primary2, backgroundColor: .primary1, didTouchUpInside: nextButtonTapped)
+    
+    private let countdownBackgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black.withAlphaComponent(0.5)
+        
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
+        setupNavigationBar()
+        addComponents()
+        setConstraints()
+        speechButton.setup(model: speechButtonViewModel)
     }
     
     func setupNavigationBar() {
@@ -54,7 +74,7 @@ final class WindowVoiceViewController: UIViewController {
     }
     
     func addComponents() {
-        [].forEach {
+        [naviLine, titleLabel, doorWithHolesImageView, speechButton].forEach {
             view.addSubview($0)
         }
     }
@@ -66,11 +86,47 @@ final class WindowVoiceViewController: UIViewController {
             $0.right.equalToSuperview().offset(-16)
         }
         
+        doorWithHolesImageView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(324)
+            $0.left.equalToSuperview().offset(81)
+            $0.right.equalToSuperview().offset(-81)
+            $0.bottom.equalToSuperview().offset(-148)
+        }
+        
         speechButton.snp.makeConstraints {
             $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
             $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
             $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
             $0.height.equalTo(72)
         }
+    }
+    
+    func nextButtonTapped() {
+        let modalScreen = WindowVoiceChildViewController()
+        
+//        modalScreen.view.backgroundColor = .black
+        
+        modalScreen.modalPresentationStyle = .overFullScreen
+        
+//        modalScreen.view.alpha = 0.5
+        
+        self.present(modalScreen, animated: false, completion: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+            // TODO: 카운트 다운 후 STT 실행
+        }
+    }
+    
+    func onTimerStart() {
+        if let timer = mTimer {
+            if !timer.isValid {
+                mTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
+            }
+        }
+    }
+    
+    @objc func timerCallBack() {
+        initialCountNumber -= 1
+        titleLabel.text = String(initialCountNumber)
     }
 }

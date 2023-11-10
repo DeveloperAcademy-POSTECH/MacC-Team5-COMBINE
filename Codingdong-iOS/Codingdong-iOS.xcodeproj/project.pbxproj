@@ -44,6 +44,7 @@
 		1186768E2AE664290012FAFC /* TigerAnimation_HD.json in Resources */ = {isa = PBXBuildFile; fileRef = 1186768D2AE664290012FAFC /* TigerAnimation_HD.json */; };
 		670D34D62AF4D0FD00B81A06 /* WindowStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670D34D52AF4D0FD00B81A06 /* WindowStartViewController.swift */; };
 		670E09A22AFCAF81008AA6D5 /* WindowVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670E09A12AFCAF81008AA6D5 /* WindowVoiceViewController.swift */; };
+		670E09A42AFD4540008AA6D5 /* WindowVoiceChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670E09A32AFD4540008AA6D5 /* WindowVoiceChildViewController.swift */; };
 		672C12012AF8757E0064AA64 /* WindowHoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C12002AF8757E0064AA64 /* WindowHoleViewController.swift */; };
 		67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */; };
 		67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E63EFE2ADE67D000C79863 /* UIColor+.swift */; };
@@ -109,6 +110,7 @@
 		1186768D2AE664290012FAFC /* TigerAnimation_HD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TigerAnimation_HD.json; sourceTree = "<group>"; };
 		670D34D52AF4D0FD00B81A06 /* WindowStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowStartViewController.swift; sourceTree = "<group>"; };
 		670E09A12AFCAF81008AA6D5 /* WindowVoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowVoiceViewController.swift; sourceTree = "<group>"; };
+		670E09A32AFD4540008AA6D5 /* WindowVoiceChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowVoiceChildViewController.swift; sourceTree = "<group>"; };
 		672C12002AF8757E0064AA64 /* WindowHoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowHoleViewController.swift; sourceTree = "<group>"; };
 		67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveTtekkViewController.swift; sourceTree = "<group>"; };
 		67E63EFE2ADE67D000C79863 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				670D34D52AF4D0FD00B81A06 /* WindowStartViewController.swift */,
 				672C12002AF8757E0064AA64 /* WindowHoleViewController.swift */,
 				670E09A12AFCAF81008AA6D5 /* WindowVoiceViewController.swift */,
+				670E09A32AFD4540008AA6D5 /* WindowVoiceChildViewController.swift */,
 			);
 			path = Window;
 			sourceTree = "<group>";
@@ -629,6 +632,7 @@
 				670D34D62AF4D0FD00B81A06 /* WindowStartViewController.swift in Sources */,
 				A8BC0DB72AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift in Sources */,
 				A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */,
+				670E09A42AFD4540008AA6D5 /* WindowVoiceChildViewController.swift in Sources */,
 				A8A482052AE5DBDC00FDE35C /* Log.swift in Sources */,
 				A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */,
 				116A95532ADF72AB0096760A /* FontManager.swift in Sources */,

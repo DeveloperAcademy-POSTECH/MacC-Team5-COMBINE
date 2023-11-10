@@ -51,10 +51,10 @@ final class WindowHoleViewController: UIViewController {
         return imageView
     }()
     
-    private let nextButton = CommonButton()
-    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음",font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) { [weak self] in
-        self?.navigationController?.pushViewController(GiveTtekkViewController(), animated: false)
-    }
+//    private let nextButton = CommonButton()
+//    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음",font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) { [weak self] in
+//        self?.navigationController?.pushViewController(WindowVoiceViewController(), animated: false)
+//    }
     
     // MARK: - View init
     override func viewDidLoad() {
@@ -63,7 +63,7 @@ final class WindowHoleViewController: UIViewController {
         setupNavigationBar()
         addComponents()
         setConstraints()
-        nextButton.setup(model: nextButtonViewModel)
+//        nextButton.setup(model: nextButtonViewModel)
     }
     
     func setupNavigationBar() {
@@ -80,7 +80,7 @@ final class WindowHoleViewController: UIViewController {
     }
     
     func addComponents() {
-        [titleLabel, windowImageView, tigerHandHoleImageView, tigerNoseHoleImageView, tigerTailHoleImageView, nextButton].forEach {
+        [titleLabel, windowImageView, tigerHandHoleImageView, tigerNoseHoleImageView, tigerTailHoleImageView].forEach {
             view.addSubview($0)
         }
     }
@@ -120,12 +120,12 @@ final class WindowHoleViewController: UIViewController {
             $0.top.equalToSuperview().offset(537)
         }
         
-        nextButton.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
-            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
-            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
-            $0.height.equalTo(72)
-        }
+//        nextButton.snp.makeConstraints {
+//            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
+//            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
+//            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
+//            $0.height.equalTo(72)
+//        }
     }
     
     func animatedImages(for name: String) -> [UIImage] {
