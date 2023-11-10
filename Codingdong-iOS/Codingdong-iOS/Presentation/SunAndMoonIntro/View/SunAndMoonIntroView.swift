@@ -96,7 +96,6 @@ final class SunAndMoonIntroView: UIView, ConfigUI {
         setupAccessibility()
         addComponents()
         setConstraints()
-        
     }
     
     required init?(coder: NSCoder) {

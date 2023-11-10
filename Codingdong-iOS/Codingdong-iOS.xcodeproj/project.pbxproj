@@ -56,6 +56,7 @@
 		11CD0EDC2AFD56B800911B64 /* TigerEncountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */; };
 		11CD0EDF2AFD56D500911B64 /* TigerEncountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EDE2AFD56D500911B64 /* TigerEncountViewController.swift */; };
 		11CD0EE32AFDFCC400911B64 /* MoreTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EE22AFDFCC400911B64 /* MoreTitleViewController.swift */; };
+		11CD0EE72AFE031400911B64 /* IfConceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */; };
 		67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */; };
 		67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E63EFE2ADE67D000C79863 /* UIColor+.swift */; };
 		A80471882AFB5CC80090103E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80471872AFB5CC80090103E /* CardView.swift */; };
@@ -134,6 +135,7 @@
 		11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerEncountView.swift; sourceTree = "<group>"; };
 		11CD0EDE2AFD56D500911B64 /* TigerEncountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerEncountViewController.swift; sourceTree = "<group>"; };
 		11CD0EE22AFDFCC400911B64 /* MoreTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTitleViewController.swift; sourceTree = "<group>"; };
+		11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfConceptViewController.swift; sourceTree = "<group>"; };
 		67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveTtekkViewController.swift; sourceTree = "<group>"; };
 		67E63EFE2ADE67D000C79863 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		A80471872AFB5CC80090103E /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -376,6 +378,22 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		11CD0EE42AFE02C400911B64 /* IfConcept */ = {
+			isa = PBXGroup;
+			children = (
+				11CD0EE52AFE02FC00911B64 /* ViewController */,
+			);
+			path = IfConcept;
+			sourceTree = "<group>";
+		};
+		11CD0EE52AFE02FC00911B64 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		67816A482AE26FCB00B121B6 /* GiveTtekk */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,6 +445,7 @@
 		A80B882E2ADB9ABC00091FF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				11CD0EE42AFE02C400911B64 /* IfConcept */,
 				11CD0ED82AFD55FF00911B64 /* TigerEncount */,
 				1143C6C12AFB822E0032CE53 /* SunAndMoonIntro */,
 				A81637202ADFC51F0070DAC9 /* Components */,
@@ -775,6 +794,7 @@
 				A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */,
 				1143C6952AF6F3760032CE53 /* BadgeCollectionView.swift in Sources */,
 				112003D82AE5792600924FAB /* TigerAnimationViewController.swift in Sources */,
+				11CD0EE72AFE031400911B64 /* IfConceptViewController.swift in Sources */,
 				11CD0EE32AFDFCC400911B64 /* MoreTitleViewController.swift in Sources */,
 				A8A725032AE55F7C004840A6 /* TtekkkochiViewModel.swift in Sources */,
 				A8F41D2F2AE5001F00BB0260 /* HapticManager.swift in Sources */,
