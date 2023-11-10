@@ -18,7 +18,6 @@
 		1143C6922AF6ED7B0032CE53 /* BadgeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6912AF6ED7B0032CE53 /* BadgeList.swift */; };
 		1143C6952AF6F3760032CE53 /* BadgeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6942AF6F3760032CE53 /* BadgeCollectionView.swift */; };
 		1143C6B72AFB5BDF0032CE53 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6B62AFB5BDF0032CE53 /* CardView.swift */; };
-		1143C6BE2AFB61800032CE53 /* MoreTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6BD2AFB61800032CE53 /* MoreTitleViewController.swift */; };
 		1143C6C02AFB666A0032CE53 /* MoreBadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6BF2AFB666A0032CE53 /* MoreBadgeViewController.swift */; };
 		1143C6C42AFB829F0032CE53 /* SunAndMoonIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6C32AFB829F0032CE53 /* SunAndMoonIntroViewController.swift */; };
 		1143C6C72AFD39880032CE53 /* SunAndMoonIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6C62AFD39880032CE53 /* SunAndMoonIntroView.swift */; };
@@ -56,6 +55,7 @@
 		1186768E2AE664290012FAFC /* TigerAnimation_HD.json in Resources */ = {isa = PBXBuildFile; fileRef = 1186768D2AE664290012FAFC /* TigerAnimation_HD.json */; };
 		11CD0EDC2AFD56B800911B64 /* TigerEncountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */; };
 		11CD0EDF2AFD56D500911B64 /* TigerEncountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EDE2AFD56D500911B64 /* TigerEncountViewController.swift */; };
+		11CD0EE32AFDFCC400911B64 /* MoreTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EE22AFDFCC400911B64 /* MoreTitleViewController.swift */; };
 		67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */; };
 		67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E63EFE2ADE67D000C79863 /* UIColor+.swift */; };
 		A80471882AFB5CC80090103E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80471872AFB5CC80090103E /* CardView.swift */; };
@@ -116,7 +116,6 @@
 		1143C6912AF6ED7B0032CE53 /* BadgeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeList.swift; sourceTree = "<group>"; };
 		1143C6942AF6F3760032CE53 /* BadgeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionView.swift; sourceTree = "<group>"; };
 		1143C6B62AFB5BDF0032CE53 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		1143C6BD2AFB61800032CE53 /* MoreTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTitleViewController.swift; sourceTree = "<group>"; };
 		1143C6BF2AFB666A0032CE53 /* MoreBadgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBadgeViewController.swift; sourceTree = "<group>"; };
 		1143C6C32AFB829F0032CE53 /* SunAndMoonIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunAndMoonIntroViewController.swift; sourceTree = "<group>"; };
 		1143C6C62AFD39880032CE53 /* SunAndMoonIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunAndMoonIntroView.swift; sourceTree = "<group>"; };
@@ -134,6 +133,7 @@
 		1186768D2AE664290012FAFC /* TigerAnimation_HD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TigerAnimation_HD.json; sourceTree = "<group>"; };
 		11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerEncountView.swift; sourceTree = "<group>"; };
 		11CD0EDE2AFD56D500911B64 /* TigerEncountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerEncountViewController.swift; sourceTree = "<group>"; };
+		11CD0EE22AFDFCC400911B64 /* MoreTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTitleViewController.swift; sourceTree = "<group>"; };
 		67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveTtekkViewController.swift; sourceTree = "<group>"; };
 		67E63EFE2ADE67D000C79863 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		A80471872AFB5CC80090103E /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -245,18 +245,10 @@
 		1143C6B82AFB61070032CE53 /* MoreInfo */ = {
 			isa = PBXGroup;
 			children = (
+				11CD0EE02AFDFCA000911B64 /* MoreTitle */,
 				1143C6BA2AFB614D0032CE53 /* MoreBadge */,
-				1143C6B92AFB61120032CE53 /* MoreTitle */,
 			);
 			path = MoreInfo;
-			sourceTree = "<group>";
-		};
-		1143C6B92AFB61120032CE53 /* MoreTitle */ = {
-			isa = PBXGroup;
-			children = (
-				1143C6BB2AFB615E0032CE53 /* ViewController */,
-			);
-			path = MoreTitle;
 			sourceTree = "<group>";
 		};
 		1143C6BA2AFB614D0032CE53 /* MoreBadge */ = {
@@ -265,14 +257,6 @@
 				1143C6BC2AFB61690032CE53 /* ViewController */,
 			);
 			path = MoreBadge;
-			sourceTree = "<group>";
-		};
-		1143C6BB2AFB615E0032CE53 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				1143C6BD2AFB61800032CE53 /* MoreTitleViewController.swift */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		1143C6BC2AFB61690032CE53 /* ViewController */ = {
@@ -374,6 +358,22 @@
 				11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		11CD0EE02AFDFCA000911B64 /* MoreTitle */ = {
+			isa = PBXGroup;
+			children = (
+				11CD0EE12AFDFCAE00911B64 /* ViewController */,
+			);
+			path = MoreTitle;
+			sourceTree = "<group>";
+		};
+		11CD0EE12AFDFCAE00911B64 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				11CD0EE22AFDFCC400911B64 /* MoreTitleViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		67816A482AE26FCB00B121B6 /* GiveTtekk */ = {
@@ -775,6 +775,7 @@
 				A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */,
 				1143C6952AF6F3760032CE53 /* BadgeCollectionView.swift in Sources */,
 				112003D82AE5792600924FAB /* TigerAnimationViewController.swift in Sources */,
+				11CD0EE32AFDFCC400911B64 /* MoreTitleViewController.swift in Sources */,
 				A8A725032AE55F7C004840A6 /* TtekkkochiViewModel.swift in Sources */,
 				A8F41D2F2AE5001F00BB0260 /* HapticManager.swift in Sources */,
 				11CD0EDF2AFD56D500911B64 /* TigerEncountViewController.swift in Sources */,
@@ -799,7 +800,6 @@
 				A8BC0DB22AE3401800AD5C9A /* CodingBlock.swift in Sources */,
 				1143C68E2AF6B0DE0032CE53 /* StoryTitle.swift in Sources */,
 				A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */,
-				1143C6BE2AFB61800032CE53 /* MoreTitleViewController.swift in Sources */,
 				11CD0EDC2AFD56B800911B64 /* TigerEncountView.swift in Sources */,
 				1143C6C42AFB829F0032CE53 /* SunAndMoonIntroViewController.swift in Sources */,
 				A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */,
