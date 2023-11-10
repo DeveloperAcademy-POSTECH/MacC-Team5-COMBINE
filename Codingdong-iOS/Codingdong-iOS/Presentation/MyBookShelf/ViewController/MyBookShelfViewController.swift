@@ -154,7 +154,7 @@ extension MyBookShelfViewController {
             switch type {
             case .moreTitle:
                 Log.i("더보기:스토리")
-                self.navigationController?.pushViewController(MoreTItleViewController(), animated: false)
+                self.navigationController?.pushViewController(MoreTitleViewController(), animated: false)
             case .moreBadge:
                 Log.i("더보기:뱃지")
                 self.navigationController?.pushViewController(MoreBadgeViewController(), animated: false)
