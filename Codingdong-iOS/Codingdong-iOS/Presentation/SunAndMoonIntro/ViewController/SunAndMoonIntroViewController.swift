@@ -94,16 +94,15 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
 }
 
 extension SunAndMoonIntroViewController {
-    
     @objc
     func didClickNextButton() {
         // TODO: 다음 화면으로 내비게이션 연결 추가해야함.
         // TODO: 버튼에 액션 연결되지 않은 상태.
-        print("너무 아름다운 다운 다운 다운 View")
+        self.navigationController?.pushViewController(TigerEncountViewController(), animated: false)
     }
     
     @objc
     func popThisView() {
-        self.navigationController?.popToRootViewController(animated: false)
+        self.navigationController?.popViewController(animated: false)
     }
 }

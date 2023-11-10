@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Log
 
 final class StoryListTableView: UIView {
     
@@ -70,9 +71,38 @@ extension StoryListTableView: UITableViewDataSource {
 extension StoryListTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO: 전래동화 선택시 해당 뷰로 내비게이션 연결해야함
+        Log.i("didSelect")
+        
+        let selectedRow = indexPath.row
+        
+        var destinationViewController: UIViewController?
+        switch selectedRow {
+        case 0:
+            destinationViewController = SunAndMoonIntroViewController()
+        default:
+            break
+        }
+        
+        if let destinationVC = destinationViewController,
+           let vc = self.superview?.viewController {
+            vc.navigationController?.pushViewController(destinationVC, animated: false)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
+    }
+}
+
+extension UIView {
+    var viewController: UIViewController? {
+        var responder: UIResponder? = self
+        while let nextResponder = responder?.next {
+            responder = nextResponder
+            if let viewController = responder as? UIViewController {
+                return viewController
+            }
+        }
+        return nil
     }
 }
