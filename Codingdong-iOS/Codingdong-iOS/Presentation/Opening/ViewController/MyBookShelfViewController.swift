@@ -86,7 +86,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         return label
     }()
     
-    private let innerView = BadgeCollectionView()
+    private let innerView = YugwaCollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()

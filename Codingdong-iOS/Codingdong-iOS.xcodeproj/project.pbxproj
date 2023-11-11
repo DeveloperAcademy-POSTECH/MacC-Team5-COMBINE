@@ -14,9 +14,8 @@
 		1143C6882AF6A31F0032CE53 /* StoryListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */; };
 		1143C68C2AF6B01E0032CE53 /* StoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */; };
 		1143C68E2AF6B0DE0032CE53 /* StoryTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C68D2AF6B0DE0032CE53 /* StoryTitle.swift */; };
-		1143C6902AF6ED1B0032CE53 /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C68F2AF6ED1B0032CE53 /* BadgeCollectionViewCell.swift */; };
 		1143C6922AF6ED7B0032CE53 /* BadgeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6912AF6ED7B0032CE53 /* BadgeList.swift */; };
-		1143C6952AF6F3760032CE53 /* BadgeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6942AF6F3760032CE53 /* BadgeCollectionView.swift */; };
+		1143C6952AF6F3760032CE53 /* YugwaCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6942AF6F3760032CE53 /* YugwaCollectionView.swift */; };
 		1143C6C02AFB666A0032CE53 /* MoreBadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6BF2AFB666A0032CE53 /* MoreBadgeViewController.swift */; };
 		1143C6C42AFB829F0032CE53 /* SunAndMoonIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6C32AFB829F0032CE53 /* SunAndMoonIntroViewController.swift */; };
 		1143C6C72AFD39880032CE53 /* SunAndMoonIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6C62AFD39880032CE53 /* SunAndMoonIntroView.swift */; };
@@ -117,9 +116,8 @@
 		1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListTableView.swift; sourceTree = "<group>"; };
 		1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListTableViewCell.swift; sourceTree = "<group>"; };
 		1143C68D2AF6B0DE0032CE53 /* StoryTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTitle.swift; sourceTree = "<group>"; };
-		1143C68F2AF6ED1B0032CE53 /* BadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewCell.swift; sourceTree = "<group>"; };
 		1143C6912AF6ED7B0032CE53 /* BadgeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeList.swift; sourceTree = "<group>"; };
-		1143C6942AF6F3760032CE53 /* BadgeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionView.swift; sourceTree = "<group>"; };
+		1143C6942AF6F3760032CE53 /* YugwaCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YugwaCollectionView.swift; sourceTree = "<group>"; };
 		1143C6BF2AFB666A0032CE53 /* MoreBadgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBadgeViewController.swift; sourceTree = "<group>"; };
 		1143C6C32AFB829F0032CE53 /* SunAndMoonIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunAndMoonIntroViewController.swift; sourceTree = "<group>"; };
 		1143C6C62AFD39880032CE53 /* SunAndMoonIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunAndMoonIntroView.swift; sourceTree = "<group>"; };
@@ -210,13 +208,12 @@
 		1143C6842AF6A1EF0032CE53 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1143C6942AF6F3760032CE53 /* BadgeCollectionView.swift */,
-				1143C68F2AF6ED1B0032CE53 /* BadgeCollectionViewCell.swift */,
+				A897A9762AFF6FD200008722 /* YugwaCell.swift */,
+				1143C6942AF6F3760032CE53 /* YugwaCollectionView.swift */,
 				1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */,
 				1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */,
 				11CD0EE92AFE668900911B64 /* MoreBadgeCollectionView.swift */,
 				11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */,
-				A897A9762AFF6FD200008722 /* YugwaCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -700,7 +697,7 @@
 			files = (
 				1143C6832AF4D6440032CE53 /* MyBookShelfViewController.swift in Sources */,
 				A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */,
-				1143C6952AF6F3760032CE53 /* BadgeCollectionView.swift in Sources */,
+				1143C6952AF6F3760032CE53 /* YugwaCollectionView.swift in Sources */,
 				112003D82AE5792600924FAB /* TigerAnimationViewController.swift in Sources */,
 				11CD0EE72AFE031400911B64 /* IfConceptViewController.swift in Sources */,
 				11CD0EE32AFDFCC400911B64 /* MoreTitleViewController.swift in Sources */,
@@ -721,7 +718,6 @@
 				11CD0EEC2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift in Sources */,
 				A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */,
 				A897A9752AFF6AC000008722 /* Fable.swift in Sources */,
-				1143C6902AF6ED1B0032CE53 /* BadgeCollectionViewCell.swift in Sources */,
 				116A95532ADF72AB0096760A /* FontManager.swift in Sources */,
 				A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */,
 				112003D12AE574FB00924FAB /* LottieManager.swift in Sources */,
