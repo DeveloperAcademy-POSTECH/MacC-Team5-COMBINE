@@ -42,7 +42,7 @@ class BadgeCollectionViewCell: UICollectionViewCell {
     }()
     
     override init(frame: CGRect) {
-        self.badgeItem = Badge(title: "", theme: "", date: Date(), image: UIImage(systemName: "exclamationmark.triangle.fill")!, haveBadge: false)
+        self.badgeItem = Badge(title: "", concept: "", date: Date(), image: UIImage(systemName: "exclamationmark.triangle.fill")!, haveBadge: false, story: "")
         super.init(frame: frame)
         addSubview(containerView)
         containerView.addSubview(imageView)

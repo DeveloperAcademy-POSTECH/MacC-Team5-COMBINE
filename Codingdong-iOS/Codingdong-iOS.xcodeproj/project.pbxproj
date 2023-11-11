@@ -57,6 +57,8 @@
 		11CD0EDF2AFD56D500911B64 /* TigerEncountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EDE2AFD56D500911B64 /* TigerEncountViewController.swift */; };
 		11CD0EE32AFDFCC400911B64 /* MoreTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EE22AFDFCC400911B64 /* MoreTitleViewController.swift */; };
 		11CD0EE72AFE031400911B64 /* IfConceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */; };
+		11CD0EEA2AFE668900911B64 /* MoreBadgeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EE92AFE668900911B64 /* MoreBadgeCollectionView.swift */; };
+		11CD0EEC2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */; };
 		67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */; };
 		67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E63EFE2ADE67D000C79863 /* UIColor+.swift */; };
 		A80471882AFB5CC80090103E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80471872AFB5CC80090103E /* CardView.swift */; };
@@ -136,6 +138,8 @@
 		11CD0EDE2AFD56D500911B64 /* TigerEncountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerEncountViewController.swift; sourceTree = "<group>"; };
 		11CD0EE22AFDFCC400911B64 /* MoreTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTitleViewController.swift; sourceTree = "<group>"; };
 		11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfConceptViewController.swift; sourceTree = "<group>"; };
+		11CD0EE92AFE668900911B64 /* MoreBadgeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBadgeCollectionView.swift; sourceTree = "<group>"; };
+		11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBadgeCollectionViewCell.swift; sourceTree = "<group>"; };
 		67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveTtekkViewController.swift; sourceTree = "<group>"; };
 		67E63EFE2ADE67D000C79863 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		A80471872AFB5CC80090103E /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -256,6 +260,7 @@
 		1143C6BA2AFB614D0032CE53 /* MoreBadge */ = {
 			isa = PBXGroup;
 			children = (
+				11CD0EE82AFE667A00911B64 /* View */,
 				1143C6BC2AFB61690032CE53 /* ViewController */,
 			);
 			path = MoreBadge;
@@ -392,6 +397,15 @@
 				11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		11CD0EE82AFE667A00911B64 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				11CD0EE92AFE668900911B64 /* MoreBadgeCollectionView.swift */,
+				11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		67816A482AE26FCB00B121B6 /* GiveTtekk */ = {
@@ -809,6 +823,7 @@
 				1143C6922AF6ED7B0032CE53 /* BadgeList.swift in Sources */,
 				A8B10D432AFAAE88009EA3F5 /* OnboardingViewController.swift in Sources */,
 				1143C6882AF6A31F0032CE53 /* StoryListTableView.swift in Sources */,
+				11CD0EEC2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift in Sources */,
 				1143C6B72AFB5BDF0032CE53 /* CardView.swift in Sources */,
 				A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */,
 				1143C6902AF6ED1B0032CE53 /* BadgeCollectionViewCell.swift in Sources */,
@@ -828,6 +843,7 @@
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
 				1143C6C02AFB666A0032CE53 /* MoreBadgeViewController.swift in Sources */,
+				11CD0EEA2AFE668900911B64 /* MoreBadgeCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

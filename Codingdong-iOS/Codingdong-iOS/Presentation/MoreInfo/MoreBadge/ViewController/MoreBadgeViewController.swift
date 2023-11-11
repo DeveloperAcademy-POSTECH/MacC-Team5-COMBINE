@@ -34,6 +34,10 @@ final class MoreBadgeViewController: UIViewController, ConfigUI {
         return leftBarButton
     }()
     
+    private let badgeCollection = MoreBadgeCollectionView()
+    
+    private let basicPadding = Constants.Button.buttonPadding
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
@@ -56,11 +60,16 @@ final class MoreBadgeViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        
+        view.addSubview(badgeCollection)
     }
     
     func setConstraints() {
-        
+        badgeCollection.snp.makeConstraints {
+            $0.top.equalTo(naviLine).offset(basicPadding * 2)
+            $0.left.equalToSuperview().offset(basicPadding)
+            $0.right.equalToSuperview().offset(-basicPadding)
+            $0.bottom.equalToSuperview().offset(-basicPadding * 2)
+        }
     }
     
     func setupAccessibility() {
