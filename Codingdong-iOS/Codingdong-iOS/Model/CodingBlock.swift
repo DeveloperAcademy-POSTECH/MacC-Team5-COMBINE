@@ -3,12 +3,10 @@
 //  Codingdong-iOS
 //
 //  Created by Joy on 10/21/23.
-// ###
 
 import UIKit
 
-struct CodingBlock: Identifiable, Hashable, Equatable {
-    var id = UUID().uuidString
+struct CodingBlock {
     var value: String
     var isShowing: Bool
     var bgColor: UIColor

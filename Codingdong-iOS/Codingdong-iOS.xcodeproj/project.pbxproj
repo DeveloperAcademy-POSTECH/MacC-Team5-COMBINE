@@ -17,7 +17,6 @@
 		1143C6902AF6ED1B0032CE53 /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C68F2AF6ED1B0032CE53 /* BadgeCollectionViewCell.swift */; };
 		1143C6922AF6ED7B0032CE53 /* BadgeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6912AF6ED7B0032CE53 /* BadgeList.swift */; };
 		1143C6952AF6F3760032CE53 /* BadgeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6942AF6F3760032CE53 /* BadgeCollectionView.swift */; };
-		1143C6B72AFB5BDF0032CE53 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6B62AFB5BDF0032CE53 /* CardView.swift */; };
 		1143C6C02AFB666A0032CE53 /* MoreBadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6BF2AFB666A0032CE53 /* MoreBadgeViewController.swift */; };
 		1143C6C42AFB829F0032CE53 /* SunAndMoonIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6C32AFB829F0032CE53 /* SunAndMoonIntroViewController.swift */; };
 		1143C6C72AFD39880032CE53 /* SunAndMoonIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6C62AFD39880032CE53 /* SunAndMoonIntroView.swift */; };
@@ -61,12 +60,13 @@
 		11CD0EEC2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */; };
 		67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */; };
 		67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E63EFE2ADE67D000C79863 /* UIColor+.swift */; };
-		A80471882AFB5CC80090103E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80471872AFB5CC80090103E /* CardView.swift */; };
 		A80B88252ADB99CA00091FF5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88242ADB99CA00091FF5 /* SnapKit */; };
 		A80B88282ADB9A2400091FF5 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88272ADB9A2400091FF5 /* RxCocoa */; };
 		A80B882A2ADB9A2400091FF5 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88292ADB9A2400091FF5 /* RxRelay */; };
 		A80B883C2ADBA3EC00091FF5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */; };
 		A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81637232ADFC5FD0070DAC9 /* Constants.swift */; };
+		A828A66B2AFF05DB00B11D71 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828A66A2AFF05DB00B11D71 /* CardView.swift */; };
+		A832B11A2AFF43E500E1CE9B /* YugwaList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832B1192AFF43E500E1CE9B /* YugwaList.swift */; };
 		A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */; };
 		A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83392A02ADAB35D009BA7E2 /* SceneDelegate.swift */; };
 		A83392A82ADAB35E009BA7E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A83392A72ADAB35E009BA7E2 /* Assets.xcassets */; };
@@ -78,6 +78,7 @@
 		A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864F0122AE041C8007F4012 /* CommonButton.swift */; };
 		A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */; };
 		A89384582AF9516C00F2DC77 /* Log in Frameworks */ = {isa = PBXBuildFile; productRef = A89384572AF9516C00F2DC77 /* Log */; };
+		A897A9752AFF6AC000008722 /* Fable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897A9742AFF6AC000008722 /* Fable.swift */; };
 		A8A482072AE5E7EB00FDE35C /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A8A482062AE5E7EA00FDE35C /* bell.mp3 */; };
 		A8A725032AE55F7C004840A6 /* TtekkkochiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A725022AE55F7C004840A6 /* TtekkkochiViewModel.swift */; };
 		A8B10D3E2AFAAE20009EA3F5 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B10D3D2AFAAE20009EA3F5 /* SplashViewController.swift */; };
@@ -118,7 +119,6 @@
 		1143C68F2AF6ED1B0032CE53 /* BadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewCell.swift; sourceTree = "<group>"; };
 		1143C6912AF6ED7B0032CE53 /* BadgeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeList.swift; sourceTree = "<group>"; };
 		1143C6942AF6F3760032CE53 /* BadgeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionView.swift; sourceTree = "<group>"; };
-		1143C6B62AFB5BDF0032CE53 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		1143C6BF2AFB666A0032CE53 /* MoreBadgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBadgeViewController.swift; sourceTree = "<group>"; };
 		1143C6C32AFB829F0032CE53 /* SunAndMoonIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunAndMoonIntroViewController.swift; sourceTree = "<group>"; };
 		1143C6C62AFD39880032CE53 /* SunAndMoonIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunAndMoonIntroView.swift; sourceTree = "<group>"; };
@@ -142,9 +142,10 @@
 		11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBadgeCollectionViewCell.swift; sourceTree = "<group>"; };
 		67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveTtekkViewController.swift; sourceTree = "<group>"; };
 		67E63EFE2ADE67D000C79863 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
-		A80471872AFB5CC80090103E /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A81637232ADFC5FD0070DAC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A828A66A2AFF05DB00B11D71 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		A832B1192AFF43E500E1CE9B /* YugwaList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YugwaList.swift; sourceTree = "<group>"; };
 		A833929B2ADAB35D009BA7E2 /* Codingdong-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codingdong-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A83392A02ADAB35D009BA7E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +160,7 @@
 		A864F00C2AE03FC3007F4012 /* ConfigUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigUI.swift; sourceTree = "<group>"; };
 		A864F0122AE041C8007F4012 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
 		A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiViewController.swift; sourceTree = "<group>"; };
+		A897A9742AFF6AC000008722 /* Fable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fable.swift; sourceTree = "<group>"; };
 		A8A482062AE5E7EA00FDE35C /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
 		A8A725022AE55F7C004840A6 /* TtekkkochiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiViewModel.swift; sourceTree = "<group>"; };
 		A8B10D3D2AFAAE20009EA3F5 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -203,84 +205,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		112003D52AE575A000924FAB /* TigerAnimation */ = {
-			isa = PBXGroup;
-			children = (
-				11504B082AE57D9B00AED5C0 /* View */,
-				112003D62AE5790600924FAB /* VIewController */,
-			);
-			path = TigerAnimation;
-			sourceTree = "<group>";
-		};
-		112003D62AE5790600924FAB /* VIewController */ = {
-			isa = PBXGroup;
-			children = (
-				112003D72AE5792600924FAB /* TigerAnimationViewController.swift */,
-			);
-			path = VIewController;
-			sourceTree = "<group>";
-		};
-		1143C6802AF4D6160032CE53 /* MyBookShelf */ = {
-			isa = PBXGroup;
-			children = (
-				1143C6842AF6A1EF0032CE53 /* View */,
-				1143C6812AF4D6270032CE53 /* ViewController */,
-			);
-			path = MyBookShelf;
-			sourceTree = "<group>";
-		};
-		1143C6812AF4D6270032CE53 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				1143C6822AF4D6440032CE53 /* MyBookShelfViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		1143C6842AF6A1EF0032CE53 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */,
-				1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */,
 				1143C6942AF6F3760032CE53 /* BadgeCollectionView.swift */,
 				1143C68F2AF6ED1B0032CE53 /* BadgeCollectionViewCell.swift */,
+				1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */,
+				1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */,
+				11CD0EE92AFE668900911B64 /* MoreBadgeCollectionView.swift */,
+				11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		1143C6B82AFB61070032CE53 /* MoreInfo */ = {
-			isa = PBXGroup;
-			children = (
-				11CD0EE02AFDFCA000911B64 /* MoreTitle */,
-				1143C6BA2AFB614D0032CE53 /* MoreBadge */,
-			);
-			path = MoreInfo;
-			sourceTree = "<group>";
-		};
-		1143C6BA2AFB614D0032CE53 /* MoreBadge */ = {
-			isa = PBXGroup;
-			children = (
-				11CD0EE82AFE667A00911B64 /* View */,
-				1143C6BC2AFB61690032CE53 /* ViewController */,
-			);
-			path = MoreBadge;
-			sourceTree = "<group>";
-		};
-		1143C6BC2AFB61690032CE53 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				1143C6BF2AFB666A0032CE53 /* MoreBadgeViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		1143C6C12AFB822E0032CE53 /* SunAndMoonIntro */ = {
+		1143C6C12AFB822E0032CE53 /* SM_Intro */ = {
 			isa = PBXGroup;
 			children = (
 				1143C6C52AFD391E0032CE53 /* View */,
 				1143C6C22AFB82880032CE53 /* ViewController */,
 			);
-			path = SunAndMoonIntro;
+			path = SM_Intro;
 			sourceTree = "<group>";
 		};
 		1143C6C22AFB82880032CE53 /* ViewController */ = {
@@ -295,14 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				1143C6C62AFD39880032CE53 /* SunAndMoonIntroView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		11504B082AE57D9B00AED5C0 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -342,18 +278,12 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		11CD0ED82AFD55FF00911B64 /* TigerEncount */ = {
-			isa = PBXGroup;
-			children = (
-				11CD0EDA2AFD569900911B64 /* View */,
-				11CD0ED92AFD568E00911B64 /* ViewController */,
-			);
-			path = TigerEncount;
-			sourceTree = "<group>";
-		};
 		11CD0ED92AFD568E00911B64 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */,
+				112003D72AE5792600924FAB /* TigerAnimationViewController.swift */,
+				67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */,
 				11CD0EDE2AFD56D500911B64 /* TigerEncountViewController.swift */,
 			);
 			path = ViewController;
@@ -362,58 +292,10 @@
 		11CD0EDA2AFD569900911B64 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */,
 				11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		11CD0EE02AFDFCA000911B64 /* MoreTitle */ = {
-			isa = PBXGroup;
-			children = (
-				11CD0EE12AFDFCAE00911B64 /* ViewController */,
-			);
-			path = MoreTitle;
-			sourceTree = "<group>";
-		};
-		11CD0EE12AFDFCAE00911B64 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				11CD0EE22AFDFCC400911B64 /* MoreTitleViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		11CD0EE42AFE02C400911B64 /* IfConcept */ = {
-			isa = PBXGroup;
-			children = (
-				11CD0EE52AFE02FC00911B64 /* ViewController */,
-			);
-			path = IfConcept;
-			sourceTree = "<group>";
-		};
-		11CD0EE52AFE02FC00911B64 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		11CD0EE82AFE667A00911B64 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				11CD0EE92AFE668900911B64 /* MoreBadgeCollectionView.swift */,
-				11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		67816A482AE26FCB00B121B6 /* GiveTtekk */ = {
-			isa = PBXGroup;
-			children = (
-				67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */,
-			);
-			path = GiveTtekk;
 			sourceTree = "<group>";
 		};
 		67E63F002ADE801200C79863 /* Colors */ = {
@@ -459,16 +341,11 @@
 		A80B882E2ADB9ABC00091FF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				11CD0EE42AFE02C400911B64 /* IfConcept */,
-				11CD0ED82AFD55FF00911B64 /* TigerEncount */,
-				1143C6C12AFB822E0032CE53 /* SunAndMoonIntro */,
 				A81637202ADFC51F0070DAC9 /* Components */,
 				A8B10D3C2AFAAE10009EA3F5 /* Opening */,
-				1143C6B82AFB61070032CE53 /* MoreInfo */,
-				1143C6802AF4D6160032CE53 /* MyBookShelf */,
-				A87217C42AE2129C003C0D5C /* Ttekkkochi */,
-				67816A482AE26FCB00B121B6 /* GiveTtekk */,
-				112003D52AE575A000924FAB /* TigerAnimation */,
+				1143C6C12AFB822E0032CE53 /* SM_Intro */,
+				A828A6692AFF054800B11D71 /* SM_Concept1 */,
+				A828A66C2AFF06B700B11D71 /* SM_Concept2 */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -476,14 +353,32 @@
 		A81637202ADFC51F0070DAC9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				A80471872AFB5CC80090103E /* CardView.swift */,
-				A81637232ADFC5FD0070DAC9 /* Constants.swift */,
 				A864F00C2AE03FC3007F4012 /* ConfigUI.swift */,
-				1143C6B62AFB5BDF0032CE53 /* CardView.swift */,
+				A81637232ADFC5FD0070DAC9 /* Constants.swift */,
+				A828A66A2AFF05DB00B11D71 /* CardView.swift */,
 				A864F0122AE041C8007F4012 /* CommonButton.swift */,
 				A8BC0DB82AE358BF00AD5C9A /* BasePaddingLabel.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		A828A6692AFF054800B11D71 /* SM_Concept1 */ = {
+			isa = PBXGroup;
+			children = (
+				A8873CE62AE3F5A2003D2A54 /* ViewModel */,
+				A8BC0DB32AE3432600AD5C9A /* View */,
+				A87217C52AE212AA003C0D5C /* ViewController */,
+			);
+			path = SM_Concept1;
+			sourceTree = "<group>";
+		};
+		A828A66C2AFF06B700B11D71 /* SM_Concept2 */ = {
+			isa = PBXGroup;
+			children = (
+				11CD0EDA2AFD569900911B64 /* View */,
+				11CD0ED92AFD568E00911B64 /* ViewController */,
+			);
+			path = SM_Concept2;
 			sourceTree = "<group>";
 		};
 		A83392922ADAB35D009BA7E2 = {
@@ -535,16 +430,6 @@
 			path = "Codingdong-iOSUITests";
 			sourceTree = "<group>";
 		};
-		A87217C42AE2129C003C0D5C /* Ttekkkochi */ = {
-			isa = PBXGroup;
-			children = (
-				A8873CE62AE3F5A2003D2A54 /* ViewModel */,
-				A8BC0DB32AE3432600AD5C9A /* View */,
-				A87217C52AE212AA003C0D5C /* ViewController */,
-			);
-			path = Ttekkkochi;
-			sourceTree = "<group>";
-		};
 		A87217C52AE212AA003C0D5C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -564,6 +449,7 @@
 		A8B10D3C2AFAAE10009EA3F5 /* Opening */ = {
 			isa = PBXGroup;
 			children = (
+				1143C6842AF6A1EF0032CE53 /* View */,
 				A8B10D412AFAAE6D009EA3F5 /* ViewController */,
 			);
 			path = Opening;
@@ -574,6 +460,9 @@
 			children = (
 				A8B10D3D2AFAAE20009EA3F5 /* SplashViewController.swift */,
 				A8B10D422AFAAE88009EA3F5 /* OnboardingViewController.swift */,
+				11CD0EE22AFDFCC400911B64 /* MoreTitleViewController.swift */,
+				1143C6BF2AFB666A0032CE53 /* MoreBadgeViewController.swift */,
+				1143C6822AF4D6440032CE53 /* MyBookShelfViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -584,6 +473,8 @@
 				A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */,
 				1143C68D2AF6B0DE0032CE53 /* StoryTitle.swift */,
 				1143C6912AF6ED7B0032CE53 /* BadgeList.swift */,
+				A832B1192AFF43E500E1CE9B /* YugwaList.swift */,
+				A897A9742AFF6AC000008722 /* Fable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -811,12 +702,12 @@
 				11CD0EE72AFE031400911B64 /* IfConceptViewController.swift in Sources */,
 				11CD0EE32AFDFCC400911B64 /* MoreTitleViewController.swift in Sources */,
 				A8A725032AE55F7C004840A6 /* TtekkkochiViewModel.swift in Sources */,
+				A828A66B2AFF05DB00B11D71 /* CardView.swift in Sources */,
 				A8F41D2F2AE5001F00BB0260 /* HapticManager.swift in Sources */,
 				11CD0EDF2AFD56D500911B64 /* TigerEncountViewController.swift in Sources */,
 				A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */,
 				A8BC0DBE2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift in Sources */,
 				1143C68C2AF6B01E0032CE53 /* StoryListTableViewCell.swift in Sources */,
-				A80471882AFB5CC80090103E /* CardView.swift in Sources */,
 				11504B0A2AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift in Sources */,
 				A8BC0DB72AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift in Sources */,
 				A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */,
@@ -824,12 +715,13 @@
 				A8B10D432AFAAE88009EA3F5 /* OnboardingViewController.swift in Sources */,
 				1143C6882AF6A31F0032CE53 /* StoryListTableView.swift in Sources */,
 				11CD0EEC2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift in Sources */,
-				1143C6B72AFB5BDF0032CE53 /* CardView.swift in Sources */,
 				A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */,
+				A897A9752AFF6AC000008722 /* Fable.swift in Sources */,
 				1143C6902AF6ED1B0032CE53 /* BadgeCollectionViewCell.swift in Sources */,
 				116A95532ADF72AB0096760A /* FontManager.swift in Sources */,
 				A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */,
 				112003D12AE574FB00924FAB /* LottieManager.swift in Sources */,
+				A832B11A2AFF43E500E1CE9B /* YugwaList.swift in Sources */,
 				A8B10D3E2AFAAE20009EA3F5 /* SplashViewController.swift in Sources */,
 				A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */,
 				A8BC0DB22AE3401800AD5C9A /* CodingBlock.swift in Sources */,
@@ -1022,7 +914,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = W43DLLFB4Q;
+				DEVELOPMENT_TEAM = XGHDQG66U5;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
@@ -1051,7 +943,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = W43DLLFB4Q;
+				DEVELOPMENT_TEAM = XGHDQG66U5;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
