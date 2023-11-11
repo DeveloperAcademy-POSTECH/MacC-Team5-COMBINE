@@ -53,6 +53,7 @@
 		67BAECF12B000446006FB6D3 /* TigerHandHoleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BAECF02B000446006FB6D3 /* TigerHandHoleAnimationView.swift */; };
 		67BAECF52B0015BF006FB6D3 /* TigerNoseHoleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BAECF42B0015BF006FB6D3 /* TigerNoseHoleAnimationView.swift */; };
 		67BAECF72B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BAECF62B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift */; };
+		67BAECF92B001FB0006FB6D3 /* WindowEndingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BAECF82B001FB0006FB6D3 /* WindowEndingViewController.swift */; };
 		67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E63EFE2ADE67D000C79863 /* UIColor+.swift */; };
 		A80B88252ADB99CA00091FF5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88242ADB99CA00091FF5 /* SnapKit */; };
 		A80B88282ADB9A2400091FF5 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88272ADB9A2400091FF5 /* RxCocoa */; };
@@ -125,6 +126,7 @@
 		67BAECF02B000446006FB6D3 /* TigerHandHoleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerHandHoleAnimationView.swift; sourceTree = "<group>"; };
 		67BAECF42B0015BF006FB6D3 /* TigerNoseHoleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerNoseHoleAnimationView.swift; sourceTree = "<group>"; };
 		67BAECF62B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerTailHoleAnimationView.swift; sourceTree = "<group>"; };
+		67BAECF82B001FB0006FB6D3 /* WindowEndingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowEndingViewController.swift; sourceTree = "<group>"; };
 		67E63EFE2ADE67D000C79863 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A81637232ADFC5FD0070DAC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				672C12002AF8757E0064AA64 /* WindowHoleViewController.swift */,
 				670E09A12AFCAF81008AA6D5 /* WindowVoiceViewController.swift */,
 				670E09A32AFD4540008AA6D5 /* WindowVoiceChildViewController.swift */,
+				67BAECF82B001FB0006FB6D3 /* WindowEndingViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -680,6 +683,7 @@
 				67BAECF72B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift in Sources */,
 				A8BC0DB22AE3401800AD5C9A /* CodingBlock.swift in Sources */,
 				67BAECF52B0015BF006FB6D3 /* TigerNoseHoleAnimationView.swift in Sources */,
+				67BAECF92B001FB0006FB6D3 /* WindowEndingViewController.swift in Sources */,
 				A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */,
 				A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */,
 				67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */,
