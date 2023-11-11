@@ -17,11 +17,11 @@ final class StoryListTableViewCell: UITableViewCell {
         return view
     }()
     
-    var storyTitle: StoryTitle {
+    var model: Fable {
         didSet {
-            isReadSymbolImage.image = storyTitle.isRead ? UIImage(systemName: "play.square") : UIImage(systemName: "lock.fill")
-            titleLabel.text = storyTitle.title
-            isReadChevronImage.isHidden = storyTitle.isRead ? false : true
+            isReadSymbolImage.image = model.isRead ? UIImage(systemName: "play.square") : UIImage(systemName: "lock.fill")
+            titleLabel.text = model.title
+            isReadChevronImage.isHidden = model.isRead ? false : true
         }
     }
     
@@ -52,7 +52,7 @@ final class StoryListTableViewCell: UITableViewCell {
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        self.storyTitle = StoryTitle(title: "", isRead: false)
+        self.model = Fable(isRead: false, title: "")
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(containerView)
         containerView.addSubview(isReadSymbolImage)
