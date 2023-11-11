@@ -16,8 +16,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         // 시작 화면 추가
-//        window.rootViewController = UINavigationController(rootViewController: TigerEncountViewController())
-//        window.makeKeyAndVisible()
         window.rootViewController = UINavigationController(rootViewController: SplashViewController())
         window.makeKeyAndVisible()
 
