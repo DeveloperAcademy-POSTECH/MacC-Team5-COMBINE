@@ -171,7 +171,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     }
     
     func fetchData() {
-        if cookieList.haveYugwa == false {
+        if yugwaList.haveYugwa == false {
             innerLabel.isHidden = false
             innerView.isHidden = true
         } else {
