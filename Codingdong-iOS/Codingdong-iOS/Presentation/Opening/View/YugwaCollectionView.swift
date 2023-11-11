@@ -1,14 +1,7 @@
-//
-//  BadgeCollectionView.swift
-//  Codingdong-iOS
-//
-//  Created by BAE on 2023/11/05.
-//
-
 import UIKit
 import SnapKit
 
-final class BadgeCollectionView: UIView {
+final class YugwaCollectionView: UIView {
     
     private let containerView: UIView = {
         let view = UIView()
@@ -22,7 +15,7 @@ final class BadgeCollectionView: UIView {
         flowLayout.scrollDirection = .vertical
         
         let view = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        view.register(BadgeCollectionViewCell.self, forCellWithReuseIdentifier: BadgeCollectionViewCell.identifier)
+        view.register(YugwaCell.self, forCellWithReuseIdentifier: YugwaCell.identifier)
         view.dataSource = self
         view.delegate = self
         view.backgroundColor = .clear
@@ -49,21 +42,19 @@ final class BadgeCollectionView: UIView {
     }
 }
 
-extension BadgeCollectionView: UICollectionViewDataSource {
+extension YugwaCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dummyBadges.count
+        return yugwaList.yugwa.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BadgeCollectionViewCell.identifier, for: indexPath) as? BadgeCollectionViewCell else { fatalError() }
-        
-        cell.badgeItem = dummyBadges[indexPath.row]
-        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: YugwaCell.identifier, for: indexPath) as? YugwaCell else { fatalError() }
+        cell.model = yugwaList.yugwa[indexPath.row]
         return cell
     }
 }
 
-extension BadgeCollectionView: UICollectionViewDelegateFlowLayout {
+extension YugwaCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 120, height: 157)
     }

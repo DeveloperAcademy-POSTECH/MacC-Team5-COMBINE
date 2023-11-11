@@ -17,4 +17,4 @@ struct Yugwa {
     var concept: String
 }
 
-var cookieList: YugwaList = YugwaList(haveYugwa: false, yugwa: [])
+var yugwaList: YugwaList = YugwaList(haveYugwa: false, yugwa: [])

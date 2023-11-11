@@ -86,7 +86,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         return label
     }()
     
-    private let innerView = BadgeCollectionView()
+    private let innerView = YugwaCollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -171,7 +171,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     }
     
     func fetchData() {
-        if cookieList.haveYugwa == false {
+        if yugwaList.haveYugwa == false {
             innerLabel.isHidden = false
             innerView.isHidden = true
         } else {
