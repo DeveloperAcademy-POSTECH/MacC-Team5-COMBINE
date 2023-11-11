@@ -59,6 +59,7 @@
 		11CD0EEC2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */; };
 		67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */; };
 		67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E63EFE2ADE67D000C79863 /* UIColor+.swift */; };
+		A80A05332AFFCA9000624BBC /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80A05322AFFCA9000624BBC /* OnboardingViewModel.swift */; };
 		A80B88252ADB99CA00091FF5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88242ADB99CA00091FF5 /* SnapKit */; };
 		A80B88282ADB9A2400091FF5 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88272ADB9A2400091FF5 /* RxCocoa */; };
 		A80B882A2ADB9A2400091FF5 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88292ADB9A2400091FF5 /* RxRelay */; };
@@ -141,6 +142,7 @@
 		11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBadgeCollectionViewCell.swift; sourceTree = "<group>"; };
 		67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveTtekkViewController.swift; sourceTree = "<group>"; };
 		67E63EFE2ADE67D000C79863 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		A80A05322AFFCA9000624BBC /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A81637232ADFC5FD0070DAC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A828A66A2AFF05DB00B11D71 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -306,6 +308,14 @@
 			path = Colors;
 			sourceTree = "<group>";
 		};
+		A80A05312AFFCA7B00624BBC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A80A05322AFFCA9000624BBC /* OnboardingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		A80B882B2ADB9A8400091FF5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				1143C6842AF6A1EF0032CE53 /* View */,
+				A80A05312AFFCA7B00624BBC /* ViewModel */,
 				A8B10D412AFAAE6D009EA3F5 /* ViewController */,
 			);
 			path = Opening;
@@ -714,6 +725,7 @@
 				1143C6922AF6ED7B0032CE53 /* BadgeList.swift in Sources */,
 				A8B10D432AFAAE88009EA3F5 /* OnboardingViewController.swift in Sources */,
 				1143C6882AF6A31F0032CE53 /* StoryListTableView.swift in Sources */,
+				A80A05332AFFCA9000624BBC /* OnboardingViewModel.swift in Sources */,
 				A897A9772AFF6FD200008722 /* YugwaCell.swift in Sources */,
 				11CD0EEC2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift in Sources */,
 				A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */,

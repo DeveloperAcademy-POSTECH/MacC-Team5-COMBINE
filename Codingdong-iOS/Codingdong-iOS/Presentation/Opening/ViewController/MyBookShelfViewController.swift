@@ -111,12 +111,16 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         }
         self.navigationController?.navigationBar.tintColor = .gs20
         self.navigationItem.titleView = self.navigationTitle
+        self.navigationItem.hidesBackButton = true
     }
     
     func addComponents() {
         [storyTitle, badgeTitle, moreTitleButton, moreBadgeButton, storyList, cookieContainer].forEach {
             view.addSubview($0)
         }
+
+        // TODO: 더보기 잠시 해제
+        [moreTitleButton, moreBadgeButton].forEach { $0.isHidden = true }
         [innerView, innerLabel].forEach { cookieContainer.addSubview($0) }
     }
     

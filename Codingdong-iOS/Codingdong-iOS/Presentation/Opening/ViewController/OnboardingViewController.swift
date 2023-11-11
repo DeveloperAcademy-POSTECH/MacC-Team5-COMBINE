@@ -12,6 +12,7 @@ import Log
 final class OnboardingViewController: UIViewController {
     
     private var cancellable = Set<AnyCancellable>()
+    private var viewModel = OnboardingViewModel()
     
     // MARK: - Components
     private lazy var voiceOverStackView: UIStackView = {
@@ -54,14 +55,13 @@ final class OnboardingViewController: UIViewController {
     
     private let doneButton = CommonButton()
     private lazy var doneButtonViewModel = CommonbuttonModel(title: "완료", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .gs10) {[weak self] in
-        Log.i("다음 화면으로 이동 추가")
-        self?.navigationController?.pushViewController(MyBookShelfViewController(), animated: false)
-        self?.navigationController?.setViewControllers([MyBookShelfViewController()], animated: false)
+        self?.viewModel.tapNextButton()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        binding()
     }
     
     private func setupView() {
@@ -95,6 +95,14 @@ final class OnboardingViewController: UIViewController {
         }
     }
 
+    private func binding() {
+        viewModel.route
+            .sink { [weak self] nextView in
+                self?.navigationController?.pushViewController(nextView, animated: false)
+            }
+            .store(in: &cancellable)
+    }
+    
     // TODO: 보이스오버 추가
     private func setupAccessibility() {}
 }
