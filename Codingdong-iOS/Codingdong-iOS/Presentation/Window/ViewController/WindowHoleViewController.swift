@@ -33,28 +33,9 @@ final class WindowHoleViewController: UIViewController {
         return imageView
     }()
     
-    private let tigerHandHoleImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "tigerHandHoleBefore")
-        return imageView
-    }()
-    
-    private let tigerNoseHoleImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "tigerNoseHoleBefore")
-        return imageView
-    }()
-    
-    private let tigerTailHoleImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "tigerTailHoleBefore")
-        return imageView
-    }()
-    
-//    private let nextButton = CommonButton()
-//    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음",font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) { [weak self] in
-//        self?.navigationController?.pushViewController(WindowVoiceViewController(), animated: false)
-//    }
+    private let tigerHandHoleAnimationView = TigerHandHoleAnimationView()
+    private let tigerNoseHoleAnimationView = TigerNoseHoleAnimationView()
+    private let tigerTailHoleAnimationView = TigerTailHoleAnimationView()
     
     // MARK: - View init
     override func viewDidLoad() {
@@ -63,7 +44,11 @@ final class WindowHoleViewController: UIViewController {
         setupNavigationBar()
         addComponents()
         setConstraints()
-//        nextButton.setup(model: nextButtonViewModel)
+        
+        // TODO: lottie view 탭 제스처 코드
+        // TODO: 탭 제스처가 인식이 안되는 문제 해결
+        self.tigerHandHoleAnimationView.isUserInteractionEnabled = true
+        self.tigerHandHoleAnimationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewTapped)))
     }
     
     func setupNavigationBar() {
@@ -80,7 +65,7 @@ final class WindowHoleViewController: UIViewController {
     }
     
     func addComponents() {
-        [titleLabel, windowImageView, tigerHandHoleImageView, tigerNoseHoleImageView, tigerTailHoleImageView].forEach {
+        [titleLabel, windowImageView, tigerHandHoleAnimationView, tigerNoseHoleAnimationView, tigerTailHoleAnimationView].forEach {
             view.addSubview($0)
         }
     }
@@ -105,35 +90,23 @@ final class WindowHoleViewController: UIViewController {
             $0.bottom.equalToSuperview().offset(-160)
         }
         
-        tigerHandHoleImageView.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(102)
-            $0.top.equalToSuperview().offset(401)
+        tigerHandHoleAnimationView.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(74)
+            $0.top.equalToSuperview().offset(326)
         }
         
-        tigerNoseHoleImageView.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(226)
-            $0.top.equalToSuperview().offset(305)
+        tigerNoseHoleAnimationView.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(164)
+            $0.top.equalToSuperview().offset(285)
         }
         
-        tigerTailHoleImageView.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(204)
-            $0.top.equalToSuperview().offset(537)
+        tigerTailHoleAnimationView.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(170)
+            $0.top.equalToSuperview().offset(490)
         }
-        
-//        nextButton.snp.makeConstraints {
-//            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
-//            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
-//            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
-//            $0.height.equalTo(72)
-//        }
     }
     
-    func animatedImages(for name: String) -> [UIImage] {
-        var images = [UIImage]()
-        let image1 = UIImage(named: "tigerHandHoleBefore.png")!
-        let image2 = UIImage(named: "tigerHandHoleAfter.png")!
-        images.append(image1)
-        images.append(image2)
-        return images
+    @objc func viewTapped() {
+        LottieManager.shared.playAnimation(inView: tigerHandHoleAnimationView.handLottieView, completion: nil)
     }
 }
