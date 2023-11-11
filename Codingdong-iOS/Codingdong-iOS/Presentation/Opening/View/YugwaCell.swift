@@ -11,7 +11,7 @@ final class YugwaCell: UICollectionViewCell {
     
     static let identifier = "YugwaCell"
     
-    private var model: Yugwa {
+    var model: Yugwa {
         didSet {
             yugwaImage.image = UIImage(named: model.image)
             conceptLabel.text = model.concept
@@ -29,6 +29,7 @@ final class YugwaCell: UICollectionViewCell {
         let label = UILabel()
         label.font = FontManager.caption2()
         label.textColor = .gs40
+        label.textAlignment = .center
         return label
     }()
     

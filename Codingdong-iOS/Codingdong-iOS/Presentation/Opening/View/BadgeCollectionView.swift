@@ -22,7 +22,8 @@ final class BadgeCollectionView: UIView {
         flowLayout.scrollDirection = .vertical
         
         let view = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        view.register(BadgeCollectionViewCell.self, forCellWithReuseIdentifier: BadgeCollectionViewCell.identifier)
+//        view.register(BadgeCollectionViewCell.self, forCellWithReuseIdentifier: BadgeCollectionViewCell.identifier)
+        view.register(YugwaCell.self, forCellWithReuseIdentifier: YugwaCell.identifier)
         view.dataSource = self
         view.delegate = self
         view.backgroundColor = .clear
@@ -51,14 +52,12 @@ final class BadgeCollectionView: UIView {
 
 extension BadgeCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dummyBadges.count
+        return yugwaList.yugwa.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BadgeCollectionViewCell.identifier, for: indexPath) as? BadgeCollectionViewCell else { fatalError() }
-        
-        cell.badgeItem = dummyBadges[indexPath.row]
-        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: YugwaCell.identifier, for: indexPath) as? YugwaCell else { fatalError() }
+        cell.model = yugwaList.yugwa[indexPath.row]
         return cell
     }
 }
