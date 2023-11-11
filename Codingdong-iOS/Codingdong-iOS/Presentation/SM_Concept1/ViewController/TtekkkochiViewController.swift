@@ -23,7 +23,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     
     private let titleLabel: UILabel = {
        let label = UILabel()
-        label.text = "떡 블록을 탭 해서 꼬치에 순서대로 끼워 주세요."
+        label.text = "하단의 떡 블록을 탭 해서 꼬치에 순서대로 끼워 주세요."
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = FontManager.body()
         label.textColor = .gs10
@@ -51,10 +51,8 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     private let bottomView = TtekkkochiSelectionView()
     
     private let nextButton = CommonButton()
-    private lazy var settingButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
-        // self?.viewModel.selectItem()
-        // TODO: 나중에 ViewModel로 분리하기
-        self?.navigationController?.pushViewController(GiveTtekkViewController(), animated: false)
+    private lazy var settingButtonViewModel = CommonbuttonModel(title: "떡을 준다", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
+       self?.viewModel.selectItem()
     }
 
     // MARK: - View init
@@ -138,7 +136,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
         ttekkkochiCollectionView.isAccessibilityElement = false
         titleLabel.accessibilityTraits = .none
-        nextButton.accessibilityLabel = "다음"
+        nextButton.accessibilityLabel = "떡을 준다"
         nextButton.accessibilityTraits = .button
     }
     
