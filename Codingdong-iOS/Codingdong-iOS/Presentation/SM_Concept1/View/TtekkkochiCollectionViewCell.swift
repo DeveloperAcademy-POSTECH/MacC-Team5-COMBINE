@@ -7,11 +7,6 @@
 
 import UIKit
 
-enum CellState {
-    case selected
-    case unselected
-}
-
 final class TtekkkochiCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "TtekkkochiCollectionViewCell"
@@ -45,15 +40,5 @@ final class TtekkkochiCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func configUI(_ type: CellState) {
-        switch type {
-        case .selected:
-            nameLabel.backgroundColor = block.bgColor
-            nameLabel.text = block.value
-        case .unselected:
-            nameLabel.backgroundColor = .gs70
-        }
     }
 }
