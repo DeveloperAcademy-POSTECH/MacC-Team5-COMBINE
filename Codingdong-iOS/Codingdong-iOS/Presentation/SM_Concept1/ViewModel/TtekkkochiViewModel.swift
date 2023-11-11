@@ -20,11 +20,16 @@ protocol TtekkkochiViewModelRepresentable {
 
 // MARK: - Class
 final class TtekkkochiViewModel: TtekkkochiViewModelRepresentable {
-    
     private var cancellables = Set<AnyCancellable>()
+    
+    var route: AnyPublisher<UIViewController, Never> {
+        self.sendRoute.eraseToAnyPublisher()
+    }
+    var sendRoute: PassthroughSubject<UIViewController, Never> = .init()
     
     func selectItem() {
         Log.i("다음으로 버튼이 클릭됨")
+        sendRoute.send(GiveTtekkViewController())
     }
 
 }

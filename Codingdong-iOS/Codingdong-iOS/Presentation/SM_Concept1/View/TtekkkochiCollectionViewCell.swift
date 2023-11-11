@@ -7,11 +7,6 @@
 
 import UIKit
 
-enum CellState {
-    case selected
-    case unselected
-}
-
 final class TtekkkochiCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "TtekkkochiCollectionViewCell"
@@ -25,7 +20,7 @@ final class TtekkkochiCollectionViewCell: UICollectionViewCell {
     }
     
     private let nameLabel: BasePaddingLabel = {
-        let label = BasePaddingLabel(padding: UIEdgeInsets(top: 15.0, left: 36.0, bottom: 15.0, right: 36.0))
+        let label = BasePaddingLabel(padding: UIEdgeInsets(top: 15.0, left: 15.0, bottom: 15.0, right: 15.0))
         label.font = FontManager.p_semiBold(.body)
         label.textAlignment = .center
         label.textColor = .gs70
@@ -45,15 +40,5 @@ final class TtekkkochiCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func configUI(_ type: CellState) {
-        switch type {
-        case .selected:
-            nameLabel.backgroundColor = block.bgColor
-            nameLabel.text = block.value
-        case .unselected:
-            nameLabel.backgroundColor = .gs70
-        }
     }
 }
