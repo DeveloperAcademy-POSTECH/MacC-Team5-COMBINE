@@ -139,4 +139,8 @@ extension FontManager {
         FontManager.shared.pretendard(.regular, .caption2)
     }
     
+    static func headline() -> UIFont {
+        FontManager.shared.pretendard(.semibold, .body)
+    }
+    
 }

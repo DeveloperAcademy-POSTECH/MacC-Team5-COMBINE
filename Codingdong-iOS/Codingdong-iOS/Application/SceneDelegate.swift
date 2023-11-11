@@ -16,8 +16,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         // 시작 화면 추가
-        window.rootViewController = UINavigationController(rootViewController: TtekkkochiViewController())
+        window.rootViewController = UINavigationController(rootViewController: SplashViewController())
         window.makeKeyAndVisible()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            window.rootViewController = UINavigationController(rootViewController: OnboardingViewController())
+        }
+        
         self.window = window
     }
 

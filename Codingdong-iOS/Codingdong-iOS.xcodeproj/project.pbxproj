@@ -10,6 +10,15 @@
 		112003D12AE574FB00924FAB /* LottieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112003D02AE574FB00924FAB /* LottieManager.swift */; };
 		112003D42AE5752300924FAB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 112003D32AE5752300924FAB /* Lottie */; };
 		112003D82AE5792600924FAB /* TigerAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112003D72AE5792600924FAB /* TigerAnimationViewController.swift */; };
+		1143C6832AF4D6440032CE53 /* MyBookShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6822AF4D6440032CE53 /* MyBookShelfViewController.swift */; };
+		1143C6882AF6A31F0032CE53 /* StoryListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */; };
+		1143C68C2AF6B01E0032CE53 /* StoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */; };
+		1143C68E2AF6B0DE0032CE53 /* StoryTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C68D2AF6B0DE0032CE53 /* StoryTitle.swift */; };
+		1143C6922AF6ED7B0032CE53 /* BadgeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6912AF6ED7B0032CE53 /* BadgeList.swift */; };
+		1143C6952AF6F3760032CE53 /* YugwaCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6942AF6F3760032CE53 /* YugwaCollectionView.swift */; };
+		1143C6C02AFB666A0032CE53 /* MoreBadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6BF2AFB666A0032CE53 /* MoreBadgeViewController.swift */; };
+		1143C6C42AFB829F0032CE53 /* SunAndMoonIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6C32AFB829F0032CE53 /* SunAndMoonIntroViewController.swift */; };
+		1143C6C72AFD39880032CE53 /* SunAndMoonIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6C62AFD39880032CE53 /* SunAndMoonIntroView.swift */; };
 		11504B0A2AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */; };
 		116A95362ADF72570096760A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 116A952D2ADF72550096760A /* Pretendard-Black.otf */; };
 		116A95372ADF72570096760A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 116A952D2ADF72550096760A /* Pretendard-Black.otf */; };
@@ -42,6 +51,12 @@
 		116A95542ADF72AB0096760A /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A95522ADF72AB0096760A /* FontManager.swift */; };
 		116A95552ADF72AB0096760A /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A95522ADF72AB0096760A /* FontManager.swift */; };
 		1186768E2AE664290012FAFC /* TigerAnimation_HD.json in Resources */ = {isa = PBXBuildFile; fileRef = 1186768D2AE664290012FAFC /* TigerAnimation_HD.json */; };
+		11CD0EDC2AFD56B800911B64 /* TigerEncountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */; };
+		11CD0EDF2AFD56D500911B64 /* TigerEncountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EDE2AFD56D500911B64 /* TigerEncountViewController.swift */; };
+		11CD0EE32AFDFCC400911B64 /* MoreTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EE22AFDFCC400911B64 /* MoreTitleViewController.swift */; };
+		11CD0EE72AFE031400911B64 /* IfConceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */; };
+		11CD0EEA2AFE668900911B64 /* MoreBadgeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EE92AFE668900911B64 /* MoreBadgeCollectionView.swift */; };
+		11CD0EEC2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */; };
 		670D34D62AF4D0FD00B81A06 /* WindowStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670D34D52AF4D0FD00B81A06 /* WindowStartViewController.swift */; };
 		670E09A22AFCAF81008AA6D5 /* WindowVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670E09A12AFCAF81008AA6D5 /* WindowVoiceViewController.swift */; };
 		670E09A42AFD4540008AA6D5 /* WindowVoiceChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670E09A32AFD4540008AA6D5 /* WindowVoiceChildViewController.swift */; };
@@ -61,6 +76,8 @@
 		A80B882A2ADB9A2400091FF5 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88292ADB9A2400091FF5 /* RxRelay */; };
 		A80B883C2ADBA3EC00091FF5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */; };
 		A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81637232ADFC5FD0070DAC9 /* Constants.swift */; };
+		A828A66B2AFF05DB00B11D71 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828A66A2AFF05DB00B11D71 /* CardView.swift */; };
+		A832B11A2AFF43E500E1CE9B /* YugwaList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832B1192AFF43E500E1CE9B /* YugwaList.swift */; };
 		A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */; };
 		A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83392A02ADAB35D009BA7E2 /* SceneDelegate.swift */; };
 		A83392A82ADAB35E009BA7E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A83392A72ADAB35E009BA7E2 /* Assets.xcassets */; };
@@ -71,9 +88,13 @@
 		A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864F00C2AE03FC3007F4012 /* ConfigUI.swift */; };
 		A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864F0122AE041C8007F4012 /* CommonButton.swift */; };
 		A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */; };
-		A8A482052AE5DBDC00FDE35C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A482042AE5DBDC00FDE35C /* Log.swift */; };
+		A89384582AF9516C00F2DC77 /* Log in Frameworks */ = {isa = PBXBuildFile; productRef = A89384572AF9516C00F2DC77 /* Log */; };
+		A897A9752AFF6AC000008722 /* Fable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897A9742AFF6AC000008722 /* Fable.swift */; };
+		A897A9772AFF6FD200008722 /* YugwaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897A9762AFF6FD200008722 /* YugwaCell.swift */; };
 		A8A482072AE5E7EB00FDE35C /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A8A482062AE5E7EA00FDE35C /* bell.mp3 */; };
 		A8A725032AE55F7C004840A6 /* TtekkkochiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A725022AE55F7C004840A6 /* TtekkkochiViewModel.swift */; };
+		A8B10D3E2AFAAE20009EA3F5 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B10D3D2AFAAE20009EA3F5 /* SplashViewController.swift */; };
+		A8B10D432AFAAE88009EA3F5 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B10D422AFAAE88009EA3F5 /* OnboardingViewController.swift */; };
 		A8BC0DB22AE3401800AD5C9A /* CodingBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */; };
 		A8BC0DB72AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DB62AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift */; };
 		A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DB82AE358BF00AD5C9A /* BasePaddingLabel.swift */; };
@@ -103,8 +124,16 @@
 /* Begin PBXFileReference section */
 		112003D02AE574FB00924FAB /* LottieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieManager.swift; sourceTree = "<group>"; };
 		112003D72AE5792600924FAB /* TigerAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerAnimationViewController.swift; sourceTree = "<group>"; };
+		1143C6822AF4D6440032CE53 /* MyBookShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookShelfViewController.swift; sourceTree = "<group>"; };
+		1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListTableView.swift; sourceTree = "<group>"; };
+		1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListTableViewCell.swift; sourceTree = "<group>"; };
+		1143C68D2AF6B0DE0032CE53 /* StoryTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTitle.swift; sourceTree = "<group>"; };
+		1143C6912AF6ED7B0032CE53 /* BadgeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeList.swift; sourceTree = "<group>"; };
+		1143C6942AF6F3760032CE53 /* YugwaCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YugwaCollectionView.swift; sourceTree = "<group>"; };
+		1143C6BF2AFB666A0032CE53 /* MoreBadgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBadgeViewController.swift; sourceTree = "<group>"; };
+		1143C6C32AFB829F0032CE53 /* SunAndMoonIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunAndMoonIntroViewController.swift; sourceTree = "<group>"; };
+		1143C6C62AFD39880032CE53 /* SunAndMoonIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunAndMoonIntroView.swift; sourceTree = "<group>"; };
 		11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerLottieAnimationVIew.swift; sourceTree = "<group>"; };
-		11504B0C2AE58EC000AED5C0 /* TigerAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TigerAnimation.json; sourceTree = "<group>"; };
 		116A952D2ADF72550096760A /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		116A952E2ADF72560096760A /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		116A952F2ADF72560096760A /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
@@ -116,6 +145,12 @@
 		116A95352ADF72560096760A /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		116A95522ADF72AB0096760A /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		1186768D2AE664290012FAFC /* TigerAnimation_HD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TigerAnimation_HD.json; sourceTree = "<group>"; };
+		11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerEncountView.swift; sourceTree = "<group>"; };
+		11CD0EDE2AFD56D500911B64 /* TigerEncountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerEncountViewController.swift; sourceTree = "<group>"; };
+		11CD0EE22AFDFCC400911B64 /* MoreTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTitleViewController.swift; sourceTree = "<group>"; };
+		11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfConceptViewController.swift; sourceTree = "<group>"; };
+		11CD0EE92AFE668900911B64 /* MoreBadgeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBadgeCollectionView.swift; sourceTree = "<group>"; };
+		11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBadgeCollectionViewCell.swift; sourceTree = "<group>"; };
 		670D34D52AF4D0FD00B81A06 /* WindowStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowStartViewController.swift; sourceTree = "<group>"; };
 		670E09A12AFCAF81008AA6D5 /* WindowVoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowVoiceViewController.swift; sourceTree = "<group>"; };
 		670E09A32AFD4540008AA6D5 /* WindowVoiceChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowVoiceChildViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +167,8 @@
 		67E63EFE2ADE67D000C79863 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A81637232ADFC5FD0070DAC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A828A66A2AFF05DB00B11D71 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		A832B1192AFF43E500E1CE9B /* YugwaList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YugwaList.swift; sourceTree = "<group>"; };
 		A833929B2ADAB35D009BA7E2 /* Codingdong-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codingdong-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A83392A02ADAB35D009BA7E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,9 +183,12 @@
 		A864F00C2AE03FC3007F4012 /* ConfigUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigUI.swift; sourceTree = "<group>"; };
 		A864F0122AE041C8007F4012 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
 		A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiViewController.swift; sourceTree = "<group>"; };
-		A8A482042AE5DBDC00FDE35C /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		A897A9742AFF6AC000008722 /* Fable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fable.swift; sourceTree = "<group>"; };
+		A897A9762AFF6FD200008722 /* YugwaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YugwaCell.swift; sourceTree = "<group>"; };
 		A8A482062AE5E7EA00FDE35C /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
 		A8A725022AE55F7C004840A6 /* TtekkkochiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiViewModel.swift; sourceTree = "<group>"; };
+		A8B10D3D2AFAAE20009EA3F5 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		A8B10D422AFAAE88009EA3F5 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingBlock.swift; sourceTree = "<group>"; };
 		A8BC0DB62AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8BC0DB82AE358BF00AD5C9A /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
@@ -166,6 +206,7 @@
 			files = (
 				A80B882A2ADB9A2400091FF5 /* RxRelay in Frameworks */,
 				A80B88282ADB9A2400091FF5 /* RxCocoa in Frameworks */,
+				A89384582AF9516C00F2DC77 /* Log in Frameworks */,
 				A80B88252ADB99CA00091FF5 /* SnapKit in Frameworks */,
 				112003D42AE5752300924FAB /* Lottie in Frameworks */,
 			);
@@ -188,37 +229,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		112003D52AE575A000924FAB /* TigerAnimation */ = {
+		1143C6842AF6A1EF0032CE53 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				11504B082AE57D9B00AED5C0 /* View */,
-				112003D62AE5790600924FAB /* VIewController */,
-			);
-			path = TigerAnimation;
-			sourceTree = "<group>";
-		};
-		112003D62AE5790600924FAB /* VIewController */ = {
-			isa = PBXGroup;
-			children = (
-				112003D72AE5792600924FAB /* TigerAnimationViewController.swift */,
-			);
-			path = VIewController;
-			sourceTree = "<group>";
-		};
-		11504B082AE57D9B00AED5C0 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */,
+				A897A9762AFF6FD200008722 /* YugwaCell.swift */,
+				1143C6942AF6F3760032CE53 /* YugwaCollectionView.swift */,
+				1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */,
+				1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */,
+				11CD0EE92AFE668900911B64 /* MoreBadgeCollectionView.swift */,
+				11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		11504B0E2AE6495300AED5C0 /* Recovered References */ = {
+		1143C6C12AFB822E0032CE53 /* SM_Intro */ = {
 			isa = PBXGroup;
 			children = (
-				11504B0C2AE58EC000AED5C0 /* TigerAnimation.json */,
+				1143C6C52AFD391E0032CE53 /* View */,
+				1143C6C22AFB82880032CE53 /* ViewController */,
 			);
-			name = "Recovered References";
+			path = SM_Intro;
+			sourceTree = "<group>";
+		};
+		1143C6C22AFB82880032CE53 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1143C6C32AFB829F0032CE53 /* SunAndMoonIntroViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1143C6C52AFD391E0032CE53 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1143C6C62AFD39880032CE53 /* SunAndMoonIntroView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		11504B162AE64AAA00AED5C0 /* Lottie */ = {
@@ -268,12 +314,24 @@
 			path = Window;
 			sourceTree = "<group>";
 		};
-		67816A482AE26FCB00B121B6 /* GiveTtekk */ = {
+		11CD0ED92AFD568E00911B64 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */,
+				112003D72AE5792600924FAB /* TigerAnimationViewController.swift */,
 				67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */,
+				11CD0EDE2AFD56D500911B64 /* TigerEncountViewController.swift */,
 			);
-			path = GiveTtekk;
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		11CD0EDA2AFD569900911B64 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */,
+				11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		67BAECEC2B000135006FB6D3 /* View */ = {
@@ -329,7 +387,6 @@
 		A80B882D2ADB9AA000091FF5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A8A482042AE5DBDC00FDE35C /* Log.swift */,
 				11504B162AE64AAA00AED5C0 /* Lottie */,
 				A8F41D2B2AE4FC3900BB0260 /* Sound */,
 				116A952C2ADF723D0096760A /* Font */,
@@ -345,9 +402,10 @@
 			children = (
 				670D34D42AF4D0D000B81A06 /* Window */,
 				A81637202ADFC51F0070DAC9 /* Components */,
-				A87217C42AE2129C003C0D5C /* Ttekkkochi */,
-				67816A482AE26FCB00B121B6 /* GiveTtekk */,
-				112003D52AE575A000924FAB /* TigerAnimation */,
+				A8B10D3C2AFAAE10009EA3F5 /* Opening */,
+				1143C6C12AFB822E0032CE53 /* SM_Intro */,
+				A828A6692AFF054800B11D71 /* SM_Concept1 */,
+				A828A66C2AFF06B700B11D71 /* SM_Concept2 */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -355,12 +413,32 @@
 		A81637202ADFC51F0070DAC9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				A81637232ADFC5FD0070DAC9 /* Constants.swift */,
 				A864F00C2AE03FC3007F4012 /* ConfigUI.swift */,
+				A81637232ADFC5FD0070DAC9 /* Constants.swift */,
+				A828A66A2AFF05DB00B11D71 /* CardView.swift */,
 				A864F0122AE041C8007F4012 /* CommonButton.swift */,
 				A8BC0DB82AE358BF00AD5C9A /* BasePaddingLabel.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		A828A6692AFF054800B11D71 /* SM_Concept1 */ = {
+			isa = PBXGroup;
+			children = (
+				A8873CE62AE3F5A2003D2A54 /* ViewModel */,
+				A8BC0DB32AE3432600AD5C9A /* View */,
+				A87217C52AE212AA003C0D5C /* ViewController */,
+			);
+			path = SM_Concept1;
+			sourceTree = "<group>";
+		};
+		A828A66C2AFF06B700B11D71 /* SM_Concept2 */ = {
+			isa = PBXGroup;
+			children = (
+				11CD0EDA2AFD569900911B64 /* View */,
+				11CD0ED92AFD568E00911B64 /* ViewController */,
+			);
+			path = SM_Concept2;
 			sourceTree = "<group>";
 		};
 		A83392922ADAB35D009BA7E2 = {
@@ -371,7 +449,6 @@
 				A83392B42ADAB35E009BA7E2 /* Codingdong-iOSTests */,
 				A83392BE2ADAB35E009BA7E2 /* Codingdong-iOSUITests */,
 				A833929C2ADAB35D009BA7E2 /* Products */,
-				11504B0E2AE6495300AED5C0 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -413,16 +490,6 @@
 			path = "Codingdong-iOSUITests";
 			sourceTree = "<group>";
 		};
-		A87217C42AE2129C003C0D5C /* Ttekkkochi */ = {
-			isa = PBXGroup;
-			children = (
-				A8873CE62AE3F5A2003D2A54 /* ViewModel */,
-				A8BC0DB32AE3432600AD5C9A /* View */,
-				A87217C52AE212AA003C0D5C /* ViewController */,
-			);
-			path = Ttekkkochi;
-			sourceTree = "<group>";
-		};
 		A87217C52AE212AA003C0D5C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,10 +506,35 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		A8B10D3C2AFAAE10009EA3F5 /* Opening */ = {
+			isa = PBXGroup;
+			children = (
+				1143C6842AF6A1EF0032CE53 /* View */,
+				A8B10D412AFAAE6D009EA3F5 /* ViewController */,
+			);
+			path = Opening;
+			sourceTree = "<group>";
+		};
+		A8B10D412AFAAE6D009EA3F5 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A8B10D3D2AFAAE20009EA3F5 /* SplashViewController.swift */,
+				A8B10D422AFAAE88009EA3F5 /* OnboardingViewController.swift */,
+				11CD0EE22AFDFCC400911B64 /* MoreTitleViewController.swift */,
+				1143C6BF2AFB666A0032CE53 /* MoreBadgeViewController.swift */,
+				1143C6822AF4D6440032CE53 /* MyBookShelfViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		A8BC0DB02AE33FBB00AD5C9A /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */,
+				1143C68D2AF6B0DE0032CE53 /* StoryTitle.swift */,
+				1143C6912AF6ED7B0032CE53 /* BadgeList.swift */,
+				A832B1192AFF43E500E1CE9B /* YugwaList.swift */,
+				A897A9742AFF6AC000008722 /* Fable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -487,6 +579,7 @@
 				A80B88272ADB9A2400091FF5 /* RxCocoa */,
 				A80B88292ADB9A2400091FF5 /* RxRelay */,
 				112003D32AE5752300924FAB /* Lottie */,
+				A89384572AF9516C00F2DC77 /* Log */,
 			);
 			productName = "Codingdong-iOS";
 			productReference = A833929B2ADAB35D009BA7E2 /* Codingdong-iOS.app */;
@@ -565,6 +658,7 @@
 				A80B88232ADB99CA00091FF5 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				A80B88262ADB9A2400091FF5 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				112003D22AE5752300924FAB /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				A89384562AF9516C00F2DC77 /* XCRemoteSwiftPackageReference "Log" */,
 			);
 			productRefGroup = A833929C2ADAB35D009BA7E2 /* Products */;
 			projectDirPath = "";
@@ -664,35 +758,56 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1143C6832AF4D6440032CE53 /* MyBookShelfViewController.swift in Sources */,
 				A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */,
+				1143C6952AF6F3760032CE53 /* YugwaCollectionView.swift in Sources */,
 				112003D82AE5792600924FAB /* TigerAnimationViewController.swift in Sources */,
+				11CD0EE72AFE031400911B64 /* IfConceptViewController.swift in Sources */,
+				11CD0EE32AFDFCC400911B64 /* MoreTitleViewController.swift in Sources */,
 				672C12012AF8757E0064AA64 /* WindowHoleViewController.swift in Sources */,
 				A8A725032AE55F7C004840A6 /* TtekkkochiViewModel.swift in Sources */,
+				A828A66B2AFF05DB00B11D71 /* CardView.swift in Sources */,
 				A8F41D2F2AE5001F00BB0260 /* HapticManager.swift in Sources */,
+				11CD0EDF2AFD56D500911B64 /* TigerEncountViewController.swift in Sources */,
 				A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */,
 				A8BC0DBE2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift in Sources */,
+				1143C68C2AF6B01E0032CE53 /* StoryListTableViewCell.swift in Sources */,
 				11504B0A2AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift in Sources */,
 				670D34D62AF4D0FD00B81A06 /* WindowStartViewController.swift in Sources */,
 				A8BC0DB72AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift in Sources */,
 				A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */,
+				1143C6922AF6ED7B0032CE53 /* BadgeList.swift in Sources */,
+				A8B10D432AFAAE88009EA3F5 /* OnboardingViewController.swift in Sources */,
+				1143C6882AF6A31F0032CE53 /* StoryListTableView.swift in Sources */,
+				A897A9772AFF6FD200008722 /* YugwaCell.swift in Sources */,
+				11CD0EEC2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift in Sources */,
 				670E09A42AFD4540008AA6D5 /* WindowVoiceChildViewController.swift in Sources */,
 				A8A482052AE5DBDC00FDE35C /* Log.swift in Sources */,
 				A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */,
+				A897A9752AFF6AC000008722 /* Fable.swift in Sources */,
 				116A95532ADF72AB0096760A /* FontManager.swift in Sources */,
 				A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */,
 				670E09A22AFCAF81008AA6D5 /* WindowVoiceViewController.swift in Sources */,
 				112003D12AE574FB00924FAB /* LottieManager.swift in Sources */,
+				A832B11A2AFF43E500E1CE9B /* YugwaList.swift in Sources */,
+				A8B10D3E2AFAAE20009EA3F5 /* SplashViewController.swift in Sources */,
 				A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */,
 				67BAECF72B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift in Sources */,
 				A8BC0DB22AE3401800AD5C9A /* CodingBlock.swift in Sources */,
+				1143C68E2AF6B0DE0032CE53 /* StoryTitle.swift in Sources */,
 				67BAECF52B0015BF006FB6D3 /* TigerNoseHoleAnimationView.swift in Sources */,
 				67BAECF92B001FB0006FB6D3 /* WindowEndingViewController.swift in Sources */,
 				A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */,
+				11CD0EDC2AFD56B800911B64 /* TigerEncountView.swift in Sources */,
+				1143C6C42AFB829F0032CE53 /* SunAndMoonIntroViewController.swift in Sources */,
 				A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */,
 				67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */,
+				1143C6C72AFD39880032CE53 /* SunAndMoonIntroView.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
 				67BAECF12B000446006FB6D3 /* TigerHandHoleAnimationView.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
+				1143C6C02AFB666A0032CE53 /* MoreBadgeViewController.swift in Sources */,
+				11CD0EEA2AFE668900911B64 /* MoreBadgeCollectionView.swift in Sources */,
 				67BAECFD2B0039F8006FB6D3 /* AndConceptViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1065,6 +1180,14 @@
 				minimumVersion = 6.6.0;
 			};
 		};
+		A89384562AF9516C00F2DC77 /* XCRemoteSwiftPackageReference "Log" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JYPjoy/Log.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1087,6 +1210,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A80B88262ADB9A2400091FF5 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxRelay;
+		};
+		A89384572AF9516C00F2DC77 /* Log */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A89384562AF9516C00F2DC77 /* XCRemoteSwiftPackageReference "Log" */;
+			productName = Log;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "log",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/JYPjoy/Log.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ce4b0b760600dda209188179141f0d09a57850a4"
+      }
+    },
+    {
       "identity" : "lottie-ios",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/airbnb/lottie-ios",
