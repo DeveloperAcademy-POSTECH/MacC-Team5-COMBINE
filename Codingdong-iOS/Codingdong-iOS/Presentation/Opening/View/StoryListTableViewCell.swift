@@ -47,7 +47,6 @@ final class StoryListTableViewCell: UITableViewCell {
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = .gs30
         imageView.image = UIImage(systemName: "chevron.right")
-        
         return imageView
     }()
     
@@ -55,9 +54,9 @@ final class StoryListTableViewCell: UITableViewCell {
         self.model = Fable(isRead: false, title: "")
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(containerView)
-        containerView.addSubview(isReadSymbolImage)
-        containerView.addSubview(titleLabel)
-        containerView.addSubview(isReadChevronImage)
+        [isReadSymbolImage, titleLabel, isReadChevronImage].forEach { containerView.addSubview($0)
+        }
+        
         
         containerView.snp.makeConstraints {
             $0.edges.equalToSuperview()
