@@ -459,16 +459,16 @@
 		A80B882E2ADB9ABC00091FF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				11CD0EE42AFE02C400911B64 /* IfConcept */,
-				11CD0ED82AFD55FF00911B64 /* TigerEncount */,
-				1143C6C12AFB822E0032CE53 /* SunAndMoonIntro */,
 				A81637202ADFC51F0070DAC9 /* Components */,
 				A8B10D3C2AFAAE10009EA3F5 /* Opening */,
-				1143C6B82AFB61070032CE53 /* MoreInfo */,
 				1143C6802AF4D6160032CE53 /* MyBookShelf */,
+				1143C6B82AFB61070032CE53 /* MoreInfo */,
+				1143C6C12AFB822E0032CE53 /* SunAndMoonIntro */,
+				11CD0ED82AFD55FF00911B64 /* TigerEncount */,
 				A87217C42AE2129C003C0D5C /* Ttekkkochi */,
 				67816A482AE26FCB00B121B6 /* GiveTtekk */,
 				112003D52AE575A000924FAB /* TigerAnimation */,
+				11CD0EE42AFE02C400911B64 /* IfConcept */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
