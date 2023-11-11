@@ -66,6 +66,7 @@
 		A80B883C2ADBA3EC00091FF5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */; };
 		A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81637232ADFC5FD0070DAC9 /* Constants.swift */; };
 		A828A66B2AFF05DB00B11D71 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828A66A2AFF05DB00B11D71 /* CardView.swift */; };
+		A832B11A2AFF43E500E1CE9B /* CookieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832B1192AFF43E500E1CE9B /* CookieList.swift */; };
 		A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */; };
 		A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83392A02ADAB35D009BA7E2 /* SceneDelegate.swift */; };
 		A83392A82ADAB35E009BA7E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A83392A72ADAB35E009BA7E2 /* Assets.xcassets */; };
@@ -143,6 +144,7 @@
 		A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A81637232ADFC5FD0070DAC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A828A66A2AFF05DB00B11D71 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		A832B1192AFF43E500E1CE9B /* CookieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieList.swift; sourceTree = "<group>"; };
 		A833929B2ADAB35D009BA7E2 /* Codingdong-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codingdong-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A83392A02ADAB35D009BA7E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -469,6 +471,7 @@
 				A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */,
 				1143C68D2AF6B0DE0032CE53 /* StoryTitle.swift */,
 				1143C6912AF6ED7B0032CE53 /* BadgeList.swift */,
+				A832B1192AFF43E500E1CE9B /* CookieList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				116A95532ADF72AB0096760A /* FontManager.swift in Sources */,
 				A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */,
 				112003D12AE574FB00924FAB /* LottieManager.swift in Sources */,
+				A832B11A2AFF43E500E1CE9B /* CookieList.swift in Sources */,
 				A8B10D3E2AFAAE20009EA3F5 /* SplashViewController.swift in Sources */,
 				A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */,
 				A8BC0DB22AE3401800AD5C9A /* CodingBlock.swift in Sources */,
