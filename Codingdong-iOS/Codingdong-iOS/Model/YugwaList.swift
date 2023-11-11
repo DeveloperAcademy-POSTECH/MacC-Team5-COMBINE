@@ -7,12 +7,14 @@
 
 import Foundation
 
-struct CookieList {
+struct YugwaList {
     var haveCookie: Bool
-    var cookie: [Cookie]
+    var cookie: [Yugwa]
 }
 
-struct Cookie {
+struct Yugwa {
     var image: String
     var concept: String
 }
+
+var cookieList: YugwaList = YugwaList(haveCookie: false, cookie: [])

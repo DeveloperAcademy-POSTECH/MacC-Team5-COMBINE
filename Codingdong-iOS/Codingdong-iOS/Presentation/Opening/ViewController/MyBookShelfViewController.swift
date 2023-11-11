@@ -171,7 +171,6 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     }
     
     func fetchData() {
-
         if cookieList.haveCookie == false {
             innerLabel.isHidden = false
             innerView.isHidden = true
