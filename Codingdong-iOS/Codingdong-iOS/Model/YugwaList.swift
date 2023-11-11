@@ -8,8 +8,8 @@
 import Foundation
 
 struct YugwaList {
-    var haveCookie: Bool
-    var cookie: [Yugwa]
+    var haveYugwa: Bool
+    var yugwa: [Yugwa]
 }
 
 struct Yugwa {
@@ -17,4 +17,4 @@ struct Yugwa {
     var concept: String
 }
 
-var cookieList: YugwaList = YugwaList(haveCookie: false, cookie: [])
+var cookieList: YugwaList = YugwaList(haveYugwa: false, yugwa: [])
