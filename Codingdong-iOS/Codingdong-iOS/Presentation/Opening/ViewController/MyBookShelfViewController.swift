@@ -66,7 +66,27 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     
     private let storyList = StoryListTableView()
     
-    private let badgeCollection = BadgeCollectionView()
+    private let cookieContainer: UIView = {
+       let view = UIView()
+        view.backgroundColor = .gs80
+        view.layer.cornerRadius = 10
+        return view
+    }()
+    
+    private let innerLabel: UILabel = {
+       let label = UILabel()
+        label.numberOfLines = 0
+        label.text = """
+        간식이 없어요.
+        동화를 읽으러 가 보아요!
+        """
+        label.font = FontManager.footnote()
+        label.textColor = .gs40
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private let innerView = BadgeCollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +96,10 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         setupNavigationBar()
         addComponents()
         setConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchData()
     }
     
     func setupNavigationBar() {
@@ -90,9 +114,10 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [storyTitle, badgeTitle, moreTitleButton, moreBadgeButton, storyList, badgeCollection].forEach {
+        [storyTitle, badgeTitle, moreTitleButton, moreBadgeButton, storyList, cookieContainer].forEach {
             view.addSubview($0)
         }
+        [innerView, innerLabel].forEach { cookieContainer.addSubview($0) }
     }
     
     func setConstraints() {
@@ -123,11 +148,19 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
             $0.height.equalTo(180)
         }
         
-        badgeCollection.snp.makeConstraints {
+        cookieContainer.snp.makeConstraints {
             $0.top.equalTo(badgeTitle.snp.bottom).offset(16)
-            $0.left.equalTo(16)
-            $0.right.equalTo(-16)
+            $0.left.equalToSuperview().offset(16)
+            $0.right.equalToSuperview().offset(-16)
             $0.bottom.equalToSuperview().offset(-32)
+        }
+        
+        innerLabel.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
+        }
+        
+        innerView.snp.makeConstraints {
+            $0.left.right.top.bottom.equalToSuperview()
         }
     }
     
@@ -135,6 +168,17 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         navigationItem.accessibilityElements = [navigationTitle]
         view.accessibilityElements = [storyTitle, moreTitleButton, badgeTitle, moreBadgeButton]
         // TODO: 각 요소에 Accessibility 적용
+    }
+    
+    func fetchData() {
+
+        if cookieList.haveCookie == false {
+            innerLabel.isHidden = false
+            innerView.isHidden = true
+        } else {
+            innerLabel.isHidden = true
+            innerView.isHidden = false
+        }
     }
 }
 
