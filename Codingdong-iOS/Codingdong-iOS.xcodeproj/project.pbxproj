@@ -305,15 +305,6 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		670D34D42AF4D0D000B81A06 /* Window */ = {
-			isa = PBXGroup;
-			children = (
-				67BAECED2B00013C006FB6D3 /* ViewController */,
-				67BAECEC2B000135006FB6D3 /* View */,
-			);
-			path = Window;
-			sourceTree = "<group>";
-		};
 		11CD0ED92AFD568E00911B64 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +323,15 @@
 				11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		670D34D42AF4D0D000B81A06 /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				67BAECED2B00013C006FB6D3 /* ViewController */,
+				67BAECEC2B000135006FB6D3 /* View */,
+			);
+			path = Window;
 			sourceTree = "<group>";
 		};
 		67BAECEC2B000135006FB6D3 /* View */ = {
@@ -782,7 +782,6 @@
 				A897A9772AFF6FD200008722 /* YugwaCell.swift in Sources */,
 				11CD0EEC2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift in Sources */,
 				670E09A42AFD4540008AA6D5 /* WindowVoiceChildViewController.swift in Sources */,
-				A8A482052AE5DBDC00FDE35C /* Log.swift in Sources */,
 				A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */,
 				A897A9752AFF6AC000008722 /* Fable.swift in Sources */,
 				116A95532ADF72AB0096760A /* FontManager.swift in Sources */,
