@@ -8,6 +8,10 @@
 import UIKit
 import SnapKit
 
+/* MARK: @션 여기 리팩토링 부탁드려요 😇
+(고작 라벨 하나로 해결하면 될 일을 새로운 뷰로 빼시면 어찌하옵니까: https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/pull/60)
+ 여기 참조해 주세용
+*/
 final class SunAndMoonIntroView: UIView, ConfigUI {
     
     let containerView: UIView = {
