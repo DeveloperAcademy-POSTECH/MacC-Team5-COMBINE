@@ -141,6 +141,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     }
     
     func binding() {
+        self.bottomView.setup(with: viewModel)
         self.viewModel.route
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] nextView in

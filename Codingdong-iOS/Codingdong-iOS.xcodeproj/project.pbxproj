@@ -89,6 +89,7 @@
 		A8BC0DB72AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DB62AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift */; };
 		A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DB82AE358BF00AD5C9A /* BasePaddingLabel.swift */; };
 		A8BC0DBE2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DBD2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift */; };
+		A8BE07F12B00CA7800DD7378 /* SunAndMoonIntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE07F02B00CA7800DD7378 /* SunAndMoonIntroViewModel.swift */; };
 		A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F41D252AE4F94400BB0260 /* SoundManager.swift */; };
 		A8F41D2D2AE4FC4200BB0260 /* piano.wav in Resources */ = {isa = PBXBuildFile; fileRef = A8F41D2C2AE4FC4200BB0260 /* piano.wav */; };
 		A8F41D2F2AE5001F00BB0260 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F41D2E2AE5001F00BB0260 /* HapticManager.swift */; };
@@ -174,6 +175,7 @@
 		A8BC0DB82AE358BF00AD5C9A /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
 		A8BC0DBC2AE3855B00AD5C9A /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A8BC0DBD2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiSelectionView.swift; sourceTree = "<group>"; };
+		A8BE07F02B00CA7800DD7378 /* SunAndMoonIntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunAndMoonIntroViewModel.swift; sourceTree = "<group>"; };
 		A8F41D252AE4F94400BB0260 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		A8F41D2C2AE4FC4200BB0260 /* piano.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = piano.wav; sourceTree = "<group>"; };
 		A8F41D2E2AE5001F00BB0260 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 		1143C6C12AFB822E0032CE53 /* SM_Intro */ = {
 			isa = PBXGroup;
 			children = (
+				A8BE07EF2B00CA5B00DD7378 /* ViewModel */,
 				1143C6C52AFD391E0032CE53 /* View */,
 				1143C6C22AFB82880032CE53 /* ViewController */,
 			);
@@ -288,7 +291,6 @@
 				11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */,
 				112003D72AE5792600924FAB /* TigerAnimationViewController.swift */,
 				67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */,
-				11CD0EDE2AFD56D500911B64 /* TigerEncountViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -297,7 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */,
-				11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -446,6 +447,7 @@
 		A87217C52AE212AA003C0D5C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				11CD0EDE2AFD56D500911B64 /* TigerEncountViewController.swift */,
 				A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */,
 			);
 			path = ViewController;
@@ -496,10 +498,19 @@
 		A8BC0DB32AE3432600AD5C9A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */,
 				A8BC0DB62AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift */,
 				A8BC0DBD2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A8BE07EF2B00CA5B00DD7378 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A8BE07F02B00CA7800DD7378 /* SunAndMoonIntroViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		A8F41D2B2AE4FC3900BB0260 /* Sound */ = {
@@ -744,6 +755,7 @@
 				A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */,
 				11CD0EDC2AFD56B800911B64 /* TigerEncountView.swift in Sources */,
 				1143C6C42AFB829F0032CE53 /* SunAndMoonIntroViewController.swift in Sources */,
+				A8BE07F12B00CA7800DD7378 /* SunAndMoonIntroViewModel.swift in Sources */,
 				A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */,
 				67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */,
 				A80A05352AFFCE9C00624BBC /* MyBookShelfViewModel.swift in Sources */,
