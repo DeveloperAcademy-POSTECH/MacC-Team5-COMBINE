@@ -91,6 +91,9 @@
 		A8BC0DBE2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DBD2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift */; };
 		A8BE07F12B00CA7800DD7378 /* SunAndMoonIntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE07F02B00CA7800DD7378 /* SunAndMoonIntroViewModel.swift */; };
 		A8BE07F32B00DBA700DD7378 /* TigerEncounterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE07F22B00DBA700DD7378 /* TigerEncounterViewModel.swift */; };
+		A8BE07F72B00E4E900DD7378 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE07F62B00E4E900DD7378 /* ReviewViewController.swift */; };
+		A8BE07FA2B00EBF100DD7378 /* ReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE07F92B00EBF100DD7378 /* ReviewCollectionViewCell.swift */; };
+		A8BE07FD2B00FECA00DD7378 /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE07FC2B00FECA00DD7378 /* ReviewViewModel.swift */; };
 		A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F41D252AE4F94400BB0260 /* SoundManager.swift */; };
 		A8F41D2D2AE4FC4200BB0260 /* piano.wav in Resources */ = {isa = PBXBuildFile; fileRef = A8F41D2C2AE4FC4200BB0260 /* piano.wav */; };
 		A8F41D2F2AE5001F00BB0260 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F41D2E2AE5001F00BB0260 /* HapticManager.swift */; };
@@ -178,6 +181,9 @@
 		A8BC0DBD2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiSelectionView.swift; sourceTree = "<group>"; };
 		A8BE07F02B00CA7800DD7378 /* SunAndMoonIntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunAndMoonIntroViewModel.swift; sourceTree = "<group>"; };
 		A8BE07F22B00DBA700DD7378 /* TigerEncounterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerEncounterViewModel.swift; sourceTree = "<group>"; };
+		A8BE07F62B00E4E900DD7378 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		A8BE07F92B00EBF100DD7378 /* ReviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		A8BE07FC2B00FECA00DD7378 /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		A8F41D252AE4F94400BB0260 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		A8F41D2C2AE4FC4200BB0260 /* piano.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = piano.wav; sourceTree = "<group>"; };
 		A8F41D2E2AE5001F00BB0260 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
@@ -363,6 +369,7 @@
 				1143C6C12AFB822E0032CE53 /* SM_Intro */,
 				A828A6692AFF054800B11D71 /* SM_Concept1 */,
 				A828A66C2AFF06B700B11D71 /* SM_Concept2 */,
+				A8BE07F42B00E47700DD7378 /* SM_Ending */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -512,6 +519,40 @@
 			children = (
 				A8BE07F22B00DBA700DD7378 /* TigerEncounterViewModel.swift */,
 				A8BE07F02B00CA7800DD7378 /* SunAndMoonIntroViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A8BE07F42B00E47700DD7378 /* SM_Ending */ = {
+			isa = PBXGroup;
+			children = (
+				A8BE07FB2B00FEBB00DD7378 /* ViewModel */,
+				A8BE07F82B00EBB800DD7378 /* View */,
+				A8BE07F52B00E48300DD7378 /* ViewController */,
+			);
+			path = SM_Ending;
+			sourceTree = "<group>";
+		};
+		A8BE07F52B00E48300DD7378 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A8BE07F62B00E4E900DD7378 /* ReviewViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A8BE07F82B00EBB800DD7378 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A8BE07F92B00EBF100DD7378 /* ReviewCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A8BE07FB2B00FEBB00DD7378 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A8BE07FC2B00FECA00DD7378 /* ReviewViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -723,6 +764,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8BE07F72B00E4E900DD7378 /* ReviewViewController.swift in Sources */,
 				1143C6832AF4D6440032CE53 /* MyBookShelfViewController.swift in Sources */,
 				A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */,
 				1143C6952AF6F3760032CE53 /* YugwaCollectionView.swift in Sources */,
@@ -760,6 +802,7 @@
 				11CD0EDC2AFD56B800911B64 /* TigerEncountView.swift in Sources */,
 				1143C6C42AFB829F0032CE53 /* SunAndMoonIntroViewController.swift in Sources */,
 				A8BE07F12B00CA7800DD7378 /* SunAndMoonIntroViewModel.swift in Sources */,
+				A8BE07FA2B00EBF100DD7378 /* ReviewCollectionViewCell.swift in Sources */,
 				A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */,
 				67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */,
 				A80A05352AFFCE9C00624BBC /* MyBookShelfViewModel.swift in Sources */,
@@ -767,6 +810,7 @@
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
 				1143C6C02AFB666A0032CE53 /* MoreBadgeViewController.swift in Sources */,
+				A8BE07FD2B00FECA00DD7378 /* ReviewViewModel.swift in Sources */,
 				11CD0EEA2AFE668900911B64 /* MoreBadgeCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
