@@ -17,4 +17,8 @@ struct Constants {
         static let cardPadding: CGFloat = 24
         static let cardSize: CGFloat = 124
     }
+    
+    enum View {
+        static let padding: CGFloat = 16
+    }
 }
