@@ -8,10 +8,6 @@
 import UIKit
 import Combine
 
-protocol OnboardViewRepresentable where Self: UIView {
-    func setup(with viewModel: OnboardingViewModel)
-}
-
 protocol OnboardingViewRepresentable {
     func tapNextButton()
 }
