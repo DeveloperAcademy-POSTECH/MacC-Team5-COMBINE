@@ -36,7 +36,7 @@ final class AndConceptViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "해님달님의 첫번째 개념"
+        label.text = "해님달님의 두 번째 개념"
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
@@ -52,7 +52,7 @@ final class AndConceptViewController: UIViewController {
     
     private let cardView = CardView()
     
-    private let cardViewModel = CardViewModel(title: "그리고", content: "발톱, 꼬리 그리고 수염을 보고 호랑이임을 판단할 수 있었어요.", cardImage: "sm_concept1")
+    private let cardViewModel = CardViewModel(title: "그리고", content: "발톱, 꼬리 그리고 수염을 보고 호랑이임을 판단할 수 있었어요.", cardImage: "sm_concept2")
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -99,6 +99,7 @@ final class OnboardingViewController: UIViewController {
         viewModel.route
             .sink { [weak self] nextView in
                 self?.navigationController?.pushViewController(nextView, animated: false)
+                self?.navigationController?.setViewControllers([nextView], animated: false)
             }
             .store(in: &cancellable)
     }
