@@ -145,8 +145,16 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
     
     func setupAccessibility() {
         navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [titleLabel]
+        view.accessibilityElements = [titleLabel, tigerHandHoleAnimationView, tigerNoseHoleAnimationView, tigerTailHoleAnimationView]
         leftBarButtonItem.accessibilityLabel = "내 책장"
+        
+        [tigerHandHoleAnimationView.lottieView, tigerNoseHoleAnimationView.lottieView, tigerTailHoleAnimationView.lottieView].forEach {
+            $0.isAccessibilityElement = true
+        }
+        
+        tigerHandHoleAnimationView.lottieView.accessibilityLabel = "첫번째 구멍"
+        tigerNoseHoleAnimationView.lottieView.accessibilityLabel = "두번째 구멍"
+        tigerTailHoleAnimationView.lottieView.accessibilityLabel = "세번째 구멍"
     }
     
 }

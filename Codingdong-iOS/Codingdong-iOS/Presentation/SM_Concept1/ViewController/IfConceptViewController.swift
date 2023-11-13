@@ -47,7 +47,7 @@ final class IfConceptViewController: UIViewController, ConfigUI {
     
     private let nextButton = CommonButton()
     
-    private lazy var nextButtonViewModel = CommonbuttonModel(title: "복습하기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .gs10, height: 72, didTouchUpInside: didClickNextButton)
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음챕터로", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2, height: 72, didTouchUpInside: didClickNextButton)
     
     private let basicPadding = Constants.Button.buttonPadding
     
