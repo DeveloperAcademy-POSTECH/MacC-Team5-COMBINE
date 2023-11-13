@@ -12,7 +12,7 @@ final class ReviewViewController: UIViewController, ConfigUI {
     
     // 뷰 전체 model, cellModel
     // MARK: - ViewModel
-    var cellModels: [CardViewModel] = [.init(title: "만약에 : 조건문", content: "만약에는 코딩의 ‘조건문’에 해당돼요. 조건문은 정해진 상황에 따라 다른 동작이 수행되게 만들 수 있어요.", cardImage: "sm_review1"),
+    private var cellModels: [CardViewModel] = [.init(title: "만약에 : 조건문", content: "만약에는 코딩의 ‘조건문’에 해당돼요. 조건문은 정해진 상황에 따라 다른 동작이 수행되게 만들 수 있어요.", cardImage: "sm_review1"),
         .init(title: "그리고 : 연산자", content: "그리고는 코딩의 ‘연산자’에 해당돼요. 연산자는 조건의 ‘참'과 ‘거짓'을 판단해요.", cardImage: "sm_review2"),
         .init(title: "거듭하기 : 반복문", content: "거듭하기는 코딩의 ‘반복문’에 해당돼요. 반복문을 사용하여 같은 동작이 반복되도록 만들 수 있어요.", cardImage: "sm_review3")]
     
@@ -37,18 +37,28 @@ final class ReviewViewController: UIViewController, ConfigUI {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.register(ReviewCollectionViewCell.self, forCellWithReuseIdentifier: ReviewCollectionViewCell.identifier)
         view.dataSource = self
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.delegate = self
         view.backgroundColor = .gs90
+        view.showsHorizontalScrollIndicator = false
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
-    private let padding = Constants.View.padding
+    let pageControlContainer: UIView = {
+        let view = UIView()
+        view.backgroundColor = .gs40
+        view.layer.cornerRadius = 12
+        return view
+    }()
     
+    private let pageControl = UIPageControl()
     private let nextButton = CommonButton()
     private lazy var nextButtonViewModel = CommonbuttonModel(title: "이야기 끝내기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .gs10) {[weak self] in
        //self?.viewModel.selectItem()
         Log.i("다음으로 화면")
     }
+    
+    private let padding = Constants.View.padding
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +66,7 @@ final class ReviewViewController: UIViewController, ConfigUI {
         setupNavigationBar()
         addComponents()
         setConstraints()
+        setupPageControl()
     }
     
     func setupNavigationBar() {
@@ -92,6 +103,25 @@ final class ReviewViewController: UIViewController, ConfigUI {
         reviewCollectionView.isPagingEnabled = false
     }
     
+    func setupPageControl() {
+        view.addSubview(pageControlContainer)
+        pageControlContainer.addSubview(pageControl)
+        pageControl.numberOfPages = 3
+        pageControl.currentPage = 0
+        pageControl.pageIndicatorTintColor = .white.withAlphaComponent(0.3)
+        pageControl.currentPageIndicatorTintColor = .white
+        
+        pageControlContainer.snp.makeConstraints {
+            $0.top.equalTo(reviewCollectionView.snp.bottom).offset(-44)
+            $0.centerX.equalToSuperview()
+            $0.size.equalTo(CGSize(width: 64, height: 24))
+        }
+        
+        pageControl.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
+        }
+    }
+    
     func setConstraints() {
         contentLabel.snp.makeConstraints {
             $0.top.equalTo(naviLine.snp.bottom).offset(padding)
@@ -104,7 +134,6 @@ final class ReviewViewController: UIViewController, ConfigUI {
             $0.left.right.equalToSuperview()
             $0.bottom.equalToSuperview().offset(-142)
         }
-        
         nextButton.setup(model: nextButtonViewModel)
         nextButton.snp.makeConstraints {
             $0.top.equalTo(reviewCollectionView.snp.bottom).offset(38)
@@ -128,5 +157,18 @@ extension ReviewViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReviewCollectionViewCell.identifier, for: indexPath) as? ReviewCollectionViewCell else { fatalError() }
         cell.cardViewModel = cellModels[indexPath.row]
         return cell
+    }
+}
+
+extension ReviewViewController: UICollectionViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let width = scrollView.bounds.size.width
+
+        // 화면 가로 길이: 스크롤뷰에서 얼만큼 움직였는지
+        let x = scrollView.contentOffset.x + (width/2)
+        let newPage = Int(x/width)
+        if pageControl.currentPage != newPage {
+            pageControl.currentPage = newPage
+        }
     }
 }

@@ -18,6 +18,6 @@ final class ReviewViewModel: ReviewViewModelRepresentable {
     var sendRoute: PassthroughSubject<UIViewController, Never> = .init()
     
     func endStory() {
-        sendRoute.send(MyBookShelfViewController())
+        sendRoute.send(MyBookShelfViewController()) // TODO: 루트 바꾸어야 함 
     }
 }
