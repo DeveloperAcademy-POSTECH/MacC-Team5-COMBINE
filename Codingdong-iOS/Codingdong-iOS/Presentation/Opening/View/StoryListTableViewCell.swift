@@ -57,7 +57,6 @@ final class StoryListTableViewCell: UITableViewCell {
         [isReadSymbolImage, titleLabel, isReadChevronImage].forEach { containerView.addSubview($0)
         }
         
-        
         containerView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }

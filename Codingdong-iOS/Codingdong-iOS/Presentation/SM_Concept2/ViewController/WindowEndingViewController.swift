@@ -36,11 +36,13 @@ final class WindowEndingViewController: UIViewController {
         imageView.image = UIImage(named: imageName[isSuccess])
         return imageView
     }()
-   
+    
     private let nextButton = CommonButton()
     private lazy var settingButtonViewModel = CommonbuttonModel(title: buttonName[isSuccess], font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
-        // TODO: 네비게이션 링크 수정하가
+        // TODO: 네비게이션 링크 수정하기
+        // 내비게이션 컨트롤은 스택으로 관리 됨. 아마 뷰 6개? 정도 pop하면 될 듯?
         self?.navigationController?.pushViewController(GiveTtekkViewController(), animated: false)
+        //        self?.navigationController?.popToViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
     }
     
     override func viewDidLoad() {
@@ -68,7 +70,7 @@ final class WindowEndingViewController: UIViewController {
             style: .plain,
             target: self,
             action: .none
-        )    
+        )
     }
     
     func addComponents() {

@@ -9,8 +9,8 @@ import UIKit
 import SnapKit
 
 final class TigerHandHoleAnimationView: UIView {
-    
-    lazy var handLottieView: UIView = {
+
+    lazy var lottieView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
         LottieManager.shared.setAnimation(named: "TigerHandHoleAnimation", inView: view)
@@ -19,8 +19,8 @@ final class TigerHandHoleAnimationView: UIView {
     
     private override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(handLottieView)
-        handLottieView.snp.makeConstraints {
+        addSubview(lottieView)
+        lottieView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }
@@ -28,4 +28,5 @@ final class TigerHandHoleAnimationView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
 }
