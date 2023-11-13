@@ -13,7 +13,7 @@ final class TigerNoseHoleAnimationView: UIView {
     lazy var lottieView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
-        LottieManager.shared.setAnimation(named: "TigerNoseHoleAnimation", inView: view)
+        LottieManager.shared.setAnimationForWindow(named: "TigerNoseHoleAnimation", inView: view)
         return view
     }()
     

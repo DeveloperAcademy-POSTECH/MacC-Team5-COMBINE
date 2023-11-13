@@ -69,7 +69,7 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
         if UIAccessibility.isVoiceOverRunning {
             NotificationCenter.default.addObserver(self, selector: #selector(voiceOverFocusChanged), name: UIAccessibility.elementFocusedNotification, object: nil)
         } else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
                 LottieManager.shared.playAnimation(inView: self.animationView.lottieView, completion: nil)
                 self.bottomBtnSpringAnimation()
             }
