@@ -355,7 +355,6 @@
 				67BAECF02B000446006FB6D3 /* TigerHandHoleAnimationView.swift */,
 				67BAECF42B0015BF006FB6D3 /* TigerNoseHoleAnimationView.swift */,
 				67BAECF62B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift */,
-				11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -579,6 +578,7 @@
 			children = (
 				A8BC0DB62AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift */,
 				A8BC0DBD2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift */,
+				11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1086,7 +1086,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = XGHDQG66U5;
+				DEVELOPMENT_TEAM = W43DLLFB4Q;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
@@ -1117,7 +1117,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = XGHDQG66U5;
+				DEVELOPMENT_TEAM = W43DLLFB4Q;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
