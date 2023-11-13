@@ -13,6 +13,7 @@ final class OnboardingViewController: UIViewController {
     
     private var cancellable = Set<AnyCancellable>()
     private var viewModel = OnboardingViewModel()
+    private let permissionManager = PermissionManager()
     
     // MARK: - Components
     private lazy var voiceOverStackView: UIStackView = {
@@ -62,6 +63,7 @@ final class OnboardingViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         binding()
+        permissionManager.requestMicPermission()
     }
     
     private func setupView() {
