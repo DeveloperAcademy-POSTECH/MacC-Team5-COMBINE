@@ -77,7 +77,7 @@ final class GiveTtekkViewController: UIViewController {
             image: UIImage(systemName: "books.vertical"),
             style: .plain,
             target: self,
-            action: .none
+            action: #selector(popThisView)
         )
     }
     
@@ -146,6 +146,11 @@ final class GiveTtekkViewController: UIViewController {
                 $0.top.equalToSuperview().offset(728 - i*118)
             }
         }
+    }
+    
+    @objc
+    private func popThisView() {
+        self.navigationController?.popToRootViewController(animated: false)
     }
     
 }

@@ -120,6 +120,6 @@ extension IfConceptViewController {
     
     @objc
     func popThisView() {
-        self.navigationController?.popViewController(animated: false)
+        self.navigationController?.popToRootViewController(animated: false)
     }
 }
