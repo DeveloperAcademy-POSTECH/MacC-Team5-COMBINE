@@ -13,7 +13,7 @@ final class TigerHandHoleAnimationView: UIView {
     lazy var lottieView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
-        LottieManager.shared.setAnimation(named: "TigerHandHoleAnimation", inView: view)
+        LottieManager.shared.setAnimationForWindow(named: "TigerHandHoleAnimation", inView: view)
         return view
     }()
     

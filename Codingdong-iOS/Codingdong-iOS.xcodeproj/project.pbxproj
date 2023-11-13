@@ -346,7 +346,6 @@
 				670E09A32AFD4540008AA6D5 /* WindowVoiceChildViewController.swift */,
 				67BAECF82B001FB0006FB6D3 /* WindowEndingViewController.swift */,
 				67BAECFC2B0039F8006FB6D3 /* AndConceptViewController.swift */,
-				11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -357,7 +356,6 @@
 				67BAECF02B000446006FB6D3 /* TigerHandHoleAnimationView.swift */,
 				67BAECF42B0015BF006FB6D3 /* TigerNoseHoleAnimationView.swift */,
 				67BAECF62B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift */,
-				11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -531,6 +529,7 @@
 				112003D72AE5792600924FAB /* TigerAnimationViewController.swift */,
 				67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */,
 				A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */,
+				11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -582,6 +581,7 @@
 			children = (
 				A8BC0DB62AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift */,
 				A8BC0DBD2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift */,
+				11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1090,7 +1090,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = XGHDQG66U5;
+				DEVELOPMENT_TEAM = W43DLLFB4Q;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
@@ -1121,7 +1121,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = XGHDQG66U5;
+				DEVELOPMENT_TEAM = W43DLLFB4Q;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
