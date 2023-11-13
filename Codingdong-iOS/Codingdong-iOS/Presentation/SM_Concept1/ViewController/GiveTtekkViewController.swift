@@ -162,7 +162,22 @@ extension GiveTtekkViewController {
         ttekkStackView.removeArrangedSubview(poppedView)
         poppedView.removeFromSuperview()
         self.hapticManager?.playNomNom()
-//        SoundManager.shared.playTTS("\(ttekks.count)개")
+        //        TTS는 iOS 17 이슈로 동작하지 않음.
+        //        SoundManager.shared.playTTS("\(ttekks.count)개")
+        
+        
+        //MARK: 시나리오 추가에 대한 A/B 테스트 코드.
+        //        let ttekks = ttekkStackView.arrangedSubviews
+        //
+        //        guard let poppedView = ttekks.last else {
+        //            self.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
+        //            return
+        //        }
+        //
+        //        ttekkStackView.removeArrangedSubview(poppedView)
+        //        poppedView.removeFromSuperview()
+        //        self.hapticManager?.playNomNom()
+        ////        SoundManager.shared.playTTS("\(ttekks.count)개")
     }
     
     func countShake() {
