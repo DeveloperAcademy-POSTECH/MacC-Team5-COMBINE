@@ -1,16 +1,18 @@
 //
-//  IfConceptViewController.swift
+//  RepeatViewController.swift
 //  Codingdong-iOS
 //
-//  Created by BAE on 2023/11/10.
+//  Created by Joy on 11/13/23.
 //
 
 import UIKit
-import SnapKit
 import Log
+import Combine
 
-final class IfConceptViewController: UIViewController, ConfigUI {
+final class RepeatConceptViewController: UIViewController, ConfigUI {
     
+    // MARK: Component
+    let padding = Constants.View.padding
     private let naviLine: UIView = {
         let view = UIView()
         view.backgroundColor = .white.withAlphaComponent(0.15)
@@ -37,7 +39,7 @@ final class IfConceptViewController: UIViewController, ConfigUI {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "해님달님의 첫번째 개념"
+        label.text = "해님달님의 세 번째 개념"
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
@@ -45,25 +47,23 @@ final class IfConceptViewController: UIViewController, ConfigUI {
         return label
     }()
     
+    private let cardView = CardView()
     private let nextButton = CommonButton()
     
-    private lazy var nextButtonViewModel = CommonbuttonModel(title: "복습하기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .gs10, height: 72, didTouchUpInside: didClickNextButton)
+    //MARK: - ViewModel
+    private var viewModel = OnuiiViewModel()
+    private var cardViewModel = CardViewModel(title: "거듭하기", content: "흔들기 동작을 반복하면서 오누이가 동아줄을 오를 수 있게 도와줬어요.", cardImage: "sm_concept3")
     
-    private let basicPadding = Constants.Button.buttonPadding
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "복습하기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .gs10, height: 72) {[weak self] in
+        self?.viewModel.moveOn()
+    }
     
-    private let cardView = CardView()
-    
-    private let cardViewModel = CardViewModel(title: "만약에", content: "‘만약에’와 ‘아니면’으로 엄마가 고개를 넘기 위한 두 가지 상황을 만들어 볼 수 있었어요.", cardImage: "sm_concept1")
-    
+    //MARK: - View initializer
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .gs90
         setupNavigationBar()
         addComponents()
         setConstraints()
-        setupAccessibility()
-        nextButton.setup(model: nextButtonViewModel)
-        cardView.config(model: cardViewModel)
     }
     
     func setupNavigationBar() {
@@ -79,44 +79,33 @@ final class IfConceptViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [titleLabel, cardView, nextButton].forEach {
-            view.addSubview($0)
-        }
+        [titleLabel, cardView, nextButton].forEach { view.addSubview($0) }
+        cardView.config(model: cardViewModel)
+        nextButton.setup(model: nextButtonViewModel)
     }
     
     func setConstraints() {
         titleLabel.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(basicPadding)
-            $0.right.equalToSuperview().offset(-basicPadding)
-            $0.top.equalTo(naviLine).offset(basicPadding)
+            $0.top.equalTo(naviLine.snp.bottom).offset(padding)
+            $0.left.equalToSuperview().offset(padding)
+            $0.right.equalToSuperview().offset(-padding)
         }
         
         cardView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(50)
-            $0.left.right.equalToSuperview()
             $0.bottom.equalToSuperview().offset(-142)
+            $0.left.right.equalToSuperview()
         }
         
         nextButton.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(basicPadding)
-            $0.right.equalToSuperview().offset(-basicPadding)
-            $0.bottom.equalToSuperview().offset(-basicPadding * 2)
+            $0.top.equalTo(cardView.snp.bottom).offset(38)
+            $0.left.right.equalToSuperview().inset(padding)
         }
     }
     
-    func setupAccessibility() {
-        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-    }
-}
+    func setupAccessibility() {}
 
-extension IfConceptViewController {
-    @objc
-    func didClickNextButton() {
-        self.navigationController?.pushViewController(WindowStartViewController(), animated: false)
-    }
-    
-    @objc
-    func popThisView() {
-        self.navigationController?.popToRootViewController(animated: false)
+    @objc func popThisView() {
+        Log.d("안녕하세용")
     }
 }
