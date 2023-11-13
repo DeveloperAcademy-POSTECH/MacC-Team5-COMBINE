@@ -22,7 +22,6 @@ final class WindowVoiceViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "문 밖에 누가 있는지 확인했나요?\n\n문을 열어줄까요?\n\n'열어줄래요', '싫어요' 중에 대답해주세요."
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0

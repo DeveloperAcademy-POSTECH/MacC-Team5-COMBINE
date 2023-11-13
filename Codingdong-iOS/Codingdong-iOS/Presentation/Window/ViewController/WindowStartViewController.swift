@@ -19,7 +19,11 @@ final class WindowStartViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "아직 배가 고픈 호랑이는 오누이도 잡아먹고 싶어졌어요. \n\n그래서 꾀를 내어 엄마로 변장해 오누이의 집으로 찾아갔어요. \n\n오누이를 도와 문 밖의 무서운 호랑이의 정체를 밝혀볼까요?"
+        label.text = ("""
+                    아직 배가 고픈 호랑이는 오누이도 잡아먹고 싶어졌어요.
+                    그래서 꾀를 내어 엄마로 변장해 오누이의 집으로 찾아갔어요.
+                    오누이를 도와 문 밖의 무서운 호랑이의 정체를 밝혀볼까요?
+                    """)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = FontManager.body()
         label.textColor = .gs10
@@ -57,8 +61,7 @@ final class WindowStartViewController: UIViewController {
     }
     
     func addComponents() {
-        view.addSubview(titleLabel)
-        view.addSubview(nextButton)
+        [titleLabel, nextButton].forEach { view.addSubview($0) }
     }
     
     func setConstraints() {

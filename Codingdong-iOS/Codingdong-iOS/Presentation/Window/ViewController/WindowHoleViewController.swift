@@ -19,7 +19,6 @@ final class WindowHoleViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "구멍을 탭해서 문 밖에 누가 있는지 확인해주세요."
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0

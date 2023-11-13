@@ -24,7 +24,6 @@ final class WindowEndingViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = titleLabelText[isSuccess]
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
