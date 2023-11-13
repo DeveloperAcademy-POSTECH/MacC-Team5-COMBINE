@@ -84,6 +84,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
                     try startRecording()
                     titleLabel.text = "말해주세요"
                 } catch {
+                    // 오류 발생시 뷰 dismiss
                     soundManager.playTTS("오류가 발생했습니다. 다시 실행시켜주세요")
                     dismiss(animated: false)
                 }
@@ -99,26 +100,24 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
         }
     }
     
+    /// Speech To Text 기능 구현
     private func startRecording() throws {
         
-        // Cancel the previous task if it's running.
+        // 작업중인 task 종료
         if let recognitionTask = recognitionTask {
             recognitionTask.cancel()
             self.recognitionTask = nil
         }
         
-        // Configure the audio session for the app.
         let audioSession = AVAudioSession.sharedInstance()
         try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
         try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         let inputNode = audioEngine.inputNode
 
-        // Create and configure the speech recognition request.
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         guard let recognitionRequest = recognitionRequest else { fatalError("Unable to created a SFSpeechAudioBufferRecognitionRequest object") }
         recognitionRequest.shouldReportPartialResults = true
         
-        // Keep speech recognition data on device
         if #available(iOS 13, *) {
             recognitionRequest.requiresOnDeviceRecognition = true
             if #available(iOS 17, *) {
@@ -126,24 +125,21 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
             }
         }
         
-        // Create a recognition task for the speech recognition session.
-        // Keep a reference to the task so that it can be canceled.
         recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest) { result, error in
             var isFinal = false
             
+            // Text 일치여부 판별
             if let result = result {
-                // Update the text view with the results.
                 Log.t(result.bestTranscription.formattedString)
                 if result.bestTranscription.formattedString == "열어줄래요" {
-                    WindowEndingViewController().isSuccess = 0
-                } else {
-                    WindowEndingViewController().isSuccess = 1
+                    self.stopAndChangeView(isSuccess: 0)
+                } else if result.bestTranscription.formattedString == "싫어요" {
+                    self.stopAndChangeView(isSuccess: 1)
                 }
                 isFinal = result.isFinal
             }
             
             if error != nil || isFinal {
-                // Stop recognizing speech if there is a problem.
                 self.audioEngine.stop()
                 inputNode.removeTap(onBus: 0)
                 
@@ -152,7 +148,6 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
             }
         }
 
-        // Configure the microphone input.
         let recordingFormat = inputNode.outputFormat(forBus: 0)
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
             self.recognitionRequest?.append(buffer)
@@ -160,5 +155,12 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
         
         audioEngine.prepare()
         try audioEngine.start()
+    }
+    
+    private func stopAndChangeView(isSuccess: Int) {
+        self.recognitionTask?.cancel()
+        WindowEndingViewController().isSuccess = isSuccess
+        // TODO: 링크 안넘어감..바로 수정하겠읍니다..
+        self.navigationController?.pushViewController(WindowEndingViewController(), animated: false)
     }
 }
