@@ -40,7 +40,7 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
        let label = UILabel()
         label.text = """
         오누이는 동아줄을 올라
-        해와 달이 되었답니다
+        해와 달이 되었답니다.
         """
         label.textColor = .gs10
         label.font = FontManager.body()
@@ -89,8 +89,7 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
     func setConstraints() {
         contentLabel.snp.makeConstraints {
             $0.top.equalTo(naviLine.snp.bottom).offset(16)
-            $0.left.equalToSuperview().offset(16)
-            $0.right.equalToSuperview().offset(-16)
+            $0.left.right.equalToSuperview().inset(16)
         }
         
         sunmoonImage.snp.makeConstraints {

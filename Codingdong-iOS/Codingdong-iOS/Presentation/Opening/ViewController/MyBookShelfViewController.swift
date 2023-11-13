@@ -12,7 +12,7 @@ import Log
 enum NextViewType {
     case sunmoon
     
-    fileprivate var viewContoller: UIViewController {
+    fileprivate var viewController: UIViewController {
         switch self {
         case .sunmoon:
             return SunAndMoonIntroViewController()
@@ -209,7 +209,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         viewModel.route
             .receive(on: DispatchQueue.main)
             .sink { [weak self] route in
-                self?.navigationController?.pushViewController(route.viewContoller, animated: false)
+                self?.navigationController?.pushViewController(route.viewController, animated: false)
             }
             .store(in: &cancellable)
     }

@@ -87,17 +87,16 @@ final class OnuiiViewController: UIViewController, ConfigUI {
     
     func setConstraints() {
         contentLabel.snp.makeConstraints {
-            $0.top.equalTo(naviLine.snp.bottom).offset(16)
-            $0.left.equalToSuperview().offset(16)
-            $0.right.equalToSuperview().offset(-16)
+            $0.top.equalTo(naviLine.snp.bottom).offset(Constants.Button.buttonPadding)
+            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
+            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
         }
         
         rescueButton.setup(model: rescuButtonViewModel)
         
         rescueButton.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(16)
-            $0.right.equalToSuperview().offset(-16)
-            $0.bottom.equalToSuperview().offset(-32)
+            $0.left.right.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding*2)
         }
     }
     

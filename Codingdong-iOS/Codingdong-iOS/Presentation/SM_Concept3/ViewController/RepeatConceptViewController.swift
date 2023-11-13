@@ -99,8 +99,7 @@ final class RepeatConceptViewController: UIViewController, ConfigUI {
         
         nextButton.snp.makeConstraints {
             $0.top.equalTo(cardView.snp.bottom).offset(38)
-            $0.left.equalToSuperview().offset(padding)
-            $0.right.equalToSuperview().offset(-padding)
+            $0.left.right.equalToSuperview().inset(padding)
         }
     }
     
