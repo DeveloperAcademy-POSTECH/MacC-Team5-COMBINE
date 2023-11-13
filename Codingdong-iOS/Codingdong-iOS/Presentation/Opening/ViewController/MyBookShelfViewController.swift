@@ -12,7 +12,7 @@ import Log
 enum NextViewType {
     case sunmoon
     
-    internal var viewContoller: UIViewController {
+    fileprivate var viewContoller: UIViewController {
         switch self {
         case .sunmoon:
             return SunAndMoonIntroViewController()
