@@ -44,6 +44,12 @@ final class ReviewViewController: UIViewController, ConfigUI {
 
     private let padding = Constants.View.padding
     
+    private let nextButton = CommonButton()
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "이야기 끝내기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .gs10) {[weak self] in
+       //self?.viewModel.selectItem()
+        Log.i("다음으로 화면")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
@@ -71,7 +77,7 @@ final class ReviewViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [contentLabel, reviewCollectionView].forEach { view.addSubview($0) }
+        [contentLabel, reviewCollectionView, nextButton].forEach { view.addSubview($0) }
         
         let collectionViewFlowLayout: UICollectionViewFlowLayout = {
             let layout = CustomCollectionViewFlowLayout()
@@ -84,7 +90,6 @@ final class ReviewViewController: UIViewController, ConfigUI {
         reviewCollectionView.collectionViewLayout = collectionViewFlowLayout
         reviewCollectionView.decelerationRate = .fast
         reviewCollectionView.isPagingEnabled = false
-
     }
     
     func setConstraints() {
@@ -98,6 +103,14 @@ final class ReviewViewController: UIViewController, ConfigUI {
             $0.top.equalTo(contentLabel.snp.bottom).offset(padding)
             $0.left.right.equalToSuperview()
             $0.bottom.equalToSuperview().offset(-142)
+        }
+        
+        nextButton.setup(model: nextButtonViewModel)
+        nextButton.snp.makeConstraints {
+            $0.top.equalTo(reviewCollectionView.snp.bottom).offset(38)
+            $0.left.equalToSuperview().offset(padding)
+            $0.right.equalToSuperview().offset(-padding)
+            $0.bottom.equalToSuperview().offset(-padding * 2)
         }
     }
     
