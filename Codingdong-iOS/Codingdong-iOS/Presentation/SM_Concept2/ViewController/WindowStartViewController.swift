@@ -9,13 +9,31 @@ import UIKit
 import SnapKit
 import Log
 
-final class WindowStartViewController: UIViewController {
+final class WindowStartViewController: UIViewController, ConfigUI {
     
     // MARK: - Components
     private let naviLine: UIView = {
         let view = UIView()
         view.backgroundColor = .white.withAlphaComponent(0.15)
         return view
+    }()
+    
+    private let navigationTitle: UILabel = {
+        let label = UILabel()
+        label.text = "남매의 집에 도착한 호랑이"
+        label.font = FontManager.navigationtitle()
+        label.textColor = .gs20
+        return label
+    }()
+    
+    private lazy var leftBarButtonItem: UIBarButtonItem = {
+        let leftBarButton = UIBarButtonItem(
+            image: UIImage(systemName: "books.vertical"),
+            style: .plain,
+            target: self,
+            action: #selector(popThisView)
+        )
+        return leftBarButton
     }()
     
     private let titleLabel: UILabel = {
@@ -43,6 +61,7 @@ final class WindowStartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
+        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
@@ -51,15 +70,14 @@ final class WindowStartViewController: UIViewController {
     
     func setupNavigationBar() {
         view.addSubview(naviLine)
-        self.title = "남매의 집에 도착한 호랑이"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.navigationtitle()]
+        naviLine.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(106)
+            $0.left.right.equalToSuperview()
+            $0.height.equalTo(0.33)
+        }
         self.navigationController?.navigationBar.tintColor = .gs20
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "books.vertical"),
-            style: .plain,
-            target: self,
-            action: .none
-        )
+        self.navigationItem.titleView = self.navigationTitle
+        self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
     }
     
     func addComponents() {
@@ -67,12 +85,6 @@ final class WindowStartViewController: UIViewController {
     }
     
     func setConstraints() {
-        naviLine.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(106)
-            $0.left.right.equalToSuperview()
-            $0.height.equalTo(0.33)
-        }
-        
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(122)
             $0.left.equalToSuperview().offset(16)
@@ -85,5 +97,16 @@ final class WindowStartViewController: UIViewController {
             $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
             $0.height.equalTo(72)
         }
+    }
+    
+    func setupAccessibility() {
+        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
+        view.accessibilityElements = [titleLabel, nextButton]
+        leftBarButtonItem.accessibilityLabel = "내 책장"
+    }
+    
+    @objc
+    func popThisView() {
+        self.navigationController?.popToRootViewController(animated: false)
     }
 }

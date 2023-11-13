@@ -148,36 +148,37 @@ extension GiveTtekkViewController {
         guard let poppedView = ttekks.last else {
             self.hapticManager?.playSplash()
             self.nextButton.isHidden = false
-            self.storyLabel.text = ("""
-                                    호랑이는 떡을 먹고도 아직 배가 고픈가봐요.
-                                    
-                                    이제는 떡이 더이상 없는데 어떡하죠?
-                                    
-                                    배고픈 호랑이가 엄마를 무섭게 노려보고 있어요.
-                                    """)
-            UIAccessibility.post(notification: .layoutChanged, argument: self.storyLabel)
+            let newText = """
+                        호랑이는 떡을 먹고도 아직 배가 고픈가봐요.
+                            
+                        이제는 떡이 더이상 없는데 어떡하죠?
+                            
+                        배고픈 호랑이가 엄마를 무섭게 노려보고 있어요.
+                        """
+            self.storyLabel.text = newText
+            UIAccessibility.post(notification: .layoutChanged, argument: newText)
             return
         }
         
         ttekkStackView.removeArrangedSubview(poppedView)
         poppedView.removeFromSuperview()
         self.hapticManager?.playNomNom()
+        
         //        TTS는 iOS 17 이슈로 동작하지 않음.
         //        SoundManager.shared.playTTS("\(ttekks.count)개")
         
-        
-        //MARK: 시나리오 추가에 대한 A/B 테스트 코드.
-        //        let ttekks = ttekkStackView.arrangedSubviews
-        //
-        //        guard let poppedView = ttekks.last else {
-        //            self.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
-        //            return
-        //        }
-        //
-        //        ttekkStackView.removeArrangedSubview(poppedView)
-        //        poppedView.removeFromSuperview()
-        //        self.hapticManager?.playNomNom()
-        ////        SoundManager.shared.playTTS("\(ttekks.count)개")
+//        //MARK: 시나리오 추가에 대한 A/B 테스트 코드.
+//        let ttekks = ttekkStackView.arrangedSubviews
+//        
+//        guard let poppedView = ttekks.last else {
+//            self.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
+//            return
+//        }
+//        
+//        ttekkStackView.removeArrangedSubview(poppedView)
+//        poppedView.removeFromSuperview()
+//        self.hapticManager?.playNomNom()
+//        //        SoundManager.shared.playTTS("\(ttekks.count)개")
     }
     
     func countShake() {
