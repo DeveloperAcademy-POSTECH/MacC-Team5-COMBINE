@@ -6,10 +6,10 @@
 //
 
 import UIKit
-import SnapKit
 import CoreMotion
+import Log
 
-final class GiveTtekkViewController: UIViewController {
+final class GiveTtekkViewController: UIViewController, ConfigUI {
     
     private let padding = Constants.View.padding
     
@@ -17,18 +17,28 @@ final class GiveTtekkViewController: UIViewController {
     
     private let motionManager = CMMotionManager()
     
-    private let ttekkStackView: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.spacing = 6
-        stack.distribution = .fillEqually
-        return stack
-    }()
-    
     private let naviLine: UIView = {
         let view = UIView()
         view.backgroundColor = .white.withAlphaComponent(0.15)
         return view
+    }()
+    
+    private let navigationTitle: UILabel = {
+        let label = UILabel()
+        label.text = "호랑이를 마주친 엄마"
+        label.font = FontManager.navigationtitle()
+        label.textColor = .gs20
+        return label
+    }()
+    
+    private let leftBarButtonItem: UIBarButtonItem = {
+        let leftBarButton = UIBarButtonItem(
+            image: UIImage(systemName: "books.vertical"),
+            style: .plain,
+            target: GiveTtekkViewController.self,
+            action: #selector(popThisView)
+        )
+        return leftBarButton
     }()
     
     private let storyLabel: UILabel = {
@@ -41,6 +51,18 @@ final class GiveTtekkViewController: UIViewController {
         return label
     }()
     
+    private let ttekkStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 6
+        stack.distribution = .fillEqually
+        return stack
+    }()
+    
+    private let nextButton = CommonButton()
+    
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2, height: 72, didTouchUpInside: didClickNextButton)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
@@ -52,8 +74,10 @@ final class GiveTtekkViewController: UIViewController {
     }
     
     func setupAccessibility() {
-        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
-        storyLabel.accessibilityTraits = .none
+        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
+        view.accessibilityElements = [storyLabel, nextButton]
+        
+        leftBarButtonItem.accessibilityLabel = "내 책장"
     }
     
     func setupNavigationBar() {
@@ -66,20 +90,14 @@ final class GiveTtekkViewController: UIViewController {
             $0.height.equalTo(0.33)
         }
         
-        self.title = "호랑이를 마주친 엄마"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.navigationtitle()]
         self.navigationController?.navigationBar.tintColor = .gs20
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "books.vertical"),
-            style: .plain,
-            target: self,
-            action: #selector(popThisView)
-        )
+        self.navigationItem.titleView = self.navigationTitle
+        self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
     }
     
     func addComponents() {
-        [storyLabel, ttekkStackView].forEach(view.addSubview)
-        
+        [storyLabel, ttekkStackView, nextButton].forEach(view.addSubview)
+        nextButton.isHidden = true
         let ttekks = (1...5).map { _ in
             return self.createTtekkViews(height: 112, cornerRadius: 56)
         }
@@ -95,6 +113,12 @@ final class GiveTtekkViewController: UIViewController {
         ttekkStackView.snp.makeConstraints {
             $0.left.right.bottom.equalToSuperview().inset(4)
         }
+        
+        nextButton.setup(model: nextButtonViewModel)
+        nextButton.snp.makeConstraints {
+            $0.left.right.equalToSuperview().inset(padding)
+            $0.bottom.equalToSuperview().inset(padding * 2)
+        }
     }
 }
 
@@ -105,13 +129,16 @@ extension GiveTtekkViewController {
         self.navigationController?.popToRootViewController(animated: false)
     }
     
+    @objc
+    private func didClickNextButton() {
+        self.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
+    }
+    
     func createTtekkViews(height: CGFloat, cornerRadius: CGFloat) -> UIView {
         let ttekkView = UIView()
         ttekkView.backgroundColor = .white
         ttekkView.layer.cornerRadius = cornerRadius
-        ttekkView.snp.makeConstraints {
-            $0.height.equalTo(height)
-        }
+        ttekkView.snp.makeConstraints { $0.height.equalTo(height) }
         return ttekkView
     }
     
@@ -119,7 +146,16 @@ extension GiveTtekkViewController {
         let ttekks = ttekkStackView.arrangedSubviews
         
         guard let poppedView = ttekks.last else {
-            self.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
+            self.hapticManager?.playSplash()
+            self.nextButton.isHidden = false
+            self.storyLabel.text = ("""
+                                    호랑이는 떡을 먹고도 아직 배가 고픈가봐요.
+                                    
+                                    이제는 떡이 더이상 없는데 어떡하죠?
+                                    
+                                    배고픈 호랑이가 엄마를 무섭게 노려보고 있어요.
+                                    """)
+            UIAccessibility.post(notification: .layoutChanged, argument: self.storyLabel)
             return
         }
         
@@ -136,7 +172,7 @@ extension GiveTtekkViewController {
             motionManager.accelerometerUpdateInterval = 0.2
             motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data, _) in
                 if let acceleration = data?.acceleration {
-                    let shakeThreshold = 2.0  // 흔들기 인식 강도
+                    let shakeThreshold = 0.7  // 흔들기 인식 강도
                     // 흔들기 감지
                     if acceleration.x >= shakeThreshold || acceleration.y >= shakeThreshold || acceleration.z >= shakeThreshold {
                         self.handleShake()
