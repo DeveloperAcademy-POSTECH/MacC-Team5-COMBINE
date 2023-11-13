@@ -15,29 +15,13 @@ final class GiveTtekkViewController: UIViewController {
     
     private let hapticManager = HapticManager()
     
-    private var maxShakeCount = 5
-    
-    private let rectanglesContainerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.clear
-        return view
-    }()
-    
-    private var ttekkRectangleArray: [UIView] = []
-    
     private let motionManager = CMMotionManager()
-    
-    lazy var rectangleTtekkView: UIView = {
-        let view = UIView()
-        view.frame = .zero
-        return view
-    }()
     
     private let ttekkStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 6
-        stack.distribution = .fill
+        stack.distribution = .fillEqually
         return stack
     }()
     
@@ -47,7 +31,7 @@ final class GiveTtekkViewController: UIViewController {
         return view
     }()
     
-    private let storyLabel : UILabel = {
+    private let storyLabel: UILabel = {
         let label = UILabel()
         label.text = "앗! 호랑이가 또 떡을 요구해요! 기기를 흔들어서 떡을 주세요!"
         label.font = FontManager.body()
@@ -75,6 +59,8 @@ final class GiveTtekkViewController: UIViewController {
     func setupNavigationBar() {
         view.addSubview(naviLine)
         naviLine.snp.makeConstraints {
+            // TODO: 이게 더 낫지 않을지 의논 필요
+//            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.top.equalToSuperview().offset(106)
             $0.left.right.equalToSuperview()
             $0.height.equalTo(0.33)
@@ -92,13 +78,12 @@ final class GiveTtekkViewController: UIViewController {
     }
     
     func addComponents() {
-        [storyLabel, rectanglesContainerView, ttekkStackView].forEach { view.addSubview($0) }
-        /*ttekkStackView*/()
+        [storyLabel, ttekkStackView].forEach(view.addSubview)
         
         let ttekks = (1...5).map { _ in
             return self.createTtekkViews(height: 112, cornerRadius: 56)
         }
-        ttekks.forEach { ttekkStackView.addArrangedSubview($0) }
+        ttekks.forEach(ttekkStackView.addArrangedSubview)
     }
     
     func setConstraints() {
@@ -107,37 +92,10 @@ final class GiveTtekkViewController: UIViewController {
             $0.left.right.equalToSuperview().inset(padding)
         }
         
-        rectanglesContainerView.snp.makeConstraints {
-            $0.width.height.equalToSuperview()
-        }
-        
         ttekkStackView.snp.makeConstraints {
-            $0.top.equalTo(storyLabel.snp.bottom).offset(72)
             $0.left.right.bottom.equalToSuperview().inset(4)
         }
     }
-    
-    //    private func makeTtekks() {
-    //        let ttekks = (1...5).map { <#Int#> in
-    //            <#code#>
-    //        }
-    //
-    //        for i in 0..<maxShakeCount {
-    //            let rect = UIView()
-    //            rect.backgroundColor = UIColor.white
-    //            rect.layer.cornerRadius = 60
-    //            rectanglesContainerView.addSubview(rect)
-    //            ttekkRectangleArray.append(rect)
-    //
-    //            rect.snp.makeConstraints {
-    //                $0.leading.equalToSuperview().offset(4)
-    //                $0.trailing.equalToSuperview().offset(-4)
-    //                $0.bottom.equalToSuperview().offset(-4 - i*118)
-    //                $0.top.equalToSuperview().offset(728 - i*118)
-    //            }
-    //        }
-    //    }
-    
 }
 
 extension GiveTtekkViewController {
@@ -158,30 +116,17 @@ extension GiveTtekkViewController {
     }
     
     func handleShake() {
-        //        maxShakeCount -= 1
-        //        if !ttekkRectangleArray.isEmpty {
-        //            let removeTukk = ttekkRectangleArray.removeLast()
-        //            removeTukk.removeFromSuperview()
-        //            self.hapticManager = HapticManager()
-        //            self.hapticManager?.playNomNom()
-        //            SoundManager.shared.playTTS("\(maxShakeCount)개")
-        //        } else {
-        //            self.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
-        //        }
-        
         let ttekks = ttekkStackView.arrangedSubviews
         
-        if ttekks.count != 0 {
-            if let poppedView = ttekks.last {
-                ttekkStackView.removeArrangedSubview(poppedView)
-                ttekkStackView.removeFromSuperview()
-                self.hapticManager?.playNomNom()
-                SoundManager.shared.playTTS("\(ttekks.count)개")
-            }
-        } else {
+        guard let poppedView = ttekks.last else {
             self.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
+            return
         }
         
+        ttekkStackView.removeArrangedSubview(poppedView)
+        poppedView.removeFromSuperview()
+        self.hapticManager?.playNomNom()
+//        SoundManager.shared.playTTS("\(ttekks.count)개")
     }
     
     func countShake() {
