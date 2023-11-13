@@ -109,6 +109,7 @@
 		A8BE07FD2B00FECA00DD7378 /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE07FC2B00FECA00DD7378 /* ReviewViewModel.swift */; };
 		A8C00F7E2B01FA3500201EAD /* OnuiiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C00F7D2B01FA3500201EAD /* OnuiiViewModel.swift */; };
 		A8C00F822B0209E000201EAD /* RepeatConceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C00F812B0209E000201EAD /* RepeatConceptViewController.swift */; };
+		A8C00F842B021A8200201EAD /* SunMoonOnuiiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C00F832B021A8200201EAD /* SunMoonOnuiiViewController.swift */; };
 		A8C966F02B011914005105E8 /* CustomCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C966EF2B011914005105E8 /* CustomCollectionViewFlowLayout.swift */; };
 		A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F41D252AE4F94400BB0260 /* SoundManager.swift */; };
 		A8F41D2D2AE4FC4200BB0260 /* piano.wav in Resources */ = {isa = PBXBuildFile; fileRef = A8F41D2C2AE4FC4200BB0260 /* piano.wav */; };
@@ -215,6 +216,7 @@
 		A8BE07FC2B00FECA00DD7378 /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		A8C00F7D2B01FA3500201EAD /* OnuiiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnuiiViewModel.swift; sourceTree = "<group>"; };
 		A8C00F812B0209E000201EAD /* RepeatConceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatConceptViewController.swift; sourceTree = "<group>"; };
+		A8C00F832B021A8200201EAD /* SunMoonOnuiiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunMoonOnuiiViewController.swift; sourceTree = "<group>"; };
 		A8C966EF2B011914005105E8 /* CustomCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		A8F41D252AE4F94400BB0260 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		A8F41D2C2AE4FC4200BB0260 /* piano.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = piano.wav; sourceTree = "<group>"; };
@@ -333,6 +335,12 @@
 		11CD0ED92AFD568E00911B64 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				670D34D52AF4D0FD00B81A06 /* WindowStartViewController.swift */,
+				672C12002AF8757E0064AA64 /* WindowHoleViewController.swift */,
+				670E09A12AFCAF81008AA6D5 /* WindowVoiceViewController.swift */,
+				670E09A32AFD4540008AA6D5 /* WindowVoiceChildViewController.swift */,
+				67BAECF82B001FB0006FB6D3 /* WindowEndingViewController.swift */,
+				67BAECFC2B0039F8006FB6D3 /* AndConceptViewController.swift */,
 				11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */,
 			);
 			path = ViewController;
@@ -341,41 +349,12 @@
 		11CD0EDA2AFD569900911B64 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		670D34D42AF4D0D000B81A06 /* Window */ = {
-			isa = PBXGroup;
-			children = (
-				67BAECED2B00013C006FB6D3 /* ViewController */,
-				67BAECEC2B000135006FB6D3 /* View */,
-			);
-			path = Window;
-			sourceTree = "<group>";
-		};
-		67BAECEC2B000135006FB6D3 /* View */ = {
-			isa = PBXGroup;
-			children = (
 				67BAECF02B000446006FB6D3 /* TigerHandHoleAnimationView.swift */,
 				67BAECF42B0015BF006FB6D3 /* TigerNoseHoleAnimationView.swift */,
 				67BAECF62B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift */,
+				11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		67BAECED2B00013C006FB6D3 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				670D34D52AF4D0FD00B81A06 /* WindowStartViewController.swift */,
-				672C12002AF8757E0064AA64 /* WindowHoleViewController.swift */,
-				670E09A12AFCAF81008AA6D5 /* WindowVoiceViewController.swift */,
-				670E09A32AFD4540008AA6D5 /* WindowVoiceChildViewController.swift */,
-				67BAECF82B001FB0006FB6D3 /* WindowEndingViewController.swift */,
-				67BAECFC2B0039F8006FB6D3 /* AndConceptViewController.swift */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		67E63F002ADE801200C79863 /* Colors */ = {
@@ -430,7 +409,6 @@
 		A80B882E2ADB9ABC00091FF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				670D34D42AF4D0D000B81A06 /* Window */,
 				A81637202ADFC51F0070DAC9 /* Components */,
 				A8B10D3C2AFAAE10009EA3F5 /* Opening */,
 				1143C6C12AFB822E0032CE53 /* SM_Intro */,
@@ -536,6 +514,7 @@
 			children = (
 				A852B17B2B01F90B0051BE9E /* OnuiiViewController.swift */,
 				A8C00F812B0209E000201EAD /* RepeatConceptViewController.swift */,
+				A8C00F832B021A8200201EAD /* SunMoonOnuiiViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -913,6 +892,7 @@
 				A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */,
 				67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */,
 				A80A05352AFFCE9C00624BBC /* MyBookShelfViewModel.swift in Sources */,
+				A8C00F842B021A8200201EAD /* SunMoonOnuiiViewController.swift in Sources */,
 				1143C6C72AFD39880032CE53 /* SunAndMoonIntroView.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
 				A8C966F02B011914005105E8 /* CustomCollectionViewFlowLayout.swift in Sources */,
