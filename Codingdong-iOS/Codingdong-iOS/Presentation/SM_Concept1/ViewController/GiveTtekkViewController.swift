@@ -156,7 +156,7 @@ extension GiveTtekkViewController {
                         배고픈 호랑이가 엄마를 무섭게 노려보고 있어요.
                         """
             self.storyLabel.text = newText
-            UIAccessibility.post(notification: .layoutChanged, argument: newText)
+            UIAccessibility.post(notification: .layoutChanged, argument: "왜 안읽지")
             return
         }
         

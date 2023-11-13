@@ -344,7 +344,6 @@
 				670E09A32AFD4540008AA6D5 /* WindowVoiceChildViewController.swift */,
 				67BAECF82B001FB0006FB6D3 /* WindowEndingViewController.swift */,
 				67BAECFC2B0039F8006FB6D3 /* AndConceptViewController.swift */,
-				11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -527,6 +526,7 @@
 				112003D72AE5792600924FAB /* TigerAnimationViewController.swift */,
 				67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */,
 				A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */,
+				11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
