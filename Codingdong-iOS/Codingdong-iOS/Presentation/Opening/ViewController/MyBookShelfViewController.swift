@@ -12,7 +12,7 @@ import Log
 enum NextViewType {
     case sunmoon
     
-    internal var viewContoller: UIViewController {
+    fileprivate var viewController: UIViewController {
         switch self {
         case .sunmoon:
             return SunAndMoonIntroViewController()
@@ -78,10 +78,10 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         return label
     }()
     
-    // MARK: - 전래동화
+    // 전래동화
     private let storyList = StoryListTableView()
     
-    // MARK: - 개념 간식 모음 
+    // 개념 간식 모음
     private let cookieContainer: UIView = {
        let view = UIView()
         view.backgroundColor = .gs80
@@ -209,7 +209,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         viewModel.route
             .receive(on: DispatchQueue.main)
             .sink { [weak self] route in
-                self?.navigationController?.pushViewController(route.viewContoller, animated: false)
+                self?.navigationController?.pushViewController(route.viewController, animated: false)
             }
             .store(in: &cancellable)
     }

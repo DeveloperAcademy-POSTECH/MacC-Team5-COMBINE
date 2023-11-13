@@ -7,11 +7,13 @@
 
 import UIKit
 import SnapKit
+import Log
 
 final class WindowVoiceViewController: UIViewController {
     
     var mTimer: Timer?
     var initialCountNumber: Int = 3
+    var flags = false
     
     private let naviLine: UIView = {
         let view = UIView()
@@ -52,6 +54,14 @@ final class WindowVoiceViewController: UIViewController {
         addComponents()
         setConstraints()
         speechButton.setup(model: speechButtonViewModel)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if flags {
+            self.navigationController?.pushViewController(WindowEndingViewController(), animated: false)
+            Log.i("푸시 이후")
+        }
+        Log.i("디드 어피어")
     }
     
     func setupNavigationBar() {
@@ -101,9 +111,10 @@ final class WindowVoiceViewController: UIViewController {
     }
     
     func nextButtonTapped() {
-        let modalScreen = WindowVoiceChildViewController()
-        modalScreen.modalPresentationStyle = .overFullScreen
-        self.present(modalScreen, animated: false, completion: nil)
+        let navigationController = UINavigationController(rootViewController: WindowVoiceChildViewController())
+        navigationController.modalPresentationStyle = .overFullScreen
+        
+        self.present(navigationController, animated: false)
     }
     
     func onTimerStart() {
@@ -118,4 +129,5 @@ final class WindowVoiceViewController: UIViewController {
         initialCountNumber -= 1
         titleLabel.text = String(initialCountNumber)
     }
+
 }
