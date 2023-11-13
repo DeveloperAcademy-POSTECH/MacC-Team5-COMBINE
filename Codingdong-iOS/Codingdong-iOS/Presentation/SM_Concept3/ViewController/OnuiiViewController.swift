@@ -9,7 +9,7 @@ import UIKit
 import Combine
 import Log
 
-class OnuiiViewController: UIViewController, ConfigUI {
+final class OnuiiViewController: UIViewController, ConfigUI {
  
     private var viewModel = TtekkkochiViewModel()
     private var cancellable = Set<AnyCancellable>()
@@ -25,7 +25,7 @@ class OnuiiViewController: UIViewController, ConfigUI {
         let leftBarButton = UIBarButtonItem(
             image: UIImage(systemName: "books.vertical"),
             style: .plain,
-            target: TigerAnimationViewController.self,
+            target: OnuiiViewController.self,
             action: #selector(popThisView)
         )
         return leftBarButton
@@ -51,12 +51,13 @@ class OnuiiViewController: UIViewController, ConfigUI {
         label.textColor = .gs10
         label.font = FontManager.body()
         label.numberOfLines = 0
+        label.lineBreakMode = .byCharWrapping
         return label
     }()
     
     private let rescueButton = CommonButton()
     private lazy var rescuButtonViewModel = CommonbuttonModel(title: "오누이 구출하기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
-        Log.t("오누이를 구출하기")
+        self?.viewModel.selectItem()
     }
     
     // MARK: - View Init
