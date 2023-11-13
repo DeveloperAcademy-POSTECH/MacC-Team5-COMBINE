@@ -16,7 +16,12 @@ class LottieManager {
 
     func setAnimation(named animationName: String, inView view: UIView) {
         let animationView = LottieAnimationView(name: animationName)
+        animationView.contentMode = .scaleAspectFill
         view.addSubview(animationView)
+        animationView.snp.makeConstraints {
+            $0.width.height.equalToSuperview().multipliedBy(2.826)
+            $0.center.equalToSuperview()
+        }
         animationViews[view] = animationView
     }
     

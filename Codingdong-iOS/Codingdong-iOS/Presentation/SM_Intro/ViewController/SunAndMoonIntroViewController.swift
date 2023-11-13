@@ -96,7 +96,7 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
         ]
     }
 
-    func binding(){
+    func binding() {
         nextButton.setup(model: nextButtonViewModel)
         
         self.viewModel.route

@@ -10,7 +10,7 @@ import SnapKit
 
 final class TigerNoseHoleAnimationView: UIView {
     
-    lazy var noseLottieView: UIView = {
+    lazy var lottieView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
         LottieManager.shared.setAnimation(named: "TigerNoseHoleAnimation", inView: view)
@@ -19,8 +19,8 @@ final class TigerNoseHoleAnimationView: UIView {
     
     private override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(noseLottieView)
-        noseLottieView.snp.makeConstraints {
+        addSubview(lottieView)
+        lottieView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }

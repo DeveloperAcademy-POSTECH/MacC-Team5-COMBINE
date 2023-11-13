@@ -102,9 +102,7 @@ final class WindowVoiceViewController: UIViewController {
     
     func nextButtonTapped() {
         let modalScreen = WindowVoiceChildViewController()
-        
         modalScreen.modalPresentationStyle = .overFullScreen
-        
         self.present(modalScreen, animated: false, completion: nil)
     }
     

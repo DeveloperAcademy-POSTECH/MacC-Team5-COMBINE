@@ -113,9 +113,7 @@ final class IfConceptViewController: UIViewController, ConfigUI {
 extension IfConceptViewController {
     @objc
     func didClickNextButton() {
-        // TODO: 다음 화면으로 내비게이션 연결 추가해야함.
-        // TODO: 버튼에 액션 연결되지 않은 상태.
-        Log.i("2번 문제로 연결")
+        self.navigationController?.pushViewController(WindowStartViewController(), animated: false)
     }
     
     @objc
