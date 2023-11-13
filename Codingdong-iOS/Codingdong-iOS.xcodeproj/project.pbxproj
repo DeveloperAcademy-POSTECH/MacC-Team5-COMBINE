@@ -57,7 +57,19 @@
 		11CD0EE72AFE031400911B64 /* IfConceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */; };
 		11CD0EEA2AFE668900911B64 /* MoreBadgeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EE92AFE668900911B64 /* MoreBadgeCollectionView.swift */; };
 		11CD0EEC2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */; };
+		670D34D62AF4D0FD00B81A06 /* WindowStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670D34D52AF4D0FD00B81A06 /* WindowStartViewController.swift */; };
+		670E09A22AFCAF81008AA6D5 /* WindowVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670E09A12AFCAF81008AA6D5 /* WindowVoiceViewController.swift */; };
+		670E09A42AFD4540008AA6D5 /* WindowVoiceChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670E09A32AFD4540008AA6D5 /* WindowVoiceChildViewController.swift */; };
+		672C12012AF8757E0064AA64 /* WindowHoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C12002AF8757E0064AA64 /* WindowHoleViewController.swift */; };
 		67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */; };
+		67BAECE92AFFFFC0006FB6D3 /* TigerTailHoleAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 67BAECE62AFFFFC0006FB6D3 /* TigerTailHoleAnimation.json */; };
+		67BAECEA2AFFFFC0006FB6D3 /* TigerNoseHoleAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 67BAECE72AFFFFC0006FB6D3 /* TigerNoseHoleAnimation.json */; };
+		67BAECEB2AFFFFC0006FB6D3 /* TigerHandHoleAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 67BAECE82AFFFFC0006FB6D3 /* TigerHandHoleAnimation.json */; };
+		67BAECF12B000446006FB6D3 /* TigerHandHoleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BAECF02B000446006FB6D3 /* TigerHandHoleAnimationView.swift */; };
+		67BAECF52B0015BF006FB6D3 /* TigerNoseHoleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BAECF42B0015BF006FB6D3 /* TigerNoseHoleAnimationView.swift */; };
+		67BAECF72B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BAECF62B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift */; };
+		67BAECF92B001FB0006FB6D3 /* WindowEndingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BAECF82B001FB0006FB6D3 /* WindowEndingViewController.swift */; };
+		67BAECFD2B0039F8006FB6D3 /* AndConceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BAECFC2B0039F8006FB6D3 /* AndConceptViewController.swift */; };
 		67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E63EFE2ADE67D000C79863 /* UIColor+.swift */; };
 		A80A05332AFFCA9000624BBC /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80A05322AFFCA9000624BBC /* OnboardingViewModel.swift */; };
 		A80A05352AFFCE9C00624BBC /* MyBookShelfViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80A05342AFFCE9C00624BBC /* MyBookShelfViewModel.swift */; };
@@ -147,7 +159,19 @@
 		11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfConceptViewController.swift; sourceTree = "<group>"; };
 		11CD0EE92AFE668900911B64 /* MoreBadgeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBadgeCollectionView.swift; sourceTree = "<group>"; };
 		11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBadgeCollectionViewCell.swift; sourceTree = "<group>"; };
+		670D34D52AF4D0FD00B81A06 /* WindowStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowStartViewController.swift; sourceTree = "<group>"; };
+		670E09A12AFCAF81008AA6D5 /* WindowVoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowVoiceViewController.swift; sourceTree = "<group>"; };
+		670E09A32AFD4540008AA6D5 /* WindowVoiceChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowVoiceChildViewController.swift; sourceTree = "<group>"; };
+		672C12002AF8757E0064AA64 /* WindowHoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowHoleViewController.swift; sourceTree = "<group>"; };
 		67816A492AE26FEF00B121B6 /* GiveTtekkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveTtekkViewController.swift; sourceTree = "<group>"; };
+		67BAECE62AFFFFC0006FB6D3 /* TigerTailHoleAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TigerTailHoleAnimation.json; sourceTree = "<group>"; };
+		67BAECE72AFFFFC0006FB6D3 /* TigerNoseHoleAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TigerNoseHoleAnimation.json; sourceTree = "<group>"; };
+		67BAECE82AFFFFC0006FB6D3 /* TigerHandHoleAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TigerHandHoleAnimation.json; sourceTree = "<group>"; };
+		67BAECF02B000446006FB6D3 /* TigerHandHoleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerHandHoleAnimationView.swift; sourceTree = "<group>"; };
+		67BAECF42B0015BF006FB6D3 /* TigerNoseHoleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerNoseHoleAnimationView.swift; sourceTree = "<group>"; };
+		67BAECF62B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerTailHoleAnimationView.swift; sourceTree = "<group>"; };
+		67BAECF82B001FB0006FB6D3 /* WindowEndingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowEndingViewController.swift; sourceTree = "<group>"; };
+		67BAECFC2B0039F8006FB6D3 /* AndConceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndConceptViewController.swift; sourceTree = "<group>"; };
 		67E63EFE2ADE67D000C79863 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		A80A05322AFFCA9000624BBC /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		A80A05342AFFCE9C00624BBC /* MyBookShelfViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookShelfViewModel.swift; sourceTree = "<group>"; };
@@ -266,6 +290,9 @@
 			isa = PBXGroup;
 			children = (
 				1186768D2AE664290012FAFC /* TigerAnimation_HD.json */,
+				67BAECE82AFFFFC0006FB6D3 /* TigerHandHoleAnimation.json */,
+				67BAECE72AFFFFC0006FB6D3 /* TigerNoseHoleAnimation.json */,
+				67BAECE62AFFFFC0006FB6D3 /* TigerTailHoleAnimation.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -313,6 +340,38 @@
 				11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		670D34D42AF4D0D000B81A06 /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				67BAECED2B00013C006FB6D3 /* ViewController */,
+				67BAECEC2B000135006FB6D3 /* View */,
+			);
+			path = Window;
+			sourceTree = "<group>";
+		};
+		67BAECEC2B000135006FB6D3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				67BAECF02B000446006FB6D3 /* TigerHandHoleAnimationView.swift */,
+				67BAECF42B0015BF006FB6D3 /* TigerNoseHoleAnimationView.swift */,
+				67BAECF62B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		67BAECED2B00013C006FB6D3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				670D34D52AF4D0FD00B81A06 /* WindowStartViewController.swift */,
+				672C12002AF8757E0064AA64 /* WindowHoleViewController.swift */,
+				670E09A12AFCAF81008AA6D5 /* WindowVoiceViewController.swift */,
+				670E09A32AFD4540008AA6D5 /* WindowVoiceChildViewController.swift */,
+				67BAECF82B001FB0006FB6D3 /* WindowEndingViewController.swift */,
+				67BAECFC2B0039F8006FB6D3 /* AndConceptViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		67E63F002ADE801200C79863 /* Colors */ = {
@@ -367,6 +426,7 @@
 		A80B882E2ADB9ABC00091FF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				670D34D42AF4D0D000B81A06 /* Window */,
 				A81637202ADFC51F0070DAC9 /* Components */,
 				A8B10D3C2AFAAE10009EA3F5 /* Opening */,
 				1143C6C12AFB822E0032CE53 /* SM_Intro */,
@@ -688,11 +748,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67BAECE92AFFFFC0006FB6D3 /* TigerTailHoleAnimation.json in Resources */,
 				A8F41D2D2AE4FC4200BB0260 /* piano.wav in Resources */,
 				116A95452ADF72570096760A /* Pretendard-ExtraLight.otf in Resources */,
+				67BAECEA2AFFFFC0006FB6D3 /* TigerNoseHoleAnimation.json in Resources */,
 				A80B883C2ADBA3EC00091FF5 /* .swiftlint.yml in Resources */,
 				A8A482072AE5E7EB00FDE35C /* bell.mp3 in Resources */,
 				1186768E2AE664290012FAFC /* TigerAnimation_HD.json in Resources */,
+				67BAECEB2AFFFFC0006FB6D3 /* TigerHandHoleAnimation.json in Resources */,
 				116A95422ADF72570096760A /* Pretendard-Bold.otf in Resources */,
 				A83392AB2ADAB35E009BA7E2 /* LaunchScreen.storyboard in Resources */,
 				116A953F2ADF72570096760A /* Pretendard-ExtraBold.otf in Resources */,
@@ -774,6 +837,7 @@
 				112003D82AE5792600924FAB /* TigerAnimationViewController.swift in Sources */,
 				11CD0EE72AFE031400911B64 /* IfConceptViewController.swift in Sources */,
 				11CD0EE32AFDFCC400911B64 /* MoreTitleViewController.swift in Sources */,
+				672C12012AF8757E0064AA64 /* WindowHoleViewController.swift in Sources */,
 				A8A725032AE55F7C004840A6 /* TtekkkochiViewModel.swift in Sources */,
 				A828A66B2AFF05DB00B11D71 /* CardView.swift in Sources */,
 				A8F41D2F2AE5001F00BB0260 /* HapticManager.swift in Sources */,
@@ -782,6 +846,7 @@
 				A8BC0DBE2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift in Sources */,
 				1143C68C2AF6B01E0032CE53 /* StoryListTableViewCell.swift in Sources */,
 				11504B0A2AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift in Sources */,
+				670D34D62AF4D0FD00B81A06 /* WindowStartViewController.swift in Sources */,
 				A8BC0DB72AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift in Sources */,
 				A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */,
 				1143C6922AF6ED7B0032CE53 /* BadgeList.swift in Sources */,
@@ -790,17 +855,22 @@
 				A80A05332AFFCA9000624BBC /* OnboardingViewModel.swift in Sources */,
 				A897A9772AFF6FD200008722 /* YugwaCell.swift in Sources */,
 				11CD0EEC2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift in Sources */,
+				670E09A42AFD4540008AA6D5 /* WindowVoiceChildViewController.swift in Sources */,
 				A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */,
 				A897A9752AFF6AC000008722 /* Fable.swift in Sources */,
 				116A95532ADF72AB0096760A /* FontManager.swift in Sources */,
 				A8BE07F32B00DBA700DD7378 /* TigerEncounterViewModel.swift in Sources */,
 				A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */,
+				670E09A22AFCAF81008AA6D5 /* WindowVoiceViewController.swift in Sources */,
 				112003D12AE574FB00924FAB /* LottieManager.swift in Sources */,
 				A832B11A2AFF43E500E1CE9B /* YugwaList.swift in Sources */,
 				A8B10D3E2AFAAE20009EA3F5 /* SplashViewController.swift in Sources */,
 				A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */,
+				67BAECF72B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift in Sources */,
 				A8BC0DB22AE3401800AD5C9A /* CodingBlock.swift in Sources */,
 				1143C68E2AF6B0DE0032CE53 /* StoryTitle.swift in Sources */,
+				67BAECF52B0015BF006FB6D3 /* TigerNoseHoleAnimationView.swift in Sources */,
+				67BAECF92B001FB0006FB6D3 /* WindowEndingViewController.swift in Sources */,
 				A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */,
 				11CD0EDC2AFD56B800911B64 /* TigerEncountView.swift in Sources */,
 				1143C6C42AFB829F0032CE53 /* SunAndMoonIntroViewController.swift in Sources */,
@@ -812,10 +882,12 @@
 				1143C6C72AFD39880032CE53 /* SunAndMoonIntroView.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
 				A8C966F02B011914005105E8 /* CustomCollectionViewFlowLayout.swift in Sources */,
+				67BAECF12B000446006FB6D3 /* TigerHandHoleAnimationView.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
 				1143C6C02AFB666A0032CE53 /* MoreBadgeViewController.swift in Sources */,
 				A8BE07FD2B00FECA00DD7378 /* ReviewViewModel.swift in Sources */,
 				11CD0EEA2AFE668900911B64 /* MoreBadgeCollectionView.swift in Sources */,
+				67BAECFD2B0039F8006FB6D3 /* AndConceptViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
