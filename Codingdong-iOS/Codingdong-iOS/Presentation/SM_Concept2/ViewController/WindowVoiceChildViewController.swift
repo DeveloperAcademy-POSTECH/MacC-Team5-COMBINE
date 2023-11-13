@@ -10,7 +10,7 @@ import SnapKit
 import Log
 import Speech
 
-final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizerDelegate {
+final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizerDelegate, ConfigUI {
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "ko_KR"))!
     
@@ -31,7 +31,8 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     let soundManager = SoundManager()
     
     var mTimer: Timer?
-    var initialCountNumber: Int = 3
+    
+    var initialCountNumber: Int = 2
     
     private let containerView: UIView = {
        let view = UIView()
@@ -39,10 +40,8 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
         return view
     }()
     
-    lazy var titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         var label = UILabel()
-        label.text = String(initialCountNumber)
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = FontManager.p_Bold(FontSize(rawValue: 64) ?? .largetitle)
         label.textColor = .white
         label.numberOfLines = 0
@@ -52,59 +51,58 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.addSubview(containerView)
-        containerView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-        
-        containerView.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
-        }
-        Log.t("View Did Load")
+        setupAccessibility()
+        addComponents()
+        setConstraints()
         onTimerStart()
     }
     
-    private func setupAccessibility() {
-        // TODO: 보이스오버 추가
+    func setupAccessibility() {
+        titleLabel.isAccessibilityElement = true
     }
+    
+    func addComponents() {
+        view.addSubview(containerView)
+        containerView.addSubview(titleLabel)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.titleLabel.text = "\(3)"
+        }
+    }
+    
+    func setConstraints() {
+        containerView.snp.makeConstraints { $0.edges.equalToSuperview() }
+        titleLabel.snp.makeConstraints { $0.centerX.centerY.equalToSuperview() }
+    }
+    
+    func setupNavigationBar() {}
     
     func onTimerStart() {
-        if let timer = mTimer {
-            if !timer.isValid {
-                mTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
-            }
-        } else {
-            mTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
-        }
-    }
-    
-    func onTimerEnd() {
-        if let timer = mTimer {
-            if initialCountNumber == 0 {
-                timer.invalidate()
-                do {
-                    try startRecording()
-//                    soundManager.playTTS("말해주세요")
-                    titleLabel.text = "말해주세요"
-                    UIAccessibility.post(notification: .layoutChanged, argument: titleLabel.text)
-                } catch {
-                    // 오류 발생시 뷰 dismiss
-                    soundManager.playTTS("오류가 발생했습니다. 다시 실행시켜주세요")
-                    dismiss(animated: false)
-                }
-            }
-        }
+        mTimer = Timer.scheduledTimer(timeInterval: 1.2, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
     }
     
     @objc func timerCallBack() {
-        initialCountNumber -= 1
-        titleLabel.text = String(initialCountNumber)
-        UIAccessibility.post(notification: .layoutChanged, argument: titleLabel.text)
+        if initialCountNumber > 0 {
+            titleLabel.text = "\(initialCountNumber)"
+            UIAccessibility.post(notification: .layoutChanged, argument: titleLabel)
+            self.initialCountNumber -= 1
+        } else {
+            titleLabel.text = "말해주세요"
+            UIAccessibility.post(notification: .layoutChanged, argument: titleLabel)
+            mTimer?.invalidate()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                self.onTimerEnd()
+            }
+        }
 //        soundManager.playTTS(String(initialCountNumber))
-        if initialCountNumber == 0 {
-            onTimerEnd()
+    }
+    
+    func onTimerEnd() {
+        do {
+            try startRecording()
+        } catch {
+            // 오류 발생시 뷰 dismiss
+//            soundManager.playTTS("오류가 발생했습니다. 다시 실행시켜주세요")
+            dismiss(animated: false)
         }
     }
     
@@ -159,7 +157,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
         }
 
         let recordingFormat = inputNode.outputFormat(forBus: 0)
-        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
+        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, _: AVAudioTime) in
             self.recognitionRequest?.append(buffer)
         }
         
