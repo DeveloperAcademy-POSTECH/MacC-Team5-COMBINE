@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Log
 
 protocol ReviewViewModelRepresentable {
     func endStory()
@@ -18,6 +19,7 @@ final class ReviewViewModel: ReviewViewModelRepresentable {
     var sendRoute: PassthroughSubject<UIViewController, Never> = .init()
     
     func endStory() {
-        sendRoute.send(MyBookShelfViewController()) // TODO: 루트 바꾸어야 함 
+        //sendRoute.send(MyBookShelfViewController()) // TODO: 루트 바꾸어야 함
+        Log.t("홈으로 이동인데 루트를 바꾸어 주어야 함")
     }
 }
