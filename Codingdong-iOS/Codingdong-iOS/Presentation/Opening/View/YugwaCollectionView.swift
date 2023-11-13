@@ -35,6 +35,8 @@ final class YugwaCollectionView: UIView {
         badgeCollectionView.snp.makeConstraints {
             $0.top.left.right.bottom.equalToSuperview()
         }
+        
+        badgeCollectionView.reloadData()
     }
     
     required init?(coder: NSCoder) {
