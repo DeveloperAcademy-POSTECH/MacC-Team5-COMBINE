@@ -8,6 +8,7 @@
 import Foundation
 import AVFoundation
 import Log
+import UIKit
 
 class PermissionManager: ObservableObject {
     @Published var permissionGranted = false
@@ -17,6 +18,7 @@ class PermissionManager: ObservableObject {
             if permissionGranted {
                 Log.t("Audio: 권한 허용")
             } else {
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
                 Log.t("Audio: 권한 거부")
             }
         })
