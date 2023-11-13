@@ -256,6 +256,7 @@
 		1143C6C52AFD391E0032CE53 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */,
 				1143C6C62AFD39880032CE53 /* SunAndMoonIntroView.swift */,
 			);
 			path = View;
@@ -391,8 +392,8 @@
 		A828A6692AFF054800B11D71 /* SM_Concept1 */ = {
 			isa = PBXGroup;
 			children = (
-				A8873CE62AE3F5A2003D2A54 /* ViewModel */,
 				A8BC0DB32AE3432600AD5C9A /* View */,
+				A8873CE62AE3F5A2003D2A54 /* ViewModel */,
 				A87217C52AE212AA003C0D5C /* ViewController */,
 			);
 			path = SM_Concept1;
@@ -509,7 +510,6 @@
 		A8BC0DB32AE3432600AD5C9A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */,
 				A8BC0DB62AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift */,
 				A8BC0DBD2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift */,
 			);
@@ -528,8 +528,8 @@
 		A8BE07F42B00E47700DD7378 /* SM_Ending */ = {
 			isa = PBXGroup;
 			children = (
-				A8BE07FB2B00FEBB00DD7378 /* ViewModel */,
 				A8BE07F82B00EBB800DD7378 /* View */,
+				A8BE07FB2B00FEBB00DD7378 /* ViewModel */,
 				A8BE07F52B00E48300DD7378 /* ViewController */,
 			);
 			path = SM_Ending;

@@ -17,6 +17,12 @@ final class ReviewViewController: UIViewController, ConfigUI {
         .init(title: "거듭하기 : 반복문", content: "거듭하기는 코딩의 ‘반복문’에 해당돼요. 반복문을 사용하여 같은 동작이 반복되도록 만들 수 있어요.", cardImage: "sm_review3")]
     
     // MARK: - Components
+    private let naviLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white.withAlphaComponent(0.15)
+        return view
+    }()
+    
     private let contentLabel: UILabel = {
         let label = UILabel()
         label.text = "해님달님에서 세 가지 개념을 배웠어요"
@@ -41,11 +47,28 @@ final class ReviewViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
+        setupNavigationBar()
         addComponents()
         setConstraints()
     }
     
-    func setupNavigationBar() {}
+    func setupNavigationBar() {
+        view.addSubview(naviLine)
+        naviLine.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(106)
+            $0.left.right.equalToSuperview()
+            $0.height.equalTo(0.33)
+        }
+        self.title = "코딩 개념 복습"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.navigationtitle()]
+        self.navigationController?.navigationBar.tintColor = .gs20
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "books.vertical"),
+            style: .plain,
+            target: self,
+            action: .none
+        )
+    }
     
     func addComponents() {
         [contentLabel, reviewCollectionView].forEach { view.addSubview($0) }
@@ -66,7 +89,7 @@ final class ReviewViewController: UIViewController, ConfigUI {
     
     func setConstraints() {
         contentLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(100)
+            $0.top.equalTo(naviLine.snp.bottom).offset(padding)
             $0.left.equalToSuperview().offset(padding)
             $0.right.equalToSuperview().offset(-padding)
         }
