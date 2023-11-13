@@ -10,7 +10,8 @@ import SnapKit
 
 final class WindowEndingViewController: UIViewController {
     
-    var isSuccess: Int = 1
+    // TODO: isSuccess 값에 따라서 뷰가 바뀌지 않는 문제 해결 필요
+    var isSuccess: Int?
     let titleLabelText: [String] = ["어맛, 호랑이에게 잡아먹혔어요. 다시 해볼까요?", "호랑이를 본 오누이는 뒷문으로 도망쳤어요!"]
     let imageName: [String] = ["tigerEatEnding", "initialDoor"]
     let buttonName: [String] = ["다시하기", "다음"]
@@ -23,7 +24,7 @@ final class WindowEndingViewController: UIViewController {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = titleLabelText[isSuccess]
+        label.text = titleLabelText[isSuccess ?? 1]
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
@@ -33,12 +34,12 @@ final class WindowEndingViewController: UIViewController {
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: imageName[isSuccess])
+        imageView.image = UIImage(named: imageName[isSuccess ?? 1])
         return imageView
     }()
     
     private let nextButton = CommonButton()
-    private lazy var settingButtonViewModel = CommonbuttonModel(title: buttonName[isSuccess], font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
+    private lazy var settingButtonViewModel = CommonbuttonModel(title: buttonName[isSuccess ?? 1], font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
         // TODO: 네비게이션 링크 수정하기
         // 내비게이션 컨트롤은 스택으로 관리 됨. 아마 뷰 6개? 정도 pop하면 될 듯?
         self?.navigationController?.pushViewController(GiveTtekkViewController(), animated: false)

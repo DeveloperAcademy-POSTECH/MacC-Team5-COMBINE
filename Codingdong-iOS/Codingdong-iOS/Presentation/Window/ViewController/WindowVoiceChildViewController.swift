@@ -133,8 +133,10 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
                 Log.t(result.bestTranscription.formattedString)
                 if result.bestTranscription.formattedString == "열어줄래요" {
                     self.stopAndChangeView(isSuccess: 0)
+                    Log.i("열어줄래요 이후")
                 } else if result.bestTranscription.formattedString == "싫어요" {
                     self.stopAndChangeView(isSuccess: 1)
+                    Log.i("싫어요 이후")
                 }
                 isFinal = result.isFinal
             }
@@ -160,7 +162,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     private func stopAndChangeView(isSuccess: Int) {
         self.recognitionTask?.cancel()
         WindowEndingViewController().isSuccess = isSuccess
-        // TODO: 링크 안넘어감..바로 수정하겠읍니다..
-        self.navigationController?.pushViewController(WindowEndingViewController(), animated: false)
+        self.navigationController?.setViewControllers([MyBookShelfViewController(),WindowEndingViewController()], animated: false)
+        Log.t("stopAndChangeView 내부에서 호출하는 로그")
     }
 }
