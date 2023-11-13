@@ -72,7 +72,7 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
     
     private let nextButton = CommonButton()
     
-    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음",font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) { [weak self] in
         self?.navigationController?.pushViewController(WindowVoiceViewController(), animated: false)
     }
     
@@ -85,6 +85,7 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
         setConstraints()
         setupAccessibility()
         setGestureRecognizer()
+        nextButton.isHidden = true
         nextButton.setup(model: nextButtonViewModel)
     }
     
@@ -101,7 +102,7 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [titleLabel, windowImageView, tigerHandHoleAnimationView, tigerNoseHoleAnimationView, tigerTailHoleAnimationView].forEach {
+        [titleLabel, windowImageView, tigerHandHoleAnimationView, tigerNoseHoleAnimationView, tigerTailHoleAnimationView, nextButton].forEach {
             view.addSubview($0)
         }
     }
@@ -141,6 +142,13 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
             $0.right.equalTo(windowImageView.snp.right).offset(-75)
             $0.bottom.equalTo(windowImageView.snp.bottom).offset(-88)
         }
+        
+        nextButton.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
+            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
+            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
+            $0.height.equalTo(72)
+        }
     }
     
     func setupAccessibility() {
@@ -170,6 +178,7 @@ extension WindowHoleViewController {
     
     @objc 
     func viewTapped(_ sender: UITapGestureRecognizer) {
+        self.nextButton.isHidden = false
         if let type = AnimationType(rawValue: sender.view?.tag ?? 1) {
             switch type {
             case .hand:
