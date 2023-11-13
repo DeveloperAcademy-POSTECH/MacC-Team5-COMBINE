@@ -15,6 +15,24 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
         return view
     }()
     
+    private let leftBarButtonItem: UIBarButtonItem = {
+        let leftBarButton = UIBarButtonItem(
+            image: UIImage(systemName: "books.vertical"),
+            style: .plain,
+            target: OnuiiViewController.self,
+            action: #selector(popThisView)
+        )
+        return leftBarButton
+    }()
+    
+    private let navigationTitle: UILabel = {
+       let label = UILabel()
+        label.text = "남매의 집에 도착한 호랑이"
+        label.font = FontManager.navigationtitle()
+        label.textColor = .gs20
+        return label
+    }()
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "구멍을 탭해서 문 밖에 누가 있는지 확인해주세요."
@@ -52,6 +70,12 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
         return view
     }()
     
+    private let nextButton = CommonButton()
+    
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
+        self?.navigationController?.pushViewController(WindowVoiceViewController(), animated: false)
+    }
+    
     // MARK: - View init
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +85,7 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
         setConstraints()
         setupAccessibility()
         setGestureRecognizer()
+        nextButton.setup(model: nextButtonViewModel)
     }
     
     func setupNavigationBar() {
@@ -70,16 +95,9 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
             $0.left.right.equalToSuperview()
             $0.height.equalTo(0.33)
         }
-        self.title = "남매의 집에 도착한 호랑이"
-        // TODO: 내비 타이틀, 바버튼 각각 보이스 오버 적용되는지 확인
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.navigationtitle()]
         self.navigationController?.navigationBar.tintColor = .gs20
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "books.vertical"),
-            style: .plain,
-            target: self,
-            action: #selector(popThisView)
-        )
+        self.navigationItem.titleView = self.navigationTitle
+        self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
     }
     
     func addComponents() {
@@ -126,7 +144,9 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        // TODO: 접근성 적용 확인
+        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
+        view.accessibilityElements = [titleLabel]
+        leftBarButtonItem.accessibilityLabel = "내 책장"
     }
     
 }
