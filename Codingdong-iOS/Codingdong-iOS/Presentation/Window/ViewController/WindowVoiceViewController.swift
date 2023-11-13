@@ -103,17 +103,9 @@ final class WindowVoiceViewController: UIViewController {
     func nextButtonTapped() {
         let modalScreen = WindowVoiceChildViewController()
         
-//        modalScreen.view.backgroundColor = .black
-        
         modalScreen.modalPresentationStyle = .overFullScreen
         
-//        modalScreen.view.alpha = 0.5
-        
         self.present(modalScreen, animated: false, completion: nil)
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-            // TODO: 카운트 다운 후 STT 실행
-        }
     }
     
     func onTimerStart() {
