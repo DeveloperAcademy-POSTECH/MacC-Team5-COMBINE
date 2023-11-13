@@ -93,8 +93,7 @@ final class IfConceptViewController: UIViewController, ConfigUI {
         
         cardView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(50)
-            $0.left.equalToSuperview().offset(basicPadding)
-            $0.right.equalToSuperview().offset(-basicPadding)
+            $0.left.right.equalToSuperview()
             $0.bottom.equalToSuperview().offset(-142)
         }
         

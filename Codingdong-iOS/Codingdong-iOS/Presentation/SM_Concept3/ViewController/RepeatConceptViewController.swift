@@ -93,9 +93,8 @@ final class RepeatConceptViewController: UIViewController, ConfigUI {
         
         cardView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(50)
-            $0.left.equalToSuperview().offset(padding)
-            $0.right.equalToSuperview().offset(-padding)
             $0.bottom.equalToSuperview().offset(-142)
+            $0.left.right.equalToSuperview()
         }
         
         nextButton.snp.makeConstraints {
