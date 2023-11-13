@@ -66,6 +66,10 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
         onTimerStart()
     }
     
+    private func setupAccessibility() {
+        // TODO: 보이스오버 추가
+    }
+    
     func onTimerStart() {
         if let timer = mTimer {
             if !timer.isValid {
