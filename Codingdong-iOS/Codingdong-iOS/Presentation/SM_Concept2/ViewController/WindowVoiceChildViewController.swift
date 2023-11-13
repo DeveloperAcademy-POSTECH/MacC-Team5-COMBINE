@@ -86,6 +86,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
                 timer.invalidate()
                 do {
                     try startRecording()
+                    soundManager.playTTS("말해주세요")
                     titleLabel.text = "말해주세요"
                 } catch {
                     // 오류 발생시 뷰 dismiss
@@ -99,6 +100,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     @objc func timerCallBack() {
         initialCountNumber -= 1
         titleLabel.text = String(initialCountNumber)
+        soundManager.playTTS(String(initialCountNumber))
         if initialCountNumber == 0 {
             onTimerEnd()
         }
@@ -136,7 +138,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
             if let result = result {
                 Log.t(result.bestTranscription.formattedString)
                 if result.bestTranscription.formattedString == "열어줄래요" {
-                    self.stopAndChangeView(isSuccess: 0)
+                    self.stopAndChangeView(isSuccess: 2)
                     Log.i("열어줄래요 이후")
                 } else if result.bestTranscription.formattedString == "싫어요" {
                     self.stopAndChangeView(isSuccess: 1)
@@ -165,7 +167,8 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     
     private func stopAndChangeView(isSuccess: Int) {
         self.recognitionTask?.cancel()
-        WindowEndingViewController().isSuccess = isSuccess
+        audioEngine.stop()
+        WindowEndingViewController().isSuccessInt = isSuccess
         self.navigationController?.setViewControllers([MyBookShelfViewController(),WindowEndingViewController()], animated: false)
         Log.t("stopAndChangeView 내부에서 호출하는 로그")
     }

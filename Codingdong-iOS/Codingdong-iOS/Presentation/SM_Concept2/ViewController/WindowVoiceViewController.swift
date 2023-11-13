@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Log
 
-final class WindowVoiceViewController: UIViewController {
+final class WindowVoiceViewController: UIViewController, ConfigUI {
     
     var mTimer: Timer?
     var initialCountNumber: Int = 3
@@ -19,6 +19,24 @@ final class WindowVoiceViewController: UIViewController {
         let view = UIView()
         view.backgroundColor = .white.withAlphaComponent(0.15)
         return view
+    }()
+    
+    private let navigationTitle: UILabel = {
+        let label = UILabel()
+        label.text = "남매의 집에 도착한 호랑이"
+        label.font = FontManager.navigationtitle()
+        label.textColor = .gs20
+        return label
+    }()
+    
+    private lazy var leftBarButtonItem: UIBarButtonItem = {
+        let leftBarButton = UIBarButtonItem(
+            image: UIImage(systemName: "books.vertical"),
+            style: .plain,
+            target: self,
+            action: #selector(popThisView)
+        )
+        return leftBarButton
     }()
     
     private let titleLabel: UILabel = {
@@ -50,6 +68,7 @@ final class WindowVoiceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
+        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
@@ -71,15 +90,9 @@ final class WindowVoiceViewController: UIViewController {
             $0.left.right.equalToSuperview()
             $0.height.equalTo(0.33)
         }
-        self.title = "남매의 집에 도착한 호랑이"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.navigationtitle()]
         self.navigationController?.navigationBar.tintColor = .gs20
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "books.vertical"),
-            style: .plain,
-            target: self,
-            action: .none
-        )
+        self.navigationItem.titleView = self.navigationTitle
+        self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
     }
     
     func addComponents() {
@@ -128,6 +141,17 @@ final class WindowVoiceViewController: UIViewController {
     @objc func timerCallBack() {
         initialCountNumber -= 1
         titleLabel.text = String(initialCountNumber)
+    }
+    
+    func setupAccessibility() {
+        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
+        view.accessibilityElements = [titleLabel, speechButton]
+        leftBarButtonItem.accessibilityLabel = "내 책장"
+    }
+    
+    @objc
+    func popThisView() {
+        self.navigationController?.popToRootViewController(animated: false)
     }
 
 }
