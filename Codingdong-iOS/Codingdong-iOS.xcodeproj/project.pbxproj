@@ -70,6 +70,7 @@
 		67BAECF72B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BAECF62B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift */; };
 		67BAECF92B001FB0006FB6D3 /* WindowEndingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BAECF82B001FB0006FB6D3 /* WindowEndingViewController.swift */; };
 		67BAECFD2B0039F8006FB6D3 /* AndConceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BAECFC2B0039F8006FB6D3 /* AndConceptViewController.swift */; };
+		67D89CAB2B021AF600EC68E3 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D89CAA2B021AF600EC68E3 /* PermissionManager.swift */; };
 		67E63EFF2ADE67D000C79863 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E63EFE2ADE67D000C79863 /* UIColor+.swift */; };
 		A80A05332AFFCA9000624BBC /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80A05322AFFCA9000624BBC /* OnboardingViewModel.swift */; };
 		A80A05352AFFCE9C00624BBC /* MyBookShelfViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80A05342AFFCE9C00624BBC /* MyBookShelfViewModel.swift */; };
@@ -176,6 +177,7 @@
 		67BAECF62B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerTailHoleAnimationView.swift; sourceTree = "<group>"; };
 		67BAECF82B001FB0006FB6D3 /* WindowEndingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowEndingViewController.swift; sourceTree = "<group>"; };
 		67BAECFC2B0039F8006FB6D3 /* AndConceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndConceptViewController.swift; sourceTree = "<group>"; };
+		67D89CAA2B021AF600EC68E3 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
 		67E63EFE2ADE67D000C79863 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		A80A05322AFFCA9000624BBC /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		A80A05342AFFCE9C00624BBC /* MyBookShelfViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookShelfViewModel.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				A8F41D252AE4F94400BB0260 /* SoundManager.swift */,
 				A8F41D2E2AE5001F00BB0260 /* HapticManager.swift */,
 				112003D02AE574FB00924FAB /* LottieManager.swift */,
+				67D89CAA2B021AF600EC68E3 /* PermissionManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -862,6 +865,7 @@
 				A8BC0DB72AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift in Sources */,
 				A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */,
 				1143C6922AF6ED7B0032CE53 /* BadgeList.swift in Sources */,
+				67D89CAB2B021AF600EC68E3 /* PermissionManager.swift in Sources */,
 				A8B10D432AFAAE88009EA3F5 /* OnboardingViewController.swift in Sources */,
 				1143C6882AF6A31F0032CE53 /* StoryListTableView.swift in Sources */,
 				A80A05332AFFCA9000624BBC /* OnboardingViewModel.swift in Sources */,
@@ -1086,6 +1090,8 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "음성인식을 위한 마이크 사용 권한";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = Codongdong;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1115,6 +1121,8 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "음성인식을 위한 마이크 사용 권한";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = Codongdong;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
