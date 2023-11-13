@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import SnapKit
 
-final class WindowHoleViewController: UIViewController {
+final class WindowHoleViewController: UIViewController, ConfigUI {
     // MARK: - Components
     private let naviLine: UIView = {
         let view = UIView()
@@ -32,9 +31,26 @@ final class WindowHoleViewController: UIViewController {
         return imageView
     }()
     
-    private let tigerHandHoleAnimationView = TigerHandHoleAnimationView()
-    private let tigerNoseHoleAnimationView = TigerNoseHoleAnimationView()
-    private let tigerTailHoleAnimationView = TigerTailHoleAnimationView()
+    private let tigerHandHoleAnimationView: TigerHandHoleAnimationView = {
+        let view = TigerHandHoleAnimationView()
+        view.tag = AnimationType.hand.rawValue
+        view.isUserInteractionEnabled = true
+        return view
+    }()
+    
+    private let tigerNoseHoleAnimationView: TigerNoseHoleAnimationView = {
+        let view = TigerNoseHoleAnimationView()
+        view.tag = AnimationType.nose.rawValue
+        view.isUserInteractionEnabled = true
+        return view
+    }()
+    
+    private let tigerTailHoleAnimationView: TigerTailHoleAnimationView = {
+        let view = TigerTailHoleAnimationView()
+        view.tag = AnimationType.tail.rawValue
+        view.isUserInteractionEnabled = true
+        return view
+    }()
     
     // MARK: - View init
     override func viewDidLoad() {
@@ -43,23 +59,26 @@ final class WindowHoleViewController: UIViewController {
         setupNavigationBar()
         addComponents()
         setConstraints()
-        
-        // TODO: lottie view 탭 제스처 코드
-        // TODO: 탭 제스처가 인식이 안되는 문제 해결
-        self.tigerHandHoleAnimationView.isUserInteractionEnabled = true
-        self.tigerHandHoleAnimationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewTapped)))
+        setupAccessibility()
+        setGestureRecognizer()
     }
     
     func setupNavigationBar() {
         view.addSubview(naviLine)
+        naviLine.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(106)
+            $0.left.right.equalToSuperview()
+            $0.height.equalTo(0.33)
+        }
         self.title = "남매의 집에 도착한 호랑이"
+        // TODO: 내비 타이틀, 바버튼 각각 보이스 오버 적용되는지 확인
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.navigationtitle()]
         self.navigationController?.navigationBar.tintColor = .gs20
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "books.vertical"),
             style: .plain,
             target: self,
-            action: .none
+            action: #selector(popThisView)
         )
     }
     
@@ -70,42 +89,76 @@ final class WindowHoleViewController: UIViewController {
     }
     
     func setConstraints() {
-        naviLine.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(106)
-            $0.left.right.equalToSuperview()
-            $0.height.equalTo(0.33)
-        }
-        
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(122)
-            $0.left.equalToSuperview().offset(16)
-            $0.right.equalToSuperview().offset(-16)
+            $0.top.equalTo(naviLine.snp.bottom).offset(Constants.View.padding)
+            $0.left.equalToSuperview().offset(Constants.View.padding)
+            $0.right.equalToSuperview().offset(-Constants.View.padding)
         }
         
         windowImageView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(222)
             $0.left.equalToSuperview().offset(51)
             $0.right.equalToSuperview().offset(-51)
-            $0.top.equalToSuperview().offset(214)
-            $0.bottom.equalToSuperview().offset(-160)
+            $0.bottom.equalToSuperview().offset(-152)
         }
         
         tigerHandHoleAnimationView.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(74)
-            $0.top.equalToSuperview().offset(326)
+            $0.top.equalTo(windowImageView.snp.top).offset(180)
+            $0.left.equalTo(windowImageView.snp.left).offset(52)
+            $0.right.equalTo(windowImageView.snp.right).offset(-186)
+            $0.bottom.equalTo(windowImageView.snp.bottom).offset(-230)
+            
         }
         
         tigerNoseHoleAnimationView.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(164)
-            $0.top.equalToSuperview().offset(285)
+            $0.top.equalTo(windowImageView.snp.top).offset(84)
+            $0.left.equalTo(windowImageView.snp.left).offset(176)
+            $0.right.equalTo(windowImageView.snp.right).offset(-48)
+            $0.bottom.equalTo(windowImageView.snp.bottom).offset(-332)
         }
         
         tigerTailHoleAnimationView.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(170)
-            $0.top.equalToSuperview().offset(490)
+            $0.top.equalTo(windowImageView.snp.top).offset(316)
+            $0.left.equalTo(windowImageView.snp.left).offset(153)
+            $0.right.equalTo(windowImageView.snp.right).offset(-75)
+            $0.bottom.equalTo(windowImageView.snp.bottom).offset(-88)
         }
     }
     
-    @objc func viewTapped() {
-        LottieManager.shared.playAnimation(inView: tigerHandHoleAnimationView.handLottieView, completion: nil)
+    func setupAccessibility() {
+        // TODO: 접근성 적용 확인
+    }
+    
+}
+
+extension WindowHoleViewController {
+    enum AnimationType: Int {
+        case hand = 1
+        case nose = 2
+        case tail = 3
+    }
+    
+    @objc func popThisView() {
+        self.navigationController?.popToRootViewController(animated: false)
+    }
+    
+    func setGestureRecognizer() {
+        [tigerHandHoleAnimationView, tigerNoseHoleAnimationView, tigerTailHoleAnimationView].forEach {
+            $0.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewTapped)))
+        }
+    }
+    
+    @objc 
+    func viewTapped(_ sender: UITapGestureRecognizer) {
+        if let type = AnimationType(rawValue: sender.view?.tag ?? 1) {
+            switch type {
+            case .hand:
+                LottieManager.shared.playAnimation(inView: tigerHandHoleAnimationView.lottieView, completion: nil)
+            case .nose:
+                LottieManager.shared.playAnimation(inView: tigerNoseHoleAnimationView.lottieView, completion: nil)
+            case .tail:
+                LottieManager.shared.playAnimation(inView: tigerTailHoleAnimationView.lottieView, completion: nil)
+            }
+        }
     }
 }
