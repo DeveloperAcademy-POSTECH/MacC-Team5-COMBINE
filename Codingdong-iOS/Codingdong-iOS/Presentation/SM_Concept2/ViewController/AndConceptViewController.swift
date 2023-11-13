@@ -112,8 +112,7 @@ final class AndConceptViewController: UIViewController {
 extension AndConceptViewController {
     @objc
     func didClickNextButton() {
-        // TODO: 다음 화면으로 내비게이션 연결 추가해야함.
-        // TODO: 버튼에 액션 연결되지 않은 상태.
+        self.navigationController?.pushViewController(OnuiiViewController(), animated: false)
     }
     
     @objc
