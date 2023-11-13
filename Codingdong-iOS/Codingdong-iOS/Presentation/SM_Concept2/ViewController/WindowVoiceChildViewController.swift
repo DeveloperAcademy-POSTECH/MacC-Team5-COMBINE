@@ -86,8 +86,9 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
                 timer.invalidate()
                 do {
                     try startRecording()
-                    soundManager.playTTS("말해주세요")
+//                    soundManager.playTTS("말해주세요")
                     titleLabel.text = "말해주세요"
+                    UIAccessibility.post(notification: .layoutChanged, argument: titleLabel.text)
                 } catch {
                     // 오류 발생시 뷰 dismiss
                     soundManager.playTTS("오류가 발생했습니다. 다시 실행시켜주세요")
@@ -100,7 +101,8 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     @objc func timerCallBack() {
         initialCountNumber -= 1
         titleLabel.text = String(initialCountNumber)
-        soundManager.playTTS(String(initialCountNumber))
+        UIAccessibility.post(notification: .layoutChanged, argument: titleLabel.text)
+//        soundManager.playTTS(String(initialCountNumber))
         if initialCountNumber == 0 {
             onTimerEnd()
         }
@@ -138,7 +140,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
             if let result = result {
                 Log.t(result.bestTranscription.formattedString)
                 if result.bestTranscription.formattedString == "열어줄래요" {
-                    self.stopAndChangeView(isSuccess: 2)
+                    self.stopAndChangeView(isSuccess: 0)
                     Log.i("열어줄래요 이후")
                 } else if result.bestTranscription.formattedString == "싫어요" {
                     self.stopAndChangeView(isSuccess: 1)
@@ -167,7 +169,6 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     
     private func stopAndChangeView(isSuccess: Int) {
         self.recognitionTask?.cancel()
-        audioEngine.stop()
         WindowEndingViewController().isSuccessInt = isSuccess
         self.navigationController?.setViewControllers([MyBookShelfViewController(),WindowEndingViewController()], animated: false)
         Log.t("stopAndChangeView 내부에서 호출하는 로그")

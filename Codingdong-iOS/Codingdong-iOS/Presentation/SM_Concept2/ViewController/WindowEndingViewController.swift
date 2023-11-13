@@ -11,11 +11,10 @@ import SnapKit
 final class WindowEndingViewController: UIViewController, ConfigUI {
     
     // TODO: isSuccess 값에 따라서 뷰가 바뀌지 않는 문제 해결 필요
-    var isSuccessInt: Int = 1
+    var isSuccessInt: Int = 0
     let titleLabelText: [String] = ["어맛, 호랑이에게 잡아먹혔어요. 다시 해볼까요?", "호랑이를 본 오누이는 뒷문으로 도망쳤어요!"]
     let imageName: [String] = ["tigerEatEnding", "initialDoor"]
     let buttonName: [String] = ["다시하기", "다음"]
-    let naviTarget: [UIViewController] = [WindowStartViewController(), AndConceptViewController()]
     
     private let naviLine: UIView = {
         let view = UIView()
@@ -72,10 +71,10 @@ final class WindowEndingViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
+        setupAccessibility()
         nextButton.setup(model: settingButtonViewModel)
     }
     
@@ -86,15 +85,9 @@ final class WindowEndingViewController: UIViewController, ConfigUI {
             $0.left.right.equalToSuperview()
             $0.height.equalTo(0.33)
         }
-        self.title = "남매의 집에 도착한 호랑이"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.navigationtitle()]
         self.navigationController?.navigationBar.tintColor = .gs20
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "books.vertical"),
-            style: .plain,
-            target: self,
-            action: .none
-        )
+        self.navigationItem.titleView = self.navigationTitle
+        self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
     }
     
     func addComponents() {
