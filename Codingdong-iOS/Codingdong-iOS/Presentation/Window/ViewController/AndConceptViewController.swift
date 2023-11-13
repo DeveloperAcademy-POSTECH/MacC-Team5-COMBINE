@@ -1,14 +1,14 @@
 //
-//  TigerEncountViewController.swift
+//  AndConceptViewController.swift
 //  Codingdong-iOS
 //
-//  Created by BAE on 2023/11/10.
+//  Created by 이승용 on 11/12/23.
 //
 
 import UIKit
 import SnapKit
 
-final class TigerEncountViewController: UIViewController, ConfigUI {
+final class AndConceptViewController: UIViewController {
     
     private let naviLine: UIView = {
         let view = UIView()
@@ -18,7 +18,7 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
     
     private let navigationTitle: UILabel = {
         let label = UILabel()
-        label.text = "호랑이를 마주친 엄마"
+        label.text = "개념 한입"
         label.font = FontManager.navigationtitle()
         label.textColor = .gs20
         return label
@@ -34,13 +34,25 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
         return leftBarButton
     }()
     
-    private let labelComponents = TigerEncountView()
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "해님달님의 첫번째 개념"
+        label.font = FontManager.body()
+        label.textColor = .gs10
+        label.numberOfLines = 0
+        label.lineBreakMode = .byCharWrapping
+        return label
+    }()
     
     private let nextButton = CommonButton()
     
-    private lazy var nextButtonViewModel = CommonbuttonModel(title: "떡꼬치 만들기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2, height: 72, didTouchUpInside: didClickNextButton)
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음 챕터로", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .gs10, height: 72, didTouchUpInside: didClickNextButton)
     
     private let basicPadding = Constants.Button.buttonPadding
+    
+    private let cardView = CardView()
+    
+    private let cardViewModel = CardViewModel(title: "그리고", content: "발톱, 꼬리 그리고 수염을 보고 호랑이임을 판단할 수 있었어요.", cardImage: "sm_concept1")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +62,7 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
         setConstraints()
         setupAccessibility()
         nextButton.setup(model: nextButtonViewModel)
+        cardView.config(model: cardViewModel)
     }
     
     func setupNavigationBar() {
@@ -65,16 +78,23 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [labelComponents, nextButton].forEach {
+        [titleLabel, cardView, nextButton].forEach {
             view.addSubview($0)
         }
     }
     
     func setConstraints() {
-        labelComponents.snp.makeConstraints {
-            $0.left.equalToSuperview()
-            $0.right.equalToSuperview()
+        titleLabel.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(basicPadding)
+            $0.right.equalToSuperview().offset(-basicPadding)
             $0.top.equalTo(naviLine).offset(basicPadding)
+        }
+        
+        cardView.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(50)
+            $0.left.equalToSuperview().offset(basicPadding)
+            $0.right.equalToSuperview().offset(-basicPadding)
+            $0.bottom.equalToSuperview().offset(-142)
         }
         
         nextButton.snp.makeConstraints {
@@ -86,19 +106,18 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
     
     func setupAccessibility() {
         navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [labelComponents.containerView, nextButton]
-        leftBarButtonItem.accessibilityLabel = "내 책장"
     }
 }
 
-extension TigerEncountViewController {
+extension AndConceptViewController {
     @objc
     func didClickNextButton() {
-        self.navigationController?.pushViewController(TtekkkochiViewController(), animated: false)
+        // TODO: 다음 화면으로 내비게이션 연결 추가해야함.
+        // TODO: 버튼에 액션 연결되지 않은 상태.
     }
     
     @objc
     func popThisView() {
-        self.navigationController?.popToRootViewController(animated: false)
+        self.navigationController?.popViewController(animated: false)
     }
 }

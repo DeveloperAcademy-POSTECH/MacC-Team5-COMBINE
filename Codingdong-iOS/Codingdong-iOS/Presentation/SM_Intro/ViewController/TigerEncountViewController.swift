@@ -1,15 +1,16 @@
 //
-//  IfConceptViewController.swift
+//  TigerEncountViewController.swift
 //  Codingdong-iOS
 //
 //  Created by BAE on 2023/11/10.
 //
 
 import UIKit
-import SnapKit
-import Log
+import Combine
 
-final class IfConceptViewController: UIViewController, ConfigUI {
+final class TigerEncountViewController: UIViewController, ConfigUI {
+    var viewModel = TigerEncounterViewModel()
+    private var cancellable = Set<AnyCancellable>()
     
     private let naviLine: UIView = {
         let view = UIView()
@@ -19,7 +20,7 @@ final class IfConceptViewController: UIViewController, ConfigUI {
     
     private let navigationTitle: UILabel = {
         let label = UILabel()
-        label.text = "개념 한입"
+        label.text = "호랑이를 마주친 엄마"
         label.font = FontManager.navigationtitle()
         label.textColor = .gs20
         return label
@@ -35,25 +36,15 @@ final class IfConceptViewController: UIViewController, ConfigUI {
         return leftBarButton
     }()
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "해님달님의 첫번째 개념"
-        label.font = FontManager.body()
-        label.textColor = .gs10
-        label.numberOfLines = 0
-        label.lineBreakMode = .byCharWrapping
-        return label
-    }()
+    private let labelComponents = TigerEncountView()
     
     private let nextButton = CommonButton()
     
-    private lazy var nextButtonViewModel = CommonbuttonModel(title: "복습하기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .gs10, height: 72, didTouchUpInside: didClickNextButton)
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "떡꼬치 만들기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2, height: 72) {[weak self] in
+        self?.viewModel.moveOn()
+    }
     
     private let basicPadding = Constants.Button.buttonPadding
-    
-    private let cardView = CardView()
-    
-    private let cardViewModel = CardViewModel(title: "만약에", content: "‘만약에’와 ‘아니면’으로 엄마가 고개를 넘기 위한 두 가지 상황을 만들어 볼 수 있었어요.", cardImage: "sm_concept1")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,8 +53,7 @@ final class IfConceptViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         setupAccessibility()
-        nextButton.setup(model: nextButtonViewModel)
-        cardView.config(model: cardViewModel)
+        binding()
     }
     
     func setupNavigationBar() {
@@ -79,23 +69,17 @@ final class IfConceptViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [titleLabel, cardView, nextButton].forEach {
+        [labelComponents, nextButton].forEach {
             view.addSubview($0)
         }
     }
     
     func setConstraints() {
-        titleLabel.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(basicPadding)
-            $0.right.equalToSuperview().offset(-basicPadding)
+        nextButton.setup(model: nextButtonViewModel)
+        labelComponents.snp.makeConstraints {
+            $0.left.equalToSuperview()
+            $0.right.equalToSuperview()
             $0.top.equalTo(naviLine).offset(basicPadding)
-        }
-        
-        cardView.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(50)
-            $0.left.equalToSuperview().offset(basicPadding)
-            $0.right.equalToSuperview().offset(-basicPadding)
-            $0.bottom.equalToSuperview().offset(-142)
         }
         
         nextButton.snp.makeConstraints {
@@ -107,17 +91,18 @@ final class IfConceptViewController: UIViewController, ConfigUI {
     
     func setupAccessibility() {
         navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-    }
-}
-
-extension IfConceptViewController {
-    @objc
-    func didClickNextButton() {
-        // TODO: 다음 화면으로 내비게이션 연결 추가해야함.
-        // TODO: 버튼에 액션 연결되지 않은 상태.
-        Log.i("2번 문제로 연결")
+        view.accessibilityElements = [labelComponents.containerView, nextButton]
+        leftBarButtonItem.accessibilityLabel = "내 책장"
     }
     
+    func binding() {
+        self.viewModel.route
+            .sink { [weak self] nextView in
+                self?.navigationController?.pushViewController(nextView, animated: false)
+            }
+            .store(in: &cancellable)
+    }
+        
     @objc
     func popThisView() {
         self.navigationController?.popToRootViewController(animated: false)
