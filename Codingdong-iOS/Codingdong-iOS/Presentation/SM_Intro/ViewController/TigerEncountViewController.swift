@@ -6,9 +6,11 @@
 //
 
 import UIKit
-import SnapKit
+import Combine
 
 final class TigerEncountViewController: UIViewController, ConfigUI {
+    var viewModel = TigerEncounterViewModel()
+    private var cancellable = Set<AnyCancellable>()
     
     private let naviLine: UIView = {
         let view = UIView()
@@ -38,7 +40,9 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
     
     private let nextButton = CommonButton()
     
-    private lazy var nextButtonViewModel = CommonbuttonModel(title: "떡꼬치 만들기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2, height: 72, didTouchUpInside: didClickNextButton)
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "떡꼬치 만들기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2, height: 72) {[weak self] in
+        self?.viewModel.moveOn()
+    }
     
     private let basicPadding = Constants.Button.buttonPadding
     
@@ -49,7 +53,7 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         setupAccessibility()
-        nextButton.setup(model: nextButtonViewModel)
+        binding()
     }
     
     func setupNavigationBar() {
@@ -71,6 +75,7 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
     }
     
     func setConstraints() {
+        nextButton.setup(model: nextButtonViewModel)
         labelComponents.snp.makeConstraints {
             $0.left.equalToSuperview()
             $0.right.equalToSuperview()
@@ -89,14 +94,15 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
         view.accessibilityElements = [labelComponents.containerView, nextButton]
         leftBarButtonItem.accessibilityLabel = "내 책장"
     }
-}
-
-extension TigerEncountViewController {
-    @objc
-    func didClickNextButton() {
-        self.navigationController?.pushViewController(TtekkkochiViewController(), animated: false)
-    }
     
+    func binding() {
+        self.viewModel.route
+            .sink { [weak self] nextView in
+                self?.navigationController?.pushViewController(nextView, animated: false)
+            }
+            .store(in: &cancellable)
+    }
+        
     @objc
     func popThisView() {
         self.navigationController?.popToRootViewController(animated: false)

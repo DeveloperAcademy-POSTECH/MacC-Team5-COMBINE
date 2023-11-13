@@ -85,7 +85,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
             image: UIImage(systemName: "books.vertical"),
             style: .plain,
             target: self,
-            action: .none
+            action: #selector(popThisView)
         )
     }
     
@@ -141,6 +141,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     }
     
     func binding() {
+        self.bottomView.setup(with: viewModel)
         self.viewModel.route
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] nextView in
@@ -194,6 +195,12 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
             }
             .store(in: &cancellable)
     }
+    
+    @objc
+    func popThisView() {
+        self.navigationController?.popToRootViewController(animated: false)
+    }
+    
 }
 
 // MARK: - Extension

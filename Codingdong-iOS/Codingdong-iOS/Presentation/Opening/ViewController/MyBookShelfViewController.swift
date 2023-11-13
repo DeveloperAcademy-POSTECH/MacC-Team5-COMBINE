@@ -6,9 +6,23 @@
 //
 
 import UIKit
+import Combine
 import Log
 
+enum NextViewType {
+    case sunmoon
+    
+    internal var viewContoller: UIViewController {
+        switch self {
+        case .sunmoon:
+            return SunAndMoonIntroViewController()
+        }
+    }
+}
+
 final class MyBookShelfViewController: UIViewController, ConfigUI {
+    var viewModel = MyBookShelfViewModel()
+    private var cancellable = Set<AnyCancellable>()
     
     private let naviLine: UIView = {
         let view = UIView()
@@ -64,8 +78,10 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         return label
     }()
     
+    // MARK: - 전래동화
     private let storyList = StoryListTableView()
     
+    // MARK: - 개념 간식 모음 
     private let cookieContainer: UIView = {
        let view = UIView()
         view.backgroundColor = .gs80
@@ -100,6 +116,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     
     override func viewWillAppear(_ animated: Bool) {
         fetchData()
+        binding()
     }
     
     func setupNavigationBar() {
@@ -111,16 +128,22 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         }
         self.navigationController?.navigationBar.tintColor = .gs20
         self.navigationItem.titleView = self.navigationTitle
+        self.navigationItem.hidesBackButton = true
     }
     
     func addComponents() {
         [storyTitle, badgeTitle, moreTitleButton, moreBadgeButton, storyList, cookieContainer].forEach {
             view.addSubview($0)
         }
+        
+        // TODO: 더보기 잠시 해제
+        [moreTitleButton, moreBadgeButton].forEach { $0.isHidden = true }
         [innerView, innerLabel].forEach { cookieContainer.addSubview($0) }
     }
     
     func setConstraints() {
+        storyList.setup(with: viewModel)
+        
         storyTitle.snp.makeConstraints {
             $0.top.equalToSuperview().offset(122)
             $0.left.equalToSuperview().offset(18)
@@ -178,6 +201,17 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
             innerLabel.isHidden = true
             innerView.isHidden = false
         }
+    }
+    
+    func binding() {
+//        storyList.setup(with: viewModel)
+        
+        viewModel.route
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] route in
+                self?.navigationController?.pushViewController(route.viewContoller, animated: false)
+            }
+            .store(in: &cancellable)
     }
 }
 

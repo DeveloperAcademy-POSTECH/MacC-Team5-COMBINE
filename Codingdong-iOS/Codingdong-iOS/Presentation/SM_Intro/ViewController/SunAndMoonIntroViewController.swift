@@ -6,9 +6,12 @@
 //
 
 import UIKit
-import SnapKit
+import Combine
+import Log
 
 final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
+    var viewModel = SunAndMoonIntroViewModel()
+    private var cancellable = Set<AnyCancellable>()
     
     private let naviLine: UIView = {
         let view = UIView()
@@ -38,7 +41,9 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     
     private let nextButton = CommonButton()
     
-    private lazy var nextButtonViewModel = CommonbuttonModel(title: "시작하기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .gs10, height: 72, didTouchUpInside: didClickNextButton)
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "시작하기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .gs10, height: 72) {
+        self.viewModel.moveOn()
+    }
     
     private let basicPadding = Constants.Button.buttonPadding
     
@@ -49,7 +54,7 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         setupAccessibility()
-        nextButton.setup(model: nextButtonViewModel)
+        binding()
     }
     
     func setupNavigationBar() {
@@ -90,16 +95,19 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
             labelComponents.containerView, nextButton
         ]
     }
-}
 
-extension SunAndMoonIntroViewController {
-    @objc
-    func didClickNextButton() {
-        self.navigationController?.pushViewController(TigerEncountViewController(), animated: false)
+    func binding(){
+        nextButton.setup(model: nextButtonViewModel)
+        
+        self.viewModel.route
+            .sink { [weak self] nextView in
+                self?.navigationController?.pushViewController(nextView, animated: false)
+            }
+            .store(in: &cancellable)
     }
     
     @objc
     func popThisView() {
-        self.navigationController?.popViewController(animated: false)
+        self.navigationController?.popToRootViewController(animated: false)
     }
 }

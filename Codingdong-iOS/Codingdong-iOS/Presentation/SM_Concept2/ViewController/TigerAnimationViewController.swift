@@ -41,8 +41,7 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
             image: UIImage(systemName: "books.vertical"),
             style: .plain,
             target: TigerAnimationViewController.self,
-            // TODO: StorySelectView 작업 후 연결하기
-            action: .none
+            action: #selector(popThisView)
         )
         
         return leftBarButton
@@ -67,7 +66,14 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
         setConstraints()
         nextButton.setup(model: nextButtonViewModel)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(voiceOverFocusChanged), name: UIAccessibility.elementFocusedNotification, object: nil)
+        if UIAccessibility.isVoiceOverRunning {
+            NotificationCenter.default.addObserver(self, selector: #selector(voiceOverFocusChanged), name: UIAccessibility.elementFocusedNotification, object: nil)
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+                LottieManager.shared.playAnimation(inView: self.animationView.lottieView, completion: nil)
+                self.bottomBtnSpringAnimation()
+            }
+        }
     }
     
     func setupNavigationBar() {
@@ -143,23 +149,23 @@ extension TigerAnimationViewController {
     }
     
     @objc
-    func didClickNextButton() {
-        // TODO: 다음 화면으로 내비게이션 연결 추가해야함.
-        // TODO: 버튼에 액션 연결되지 않은 상태.
-        print("너무 아름다운 다운 다운 다운 View")
+    private func didClickNextButton() {
         self.navigationController?.pushViewController(IfConceptViewController(), animated: false)
     }
     
     @objc
-    func voiceOverFocusChanged(_ notification: Notification) {
-        if UIAccessibility.isVoiceOverRunning {
-            if let focusedElement = notification.userInfo?[UIAccessibility.focusedElementUserInfoKey] as? NSObject, focusedElement === titleLabel {
-                LottieManager.shared.playAnimation(inView: animationView.lottieView, completion: nil)
-                LottieManager.shared.removeAnimation(inView: animationView.lottieView)
-                self.bottomBtnSpringAnimation()
-                UIAccessibility.post(notification: .layoutChanged, argument: nil)
-            }
+    private func voiceOverFocusChanged(_ notification: Notification) {
+        if let focusedElement = notification.userInfo?[UIAccessibility.focusedElementUserInfoKey] as? NSObject, focusedElement === titleLabel {
+            LottieManager.shared.playAnimation(inView: animationView.lottieView, completion: nil)
+            LottieManager.shared.removeAnimation(inView: animationView.lottieView)
+            self.bottomBtnSpringAnimation()
+            UIAccessibility.post(notification: .layoutChanged, argument: nil)
         }
+    }
+    
+    @objc
+    private func popThisView() {
+        self.navigationController?.popToRootViewController(animated: false)
     }
     
 }
