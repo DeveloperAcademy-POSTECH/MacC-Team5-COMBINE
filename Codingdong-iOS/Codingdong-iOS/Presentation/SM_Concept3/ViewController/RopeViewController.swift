@@ -1,18 +1,17 @@
 //
-//  OnuiiViewController.swift
+//  RopeViewController.swift
 //  Codingdong-iOS
-//
-//  Created by Joy on 11/13/23.
 //
 
 import UIKit
-import Combine
+import CoreMotion
 import Log
 
-final class OnuiiViewController: UIViewController, ConfigUI {
- 
-    private var viewModel = TtekkkochiViewModel()
-    private var cancellable = Set<AnyCancellable>()
+final class RopeViewController: UIViewController, ConfigUI {
+
+    private let motionManager = CMMotionManager()
+    private let hapticManager = HapticManager()
+    private var count = 0
     
     // MARK: - Components
     private let naviLine: UIView = {
@@ -41,13 +40,7 @@ final class OnuiiViewController: UIViewController, ConfigUI {
     
     private let contentLabel: UILabel = {
        let label = UILabel()
-        label.text = """
-         오누이는 호랑이를 피하기 위해 동아줄을 붙잡고 올라갔어요.
-
-         하지만, 어린 오누이는 동아줄을 잡고 올라가기가 너무 힘들었어요.
-
-         오누이가 무사히 올라갈 수 있도록 도와주세요!
-         """
+        label.text = "기기를 100번 흔들어 주세요!"
         label.textColor = .gs10
         label.font = FontManager.body()
         label.numberOfLines = 0
@@ -55,12 +48,12 @@ final class OnuiiViewController: UIViewController, ConfigUI {
         return label
     }()
     
-    private let rescueButton = CommonButton()
-    private lazy var rescuButtonViewModel = CommonbuttonModel(title: "오누이 구출하기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
-//        self?.navigationController?.pushViewController(TeachingRepeatViewController(), animated: false)
-        
-        self?.navigationController?.pushViewController(RopeViewController(), animated: false)
-    }
+    private lazy var imageView: UIImageView = {
+       let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "ttekkset")
+        imageView.contentMode = .scaleToFill
+        return imageView
+    }()
     
     // MARK: - View Init
     override func viewDidLoad() {
@@ -69,36 +62,35 @@ final class OnuiiViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         setupAccessibility()
+        countShake()
     }
     
     func setupNavigationBar() {
         view.addSubview(naviLine)
         naviLine.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(106)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.left.right.equalToSuperview()
             $0.height.equalTo(0.33)
         }
+        
         self.navigationController?.navigationBar.tintColor = .gs20
         self.navigationItem.titleView = self.navigationTitle
         self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
     }
     
     func addComponents() {
-        [contentLabel, rescueButton].forEach { view.addSubview($0) }
+        [contentLabel, imageView].forEach {view.addSubview($0)}
     }
     
     func setConstraints() {
         contentLabel.snp.makeConstraints {
-            $0.top.equalTo(naviLine.snp.bottom).offset(Constants.Button.buttonPadding)
-            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
-            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
+            $0.top.equalTo(naviLine.snp.bottom).offset(16)
+            $0.left.right.equalToSuperview().inset(16)
         }
         
-        rescueButton.setup(model: rescuButtonViewModel)
-        
-        rescueButton.snp.makeConstraints {
+        imageView.snp.makeConstraints {
+            $0.top.equalTo(contentLabel.snp.bottom).offset(88)
             $0.left.right.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding*2)
         }
     }
     
@@ -108,5 +100,29 @@ final class OnuiiViewController: UIViewController, ConfigUI {
     
     @objc func popThisView() {
         self.navigationController?.popToRootViewController(animated: false)
+    }
+    
+    func countShake() {
+        if motionManager.isAccelerometerAvailable {
+            motionManager.accelerometerUpdateInterval = 0.5
+            motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data, _) in
+                if let acceleration = data?.acceleration {
+//
+                    let shakeThreshold = 0.8  // 흔들기 인식 강도
+                    // 흔들기 감지
+                    if acceleration.x >= shakeThreshold || acceleration.y >= shakeThreshold || acceleration.z >= shakeThreshold {
+                        self.imageView.image = #imageLiteral(resourceName: "ropeSet")
+                        self.hapticManager?.playNomNom()
+                        self.count += 1
+                        
+                        Log.i(self.count)
+                        
+                        if self.count == 10 {
+                            self.navigationController?.pushViewController(TeachingRepeatViewController(), animated: false)
+                        }
+                    }
+                }
+            }
+        }
     }
 }
