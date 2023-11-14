@@ -27,16 +27,16 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
         return label
     }()
     
-    private lazy var leftBarButtonItem: UIBarButtonItem = {
-        let leftBarButton = UIBarButtonItem(
-            image: UIImage(systemName: "chevron.backward"),
-            style: .plain,
-            target: self,
-            action: #selector(popThisView)
-        )
-        return leftBarButton
-    }()
-    
+//    private lazy var leftBarButtonItem: UIBarButtonItem = {
+//        let leftBarButton = UIBarButtonItem(
+//            image: UIImage(systemName: "chevron.backward"),
+//            style: .plain,
+//            target: self,
+//            action: #selector(popThisView)
+//        )
+//        return leftBarButton
+//    }()
+//    
     private let labelComponents = SunAndMoonIntroView()
     
     private let nextButton = CommonButton()
@@ -66,7 +66,12 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
         }
         self.navigationController?.navigationBar.tintColor = .gs20
         self.navigationItem.titleView = self.navigationTitle
-        self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "books.vertical"),
+            style: .plain,
+            target: self,
+            action: #selector(popThisView)
+        )
     }
     
     func addComponents() {
@@ -90,10 +95,11 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [
-            labelComponents.containerView, nextButton
-        ]
+//        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
+//        view.accessibilityElements = [
+//            labelComponents.containerView, nextButton
+//        ]
+        
     }
 
     func binding() {
