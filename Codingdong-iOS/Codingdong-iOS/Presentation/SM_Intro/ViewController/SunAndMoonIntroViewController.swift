@@ -27,16 +27,6 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
         return label
     }()
     
-//    private lazy var leftBarButtonItem: UIBarButtonItem = {
-//        let leftBarButton = UIBarButtonItem(
-//            image: UIImage(systemName: "chevron.backward"),
-//            style: .plain,
-//            target: self,
-//            action: #selector(popThisView)
-//        )
-//        return leftBarButton
-//    }()
-//    
     private let labelComponents = SunAndMoonIntroView()
     
     private let nextButton = CommonButton()
@@ -67,7 +57,7 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
         self.navigationController?.navigationBar.tintColor = .gs20
         self.navigationItem.titleView = self.navigationTitle
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "books.vertical"),
+            image: UIImage(systemName: "chevron.left"),
             style: .plain,
             target: self,
             action: #selector(popThisView)
@@ -95,10 +85,8 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-//        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-//        view.accessibilityElements = [
-//            labelComponents.containerView, nextButton
-//        ]
+        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "이전 화면으로 이동"
+        view.accessibilityElements = [labelComponents, nextButton]
         
     }
 
