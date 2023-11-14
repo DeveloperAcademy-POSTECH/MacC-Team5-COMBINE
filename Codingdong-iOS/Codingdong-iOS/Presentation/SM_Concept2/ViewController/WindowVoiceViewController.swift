@@ -11,10 +11,6 @@ import Log
 
 final class WindowVoiceViewController: UIViewController, ConfigUI {
     
-    var mTimer: Timer?
-    var initialCountNumber: Int = 3
-    var flags = false
-    
     private let naviLine: UIView = {
         let view = UIView()
         view.backgroundColor = .white.withAlphaComponent(0.15)
@@ -41,7 +37,12 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "문 밖에 누가 있는지 확인했나요?\n\n문을 열어줄까요?\n\n'열어줄래요', '싫어요' 중에 대답해주세요."
+        label.text = """
+                    문 밖에 누가 있는지 확인했나요?
+                    
+                    문을 열어줄까요?
+                    '열어줄래요', '싫어요' 중에 대답해주세요.
+                    """
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
@@ -56,6 +57,7 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
     }()
     
     private let speechButton = CommonButton()
+    
     private lazy var speechButtonViewModel = CommonbuttonModel(title: "누르고 말하기", font: FontManager.textbutton(), titleColor: .primary2, backgroundColor: .primary1, didTouchUpInside: nextButtonTapped)
     
     private let countdownBackgroundView: UIView = {
@@ -72,15 +74,6 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
         setupNavigationBar()
         addComponents()
         setConstraints()
-        speechButton.setup(model: speechButtonViewModel)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        if flags {
-            self.navigationController?.pushViewController(WindowEndingViewController(), animated: false)
-            Log.i("푸시 이후")
-        }
-        Log.i("디드 어피어")
     }
     
     func setupNavigationBar() {
@@ -96,29 +89,28 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [naviLine, titleLabel, doorWithHolesImageView, speechButton].forEach {
+        [titleLabel, doorWithHolesImageView, speechButton].forEach {
             view.addSubview($0)
         }
     }
     
     func setConstraints() {
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(122)
-            $0.left.equalToSuperview().offset(16)
-            $0.right.equalToSuperview().offset(-16)
+            $0.top.equalTo(naviLine.snp.bottom).offset(Constants.View.padding)
+            $0.left.right.equalToSuperview().inset(Constants.View.padding)
         }
         
         doorWithHolesImageView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(324)
-            $0.left.equalToSuperview().offset(81)
-            $0.right.equalToSuperview().offset(-81)
+            $0.left.right.equalToSuperview().inset(81)
             $0.bottom.equalToSuperview().offset(-148)
         }
         
+        speechButton.setup(model: speechButtonViewModel)
+        
         speechButton.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
-            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
-            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
+            $0.left.right.equalToSuperview().inset(Constants.Button.buttonPadding)
+            $0.bottom.equalToSuperview().inset(Constants.Button.buttonPadding * 2)
             $0.height.equalTo(72)
         }
     }
@@ -128,19 +120,6 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
         navigationController.modalPresentationStyle = .overFullScreen
         
         self.present(navigationController, animated: false)
-    }
-    
-    func onTimerStart() {
-        if let timer = mTimer {
-            if !timer.isValid {
-                mTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
-            }
-        }
-    }
-    
-    @objc func timerCallBack() {
-        initialCountNumber -= 1
-        titleLabel.text = String(initialCountNumber)
     }
     
     func setupAccessibility() {
