@@ -204,6 +204,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
             innerLabel.isHidden = false
             innerView.isHidden = true
         } else {
+            innerView.badgeCollectionView.reloadData()
             innerLabel.isHidden = true
             innerView.isHidden = false
         }
