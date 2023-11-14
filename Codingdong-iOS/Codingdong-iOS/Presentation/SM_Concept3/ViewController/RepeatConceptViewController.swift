@@ -55,7 +55,8 @@ final class RepeatConceptViewController: UIViewController, ConfigUI {
     private var cardViewModel = CardViewModel(title: "거듭하기", content: "흔들기 동작을 반복하면서 오누이가 동아줄을 오를 수 있게 도와줬어요.", cardImage: "sm_concept3")
     
     private lazy var nextButtonViewModel = CommonbuttonModel(title: "복습하기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .gs10, height: 72) {[weak self] in
-        self?.viewModel.moveOn()
+        //self?.viewModel.moveOn()
+        self?.navigationController?.pushViewController(ReviewViewController(), animated: false)
     }
     
     //MARK: - View initializer
@@ -106,6 +107,6 @@ final class RepeatConceptViewController: UIViewController, ConfigUI {
     func setupAccessibility() {}
 
     @objc func popThisView() {
-        Log.d("안녕하세용")
+        self.navigationController?.popToRootViewController(animated: false)
     }
 }

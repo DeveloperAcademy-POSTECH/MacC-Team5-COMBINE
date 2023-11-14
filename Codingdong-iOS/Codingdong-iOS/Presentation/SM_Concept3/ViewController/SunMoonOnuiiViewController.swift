@@ -58,7 +58,7 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
     
     private let nextButton = CommonButton()
     private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
-        Log.i("다음 화면으로 이동하기")
+        self?.navigationController?.pushViewController(RepeatConceptViewController(), animated: false)
     }
     
     // MARK: - View Init
@@ -113,7 +113,7 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
     
 
     @objc private func popThisView() {
-        Log.i("홈화면으로 이동")
-        //self.navigationController?.popToRootViewController(animated: false)
+//        Log.i("홈화면으로 이동")
+        self.navigationController?.popToRootViewController(animated: false)
     }
 }

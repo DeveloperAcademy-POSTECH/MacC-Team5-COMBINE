@@ -21,11 +21,11 @@ final class OnuiiViewController: UIViewController, ConfigUI {
         return view
     }()
     
-    private let leftBarButtonItem: UIBarButtonItem = {
+    private lazy var leftBarButtonItem: UIBarButtonItem = {
         let leftBarButton = UIBarButtonItem(
             image: UIImage(systemName: "books.vertical"),
             style: .plain,
-            target: OnuiiViewController.self,
+            target: self,
             action: #selector(popThisView)
         )
         return leftBarButton
@@ -57,7 +57,7 @@ final class OnuiiViewController: UIViewController, ConfigUI {
     
     private let rescueButton = CommonButton()
     private lazy var rescuButtonViewModel = CommonbuttonModel(title: "오누이 구출하기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
-        self?.viewModel.selectItem()
+        self?.navigationController?.pushViewController(TeachingRepeatViewController(), animated: false)
     }
     
     // MARK: - View Init
@@ -103,11 +103,8 @@ final class OnuiiViewController: UIViewController, ConfigUI {
     func setupAccessibility() {
         
     }
-}
-
-extension OnuiiViewController {
-    @objc private func popThisView() {
-        Log.i("홈화면으로 이동")
-        //self.navigationController?.popToRootViewController(animated: false)
+    
+    @objc func popThisView() {
+        self.navigationController?.popToRootViewController(animated: false)
     }
 }
