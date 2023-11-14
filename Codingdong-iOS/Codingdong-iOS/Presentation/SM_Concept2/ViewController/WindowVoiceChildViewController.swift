@@ -65,9 +65,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     func addComponents() {
         view.addSubview(containerView)
         containerView.addSubview(titleLabel)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            self.titleLabel.text = "\(3)"
-        }
+        self.titleLabel.text = "\(3)"
     }
     
     func setConstraints() {
@@ -84,13 +82,17 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     @objc func timerCallBack() {
         if initialCountNumber > 0 {
             titleLabel.text = "\(initialCountNumber)"
-            UIAccessibility.post(notification: .layoutChanged, argument: titleLabel)
-            self.initialCountNumber -= 1
+            DispatchQueue.main.async {
+                UIAccessibility.post(notification: .announcement, argument: "\(self.initialCountNumber)")
+                self.initialCountNumber -= 1
+            }
         } else {
             titleLabel.text = "말해주세요"
-            UIAccessibility.post(notification: .layoutChanged, argument: titleLabel)
-            mTimer?.invalidate()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            DispatchQueue.main.async {
+                self.mTimer?.invalidate()
+                UIAccessibility.post(notification: .announcement, argument: "말해주세요")
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
                 self.onTimerEnd()
             }
         }
@@ -111,18 +113,24 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     private func startRecording() throws {
         
         // 작업중인 task 종료
-        if let recognitionTask = recognitionTask {
-            recognitionTask.cancel()
-            self.recognitionTask = nil
+//        if let recognitionTask = recognitionTask {
+//            recognitionTask.cancel()
+//            self.recognitionTask = nil
+//        }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.record, mode: .measurement, options: .duckOthers)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            Log.e(error.localizedDescription)
         }
         
-        let audioSession = AVAudioSession.sharedInstance()
-        try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
-        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         let inputNode = audioEngine.inputNode
 
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
+        
         guard let recognitionRequest = recognitionRequest else { fatalError("Unable to created a SFSpeechAudioBufferRecognitionRequest object") }
+        
         recognitionRequest.shouldReportPartialResults = true
         
         if #available(iOS 13, *) {
@@ -133,11 +141,10 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
         }
         
         recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest) { result, error in
-            var isFinal = false
-            
             // Text 일치여부 판별
             if let result = result {
                 Log.t(result.bestTranscription.formattedString)
+
                 if result.bestTranscription.formattedString.trimmingCharacters(in:.whitespacesAndNewlines) == "열어줄래요" {
                     Log.i("열어줄래용?")
                     self.stopAndChangeView(isSuccess: 0) //0
@@ -145,16 +152,8 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
                 } else if result.bestTranscription.formattedString == "싫어요" {
                     self.stopAndChangeView(isSuccess: 1) //1
                     Log.i("싫어요 이후")
+                  
                 }
-                isFinal = result.isFinal
-            }
-            
-            if error != nil || isFinal {
-                self.audioEngine.stop()
-                inputNode.removeTap(onBus: 0)
-                
-                self.recognitionRequest = nil
-                self.recognitionTask = nil
             }
         }
 
@@ -168,7 +167,15 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     }
     
     private func stopAndChangeView(isSuccess: Int) {
-        self.recognitionTask?.cancel()
+        recognitionTask?.cancel()  
+        audioEngine.stop()
+        
+        do {
+            try AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        } catch {
+            Log.e(error.localizedDescription)
+        }
+        
         UserDefaults.standard.set(isSuccess, forKey: "key")
         self.navigationController?.pushViewController(WindowEndingViewController(), animated: false)
     }
