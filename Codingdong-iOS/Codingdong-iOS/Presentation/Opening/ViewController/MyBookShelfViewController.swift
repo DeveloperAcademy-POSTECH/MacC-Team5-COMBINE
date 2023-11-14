@@ -196,11 +196,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-//        view.accessibilityElements = [navigationTitle, storyTitle, storyList, moreTitleButton, badgeTitle, moreBadgeButton]
-        
         view.accessibilityElements = [navigationTitle, storyTitle, storyList, badgeTitle, innerLabel]
-        
-        // TODO: 각 요소에 Accessibility 적용
     }
     
     func fetchData() {
