@@ -169,8 +169,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     
     private func stopAndChangeView(isSuccess: Int) {
         self.recognitionTask?.cancel()
-        UserDefaults.standard.set(isSuccess, forKey: "key") // 나중에 @Published로 바꾸기 
-        self.navigationController?.setViewControllers([MyBookShelfViewController(),WindowEndingViewController()], animated: false)
-        Log.t("stopAndChangeView 내부에서 호출하는 로그")
+        UserDefaults.standard.set(isSuccess, forKey: "key")
+        self.navigationController?.pushViewController(WindowEndingViewController(), animated: false)
     }
 }

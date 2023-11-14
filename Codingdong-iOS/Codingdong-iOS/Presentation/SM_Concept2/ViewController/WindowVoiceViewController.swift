@@ -56,8 +56,9 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
     }()
     
     private let speechButton = CommonButton()
-    private lazy var speechButtonViewModel = CommonbuttonModel(title: "누르고 말하기", font: FontManager.textbutton(), titleColor: .primary2, backgroundColor: .primary1, didTouchUpInside: nextButtonTapped)
-    
+    private lazy var speechButtonViewModel = CommonbuttonModel(title: "누르고 말하기", font: FontManager.textbutton(), titleColor: .primary2, backgroundColor: .primary1) { [weak self] in
+            self?.navigationController?.pushViewController(WindowVoiceChildViewController(), animated: false)
+    }
     private let countdownBackgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .black.withAlphaComponent(0.5)
@@ -74,15 +75,7 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
         setConstraints()
         speechButton.setup(model: speechButtonViewModel)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        if flags {
-            self.navigationController?.pushViewController(WindowEndingViewController(), animated: false)
-            Log.i("푸시 이후")
-        }
-        Log.i("디드 어피어")
-    }
-    
+
     func setupNavigationBar() {
         view.addSubview(naviLine)
         naviLine.snp.makeConstraints {
@@ -121,13 +114,6 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
             $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
             $0.height.equalTo(72)
         }
-    }
-    
-    func nextButtonTapped() {
-        let navigationController = UINavigationController(rootViewController: WindowVoiceChildViewController())
-        navigationController.modalPresentationStyle = .overFullScreen
-        
-        self.present(navigationController, animated: false)
     }
     
     func onTimerStart() {

@@ -65,7 +65,12 @@ final class WindowEndingViewController: UIViewController, ConfigUI {
             self?.navigationController?.pushViewController(AndConceptViewController(), animated: false)
         } else {
             // isSuccessInt == 0 - 탈출실패
-            self?.navigationController?.setViewControllers([MyBookShelfViewController(), WindowStartViewController()], animated: false)
+            guard let viewControllerStack = self?.navigationController?.viewControllers else { return }
+            for viewController in viewControllerStack {
+                if let startView = viewController as? WindowVoiceViewController {
+                    self?.navigationController?.popToViewController(startView, animated: true)
+                }
+            }
         }
     }
     
