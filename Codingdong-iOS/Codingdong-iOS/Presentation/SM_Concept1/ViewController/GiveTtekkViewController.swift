@@ -133,6 +133,7 @@ extension GiveTtekkViewController {
     
     @objc
     private func didClickNextButton() {
+        motionManager.stopAccelerometerUpdates()
         self.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
     }
     
