@@ -150,15 +150,15 @@ extension GiveTtekkViewController {
         guard let poppedView = ttekks.last else {
             self.hapticManager?.playSplash()
             self.nextButton.isHidden = false
-            let newText = """
+            self.storyLabel.text = """
                         호랑이는 떡을 먹고도 아직 배가 고픈가봐요.
                             
                         이제는 떡이 더이상 없는데 어떡하죠?
                             
                         배고픈 호랑이가 엄마를 무섭게 노려보고 있어요.
                         """
-            self.storyLabel.text = newText
-            UIAccessibility.post(notification: .layoutChanged, argument: "왜 안읽지")
+            
+            UIAccessibility.post(notification: .layoutChanged, argument: self.storyLabel)
             return
         }
         
