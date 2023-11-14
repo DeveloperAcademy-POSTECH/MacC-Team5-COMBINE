@@ -21,9 +21,6 @@ final class ReviewViewModel: ReviewViewModelRepresentable {
     func endStory() {
         yugwaList.haveYugwa = true
         yugwaList.yugwa = [Yugwa(image: "img_yugwa1", concept: "반복문"), Yugwa(image: "img_yugwa2", concept: "연산자"), Yugwa(image: "img_yugwa3", concept: "조건문")]
-        
-        //sendRoute.send(MyBookShelfViewController()) // TODO: 루트 바꾸어야 함
-        Log.t("홈으로 이동인데 루트를 바꾸어 주어야 함")
-
+        // TODO: 해님달님도 읽은 걸로 표시해야 함
     }
 }

@@ -24,6 +24,7 @@ final class OnboardingViewController: UIViewController {
            let image = UIImageView()
             image.image = UIImage(named: "img_accessibility")
             image.contentMode = .scaleAspectFit
+            image.accessibilityLabel = "접근성 로고"
             return image
         }()
         
@@ -63,6 +64,7 @@ final class OnboardingViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         binding()
+        setupAccessibility()
         permissionManager.requestMicPermission()
     }
     
@@ -106,6 +108,8 @@ final class OnboardingViewController: UIViewController {
             .store(in: &cancellable)
     }
     
-    // TODO: 보이스오버 추가
-    private func setupAccessibility() {}
+    private func setupAccessibility() {
+        view.accessibilityElements = [voiceOverTitle, voiceOverDescription, doneButton]
+        
+    }
 }

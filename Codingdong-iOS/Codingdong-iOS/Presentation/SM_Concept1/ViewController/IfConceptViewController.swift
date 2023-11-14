@@ -112,7 +112,8 @@ final class IfConceptViewController: UIViewController, ConfigUI {
 extension IfConceptViewController {
     @objc
     func didClickNextButton() {
-        self.navigationController?.pushViewController(WindowStartViewController(), animated: false)
+        //self.navigationController?.pushViewController(WindowStartViewController(), animated: false)
+        self.navigationController?.pushViewController(AndConceptViewController(), animated: false)
     }
     
     @objc

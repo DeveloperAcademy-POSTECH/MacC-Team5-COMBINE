@@ -145,6 +145,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         self.viewModel.route
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] nextView in
+                for index in (0...4) { answerBlocks[index].isShowing = false }
                 self?.navigationController?.pushViewController(nextView, animated: false)
             })
             .store(in: &cancellable)
@@ -166,28 +167,14 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
                     self.blockIndex += 1
                     
                     switch index {
-                    case 4: // TODO: 읽어 주기(tts)
+                    case 4:
                         self.bottomView.isHidden = true
                         self.nextButton.isHidden = false
                         nextButton.setup(model: settingButtonViewModel)
-
-                        self.stickView.snp.remakeConstraints {
-                            $0.top.equalTo(self.titleLabel.snp.bottom).offset(50)
-                            $0.centerX.equalToSuperview()
-                            $0.width.equalTo(8)
-                            $0.bottom.equalTo(self.nextButton.snp.top).offset(-30)
-                        }
-                        
-                        self.ttekkkochiCollectionView.snp.remakeConstraints {
-                            $0.top.equalTo(self.titleLabel.snp.bottom).offset(60)
-                            $0.left.equalToSuperview().offset(70)
-                            $0.right.equalToSuperview().offset(-70)
-                            $0.bottom.equalToSuperview().offset(-100)
-                        }
-                    default:
+                        // TODO: 떡 크기 확대, tts
+                   default:
                         return
                     }
-                    
                 } else {
                     self.hapticManager = HapticManager()
                     self.hapticManager?.playNomNom()

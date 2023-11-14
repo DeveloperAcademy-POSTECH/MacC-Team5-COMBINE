@@ -97,6 +97,7 @@
 		A897A9772AFF6FD200008722 /* YugwaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897A9762AFF6FD200008722 /* YugwaCell.swift */; };
 		A8A482072AE5E7EB00FDE35C /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A8A482062AE5E7EA00FDE35C /* bell.mp3 */; };
 		A8A725032AE55F7C004840A6 /* TtekkkochiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A725022AE55F7C004840A6 /* TtekkkochiViewModel.swift */; };
+		A8A979832B0285E1006A86FB /* TeachingRepeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A979822B0285E1006A86FB /* TeachingRepeatViewController.swift */; };
 		A8B10D3E2AFAAE20009EA3F5 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B10D3D2AFAAE20009EA3F5 /* SplashViewController.swift */; };
 		A8B10D432AFAAE88009EA3F5 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B10D422AFAAE88009EA3F5 /* OnboardingViewController.swift */; };
 		A8BC0DB22AE3401800AD5C9A /* CodingBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */; };
@@ -204,6 +205,7 @@
 		A897A9762AFF6FD200008722 /* YugwaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YugwaCell.swift; sourceTree = "<group>"; };
 		A8A482062AE5E7EA00FDE35C /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
 		A8A725022AE55F7C004840A6 /* TtekkkochiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiViewModel.swift; sourceTree = "<group>"; };
+		A8A979822B0285E1006A86FB /* TeachingRepeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachingRepeatViewController.swift; sourceTree = "<group>"; };
 		A8B10D3D2AFAAE20009EA3F5 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		A8B10D422AFAAE88009EA3F5 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingBlock.swift; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 				A852B17B2B01F90B0051BE9E /* OnuiiViewController.swift */,
 				A8C00F812B0209E000201EAD /* RepeatConceptViewController.swift */,
 				A8C00F832B021A8200201EAD /* SunMoonOnuiiViewController.swift */,
+				A8A979822B0285E1006A86FB /* TeachingRepeatViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -554,9 +557,9 @@
 			children = (
 				A8B10D3D2AFAAE20009EA3F5 /* SplashViewController.swift */,
 				A8B10D422AFAAE88009EA3F5 /* OnboardingViewController.swift */,
+				1143C6822AF4D6440032CE53 /* MyBookShelfViewController.swift */,
 				11CD0EE22AFDFCC400911B64 /* MoreTitleViewController.swift */,
 				1143C6BF2AFB666A0032CE53 /* MoreBadgeViewController.swift */,
-				1143C6822AF4D6440032CE53 /* MyBookShelfViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -845,6 +848,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8A979832B0285E1006A86FB /* TeachingRepeatViewController.swift in Sources */,
 				A8BE07F72B00E4E900DD7378 /* ReviewViewController.swift in Sources */,
 				1143C6832AF4D6440032CE53 /* MyBookShelfViewController.swift in Sources */,
 				A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */,
@@ -1086,7 +1090,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = W43DLLFB4Q;
+				DEVELOPMENT_TEAM = XGHDQG66U5;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
@@ -1117,7 +1121,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = W43DLLFB4Q;
+				DEVELOPMENT_TEAM = XGHDQG66U5;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";

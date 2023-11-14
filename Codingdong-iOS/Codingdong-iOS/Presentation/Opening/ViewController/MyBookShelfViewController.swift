@@ -2,8 +2,6 @@
 //  MyBookShelfViewController.swift
 //  Codingdong-iOS
 //
-//  Created by BAE on 2023/11/03.
-//
 
 import UIKit
 import Combine
@@ -21,6 +19,8 @@ enum NextViewType {
 }
 
 final class MyBookShelfViewController: UIViewController, ConfigUI {
+    
+    var window: UIWindow?
     var viewModel = MyBookShelfViewModel()
     private var cancellable = Set<AnyCancellable>()
     
@@ -108,6 +108,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         super.viewDidLoad()
         view.backgroundColor = .gs90
         
+        setupRootView()
         setupAccessibility()
         setupNavigationBar()
         addComponents()
@@ -117,6 +118,13 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     override func viewWillAppear(_ animated: Bool) {
         fetchData()
         binding()
+    }
+    
+    func setupRootView() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let root = UINavigationController(rootViewController: MyBookShelfViewController())
+        window?.makeKeyAndVisible()
+        window?.rootViewController = root
     }
     
     func setupNavigationBar() {
@@ -188,8 +196,10 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [navigationTitle]
-        view.accessibilityElements = [storyTitle, moreTitleButton, badgeTitle, moreBadgeButton]
+//        view.accessibilityElements = [navigationTitle, storyTitle, storyList, moreTitleButton, badgeTitle, moreBadgeButton]
+        
+        view.accessibilityElements = [navigationTitle, storyTitle, storyList, badgeTitle, innerLabel]
+        
         // TODO: 각 요소에 Accessibility 적용
     }
     

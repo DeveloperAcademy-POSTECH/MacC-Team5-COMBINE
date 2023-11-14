@@ -20,6 +20,7 @@ final class StoryListTableView: UIView {
         view.dataSource = self
         view.backgroundColor = .gs80
         view.isScrollEnabled = false
+        view.isAccessibilityElement = true
         return view
     }()
     

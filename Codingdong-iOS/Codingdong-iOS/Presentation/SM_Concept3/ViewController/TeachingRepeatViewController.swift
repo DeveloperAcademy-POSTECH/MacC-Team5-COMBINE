@@ -1,17 +1,18 @@
 //
-//  SunMoonOnuiiViewController.swift
+//  TeachingRepeatViewController.swift
 //  Codingdong-iOS
 //
-//  Created by Joy on 11/13/23.
+//  Created by Joy on 11/14/23.
 //
 
 import UIKit
-import Combine
 import Log
+import Combine
 
-final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
+final class TeachingRepeatViewController: UIViewController, ConfigUI {
 
     // MARK: - Components
+    let subject = PassthroughSubject<String, Never>()
     private let naviLine: UIView = {
         let view = UIView()
         view.backgroundColor = .white.withAlphaComponent(0.15)
@@ -22,12 +23,12 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
         let leftBarButton = UIBarButtonItem(
             image: UIImage(systemName: "books.vertical"),
             style: .plain,
-            target: OnuiiViewController.self,
-            action: #selector(popThisView)
+            target: TeachingRepeatViewController.self,
+            action: .none
         )
         return leftBarButton
     }()
-    
+  
     private let navigationTitle: UILabel = {
        let label = UILabel()
         label.text = "동아줄을 잡은 남매와 호랑이"
@@ -39,9 +40,12 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
     private let contentLabel: UILabel = {
        let label = UILabel()
         label.text = """
-        오누이는 동아줄을 올라
-        해와 달이 되었답니다.
-        """
+         지금까지 10번 흔들었어요.
+
+         힘든가요?
+
+         반복문을 사용하면, 편하게 반복할 수 있어요!
+         """
         label.textColor = .gs10
         label.font = FontManager.body()
         label.numberOfLines = 0
@@ -49,10 +53,10 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
         return label
     }()
     
-    private let sunmoonImage: UIImageView = {
-        let imageView = UIImageView()
+    private let repeatImage: UIImageView = {
+       let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = #imageLiteral(resourceName: "sm_repeat_review")
+        imageView.image = UIImage(named: "sm_repeat1")
         return imageView
     }()
     
@@ -61,13 +65,14 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
         self?.navigationController?.pushViewController(RepeatConceptViewController(), animated: false)
     }
     
-    // MARK: - View Init
+    // MARK: View init
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         addComponents()
         setConstraints()
         setupAccessibility()
+        setupUI()
     }
     
     func setupNavigationBar() {
@@ -79,11 +84,12 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
         }
         self.navigationController?.navigationBar.tintColor = .gs20
         self.navigationItem.titleView = self.navigationTitle
-        self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
+        self.navigationItem.hidesBackButton = true
     }
     
     func addComponents() {
-        [contentLabel, sunmoonImage, nextButton].forEach { view.addSubview($0) }
+        [contentLabel, repeatImage, nextButton].forEach { view.addSubview($0) }
+
     }
     
     func setConstraints() {
@@ -92,28 +98,32 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
             $0.left.right.equalToSuperview().inset(16)
         }
         
-        sunmoonImage.snp.makeConstraints {
-            $0.top.equalTo(contentLabel.snp.bottom).offset(123)
-            $0.left.equalToSuperview().offset(24)
-            $0.right.equalToSuperview().offset(-24)
+        repeatImage.snp.makeConstraints {
+            $0.top.equalTo(contentLabel.snp.bottom).offset(60)
+            $0.left.equalToSuperview().offset(40)
         }
         
         nextButton.setup(model: nextButtonViewModel)
         nextButton.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
-            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
-            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding*2)
+            $0.top.equalTo(repeatImage.snp.bottom).offset(110)
+            $0.left.right.equalToSuperview().inset(16)
         }
+        [repeatImage, nextButton].forEach{ $0.isHidden = true }
         
     }
     
-    func setupAccessibility() {
-        
-    }
+    func setupAccessibility() {}
     
-
-    @objc private func popThisView() {
-//        Log.i("홈화면으로 이동")
-        self.navigationController?.popToRootViewController(animated: false)
+    func setupUI() {
+        // TODO: 나중에 리팩토링 필요 (맘에 안 드는 코드)
+        DispatchQueue.main.asyncAfter(deadline: .now()+5) {
+            self.repeatImage.isHidden = false
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()+3) {
+                self.nextButton.isHidden = false
+                self.repeatImage.image = UIImage(named: "sm_repeat2")
+            }
+            
+        }
     }
 }

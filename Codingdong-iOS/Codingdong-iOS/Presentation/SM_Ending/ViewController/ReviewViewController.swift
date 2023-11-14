@@ -55,7 +55,7 @@ final class ReviewViewController: UIViewController, ConfigUI {
     private let pageControl = UIPageControl()
     private let nextButton = CommonButton()
     private lazy var nextButtonViewModel = CommonbuttonModel(title: "이야기 끝내기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .gs10) {[weak self] in
-       self?.viewModel.endStory()
+        self?.navigationController?.popToRootViewController(animated: false)
     }
     
     private let padding = Constants.View.padding
