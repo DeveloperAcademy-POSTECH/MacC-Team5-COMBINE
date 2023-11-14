@@ -10,7 +10,7 @@ import CoreMotion
 import Log
 
 final class GiveTtekkViewController: UIViewController, ConfigUI {
-    
+    var viewModel = TtekkkochiViewModel()
     private let padding = Constants.View.padding
     
     private let hapticManager = HapticManager()
@@ -31,16 +31,16 @@ final class GiveTtekkViewController: UIViewController, ConfigUI {
         return label
     }()
     
-    private let leftBarButtonItem: UIBarButtonItem = {
+    private lazy var leftBarButtonItem: UIBarButtonItem = {
         let leftBarButton = UIBarButtonItem(
             image: UIImage(systemName: "books.vertical"),
             style: .plain,
-            target: GiveTtekkViewController.self,
+            target: self,
             action: #selector(popThisView)
         )
         return leftBarButton
     }()
-    
+//    
     private let storyLabel: UILabel = {
         let label = UILabel()
         label.text = "앗! 호랑이가 또 떡을 요구해요! 기기를 흔들어서 떡을 주세요!"
