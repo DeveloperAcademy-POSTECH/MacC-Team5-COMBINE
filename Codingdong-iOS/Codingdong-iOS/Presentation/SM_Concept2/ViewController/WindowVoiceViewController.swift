@@ -116,20 +116,6 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
         }
     }
     
-    func onTimerStart() {
-        if let timer = mTimer {
-            if !timer.isValid {
-                mTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
-            }
-        }
-    }
-    
-    @objc func timerCallBack() {
-        initialCountNumber -= 1
-        titleLabel.text = String(initialCountNumber)
-
-    }
-    
     func setupAccessibility() {
         navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
         view.accessibilityElements = [titleLabel, speechButton]

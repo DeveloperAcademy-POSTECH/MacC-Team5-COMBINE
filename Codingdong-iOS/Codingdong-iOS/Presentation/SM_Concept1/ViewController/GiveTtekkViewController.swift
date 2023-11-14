@@ -83,9 +83,7 @@ final class GiveTtekkViewController: UIViewController, ConfigUI {
     func setupNavigationBar() {
         view.addSubview(naviLine)
         naviLine.snp.makeConstraints {
-            // TODO: 이게 더 낫지 않을지 의논 필요
-//            $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.top.equalToSuperview().offset(106)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.left.right.equalToSuperview()
             $0.height.equalTo(0.33)
         }
@@ -96,7 +94,6 @@ final class GiveTtekkViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        
         
         [storyLabel, ttekkStackView, nextButton].forEach(view.addSubview)
         nextButton.isHidden = true
@@ -134,7 +131,7 @@ extension GiveTtekkViewController {
     @objc
     private func didClickNextButton() {
         motionManager.stopAccelerometerUpdates()
-        self.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
+        //self.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
     }
     
     func createTtekkViews(height: CGFloat, cornerRadius: CGFloat) -> UIView {

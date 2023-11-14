@@ -47,6 +47,7 @@ final class CardView: UIView {
     private lazy var conceptImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.isAccessibilityElement = true
         return imageView
     }()
     

@@ -1,16 +1,18 @@
 //
-//  SunMoonOnuiiViewController.swift
+//  RopeViewController.swift
 //  Codingdong-iOS
-//
-//  Created by Joy on 11/13/23.
 //
 
 import UIKit
-import Combine
+import CoreMotion
 import Log
 
-final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
+final class RopeViewController: UIViewController, ConfigUI {
 
+    private let motionManager = CMMotionManager()
+    private let hapticManager = HapticManager()
+    private var count = 0
+    
     // MARK: - Components
     private let naviLine: UIView = {
         let view = UIView()
@@ -18,11 +20,11 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
         return view
     }()
     
-    private let leftBarButtonItem: UIBarButtonItem = {
+    private lazy var leftBarButtonItem: UIBarButtonItem = {
         let leftBarButton = UIBarButtonItem(
             image: UIImage(systemName: "books.vertical"),
             style: .plain,
-            target: OnuiiViewController.self,
+            target: self,
             action: #selector(popThisView)
         )
         return leftBarButton
@@ -38,10 +40,7 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
     
     private let contentLabel: UILabel = {
        let label = UILabel()
-        label.text = """
-        오누이는 동아줄을 올라
-        해와 달이 되었답니다.
-        """
+        label.text = "기기를 100번 흔들어 주세요!"
         label.textColor = .gs10
         label.font = FontManager.body()
         label.numberOfLines = 0
@@ -49,18 +48,13 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
         return label
     }()
     
-    private let sunmoonImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+    private let ropeImage: UIImageView = {
+       let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "ttekkset")
+        imageView.contentMode = .scaleToFill
         imageView.isAccessibilityElement = true
-        imageView.image = #imageLiteral(resourceName: "sm_repeat_review")
         return imageView
     }()
-    
-    private let nextButton = CommonButton()
-    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
-        self?.navigationController?.pushViewController(RepeatConceptViewController(), animated: false)
-    }
     
     // MARK: - View Init
     override func viewDidLoad() {
@@ -69,22 +63,24 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         setupAccessibility()
+        countShake()
     }
     
     func setupNavigationBar() {
         view.addSubview(naviLine)
         naviLine.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(106)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.left.right.equalToSuperview()
             $0.height.equalTo(0.33)
         }
+        
         self.navigationController?.navigationBar.tintColor = .gs20
         self.navigationItem.titleView = self.navigationTitle
         self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
     }
     
     func addComponents() {
-        [contentLabel, sunmoonImage, nextButton].forEach { view.addSubview($0) }
+        [contentLabel, ropeImage].forEach {view.addSubview($0)}
     }
     
     func setConstraints() {
@@ -93,31 +89,44 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
             $0.left.right.equalToSuperview().inset(16)
         }
         
-        sunmoonImage.snp.makeConstraints {
-            $0.top.equalTo(contentLabel.snp.bottom).offset(123)
-            $0.left.equalToSuperview().offset(24)
-            $0.right.equalToSuperview().offset(-24)
+        ropeImage.snp.makeConstraints {
+            $0.top.equalTo(contentLabel.snp.bottom).offset(88)
+            $0.left.right.equalToSuperview().inset(16)
         }
-        
-        nextButton.setup(model: nextButtonViewModel)
-        nextButton.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
-            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
-            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding*2)
-        }
-        
     }
     
     func setupAccessibility() {
         self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
-        contentLabel.accessibilityLabel = "오누이는 동아줄을 올라 해와 달이 되었답니다."
-        sunmoonImage.accessibilityLabel = "해와 달이 된 오누이"
-        
+        ropeImage.accessibilityLabel = "동아줄"
+        view.accessibilityElements = [contentLabel, ropeImage]
         navigationItem.accessibilityElements = [navigationTitle, leftBarButtonItem]
-        view.accessibilityElements = [contentLabel, sunmoonImage, nextButton]
     }
     
-    @objc private func popThisView() {
+    @objc func popThisView() {
         self.navigationController?.popToRootViewController(animated: false)
+    }
+    
+    func countShake() {
+        if motionManager.isAccelerometerAvailable {
+            motionManager.accelerometerUpdateInterval = 0.2
+            motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data, _) in
+                if let acceleration = data?.acceleration {
+//
+                    let shakeThreshold = 0.7  // 흔들기 인식 강도
+                    // 흔들기 감지
+                    if acceleration.x >= shakeThreshold || acceleration.y >= shakeThreshold || acceleration.z >= shakeThreshold {
+                        self.ropeImage.image = #imageLiteral(resourceName: "ropeSet")
+                        self.hapticManager?.playNomNom()
+                        self.count += 1
+                        
+                        Log.i(self.count)
+                        
+                        if self.count == 10 {
+                            self.navigationController?.pushViewController(TeachingRepeatViewController(), animated: false)
+                        }
+                    }
+                }
+            }
+        }
     }
 }
