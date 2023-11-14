@@ -132,11 +132,13 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        view.accessibilityElements = [titleLabel, bottomView, nextButton]
+        view.accessibilityElements = [titleLabel, ttekkkochiCollectionView, bottomView, nextButton]
         self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
-        ttekkkochiCollectionView.isAccessibilityElement = false
+        ttekkkochiCollectionView.isAccessibilityElement = true
+        ttekkkochiCollectionView.accessibilityLabel = "하단의 떡 블록들을 만약, 아니면을 활용해 순서에 맞게 끼워보렴"
         titleLabel.accessibilityTraits = .none
         nextButton.accessibilityLabel = "떡을 준다"
+        //TODO: 하단으로 이동시 상단의 떡블록에 대한 라벨 사라져야 함
         nextButton.accessibilityTraits = .button
     }
     
