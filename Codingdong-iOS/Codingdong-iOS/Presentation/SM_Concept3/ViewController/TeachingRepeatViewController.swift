@@ -24,7 +24,7 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
             image: UIImage(systemName: "books.vertical"),
             style: .plain,
             target: TeachingRepeatViewController.self,
-            action: .none
+            action: #selector(popThisView)
         )
         return leftBarButton
     }()
@@ -57,6 +57,7 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "sm_repeat1")
+        imageView.isAccessibilityElement = true
         return imageView
     }()
     
@@ -112,7 +113,13 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
         
     }
     
-    func setupAccessibility() {}
+    func setupAccessibility() {
+        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        contentLabel.accessibilityLabel = "  지금까지 열 번 흔들었어요. 힘든가요? 반복문을 사용하면, 편하게 반복할 수 있어요!"
+        repeatImage.accessibilityLabel = "반복문 그림"
+        navigationItem.accessibilityElements = [navigationTitle, leftBarButtonItem]
+        view.accessibilityElements = [contentLabel, repeatImage, nextButton]
+    }
     
     func setupUI() {
         // TODO: 나중에 리팩토링 필요 (맘에 안 드는 코드)
@@ -125,5 +132,9 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
             }
             
         }
+    }
+    
+    @objc func popThisView() {
+        self.navigationController?.popToRootViewController(animated: false)
     }
 }
