@@ -52,6 +52,7 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
     private let sunmoonImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.isAccessibilityElement = true
         imageView.image = #imageLiteral(resourceName: "sm_repeat_review")
         return imageView
     }()
@@ -108,12 +109,15 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
+        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        contentLabel.accessibilityLabel = "오누이는 동아줄을 올라 해와 달이 되었답니다."
+        sunmoonImage.accessibilityLabel = "해와 달이 된 오누이"
         
+        navigationItem.accessibilityElements = [navigationTitle, leftBarButtonItem]
+        view.accessibilityElements = [contentLabel, sunmoonImage, nextButton]
     }
     
-
     @objc private func popThisView() {
-//        Log.i("홈화면으로 이동")
         self.navigationController?.popToRootViewController(animated: false)
     }
 }

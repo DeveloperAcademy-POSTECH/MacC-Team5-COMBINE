@@ -63,7 +63,7 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
     
     private let nextButton = CommonButton()
     private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
-        self?.navigationController?.pushViewController(RepeatConceptViewController(), animated: false)
+        self?.navigationController?.pushViewController(SunMoonOnuiiViewController(), animated: false)
     }
     
     // MARK: View init
@@ -117,8 +117,8 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
         self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
         contentLabel.accessibilityLabel = "  지금까지 열 번 흔들었어요. 힘든가요? 반복문을 사용하면, 편하게 반복할 수 있어요!"
         repeatImage.accessibilityLabel = "반복문 그림"
-        navigationItem.accessibilityElements = [navigationTitle, leftBarButtonItem]
-        view.accessibilityElements = [contentLabel, repeatImage, nextButton]
+       // navigationItem.accessibilityElements = [navigationTitle, leftBarButtonItem]
+        view.accessibilityElements = [contentLabel, repeatImage, nextButton, navigationTitle, leftBarButtonItem]
     }
     
     func setupUI() {
