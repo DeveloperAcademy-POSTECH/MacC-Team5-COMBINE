@@ -116,7 +116,7 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
     
     func setupUI() {
         // TODO: 나중에 리팩토링 필요 (맘에 안 드는 코드)
-        DispatchQueue.main.asyncAfter(deadline: .now()+5) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+3) {
             self.repeatImage.isHidden = false
             
             DispatchQueue.main.asyncAfter(deadline: .now()+3) {
