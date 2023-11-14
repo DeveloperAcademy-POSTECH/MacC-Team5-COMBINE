@@ -104,11 +104,11 @@ final class RopeViewController: UIViewController, ConfigUI {
     
     func countShake() {
         if motionManager.isAccelerometerAvailable {
-            motionManager.accelerometerUpdateInterval = 0.5
+            motionManager.accelerometerUpdateInterval = 0.2
             motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data, _) in
                 if let acceleration = data?.acceleration {
 //
-                    let shakeThreshold = 0.8  // 흔들기 인식 강도
+                    let shakeThreshold = 0.7  // 흔들기 인식 강도
                     // 흔들기 감지
                     if acceleration.x >= shakeThreshold || acceleration.y >= shakeThreshold || acceleration.z >= shakeThreshold {
                         self.imageView.image = #imageLiteral(resourceName: "ropeSet")
