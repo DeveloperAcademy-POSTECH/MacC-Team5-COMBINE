@@ -48,10 +48,11 @@ final class RopeViewController: UIViewController, ConfigUI {
         return label
     }()
     
-    private lazy var imageView: UIImageView = {
+    private let ropeImage: UIImageView = {
        let imageView = UIImageView()
         imageView.image = #imageLiteral(resourceName: "ttekkset")
         imageView.contentMode = .scaleToFill
+        imageView.isAccessibilityElement = true
         return imageView
     }()
     
@@ -79,7 +80,7 @@ final class RopeViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [contentLabel, imageView].forEach {view.addSubview($0)}
+        [contentLabel, ropeImage].forEach {view.addSubview($0)}
     }
     
     func setConstraints() {
@@ -88,14 +89,17 @@ final class RopeViewController: UIViewController, ConfigUI {
             $0.left.right.equalToSuperview().inset(16)
         }
         
-        imageView.snp.makeConstraints {
+        ropeImage.snp.makeConstraints {
             $0.top.equalTo(contentLabel.snp.bottom).offset(88)
             $0.left.right.equalToSuperview().inset(16)
         }
     }
     
     func setupAccessibility() {
-        
+        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        ropeImage.accessibilityLabel = "동아줄"
+        view.accessibilityElements = [contentLabel, ropeImage]
+        navigationItem.accessibilityElements = [navigationTitle, leftBarButtonItem]
     }
     
     @objc func popThisView() {
@@ -111,7 +115,7 @@ final class RopeViewController: UIViewController, ConfigUI {
                     let shakeThreshold = 0.7  // 흔들기 인식 강도
                     // 흔들기 감지
                     if acceleration.x >= shakeThreshold || acceleration.y >= shakeThreshold || acceleration.z >= shakeThreshold {
-                        self.imageView.image = #imageLiteral(resourceName: "ropeSet")
+                        self.ropeImage.image = #imageLiteral(resourceName: "ropeSet")
                         self.hapticManager?.playNomNom()
                         self.count += 1
                         

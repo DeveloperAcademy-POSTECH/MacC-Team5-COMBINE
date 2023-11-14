@@ -57,7 +57,6 @@ final class OnuiiViewController: UIViewController, ConfigUI {
     
     private let rescueButton = CommonButton()
     private lazy var rescuButtonViewModel = CommonbuttonModel(title: "오누이 구출하기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
-//        self?.navigationController?.pushViewController(TeachingRepeatViewController(), animated: false)
         
         self?.navigationController?.pushViewController(RopeViewController(), animated: false)
     }
@@ -103,7 +102,9 @@ final class OnuiiViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        
+        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        view.accessibilityElements = [contentLabel, rescueButton]
+        navigationItem.accessibilityElements = [navigationTitle, leftBarButtonItem]
     }
     
     @objc func popThisView() {
