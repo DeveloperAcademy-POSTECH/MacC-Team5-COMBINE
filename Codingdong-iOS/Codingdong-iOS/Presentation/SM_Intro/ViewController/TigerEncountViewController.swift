@@ -36,7 +36,46 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
         return leftBarButton
     }()
     
-    private let labelComponents = TigerEncountView()
+    //private let labelComponents = TigerEncountView()
+    private let firstLabel: UILabel = {
+        let label = UILabel()
+        label.text = "고개를 넘던 엄마는 호랑이를 마주치고 말았어요."
+        label.font = FontManager.body()
+        label.textColor = .gs10
+        label.numberOfLines = 0
+        label.lineBreakMode = .byCharWrapping
+        return label
+    }()
+    
+    private let secondLabel: UILabel = {
+        let label = UILabel()
+        label.text = "\"떡 하나 주면 안 잡아먹지!\""
+        label.font = FontManager.body()
+        label.textColor = .gs10
+        label.numberOfLines = 0
+        label.lineBreakMode = .byCharWrapping
+        return label
+    }()
+    
+    private let thirdLabel: UILabel = {
+        let label = UILabel()
+        label.text = "호랑이가 엄마에게 떡을 달라며 무섭게 으르렁 거리고 있어요."
+        label.font = FontManager.body()
+        label.textColor = .gs10
+        label.numberOfLines = 0
+        label.lineBreakMode = .byCharWrapping
+        return label
+    }()
+    
+    private let fourthLabel: UILabel = {
+        let label = UILabel()
+        label.text = "호랑이에게 줄 떡꼬치를 만들어야해요!"
+        label.font = FontManager.body()
+        label.textColor = .gs10
+        label.numberOfLines = 0
+        label.lineBreakMode = .byCharWrapping
+        return label
+    }()
     
     private let nextButton = CommonButton()
     
@@ -69,17 +108,34 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [labelComponents, nextButton].forEach {
-            view.addSubview($0)
-        }
+        [firstLabel, secondLabel, thirdLabel, fourthLabel, nextButton].forEach { view.addSubview($0) }
     }
     
     func setConstraints() {
         nextButton.setup(model: nextButtonViewModel)
-        labelComponents.snp.makeConstraints {
-            $0.left.equalToSuperview()
-            $0.right.equalToSuperview()
-            $0.top.equalTo(naviLine).offset(basicPadding)
+        
+        firstLabel.snp.makeConstraints {
+            $0.top.equalTo(naviLine.snp.bottom).offset(basicPadding)
+            $0.left.equalToSuperview().offset(basicPadding)
+            $0.right.equalToSuperview().offset(-basicPadding)
+        }
+        
+        secondLabel.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(basicPadding)
+            $0.right.equalToSuperview().offset(-basicPadding)
+            $0.top.equalTo(firstLabel.snp.bottom).offset(basicPadding * 2)
+        }
+        
+        thirdLabel.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(basicPadding)
+            $0.right.equalToSuperview().offset(-basicPadding)
+            $0.top.equalTo(secondLabel.snp.bottom).offset(basicPadding * 2)
+        }
+        
+        fourthLabel.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(basicPadding)
+            $0.right.equalToSuperview().offset(-basicPadding)
+            $0.top.equalTo(thirdLabel.snp.bottom).offset(basicPadding * 2)
         }
         
         nextButton.snp.makeConstraints {
@@ -90,8 +146,8 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [labelComponents.containerView, nextButton]
+        navigationItem.accessibilityElements = [navigationTitle, firstLabel, secondLabel, thirdLabel, fourthLabel, leftBarButtonItem]
+        //view.accessibilityElements = [labelComponents.containerView, nextButton]
         leftBarButtonItem.accessibilityLabel = "내 책장"
     }
     

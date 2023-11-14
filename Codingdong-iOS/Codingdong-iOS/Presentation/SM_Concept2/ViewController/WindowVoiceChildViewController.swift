@@ -33,6 +33,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     var mTimer: Timer?
     
     var initialCountNumber: Int = 2
+    @Published var isSuccessInt: Int = 0
     
     private let containerView: UIView = {
        let view = UIView()
@@ -143,12 +144,15 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
             // Text 일치여부 판별
             if let result = result {
                 Log.t(result.bestTranscription.formattedString)
-                if result.bestTranscription.formattedString == "열어줄래요" {
-                    self.stopAndChangeView(isSuccess: 0)
-                    inputNode.removeTap(onBus: 0)
+
+                if result.bestTranscription.formattedString.trimmingCharacters(in:.whitespacesAndNewlines) == "열어줄래요" {
+                    Log.i("열어줄래용?")
+                    self.stopAndChangeView(isSuccess: 0) //0
+                    Log.i("열어줄래요 이후")
                 } else if result.bestTranscription.formattedString == "싫어요" {
-                    self.stopAndChangeView(isSuccess: 1)
-                    inputNode.removeTap(onBus: 0)
+                    self.stopAndChangeView(isSuccess: 1) //1
+                    Log.i("싫어요 이후")
+                  
                 }
             }
         }
@@ -172,7 +176,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
             Log.e(error.localizedDescription)
         }
         
-        WindowEndingViewController().isSuccessInt = isSuccess
-        self.navigationController?.setViewControllers([MyBookShelfViewController(),WindowEndingViewController()], animated: false)
+        UserDefaults.standard.set(isSuccess, forKey: "key")
+        self.navigationController?.pushViewController(WindowEndingViewController(), animated: false)
     }
 }

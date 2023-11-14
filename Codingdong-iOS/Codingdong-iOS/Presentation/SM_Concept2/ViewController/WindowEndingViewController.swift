@@ -7,12 +7,13 @@
 
 import UIKit
 import SnapKit
+import Log
 
 final class WindowEndingViewController: UIViewController, ConfigUI {
     
     // TODO: isSuccess 값에 따라서 뷰가 바뀌지 않는 문제 해결 필요
-    var isSuccessInt: Int = 0
-    let titleLabelText: [String] = ["어맛, 호랑이에게 잡아먹혔어요. 다시 해볼까요?", "호랑이를 본 오누이는 뒷문으로 도망쳤어요!"]
+    private var isSuccessInt = UserDefaults.standard.integer(forKey: "key")
+    let titleLabelText: [String] = ["어맛, 호랑이에게 잡아먹혔어요. 다시 해볼까요?", "호랑이를 본 오누이는 뒷문으로 도망쳤어요!"] //0(열어줄래요), 1(싫어요)
     let imageName: [String] = ["tigerEatEnding", "initialDoor"]
     let buttonName: [String] = ["다시하기", "다음"]
     
@@ -64,7 +65,12 @@ final class WindowEndingViewController: UIViewController, ConfigUI {
             self?.navigationController?.pushViewController(AndConceptViewController(), animated: false)
         } else {
             // isSuccessInt == 0 - 탈출실패
-            self?.navigationController?.setViewControllers([MyBookShelfViewController(), WindowStartViewController()], animated: false)
+            guard let viewControllerStack = self?.navigationController?.viewControllers else { return }
+            for viewController in viewControllerStack {
+                if let startView = viewController as? WindowVoiceViewController {
+                    self?.navigationController?.popToViewController(startView, animated: true)
+                }
+            }
         }
     }
     
@@ -76,6 +82,7 @@ final class WindowEndingViewController: UIViewController, ConfigUI {
         setConstraints()
         setupAccessibility()
         nextButton.setup(model: settingButtonViewModel)
+        Log.t(isSuccessInt)
     }
     
     func setupNavigationBar() {

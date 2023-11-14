@@ -57,9 +57,9 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
     }()
     
     private let speechButton = CommonButton()
-    
-    private lazy var speechButtonViewModel = CommonbuttonModel(title: "누르고 말하기", font: FontManager.textbutton(), titleColor: .primary2, backgroundColor: .primary1, didTouchUpInside: nextButtonTapped)
-    
+    private lazy var speechButtonViewModel = CommonbuttonModel(title: "누르고 말하기", font: FontManager.textbutton(), titleColor: .primary2, backgroundColor: .primary1) { [weak self] in
+            self?.navigationController?.pushViewController(WindowVoiceChildViewController(), animated: false)
+    }
     private let countdownBackgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .black.withAlphaComponent(0.5)
@@ -74,8 +74,9 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
         setupNavigationBar()
         addComponents()
         setConstraints()
+        speechButton.setup(model: speechButtonViewModel)
     }
-    
+
     func setupNavigationBar() {
         view.addSubview(naviLine)
         naviLine.snp.makeConstraints {
@@ -115,11 +116,18 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
         }
     }
     
-    func nextButtonTapped() {
-        let navigationController = UINavigationController(rootViewController: WindowVoiceChildViewController())
-        navigationController.modalPresentationStyle = .overFullScreen
-        
-        self.present(navigationController, animated: false)
+    func onTimerStart() {
+        if let timer = mTimer {
+            if !timer.isValid {
+                mTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
+            }
+        }
+    }
+    
+    @objc func timerCallBack() {
+        initialCountNumber -= 1
+        titleLabel.text = String(initialCountNumber)
+
     }
     
     func setupAccessibility() {

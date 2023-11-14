@@ -113,7 +113,7 @@ extension IfConceptViewController {
     @objc
     func didClickNextButton() {
         //self.navigationController?.pushViewController(WindowStartViewController(), animated: false)
-        self.navigationController?.pushViewController(AndConceptViewController(), animated: false)
+        self.navigationController?.pushViewController(WindowStartViewController(), animated: false)
     }
     
     @objc
