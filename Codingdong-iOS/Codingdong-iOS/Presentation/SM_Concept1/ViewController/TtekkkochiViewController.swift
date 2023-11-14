@@ -145,6 +145,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         self.viewModel.route
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] nextView in
+                for index in (0...4) { answerBlocks[index].isShowing = false }
                 self?.navigationController?.pushViewController(nextView, animated: false)
             })
             .store(in: &cancellable)
@@ -179,10 +180,10 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
                         }
                         
                         self.ttekkkochiCollectionView.snp.remakeConstraints {
-                            $0.top.equalTo(self.titleLabel.snp.bottom).offset(60)
-                            $0.left.equalToSuperview().offset(70)
-                            $0.right.equalToSuperview().offset(-70)
-                            $0.bottom.equalToSuperview().offset(-100)
+                            $0.top.equalTo(self.titleLabel.snp.bottom).offset(50)
+                            $0.left.equalToSuperview().offset(50)
+                            $0.right.equalToSuperview().offset(-50)
+                            $0.bottom.equalToSuperview().offset(-80)
                         }
                     default:
                         return

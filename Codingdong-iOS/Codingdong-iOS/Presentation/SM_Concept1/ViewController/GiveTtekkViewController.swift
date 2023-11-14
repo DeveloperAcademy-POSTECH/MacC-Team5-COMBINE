@@ -96,6 +96,8 @@ final class GiveTtekkViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
+        
+        
         [storyLabel, ttekkStackView, nextButton].forEach(view.addSubview)
         nextButton.isHidden = true
         let ttekks = (1...5).map { _ in
