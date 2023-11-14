@@ -33,6 +33,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     var mTimer: Timer?
     
     var initialCountNumber: Int = 2
+    @Published var isSuccessInt: Int = 0
     
     private let containerView: UIView = {
        let view = UIView()
@@ -137,11 +138,12 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
             // Text 일치여부 판별
             if let result = result {
                 Log.t(result.bestTranscription.formattedString)
-                if result.bestTranscription.formattedString == "열어줄래요" {
-                    self.stopAndChangeView(isSuccess: 0)
+                if result.bestTranscription.formattedString.trimmingCharacters(in:.whitespacesAndNewlines) == "열어줄래요" {
+                    Log.i("열어줄래용?")
+                    self.stopAndChangeView(isSuccess: 0) //0
                     Log.i("열어줄래요 이후")
                 } else if result.bestTranscription.formattedString == "싫어요" {
-                    self.stopAndChangeView(isSuccess: 1)
+                    self.stopAndChangeView(isSuccess: 1) //1
                     Log.i("싫어요 이후")
                 }
                 isFinal = result.isFinal
@@ -167,8 +169,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     
     private func stopAndChangeView(isSuccess: Int) {
         self.recognitionTask?.cancel()
-        WindowEndingViewController().isSuccessInt = isSuccess
-        self.navigationController?.setViewControllers([MyBookShelfViewController(),WindowEndingViewController()], animated: false)
-        Log.t("stopAndChangeView 내부에서 호출하는 로그")
+        UserDefaults.standard.set(isSuccess, forKey: "key")
+        self.navigationController?.pushViewController(WindowEndingViewController(), animated: false)
     }
 }
