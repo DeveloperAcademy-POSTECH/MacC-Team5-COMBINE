@@ -19,7 +19,6 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "떡을 모두 빼앗긴 엄마는 호랑이에게 잡아먹히고 말았어요."
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
@@ -41,9 +40,8 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
             image: UIImage(systemName: "books.vertical"),
             style: .plain,
             target: TigerAnimationViewController.self,
-            action: .none //에러 나서 잠시 막아둠
+            action: #selector(popThisView) // 에러 나서 잠시 막아둠
         )
-        
         return leftBarButton
     }()
     
@@ -118,10 +116,7 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
     func setupAccessibility() {
         navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
         view.accessibilityElements = [titleLabel, nextButton]
-        
         leftBarButtonItem.accessibilityLabel = "내 책장"
-        
-        titleLabel.accessibilityLabel = "본문"
         titleLabel.accessibilityValue = "떡을 모두 빼앗긴 엄마는 호랑이에게 잡아먹히고 말았어요."
     }
     
