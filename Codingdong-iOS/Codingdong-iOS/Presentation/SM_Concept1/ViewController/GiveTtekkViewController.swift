@@ -152,7 +152,7 @@ extension GiveTtekkViewController {
             self.hapticManager?.playSplash()
             self.nextButton.isHidden = false
             self.storyLabel.text = """
-                        호랑이는 떡을 먹고도 아직 배가 고픈가봐요.
+                        호랑이는 떡을 먹고도 아직 배가 고픈가 봐요.
                             
                         이제는 떡이 더이상 없는데 어떡하죠?
                             

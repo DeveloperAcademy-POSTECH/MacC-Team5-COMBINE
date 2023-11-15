@@ -35,7 +35,7 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "구멍을 탭해서 문 밖에 누가 있는지 확인해주세요."
+        label.text = "구멍을 탭해서 문 밖에 누가 있는지 확인해 주세요."
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0

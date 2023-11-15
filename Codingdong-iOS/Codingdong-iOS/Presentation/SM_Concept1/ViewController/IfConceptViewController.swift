@@ -37,7 +37,7 @@ final class IfConceptViewController: UIViewController, ConfigUI {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "해님달님의 첫번째 개념"
+        label.text = "해님달님의 첫 번째 개념"
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
@@ -47,7 +47,7 @@ final class IfConceptViewController: UIViewController, ConfigUI {
     
     private let nextButton = CommonButton()
     
-    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음챕터로", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2, height: 72, didTouchUpInside: didClickNextButton)
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음 챕터로", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2, height: 72, didTouchUpInside: didClickNextButton)
     
     private let basicPadding = Constants.Button.buttonPadding
     
