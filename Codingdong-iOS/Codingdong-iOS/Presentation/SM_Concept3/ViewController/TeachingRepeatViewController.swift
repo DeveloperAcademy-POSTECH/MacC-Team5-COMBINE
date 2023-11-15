@@ -129,7 +129,7 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
     func setupAccessibility() {
         navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
         view.accessibilityElements = [contentLabel, repeatImage, nextButton]
-        navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        leftBarButtonItem.accessibilityLabel = "내 책장"
         repeatImage.isAccessibilityElement = true
         repeatImage.accessibilityLabel = "반복문 이미지"
     }
