@@ -138,7 +138,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         ttekkkochiCollectionView.accessibilityLabel = "하단의 떡 블록들을 만약, 아니면을 활용해 순서에 맞게 끼워보렴"
         titleLabel.accessibilityTraits = .none
         nextButton.accessibilityLabel = "떡을 준다"
-        //TODO: 하단으로 이동시 상단의 떡블록에 대한 라벨 사라져야 함
+        // TODO: 하단으로 이동시 상단의 떡블록에 대한 라벨 사라져야 함
         nextButton.accessibilityTraits = .button
     }
     
@@ -174,7 +174,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
                         self.nextButton.isHidden = false
                         nextButton.setup(model: settingButtonViewModel)
                         // TODO: 떡 크기 확대, tts
-                   default:
+                    default:
                         return
                     }
                 } else {
