@@ -83,7 +83,6 @@ final class WindowEndingViewController: UIViewController, ConfigUI {
         setConstraints()
         setupAccessibility()
         nextButton.setup(model: settingButtonViewModel)
-        Log.t(isSuccessInt)
     }
     
     func setupNavigationBar() {
@@ -127,7 +126,6 @@ final class WindowEndingViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        //navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
         view.accessibilityElements = [titleLabel, nextButton]
         leftBarButtonItem.accessibilityLabel = "내 책장"
     }
