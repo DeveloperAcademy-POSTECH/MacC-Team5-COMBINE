@@ -35,6 +35,13 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     var initialCountNumber: Int = 2
     @Published var isSuccessInt: Int = 0
     
+    let bgView: UIImageView = {
+       let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "Quiz2_bgImage")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
     private let containerView: UIView = {
        let view = UIView()
         view.backgroundColor = .black.withAlphaComponent(0.5)
@@ -53,6 +60,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAccessibility()
+        setupNavigationBar()
         addComponents()
         setConstraints()
         onTimerStart()
@@ -73,7 +81,9 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
         titleLabel.snp.makeConstraints { $0.centerX.centerY.equalToSuperview() }
     }
     
-    func setupNavigationBar() {}
+    func setupNavigationBar() {
+        self.navigationItem.hidesBackButton = true
+    }
     
     func onTimerStart() {
         mTimer = Timer.scheduledTimer(timeInterval: 1.2, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
@@ -147,10 +157,12 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
 
                 if result.bestTranscription.formattedString.trimmingCharacters(in:.whitespacesAndNewlines) == "열어줄래요" {
                     Log.i("열어줄래용?")
+                    inputNode.removeTap(onBus: 0)
                     self.stopAndChangeView(isSuccess: 0) //0
                     Log.i("열어줄래요 이후")
                 } else if result.bestTranscription.formattedString == "싫어요" {
                     self.stopAndChangeView(isSuccess: 1) //1
+                    inputNode.removeTap(onBus: 0)
                     Log.i("싫어요 이후")
                   
                 }

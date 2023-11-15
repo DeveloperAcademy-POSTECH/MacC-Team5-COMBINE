@@ -84,6 +84,7 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
             $0.left.right.equalToSuperview()
             $0.height.equalTo(0.33)
         }
+        self.navigationController?.navigationItem.hidesBackButton = true
         self.navigationController?.navigationBar.tintColor = .gs20
         self.navigationItem.titleView = self.navigationTitle
         self.navigationItem.leftBarButtonItem = self.leftBarButtonItem

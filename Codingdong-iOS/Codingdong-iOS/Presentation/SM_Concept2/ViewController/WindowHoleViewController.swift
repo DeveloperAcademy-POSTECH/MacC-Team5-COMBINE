@@ -15,7 +15,7 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
         return view
     }()
     
-    private let leftBarButtonItem: UIBarButtonItem = {
+    private lazy var leftBarButtonItem: UIBarButtonItem = {
         let leftBarButton = UIBarButtonItem(
             image: UIImage(systemName: "books.vertical"),
             style: .plain,
