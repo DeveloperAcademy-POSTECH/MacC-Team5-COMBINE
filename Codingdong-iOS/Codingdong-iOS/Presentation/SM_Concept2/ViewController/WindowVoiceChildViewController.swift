@@ -108,7 +108,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
                 self.mTimer?.invalidate()
                 UIAccessibility.post(notification: .announcement, argument: "말해주세요")
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.onTimerEnd()
             }
         }
@@ -164,10 +164,10 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
                 if result.bestTranscription.formattedString.trimmingCharacters(in:.whitespacesAndNewlines) == "열어줄래요" {
                     Log.i("열어줄래용?")
                     inputNode.removeTap(onBus: 0)
-                    self.stopAndChangeView(isSuccess: 0) //0
+                    self.stopAndChangeView(isSuccess: 0) // 0
                     Log.i("열어줄래요 이후")
                 } else if result.bestTranscription.formattedString == "싫어요" {
-                    self.stopAndChangeView(isSuccess: 1) //1
+                    self.stopAndChangeView(isSuccess: 1) // 1
                     inputNode.removeTap(onBus: 0)
                     Log.i("싫어요 이후")
                   

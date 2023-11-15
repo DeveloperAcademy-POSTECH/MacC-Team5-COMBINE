@@ -36,7 +36,8 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
         return leftBarButton
     }()
     
-    //private let labelComponents = TigerEncountView()
+//    private let labelComponents = TigerEncountView()
+    
     private let firstLabel: UILabel = {
         let label = UILabel()
         label.text = "고개를 넘던 엄마는 호랑이를 마주치고 말았어요."
@@ -146,8 +147,10 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [navigationTitle, firstLabel, secondLabel, thirdLabel, fourthLabel, leftBarButtonItem]
-        //view.accessibilityElements = [labelComponents.containerView, nextButton]
+        navigationItem.accessibilityElements = [navigationTitle,  leftBarButtonItem]
+        view.accessibilityElements = [firstLabel, secondLabel, thirdLabel, fourthLabel, nextButton]
+//        view.accessibilityElements = [labelComponents.containerView, nextButton]
+        
         leftBarButtonItem.accessibilityLabel = "내 책장"
     }
     

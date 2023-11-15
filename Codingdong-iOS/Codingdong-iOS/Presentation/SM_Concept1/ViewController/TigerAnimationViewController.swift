@@ -120,7 +120,6 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
         view.accessibilityElements = [titleLabel, nextButton]
         
         leftBarButtonItem.accessibilityLabel = "내 책장"
-        leftBarButtonItem.accessibilityTraits = .button
         
         titleLabel.accessibilityLabel = "본문"
         titleLabel.accessibilityValue = "떡을 모두 빼앗긴 엄마는 호랑이에게 잡아먹히고 말았어요."
