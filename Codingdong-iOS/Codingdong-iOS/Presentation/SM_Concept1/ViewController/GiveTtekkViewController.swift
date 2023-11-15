@@ -61,7 +61,10 @@ final class GiveTtekkViewController: UIViewController, ConfigUI {
     
     private let nextButton = CommonButton()
     
-    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2, height: 72, didTouchUpInside: didClickNextButton)
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {
+        [weak self] in
+        self?.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,9 +86,7 @@ final class GiveTtekkViewController: UIViewController, ConfigUI {
     func setupNavigationBar() {
         view.addSubview(naviLine)
         naviLine.snp.makeConstraints {
-            // TODO: 이게 더 낫지 않을지 의논 필요
-//            $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.top.equalToSuperview().offset(106)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.left.right.equalToSuperview()
             $0.height.equalTo(0.33)
         }
@@ -96,7 +97,6 @@ final class GiveTtekkViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        
         
         [storyLabel, ttekkStackView, nextButton].forEach(view.addSubview)
         nextButton.isHidden = true
@@ -134,7 +134,7 @@ extension GiveTtekkViewController {
     @objc
     private func didClickNextButton() {
         motionManager.stopAccelerometerUpdates()
-        self.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
+        //self.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
     }
     
     func createTtekkViews(height: CGFloat, cornerRadius: CGFloat) -> UIView {
@@ -150,9 +150,11 @@ extension GiveTtekkViewController {
         
         guard let poppedView = ttekks.last else {
             self.hapticManager?.playSplash()
+            self.motionManager.stopAccelerometerUpdates()
+  
             self.nextButton.isHidden = false
             self.storyLabel.text = """
-                        호랑이는 떡을 먹고도 아직 배가 고픈가봐요.
+                        호랑이는 떡을 먹고도 아직 배가 고픈가 봐요.
                             
                         이제는 떡이 더이상 없는데 어떡하죠?
                             

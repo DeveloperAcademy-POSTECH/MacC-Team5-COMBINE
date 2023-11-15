@@ -84,7 +84,7 @@ final class ReviewViewController: UIViewController, ConfigUI {
             image: UIImage(systemName: "books.vertical"),
             style: .plain,
             target: self,
-            action: .none
+            action: #selector(popThisView)
         )
     }
     
@@ -144,7 +144,14 @@ final class ReviewViewController: UIViewController, ConfigUI {
         }
     }
     
-    func setupAccessibility() {}
+    func setupAccessibility() {
+        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        view.accessibilityElements = [contentLabel, reviewCollectionView, nextButton]
+    }
+    
+    @objc private func popThisView() {
+        self.navigationController?.popToRootViewController(animated: false)
+    }
 }
 
 // MARK: - Extension

@@ -112,6 +112,7 @@
 		A8C00F822B0209E000201EAD /* RepeatConceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C00F812B0209E000201EAD /* RepeatConceptViewController.swift */; };
 		A8C00F842B021A8200201EAD /* SunMoonOnuiiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C00F832B021A8200201EAD /* SunMoonOnuiiViewController.swift */; };
 		A8C966F02B011914005105E8 /* CustomCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C966EF2B011914005105E8 /* CustomCollectionViewFlowLayout.swift */; };
+		A8E47CCA2B03CFB6008428D4 /* RopeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E47CC92B03CFB6008428D4 /* RopeViewController.swift */; };
 		A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F41D252AE4F94400BB0260 /* SoundManager.swift */; };
 		A8F41D2D2AE4FC4200BB0260 /* piano.wav in Resources */ = {isa = PBXBuildFile; fileRef = A8F41D2C2AE4FC4200BB0260 /* piano.wav */; };
 		A8F41D2F2AE5001F00BB0260 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F41D2E2AE5001F00BB0260 /* HapticManager.swift */; };
@@ -220,6 +221,7 @@
 		A8C00F812B0209E000201EAD /* RepeatConceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatConceptViewController.swift; sourceTree = "<group>"; };
 		A8C00F832B021A8200201EAD /* SunMoonOnuiiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunMoonOnuiiViewController.swift; sourceTree = "<group>"; };
 		A8C966EF2B011914005105E8 /* CustomCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		A8E47CC92B03CFB6008428D4 /* RopeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RopeViewController.swift; sourceTree = "<group>"; };
 		A8F41D252AE4F94400BB0260 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		A8F41D2C2AE4FC4200BB0260 /* piano.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = piano.wav; sourceTree = "<group>"; };
 		A8F41D2E2AE5001F00BB0260 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 				A8C00F812B0209E000201EAD /* RepeatConceptViewController.swift */,
 				A8C00F832B021A8200201EAD /* SunMoonOnuiiViewController.swift */,
 				A8A979822B0285E1006A86FB /* TeachingRepeatViewController.swift */,
+				A8E47CC92B03CFB6008428D4 /* RopeViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -853,6 +856,7 @@
 				112003D82AE5792600924FAB /* TigerAnimationViewController.swift in Sources */,
 				11CD0EE72AFE031400911B64 /* IfConceptViewController.swift in Sources */,
 				11CD0EE32AFDFCC400911B64 /* MoreTitleViewController.swift in Sources */,
+				A8E47CCA2B03CFB6008428D4 /* RopeViewController.swift in Sources */,
 				672C12012AF8757E0064AA64 /* WindowHoleViewController.swift in Sources */,
 				A8A725032AE55F7C004840A6 /* TtekkkochiViewModel.swift in Sources */,
 				A828A66B2AFF05DB00B11D71 /* CardView.swift in Sources */,

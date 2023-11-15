@@ -84,6 +84,7 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
             $0.left.right.equalToSuperview()
             $0.height.equalTo(0.33)
         }
+        self.navigationController?.navigationItem.hidesBackButton = true
         self.navigationController?.navigationBar.tintColor = .gs20
         self.navigationItem.titleView = self.navigationTitle
         self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
@@ -114,20 +115,6 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
             $0.bottom.equalToSuperview().inset(Constants.Button.buttonPadding * 2)
             $0.height.equalTo(72)
         }
-    }
-    
-    func onTimerStart() {
-        if let timer = mTimer {
-            if !timer.isValid {
-                mTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
-            }
-        }
-    }
-    
-    @objc func timerCallBack() {
-        initialCountNumber -= 1
-        titleLabel.text = String(initialCountNumber)
-
     }
     
     func setupAccessibility() {
