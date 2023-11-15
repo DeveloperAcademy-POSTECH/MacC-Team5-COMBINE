@@ -37,7 +37,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     
     let bgView: UIImageView = {
        let imageView = UIImageView()
-        imageView.image = #imageLiteral(resourceName: "Quiz2_bgImage")
+        imageView.image = #imageLiteral(resourceName: "sm_bgView")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -71,12 +71,18 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     }
     
     func addComponents() {
-        view.addSubview(containerView)
+        //view.addSubview(containerView)
+        [containerView, bgView].forEach { view.addSubview($0) }
         containerView.addSubview(titleLabel)
+        
+        self.view.bringSubviewToFront(containerView)
+        self.view.bringSubviewToFront(titleLabel)
+        
         self.titleLabel.text = "\(3)"
     }
     
     func setConstraints() {
+        bgView.snp.makeConstraints { $0.edges.equalToSuperview() }
         containerView.snp.makeConstraints { $0.edges.equalToSuperview() }
         titleLabel.snp.makeConstraints { $0.centerX.centerY.equalToSuperview() }
     }
