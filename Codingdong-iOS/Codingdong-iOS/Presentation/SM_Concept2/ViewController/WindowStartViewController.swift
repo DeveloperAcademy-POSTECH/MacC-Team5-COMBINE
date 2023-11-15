@@ -39,11 +39,11 @@ final class WindowStartViewController: UIViewController, ConfigUI {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = """
-        아직 배가 고픈 호랑이는 오누이도 잡아먹고 싶어졌어요.
+        아직 배가 고픈 호랑이는 오누이도 잡아 먹고 싶어졌어요.
         
         그래서 꾀를 내어 엄마로 변장해 오누이의 집으로 찾아 갔어요.
         
-        오누이를 도와 문 밖의 무서운 호랑이의 정체를 밝혀볼까요?
+        오누이를 도와 문 밖의 무서운 호랑이의 정체를 밝혀 볼까요?
         """
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = FontManager.body()
