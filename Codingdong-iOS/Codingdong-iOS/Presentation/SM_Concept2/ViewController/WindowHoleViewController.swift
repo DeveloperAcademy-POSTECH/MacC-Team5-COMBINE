@@ -19,7 +19,7 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
         let leftBarButton = UIBarButtonItem(
             image: UIImage(systemName: "books.vertical"),
             style: .plain,
-            target: OnuiiViewController.self,
+            target: self,
             action: #selector(popThisView)
         )
         return leftBarButton

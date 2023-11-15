@@ -103,7 +103,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
                 self.initialCountNumber -= 1
             }
         } else {
-            titleLabel.text = "말해주세요"
+            titleLabel.text = "말해 주세요"
             DispatchQueue.main.async {
                 self.mTimer?.invalidate()
                 UIAccessibility.post(notification: .announcement, argument: "말해주세요")
