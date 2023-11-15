@@ -150,6 +150,8 @@ extension GiveTtekkViewController {
         
         guard let poppedView = ttekks.last else {
             self.hapticManager?.playSplash()
+            self.motionManager.stopAccelerometerUpdates()
+  
             self.nextButton.isHidden = false
             self.storyLabel.text = """
                         호랑이는 떡을 먹고도 아직 배가 고픈가 봐요.
