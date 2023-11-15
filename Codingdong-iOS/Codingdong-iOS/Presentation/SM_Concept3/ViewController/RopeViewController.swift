@@ -122,6 +122,7 @@ final class RopeViewController: UIViewController, ConfigUI {
                         Log.i(self.count)
                         
                         if self.count == 10 {
+                            self.motionManager.stopAccelerometerUpdates()
                             self.navigationController?.pushViewController(TeachingRepeatViewController(), animated: false)
                         }
                     }

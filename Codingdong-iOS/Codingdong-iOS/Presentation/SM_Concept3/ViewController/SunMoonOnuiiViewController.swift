@@ -18,11 +18,11 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
         return view
     }()
     
-    private let leftBarButtonItem: UIBarButtonItem = {
+    private lazy var leftBarButtonItem: UIBarButtonItem = {
         let leftBarButton = UIBarButtonItem(
             image: UIImage(systemName: "books.vertical"),
             style: .plain,
-            target: OnuiiViewController.self,
+            target: self,
             action: #selector(popThisView)
         )
         return leftBarButton

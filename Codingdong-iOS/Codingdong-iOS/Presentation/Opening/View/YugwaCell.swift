@@ -22,6 +22,7 @@ final class YugwaCell: UICollectionViewCell {
     private let yugwaImage: UIImageView = {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.isAccessibilityElement = true
         return imageView
     }()
     

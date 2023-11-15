@@ -61,7 +61,10 @@ final class GiveTtekkViewController: UIViewController, ConfigUI {
     
     private let nextButton = CommonButton()
     
-    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2, height: 72, didTouchUpInside: didClickNextButton)
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {
+        [weak self] in
+        self?.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -147,9 +150,11 @@ extension GiveTtekkViewController {
         
         guard let poppedView = ttekks.last else {
             self.hapticManager?.playSplash()
+            self.motionManager.stopAccelerometerUpdates()
+  
             self.nextButton.isHidden = false
             self.storyLabel.text = """
-                        호랑이는 떡을 먹고도 아직 배가 고픈가봐요.
+                        호랑이는 떡을 먹고도 아직 배가 고픈가 봐요.
                             
                         이제는 떡이 더이상 없는데 어떡하죠?
                             

@@ -54,6 +54,7 @@ final class CardView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupView()
+        accessibilityElements = [titleLabel, contentLabel, conceptImageView]
     }
     
     required init?(coder: NSCoder) {

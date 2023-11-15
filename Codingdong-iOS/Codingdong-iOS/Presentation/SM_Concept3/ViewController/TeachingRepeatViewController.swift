@@ -118,7 +118,7 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
         contentLabel.accessibilityLabel = "  지금까지 열 번 흔들었어요. 힘든가요? 반복문을 사용하면, 편하게 반복할 수 있어요!"
         repeatImage.accessibilityLabel = "반복문 그림"
        // navigationItem.accessibilityElements = [navigationTitle, leftBarButtonItem]
-        view.accessibilityElements = [contentLabel, repeatImage, nextButton, navigationTitle, leftBarButtonItem]
+        view.accessibilityElements = [contentLabel, repeatImage, nextButton]
     }
     
     func setupUI() {
