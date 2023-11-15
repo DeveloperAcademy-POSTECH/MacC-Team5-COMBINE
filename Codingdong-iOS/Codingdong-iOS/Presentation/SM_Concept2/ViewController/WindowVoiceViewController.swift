@@ -40,8 +40,8 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
         label.text = """
                     문 밖에 누가 있는지 확인했나요?
                     
-                    문을 열어 줄까요?
-                    '열어 줄래요', '싫어요' 중에 대답해주세요.
+                    문을 열어줄까요?
+                    '열어줄래요', '싫어요' 중에 대답해주세요.
                     """
         label.font = FontManager.body()
         label.textColor = .gs10
