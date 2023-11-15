@@ -40,7 +40,7 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
             image: UIImage(systemName: "books.vertical"),
             style: .plain,
             target: self,
-            action: #selector(popThisView) // 에러 나서 잠시 막아둠
+            action: #selector(popThisView)
         )
         return leftBarButton
     }()
