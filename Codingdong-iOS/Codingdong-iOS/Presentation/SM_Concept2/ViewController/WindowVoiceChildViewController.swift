@@ -175,9 +175,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
         audioEngine.stop()
         
         do {
-            try AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
             try AVAudioSession.sharedInstance().setCategory(prevCategory, options: prevOptions)
-            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
         } catch {
             Log.e(error.localizedDescription)
         }
