@@ -39,7 +39,7 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
         let leftBarButton = UIBarButtonItem(
             image: UIImage(systemName: "books.vertical"),
             style: .plain,
-            target: TigerAnimationViewController.self,
+            target: self,
             action: #selector(popThisView) // 에러 나서 잠시 막아둠
         )
         return leftBarButton
@@ -72,6 +72,7 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
                 self.bottomBtnSpringAnimation()
             }
         }
+    
     }
     
     func setupNavigationBar() {

@@ -14,7 +14,7 @@ final class WindowEndingViewController: UIViewController, ConfigUI {
     // TODO: isSuccess 값에 따라서 뷰가 바뀌지 않는 문제 해결 필요
     // 나중에 @Published로 바꾸기, 지금은 일단 급함 ㅠㅠ
     private var isSuccessInt = UserDefaults.standard.integer(forKey: "key")
-    let titleLabelText: [String] = ["어맛, 호랑이에게 잡아먹혔어요. 다시 해 볼까요?", "호랑이를 본 오누이는 뒷문으로 도망쳤어요!"] //0(열어줄래요), 1(싫어요)
+    let titleLabelText: [String] = ["어맛, 호랑이에게 잡아먹혔어요. 다시 해 볼까요?", "호랑이를 본 오누이는 뒷문으로 도망쳤어요!"] // 0(열어줄래요), 1(싫어요)
     let imageName: [String] = ["tigerEatEnding", "initialDoor"]
     let buttonName: [String] = ["다시하기", "다음"]
     

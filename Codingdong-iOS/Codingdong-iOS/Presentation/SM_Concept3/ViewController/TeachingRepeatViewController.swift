@@ -21,7 +21,7 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
         let leftBarButton = UIBarButtonItem(
             image: UIImage(systemName: "books.vertical"),
             style: .plain,
-            target: TeachingRepeatViewController.self,
+            target: self,
             action: #selector(popThisView)
         )
         return leftBarButton
