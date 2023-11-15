@@ -144,7 +144,10 @@ final class ReviewViewController: UIViewController, ConfigUI {
         }
     }
     
-    func setupAccessibility() {}
+    func setupAccessibility() {
+        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        view.accessibilityElements = [contentLabel, reviewCollectionView, nextButton]
+    }
 }
 
 // MARK: - Extension

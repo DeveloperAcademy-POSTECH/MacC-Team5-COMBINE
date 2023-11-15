@@ -104,7 +104,7 @@ final class OnuiiViewController: UIViewController, ConfigUI {
     func setupAccessibility() {
         self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
         view.accessibilityElements = [contentLabel, rescueButton]
-        navigationItem.accessibilityElements = [navigationTitle, leftBarButtonItem]
+        //navigationItem.accessibilityElements = [navigationTitle, leftBarButtonItem]
     }
     
     @objc func popThisView() {

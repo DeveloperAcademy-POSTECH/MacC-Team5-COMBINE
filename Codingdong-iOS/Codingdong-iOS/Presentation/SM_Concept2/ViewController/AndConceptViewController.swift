@@ -104,7 +104,8 @@ final class AndConceptViewController: UIViewController {
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
+        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        //navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
     }
 }
 

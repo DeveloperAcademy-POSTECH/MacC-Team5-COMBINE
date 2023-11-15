@@ -105,7 +105,9 @@ final class IfConceptViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
+        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        view.accessibilityElements = [titleLabel, cardView, nextButton]
+       // navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
     }
 }
 
