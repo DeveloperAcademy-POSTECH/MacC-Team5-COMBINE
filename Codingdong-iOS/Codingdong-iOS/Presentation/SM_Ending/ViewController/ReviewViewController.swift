@@ -145,7 +145,8 @@ final class ReviewViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        navigationItem.leftBarButtonItem?.isAccessibilityElement = true
+        navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
         view.accessibilityElements = [contentLabel, reviewCollectionView, nextButton]
     }
     
