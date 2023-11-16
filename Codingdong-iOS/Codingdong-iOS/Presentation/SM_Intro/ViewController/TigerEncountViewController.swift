@@ -149,8 +149,8 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
     
     func setupAccessibility() {
         navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        leftBarButtonItem.accessibilityLabel = "내 책장"
         view.accessibilityElements = [firstLabel, secondLabel, thirdLabel, fourthLabel, nextButton]
+        leftBarButtonItem.accessibilityLabel = "내 책장"
     }
     
     func binding() {

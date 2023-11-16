@@ -58,10 +58,10 @@ final class IfConceptViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
+        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
-        setupAccessibility()
         nextButton.setup(model: nextButtonViewModel)
         cardView.config(model: cardViewModel)
     }

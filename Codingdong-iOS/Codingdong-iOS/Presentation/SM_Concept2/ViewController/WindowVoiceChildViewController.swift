@@ -100,12 +100,14 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
             titleLabel.text = "\(initialCountNumber)"
             self.initialCountNumber -= 1
         } else {
-            self.announceForAccessibility("말해 주세요.")
+//            self.announceForAccessibility("말해 주세요.")
+            titleLabel.isAccessibilityElement = false
+            HapticManager.shared?.playSplash()
             titleLabel.text = "말해 주세요"
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.mTimer?.invalidate()
-                self.onTimerEnd()
-            }
+            self.mTimer?.invalidate()
+            self.onTimerEnd()
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//            }
         }
 //        soundManager.playTTS(String(initialCountNumber))
     }

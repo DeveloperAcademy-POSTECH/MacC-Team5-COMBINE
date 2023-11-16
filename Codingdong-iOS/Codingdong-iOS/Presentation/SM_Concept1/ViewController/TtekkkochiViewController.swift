@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Log
 
 final class TtekkkochiViewController: UIViewController, ConfigUI {
     var viewModel = TtekkkochiViewModel()
@@ -20,7 +21,6 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         view.backgroundColor = .white.withAlphaComponent(0.15)
         return view
     }()
-    
     
     private let navigationTitle: UILabel = {
         let label = UILabel()
@@ -78,8 +78,8 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        setupNavigationBar()
         setupAccessibility()
+        setupNavigationBar()
         addComponents()
         setConstraints()
         nextButton.isHidden = true
@@ -150,8 +150,6 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         view.accessibilityElements = [titleLabel, ttekkkochiCollectionView, bottomView, nextButton]
         ttekkkochiCollectionView.isAccessibilityElement = true
         ttekkkochiCollectionView.accessibilityLabel = "하단의 떡 블록들을 만약, 아니면을 활용해 순서에 맞게 끼워보렴"
-//        titleLabel.accessibilityTraits = .none
-        
         // TODO: 하단으로 이동시 상단의 떡블록에 대한 라벨 사라져야 함
     }
     

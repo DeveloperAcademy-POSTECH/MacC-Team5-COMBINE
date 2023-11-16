@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Log
 
 final class TigerAnimationViewController: UIViewController, ConfigUI {
     
@@ -57,13 +58,11 @@ final class TigerAnimationViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        
         setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonViewModel)
-        
         if UIAccessibility.isVoiceOverRunning {
             NotificationCenter.default.addObserver(self, selector: #selector(voiceOverFocusChanged), name: UIAccessibility.elementFocusedNotification, object: nil)
         } else {

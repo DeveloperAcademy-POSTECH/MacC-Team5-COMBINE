@@ -121,10 +121,10 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
+        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
-        setupAccessibility()
         binding()
     }
     
@@ -190,10 +190,16 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
         leftBarButtonItem.accessibilityLabel = "뒤로가기"
-        view.accessibilityElements = [introLabel, firstConceptLabel, firstDescriptionLabel, secondConceptLabel, secondDescriptionLabel, thirdConceptLabel, thirdDescriptionLabel, nextButton]
-        
+        let groupedElement = UIAccessibilityElement(accessibilityContainer: self)
+        var groupedFrame = CGRect.zero
+        groupedElement.accessibilityLabel = ""
+        [introLabel, firstConceptLabel, firstDescriptionLabel, secondConceptLabel, secondDescriptionLabel, thirdConceptLabel, thirdDescriptionLabel].forEach {
+            if let labelText = $0.text { groupedElement.accessibilityLabel?.append(contentsOf: "\(labelText)\n") }
+            groupedFrame = groupedFrame == .zero ? $0.frame : groupedFrame.union($0.frame)
+        }
+        groupedElement.accessibilityFrameInContainerSpace = UIAccessibility.convertToScreenCoordinates(groupedFrame, in: view)
+        view.accessibilityElements = [groupedElement, nextButton]
     }
 
     func binding() {
