@@ -17,11 +17,11 @@ final class OnboardingViewController: UIViewController {
     
     // MARK: - Components
     private lazy var voiceOverStackView: UIStackView = {
-       let stackView = UIStackView()
+        let stackView = UIStackView()
         stackView.alignment = .center
         
         let imageView: UIImageView = {
-           let image = UIImageView()
+            let image = UIImageView()
             image.image = UIImage(named: "img_accessibility")
             image.contentMode = .scaleAspectFit
             image.accessibilityLabel = "접근성 로고"
@@ -33,7 +33,7 @@ final class OnboardingViewController: UIViewController {
     }()
     
     private let voiceOverTitle: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "VoiceOver 설정"
         label.font = FontManager.headline()
         label.textColor = .gs20

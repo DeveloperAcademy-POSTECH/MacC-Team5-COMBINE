@@ -28,7 +28,7 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     }()
     
     // 지우기
-    //private let labelComponents = SunAndMoonIntroView()
+    // private let labelComponents = SunAndMoonIntroView()
     private let introLabel: UILabel = {
         let label = UILabel()
         label.text = "해님달님에서 아래의 코딩 개념들을 배워 보아요!"
@@ -100,7 +100,6 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
         return label
     }()
     
-
     private let nextButton = CommonButton()
     
     private lazy var nextButtonViewModel = CommonbuttonModel(title: "시작하기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .gs10, height: 72) {
@@ -163,18 +162,15 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
             $0.left.right.equalToSuperview().inset(16)
         }
         
-        
         secondDescriptionLabel.snp.makeConstraints {
             $0.top.equalTo(secondConceptLabel.snp.bottom).offset(8)
             $0.left.right.equalToSuperview().inset(16)
         }
         
-        
         thirdConceptLabel.snp.makeConstraints {
             $0.top.equalTo(secondDescriptionLabel.snp.bottom).offset(20)
             $0.left.right.equalToSuperview().inset(16)
         }
-        
         
         thirdDescriptionLabel.snp.makeConstraints {
             $0.top.equalTo(thirdConceptLabel.snp.bottom).offset(8)
