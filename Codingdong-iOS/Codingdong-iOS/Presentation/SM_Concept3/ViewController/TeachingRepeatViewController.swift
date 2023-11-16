@@ -131,8 +131,15 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
         navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
         view.accessibilityElements = [contentLabel, repeatImage, nextButton]
         leftBarButtonItem.accessibilityLabel = "내 책장"
+        contentLabel.accessibilityLabel = """
+                지금까지 열번 흔들었어요.
+
+                힘든가요?
+
+                반복문을 사용하면, 편하게 반복할 수 있어요!
+                """
         repeatImage.isAccessibilityElement = true
-        repeatImage.accessibilityLabel = "반복문 이미지"
+        repeatImage.accessibilityLabel = "열번 흔들기를 열번 반복하는 이미지"
     }
     
     @objc func popThisView() {
