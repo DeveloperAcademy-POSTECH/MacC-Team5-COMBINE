@@ -62,6 +62,7 @@ final class RepeatConceptViewController: UIViewController, ConfigUI {
     // MARK: - View initializer
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
@@ -106,7 +107,7 @@ final class RepeatConceptViewController: UIViewController, ConfigUI {
     
     func setupAccessibility() {
         navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [titleLabel, nextButton]
+        view.accessibilityElements = [titleLabel, cardView, nextButton]
         leftBarButtonItem.accessibilityLabel = "내 책장"
     }
 
