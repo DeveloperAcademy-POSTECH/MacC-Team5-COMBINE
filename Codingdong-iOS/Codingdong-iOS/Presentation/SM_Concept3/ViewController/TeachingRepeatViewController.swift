@@ -139,7 +139,8 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
                 반복문을 사용하면, 편하게 반복할 수 있어요!
                 """
         repeatImage.isAccessibilityElement = true
-        repeatImage.accessibilityLabel = "열번 흔들기를 열번 반복하는 이미지"
+        repeatImage.accessibilityLabel = "열번 흔들기를 열번 반복하는걸 보여주는 이미지"
+        repeatImage.accessibilityTraits = .none
     }
     
     @objc func popThisView() {
