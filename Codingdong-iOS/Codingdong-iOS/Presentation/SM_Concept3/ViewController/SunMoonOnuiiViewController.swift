@@ -109,12 +109,11 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
-        contentLabel.accessibilityLabel = "오누이는 동아줄을 올라 해와 달이 되었답니다."
-        sunmoonImage.accessibilityLabel = "해와 달이 된 오누이"
-        
-        navigationItem.accessibilityElements = [navigationTitle, leftBarButtonItem]
+        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
         view.accessibilityElements = [contentLabel, sunmoonImage, nextButton]
+        leftBarButtonItem.accessibilityLabel = "내 책장"
+        sunmoonImage.isAccessibilityElement = true
+        sunmoonImage.accessibilityLabel = "해와 달이 된 오누이"
     }
     
     @objc private func popThisView() {

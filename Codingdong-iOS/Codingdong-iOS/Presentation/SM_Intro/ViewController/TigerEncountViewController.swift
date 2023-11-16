@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Log
 
 final class TigerEncountViewController: UIViewController, ConfigUI {
     var viewModel = TigerEncounterViewModel()
@@ -89,10 +90,10 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
+        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
-        setupAccessibility()
         binding()
     }
     
@@ -147,11 +148,9 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [navigationTitle,  leftBarButtonItem]
-        view.accessibilityElements = [firstLabel, secondLabel, thirdLabel, fourthLabel, nextButton]
-//        view.accessibilityElements = [labelComponents.containerView, nextButton]
-        
+        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
         leftBarButtonItem.accessibilityLabel = "내 책장"
+        view.accessibilityElements = [firstLabel, secondLabel, thirdLabel, fourthLabel, nextButton]
     }
     
     func binding() {

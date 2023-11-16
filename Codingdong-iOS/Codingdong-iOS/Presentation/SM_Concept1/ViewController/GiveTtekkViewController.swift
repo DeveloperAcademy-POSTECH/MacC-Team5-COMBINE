@@ -78,7 +78,6 @@ final class GiveTtekkViewController: UIViewController, ConfigUI {
     func setupAccessibility() {
         navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
         view.accessibilityElements = [storyLabel, nextButton]
-        
         leftBarButtonItem.accessibilityLabel = "내 책장"
     }
     

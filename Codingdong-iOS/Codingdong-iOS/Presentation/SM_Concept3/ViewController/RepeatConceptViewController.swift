@@ -105,9 +105,9 @@ final class RepeatConceptViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
-        titleLabel.accessibilityLabel = "해님달님의 세 번째 개념"
-        view.accessibilityElements = [titleLabel]
+        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
+        view.accessibilityElements = [titleLabel, nextButton]
+        leftBarButtonItem.accessibilityLabel = "내 책장"
     }
 
     @objc func popThisView() {

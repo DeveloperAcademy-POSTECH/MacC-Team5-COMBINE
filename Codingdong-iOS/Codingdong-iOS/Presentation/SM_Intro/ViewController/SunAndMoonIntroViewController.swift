@@ -27,6 +27,16 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
         return label
     }()
     
+    private lazy var leftBarButtonItem: UIBarButtonItem = {
+        let leftBarButton = UIBarButtonItem(
+            image: UIImage(systemName: "chevron.backward"),
+            style: .plain,
+            target: self,
+            action: #selector(popThisView)
+        )
+        return leftBarButton
+    }()
+    
     // 지우기
     // private let labelComponents = SunAndMoonIntroView()
     private let introLabel: UILabel = {
@@ -127,12 +137,7 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
         }
         self.navigationController?.navigationBar.tintColor = .gs20
         self.navigationItem.titleView = self.navigationTitle
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "chevron.left"),
-            style: .plain,
-            target: self,
-            action: #selector(popThisView)
-        )
+        self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
     }
     
     func addComponents() {
@@ -185,7 +190,8 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "이전 화면으로 이동"
+        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
+        leftBarButtonItem.accessibilityLabel = "뒤로가기"
         view.accessibilityElements = [introLabel, firstConceptLabel, firstDescriptionLabel, secondConceptLabel, secondDescriptionLabel, thirdConceptLabel, thirdDescriptionLabel, nextButton]
         
     }
@@ -204,4 +210,5 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     func popThisView() {
         self.navigationController?.popToRootViewController(animated: false)
     }
+    
 }

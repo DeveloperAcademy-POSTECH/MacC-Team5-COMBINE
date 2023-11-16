@@ -76,6 +76,7 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
     // MARK: View init
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .gs90
         setupAccessibility()
         setupNavigationBar()
         addComponents()
@@ -162,7 +163,7 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
     }
     
     private func multiTenTimesSpringAnimation() {
-        UIView.animate(withDuration: 1,
+        UIView.animate(withDuration: 2,
                        delay: 0,
                        usingSpringWithDamping: 0.6,
                        initialSpringVelocity: 0.4,
