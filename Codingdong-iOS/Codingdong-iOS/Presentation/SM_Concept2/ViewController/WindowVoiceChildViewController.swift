@@ -96,18 +96,14 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     
     @objc func timerCallBack() {
         if initialCountNumber > 0 {
+            self.announceForAccessibility("\(self.initialCountNumber)")
             titleLabel.text = "\(initialCountNumber)"
-            DispatchQueue.main.async {
-                UIAccessibility.post(notification: .announcement, argument: "\(self.initialCountNumber)")
-                self.initialCountNumber -= 1
-            }
+            self.initialCountNumber -= 1
         } else {
+            self.announceForAccessibility("말해 주세요.")
             titleLabel.text = "말해 주세요"
-            DispatchQueue.main.async {
-                self.mTimer?.invalidate()
-                UIAccessibility.post(notification: .announcement, argument: "말해주세요")
-            }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.mTimer?.invalidate()
                 self.onTimerEnd()
             }
         }
@@ -183,6 +179,19 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
         UserDefaults.standard.set(isSuccess, forKey: "key")
         DispatchQueue.main.async {
             self.navigationController?.pushViewController(WindowEndingViewController(), animated: false)
+        }
+    }
+}
+
+extension UIViewController {
+    func announceForAccessibility(_ string: String) {
+        Task {
+            // Delay the task by 100 milliseconds
+            try await Task.sleep(nanoseconds: UInt64(0.1 * Double(NSEC_PER_SEC)))
+            
+            // Announce the string using VoiceOver
+            let announcementString = NSAttributedString(string: string, attributes: [.accessibilitySpeechQueueAnnouncement : true])
+            UIAccessibility.post(notification: .announcement, argument: announcementString)
         }
     }
 }
