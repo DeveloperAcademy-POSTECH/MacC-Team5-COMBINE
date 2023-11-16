@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1105EEAA2B06082B001A096C /* KzPzIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1105EEA92B06082B001A096C /* KzPzIntroViewController.swift */; };
+		1105EEAC2B0609FE001A096C /* HouseWorkStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1105EEAB2B0609FE001A096C /* HouseWorkStartViewController.swift */; };
+		1105EEAE2B060A3F001A096C /* WorkingKongZwiStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1105EEAD2B060A3F001A096C /* WorkingKongZwiStartViewController.swift */; };
+		1105EEB02B060A8E001A096C /* KkotSinOwnerStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1105EEAF2B060A8E001A096C /* KkotSinOwnerStartViewController.swift */; };
+		1105EEB22B060B15001A096C /* KzPzReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1105EEB12B060B15001A096C /* KzPzReviewViewController.swift */; };
 		112003D12AE574FB00924FAB /* LottieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112003D02AE574FB00924FAB /* LottieManager.swift */; };
 		112003D42AE5752300924FAB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 112003D32AE5752300924FAB /* Lottie */; };
 		112003D82AE5792600924FAB /* TigerAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112003D72AE5792600924FAB /* TigerAnimationViewController.swift */; };
@@ -136,6 +141,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1105EEA92B06082B001A096C /* KzPzIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KzPzIntroViewController.swift; sourceTree = "<group>"; };
+		1105EEAB2B0609FE001A096C /* HouseWorkStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseWorkStartViewController.swift; sourceTree = "<group>"; };
+		1105EEAD2B060A3F001A096C /* WorkingKongZwiStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingKongZwiStartViewController.swift; sourceTree = "<group>"; };
+		1105EEAF2B060A8E001A096C /* KkotSinOwnerStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkotSinOwnerStartViewController.swift; sourceTree = "<group>"; };
+		1105EEB12B060B15001A096C /* KzPzReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KzPzReviewViewController.swift; sourceTree = "<group>"; };
 		112003D02AE574FB00924FAB /* LottieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieManager.swift; sourceTree = "<group>"; };
 		112003D72AE5792600924FAB /* TigerAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerAnimationViewController.swift; sourceTree = "<group>"; };
 		1143C6822AF4D6440032CE53 /* MyBookShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookShelfViewController.swift; sourceTree = "<group>"; };
@@ -257,6 +267,86 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1105EE9F2B05FB85001A096C /* KZ_Intro */ = {
+			isa = PBXGroup;
+			children = (
+				1105EEA42B060128001A096C /* ViewController */,
+			);
+			path = KZ_Intro;
+			sourceTree = "<group>";
+		};
+		1105EEA02B05FB8F001A096C /* KZ_Concept1 */ = {
+			isa = PBXGroup;
+			children = (
+				1105EEA52B060132001A096C /* ViewController */,
+			);
+			path = KZ_Concept1;
+			sourceTree = "<group>";
+		};
+		1105EEA12B05FB9A001A096C /* KZ_Concept2 */ = {
+			isa = PBXGroup;
+			children = (
+				1105EEA62B060142001A096C /* ViewController */,
+			);
+			path = KZ_Concept2;
+			sourceTree = "<group>";
+		};
+		1105EEA22B05FBA4001A096C /* KZ_Concept3 */ = {
+			isa = PBXGroup;
+			children = (
+				1105EEA72B060147001A096C /* ViewController */,
+			);
+			path = KZ_Concept3;
+			sourceTree = "<group>";
+		};
+		1105EEA32B05FBAD001A096C /* KZ_Ending */ = {
+			isa = PBXGroup;
+			children = (
+				1105EEA82B060150001A096C /* ViewController */,
+			);
+			path = KZ_Ending;
+			sourceTree = "<group>";
+		};
+		1105EEA42B060128001A096C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1105EEA92B06082B001A096C /* KzPzIntroViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1105EEA52B060132001A096C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1105EEAB2B0609FE001A096C /* HouseWorkStartViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1105EEA62B060142001A096C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1105EEAD2B060A3F001A096C /* WorkingKongZwiStartViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1105EEA72B060147001A096C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1105EEAF2B060A8E001A096C /* KkotSinOwnerStartViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1105EEA82B060150001A096C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1105EEB12B060B15001A096C /* KzPzReviewViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		1143C6842AF6A1EF0032CE53 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +508,11 @@
 				A828A66C2AFF06B700B11D71 /* SM_Concept2 */,
 				A852B1792B01F8810051BE9E /* SM_Concept3 */,
 				A8BE07F42B00E47700DD7378 /* SM_Ending */,
+				1105EE9F2B05FB85001A096C /* KZ_Intro */,
+				1105EEA02B05FB8F001A096C /* KZ_Concept1 */,
+				1105EEA12B05FB9A001A096C /* KZ_Concept2 */,
+				1105EEA22B05FBA4001A096C /* KZ_Concept3 */,
+				1105EEA32B05FBAD001A096C /* KZ_Ending */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -852,6 +947,7 @@
 				A8BE07F72B00E4E900DD7378 /* ReviewViewController.swift in Sources */,
 				1143C6832AF4D6440032CE53 /* MyBookShelfViewController.swift in Sources */,
 				A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */,
+				1105EEAE2B060A3F001A096C /* WorkingKongZwiStartViewController.swift in Sources */,
 				1143C6952AF6F3760032CE53 /* YugwaCollectionView.swift in Sources */,
 				112003D82AE5792600924FAB /* TigerAnimationViewController.swift in Sources */,
 				11CD0EE72AFE031400911B64 /* IfConceptViewController.swift in Sources */,
@@ -862,6 +958,7 @@
 				A828A66B2AFF05DB00B11D71 /* CardView.swift in Sources */,
 				A8F41D2F2AE5001F00BB0260 /* HapticManager.swift in Sources */,
 				11CD0EDF2AFD56D500911B64 /* TigerEncountViewController.swift in Sources */,
+				1105EEB22B060B15001A096C /* KzPzReviewViewController.swift in Sources */,
 				A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */,
 				A8BC0DBE2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift in Sources */,
 				1143C68C2AF6B01E0032CE53 /* StoryListTableViewCell.swift in Sources */,
@@ -878,6 +975,7 @@
 				11CD0EEC2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift in Sources */,
 				670E09A42AFD4540008AA6D5 /* WindowVoiceChildViewController.swift in Sources */,
 				A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */,
+				1105EEB02B060A8E001A096C /* KkotSinOwnerStartViewController.swift in Sources */,
 				A897A9752AFF6AC000008722 /* Fable.swift in Sources */,
 				116A95532ADF72AB0096760A /* FontManager.swift in Sources */,
 				A8BE07F32B00DBA700DD7378 /* TigerEncounterViewModel.swift in Sources */,
@@ -887,6 +985,7 @@
 				A832B11A2AFF43E500E1CE9B /* YugwaList.swift in Sources */,
 				A8B10D3E2AFAAE20009EA3F5 /* SplashViewController.swift in Sources */,
 				A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */,
+				1105EEAA2B06082B001A096C /* KzPzIntroViewController.swift in Sources */,
 				67BAECF72B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift in Sources */,
 				A8BC0DB22AE3401800AD5C9A /* CodingBlock.swift in Sources */,
 				A852B17C2B01F90B0051BE9E /* OnuiiViewController.swift in Sources */,
@@ -896,6 +995,7 @@
 				A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */,
 				11CD0EDC2AFD56B800911B64 /* TigerEncountView.swift in Sources */,
 				1143C6C42AFB829F0032CE53 /* SunAndMoonIntroViewController.swift in Sources */,
+				1105EEAC2B0609FE001A096C /* HouseWorkStartViewController.swift in Sources */,
 				A8BE07F12B00CA7800DD7378 /* SunAndMoonIntroViewModel.swift in Sources */,
 				A8BE07FA2B00EBF100DD7378 /* ReviewCollectionViewCell.swift in Sources */,
 				A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */,
@@ -1090,7 +1190,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = XGHDQG66U5;
+				DEVELOPMENT_TEAM = W43DLLFB4Q;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
@@ -1121,7 +1221,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = XGHDQG66U5;
+				DEVELOPMENT_TEAM = W43DLLFB4Q;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
