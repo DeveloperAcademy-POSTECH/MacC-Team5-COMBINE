@@ -46,14 +46,7 @@ class LottieManager {
             animationView.play(completion: completion)
         }
     }
-    
-    func playWithProgressTimeAnimation(inView view: UIView, completion: ((Bool) -> Void)?) {
-        if let animationView = animationViews[view] {
-            animationView.play(fromProgress: 0, toProgress: 0.5)
-        }
-    }
-    
-    
+
     func stopAnimation(inView view: UIView) {
         if let animationView = animationViews[view] {
             animationView.stop()

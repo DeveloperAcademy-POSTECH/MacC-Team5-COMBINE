@@ -49,14 +49,6 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
         return label
     }()
     
-    private let sunmoonImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.isAccessibilityElement = true
-        imageView.image = #imageLiteral(resourceName: "sm_repeat_review")
-        return imageView
-    }()
-    
     private let nextButton = CommonButton()
     private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
         self?.navigationController?.pushViewController(RepeatConceptViewController(), animated: false)
@@ -65,7 +57,7 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
     lazy var lottieView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
-        LottieManager.shared.setAnimationForOnui(named: "OnuiAnimation", inView: view)
+        LottieManager.shared.setAnimationForOnui(named: "OnuiAnimation_Fixed", inView: view)
         return view
     }()
     
@@ -127,10 +119,8 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
     
     func setupAccessibility() {
         navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [contentLabel, sunmoonImage, nextButton]
+        view.accessibilityElements = [contentLabel, nextButton]
         leftBarButtonItem.accessibilityLabel = "내 책장"
-        sunmoonImage.isAccessibilityElement = true
-        sunmoonImage.accessibilityLabel = "해와 달이 된 오누이"
     }
     
 }
@@ -154,7 +144,7 @@ extension SunMoonOnuiiViewController {
     @objc
     private func voiceOverFocusChanged(_ notification: Notification) {
         if let focusedElement = notification.userInfo?[UIAccessibility.focusedElementUserInfoKey] as? NSObject, focusedElement === contentLabel {
-            LottieManager.shared.playWithProgressTimeAnimation(inView: self.lottieView, completion: nil)
+            LottieManager.shared.playAnimation(inView: self.lottieView, completion: nil)
             LottieManager.shared.removeAnimation(inView: self.lottieView)
             UIAccessibility.post(notification: .layoutChanged, argument: nil)
         }
