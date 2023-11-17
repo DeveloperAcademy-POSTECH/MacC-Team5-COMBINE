@@ -58,10 +58,10 @@ final class IfConceptViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
+        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
-        setupAccessibility()
         nextButton.setup(model: nextButtonViewModel)
         cardView.config(model: cardViewModel)
     }
@@ -105,16 +105,16 @@ final class IfConceptViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        navigationController?.accessibilityElements = [leftBarButtonItem, navigationTitle]
         view.accessibilityElements = [titleLabel, cardView, nextButton]
-       // navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
+        leftBarButtonItem.accessibilityLabel = "내 책장"
     }
 }
 
 extension IfConceptViewController {
     @objc
     func didClickNextButton() {
-        //self.navigationController?.pushViewController(WindowStartViewController(), animated: false)
+        // self.navigationController?.pushViewController(WindowStartViewController(), animated: false)
         self.navigationController?.pushViewController(WindowStartViewController(), animated: false)
     }
     

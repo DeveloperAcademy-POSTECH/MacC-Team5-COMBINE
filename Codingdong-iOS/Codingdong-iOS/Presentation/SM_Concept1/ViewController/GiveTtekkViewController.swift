@@ -10,7 +10,7 @@ import CoreMotion
 import Log
 
 final class GiveTtekkViewController: UIViewController, ConfigUI {
-    var viewModel = TtekkkochiViewModel()
+
     private let padding = Constants.View.padding
     
     private let hapticManager = HapticManager()
@@ -61,16 +61,15 @@ final class GiveTtekkViewController: UIViewController, ConfigUI {
     
     private let nextButton = CommonButton()
     
-    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {
-        [weak self] in
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) { [weak self] in
         self?.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        setupNavigationBar()
         setupAccessibility()
+        setupNavigationBar()
         addComponents()
         setConstraints()
         countShake()
@@ -79,7 +78,6 @@ final class GiveTtekkViewController: UIViewController, ConfigUI {
     func setupAccessibility() {
         navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
         view.accessibilityElements = [storyLabel, nextButton]
-        
         leftBarButtonItem.accessibilityLabel = "내 책장"
     }
     
@@ -134,7 +132,7 @@ extension GiveTtekkViewController {
     @objc
     private func didClickNextButton() {
         motionManager.stopAccelerometerUpdates()
-        //self.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
+//        self.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
     }
     
     func createTtekkViews(height: CGFloat, cornerRadius: CGFloat) -> UIView {
@@ -172,7 +170,7 @@ extension GiveTtekkViewController {
         //        TTS는 iOS 17 이슈로 동작하지 않음.
         //        SoundManager.shared.playTTS("\(ttekks.count)개")
         
-//        //MARK: 시나리오 추가에 대한 A/B 테스트 코드.
+//        // MARK: 시나리오 추가에 대한 A/B 테스트 코드.
 //        let ttekks = ttekkStackView.arrangedSubviews
 //        
 //        guard let poppedView = ttekks.last else {

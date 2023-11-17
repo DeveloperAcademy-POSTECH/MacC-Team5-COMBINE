@@ -20,6 +20,16 @@ class LottieManager {
         animationViews[view] = animationView
     }
 
+    func setAnimationForOnui(named animationName: String, inView view: UIView) {
+        let animationView = LottieAnimationView(name: animationName)
+        view.addSubview(animationView)
+        animationView.snp.makeConstraints {
+            $0.width.height.equalToSuperview().multipliedBy(1)
+            $0.center.equalToSuperview()
+        }
+        animationViews[view] = animationView
+    }
+
     func setAnimationForWindow(named animationName: String, inView view: UIView) {
         let animationView = LottieAnimationView(name: animationName)
         animationView.contentMode = .scaleAspectFill
@@ -36,7 +46,7 @@ class LottieManager {
             animationView.play(completion: completion)
         }
     }
-    
+
     func stopAnimation(inView view: UIView) {
         if let animationView = animationViews[view] {
             animationView.stop()

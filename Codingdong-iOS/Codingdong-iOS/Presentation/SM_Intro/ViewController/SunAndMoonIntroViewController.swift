@@ -27,8 +27,18 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
         return label
     }()
     
+    private lazy var leftBarButtonItem: UIBarButtonItem = {
+        let leftBarButton = UIBarButtonItem(
+            image: UIImage(systemName: "chevron.backward"),
+            style: .plain,
+            target: self,
+            action: #selector(popThisView)
+        )
+        return leftBarButton
+    }()
+    
     // 지우기
-    //private let labelComponents = SunAndMoonIntroView()
+    // private let labelComponents = SunAndMoonIntroView()
     private let introLabel: UILabel = {
         let label = UILabel()
         label.text = "해님달님에서 아래의 코딩 개념들을 배워 보아요!"
@@ -100,7 +110,6 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
         return label
     }()
     
-
     private let nextButton = CommonButton()
     
     private lazy var nextButtonViewModel = CommonbuttonModel(title: "시작하기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .gs10, height: 72) {
@@ -112,10 +121,10 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
+        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
-        setupAccessibility()
         binding()
     }
     
@@ -128,12 +137,7 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
         }
         self.navigationController?.navigationBar.tintColor = .gs20
         self.navigationItem.titleView = self.navigationTitle
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "chevron.left"),
-            style: .plain,
-            target: self,
-            action: #selector(popThisView)
-        )
+        self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
     }
     
     func addComponents() {
@@ -163,18 +167,15 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
             $0.left.right.equalToSuperview().inset(16)
         }
         
-        
         secondDescriptionLabel.snp.makeConstraints {
             $0.top.equalTo(secondConceptLabel.snp.bottom).offset(8)
             $0.left.right.equalToSuperview().inset(16)
         }
         
-        
         thirdConceptLabel.snp.makeConstraints {
             $0.top.equalTo(secondDescriptionLabel.snp.bottom).offset(20)
             $0.left.right.equalToSuperview().inset(16)
         }
-        
         
         thirdDescriptionLabel.snp.makeConstraints {
             $0.top.equalTo(thirdConceptLabel.snp.bottom).offset(8)
@@ -189,9 +190,16 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "이전 화면으로 이동"
-        view.accessibilityElements = [introLabel, firstConceptLabel, firstDescriptionLabel, secondConceptLabel, secondDescriptionLabel, thirdConceptLabel, thirdDescriptionLabel, nextButton]
-        
+        leftBarButtonItem.accessibilityLabel = "뒤로가기"
+        let groupedElement = UIAccessibilityElement(accessibilityContainer: self)
+        var groupedFrame = CGRect.zero
+        groupedElement.accessibilityLabel = ""
+        [introLabel, firstConceptLabel, firstDescriptionLabel, secondConceptLabel, secondDescriptionLabel, thirdConceptLabel, thirdDescriptionLabel].forEach {
+            if let labelText = $0.text { groupedElement.accessibilityLabel?.append(contentsOf: "\(labelText)\n") }
+            groupedFrame = groupedFrame == .zero ? $0.frame : groupedFrame.union($0.frame)
+        }
+        groupedElement.accessibilityFrameInContainerSpace = UIAccessibility.convertToScreenCoordinates(groupedFrame, in: view)
+        view.accessibilityElements = [groupedElement, nextButton]
     }
 
     func binding() {
@@ -208,4 +216,5 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     func popThisView() {
         self.navigationController?.popToRootViewController(animated: false)
     }
+    
 }

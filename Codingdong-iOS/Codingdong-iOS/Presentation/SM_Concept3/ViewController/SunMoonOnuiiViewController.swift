@@ -49,26 +49,37 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
         return label
     }()
     
-    private let sunmoonImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.isAccessibilityElement = true
-        imageView.image = #imageLiteral(resourceName: "sm_repeat_review")
-        return imageView
-    }()
-    
     private let nextButton = CommonButton()
     private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
         self?.navigationController?.pushViewController(RepeatConceptViewController(), animated: false)
     }
     
+    lazy var lottieView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        LottieManager.shared.setAnimationForOnui(named: "OnuiAnimation_Fixed", inView: view)
+        return view
+    }()
+    
     // MARK: - View Init
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
-        setupAccessibility()
+//        playAnimationWithVoiceOver()
+        if UIAccessibility.isVoiceOverRunning {
+            NotificationCenter.default.addObserver(self, selector: #selector(voiceOverFocusChanged), name: UIAccessibility.elementFocusedNotification, object: nil)
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+//                LottieManager.shared.playWithProgressTimeAnimation(inView: self.lottieView, from: 0, to: 0.8, completion: nil)
+            }
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func setupNavigationBar() {
@@ -84,7 +95,7 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [contentLabel, sunmoonImage, nextButton].forEach { view.addSubview($0) }
+        [contentLabel, lottieView, nextButton].forEach { view.addSubview($0) }
     }
     
     func setConstraints() {
@@ -93,10 +104,8 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
             $0.left.right.equalToSuperview().inset(16)
         }
         
-        sunmoonImage.snp.makeConstraints {
-            $0.top.equalTo(contentLabel.snp.bottom).offset(123)
-            $0.left.equalToSuperview().offset(24)
-            $0.right.equalToSuperview().offset(-24)
+        lottieView.snp.makeConstraints {
+            $0.top.left.right.bottom.equalToSuperview()
         }
         
         nextButton.setup(model: nextButtonViewModel)
@@ -109,15 +118,36 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
-        contentLabel.accessibilityLabel = "오누이는 동아줄을 올라 해와 달이 되었답니다."
-        sunmoonImage.accessibilityLabel = "해와 달이 된 오누이"
-        
-        navigationItem.accessibilityElements = [navigationTitle, leftBarButtonItem]
-        view.accessibilityElements = [contentLabel, sunmoonImage, nextButton]
+        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
+        view.accessibilityElements = [contentLabel, nextButton]
+        leftBarButtonItem.accessibilityLabel = "내 책장"
     }
+    
+}
+
+extension SunMoonOnuiiViewController {
     
     @objc private func popThisView() {
         self.navigationController?.popToRootViewController(animated: false)
     }
+    
+    func playAnimationWithVoiceOver() {
+        if UIAccessibility.isVoiceOverRunning {
+            NotificationCenter.default.addObserver(self, selector: #selector(voiceOverFocusChanged), name: UIAccessibility.elementFocusedNotification, object: nil)
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+//                LottieManager.shared.playWithProgressTimeAnimation(inView: self.lottieView, from: 0, to: 0.8, completion: nil)
+            }
+        }
+    }
+    
+    @objc
+    private func voiceOverFocusChanged(_ notification: Notification) {
+        if let focusedElement = notification.userInfo?[UIAccessibility.focusedElementUserInfoKey] as? NSObject, focusedElement === contentLabel {
+            LottieManager.shared.playAnimation(inView: self.lottieView, completion: nil)
+            LottieManager.shared.removeAnimation(inView: self.lottieView)
+            UIAccessibility.post(notification: .layoutChanged, argument: nil)
+        }
+    }
+    
 }

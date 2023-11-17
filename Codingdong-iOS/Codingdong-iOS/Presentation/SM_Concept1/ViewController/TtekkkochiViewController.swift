@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Log
 
 final class TtekkkochiViewController: UIViewController, ConfigUI {
     var viewModel = TtekkkochiViewModel()
@@ -19,6 +20,24 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         let view = UIView()
         view.backgroundColor = .white.withAlphaComponent(0.15)
         return view
+    }()
+    
+    private let navigationTitle: UILabel = {
+        let label = UILabel()
+        label.text = "호랑이를 마주친 엄마"
+        label.font = FontManager.navigationtitle()
+        label.textColor = .gs20
+        return label
+    }()
+    
+    private lazy var leftBarButtonItem: UIBarButtonItem = {
+        let leftBarButton = UIBarButtonItem(
+            image: UIImage(systemName: "books.vertical"),
+            style: .plain,
+            target: self,
+            action: #selector(popThisView)
+        )
+        return leftBarButton
     }()
     
     private let titleLabel: UILabel = {
@@ -59,8 +78,8 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        setupNavigationBar()
         setupAccessibility()
+        setupNavigationBar()
         addComponents()
         setConstraints()
         nextButton.isHidden = true
@@ -78,15 +97,9 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
             $0.left.right.equalToSuperview()
             $0.height.equalTo(0.33)
         }
-        self.title = "호랑이를 마주친 엄마"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.navigationtitle()]
         self.navigationController?.navigationBar.tintColor = .gs20
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "books.vertical"),
-            style: .plain,
-            target: self,
-            action: #selector(popThisView)
-        )
+        self.navigationItem.titleView = self.navigationTitle
+        self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
     }
     
     func addComponents() {
@@ -132,14 +145,12 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
+        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
+        leftBarButtonItem.accessibilityLabel = "내 책장"
         view.accessibilityElements = [titleLabel, ttekkkochiCollectionView, bottomView, nextButton]
-        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
         ttekkkochiCollectionView.isAccessibilityElement = true
         ttekkkochiCollectionView.accessibilityLabel = "하단의 떡 블록들을 만약, 아니면을 활용해 순서에 맞게 끼워보렴"
-        titleLabel.accessibilityTraits = .none
-        nextButton.accessibilityLabel = "떡을 준다"
-        //TODO: 하단으로 이동시 상단의 떡블록에 대한 라벨 사라져야 함
-        nextButton.accessibilityTraits = .button
+        // TODO: 하단으로 이동시 상단의 떡블록에 대한 라벨 사라져야 함
     }
     
     func binding() {
@@ -174,7 +185,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
                         self.nextButton.isHidden = false
                         nextButton.setup(model: settingButtonViewModel)
                         // TODO: 떡 크기 확대, tts
-                   default:
+                    default:
                         return
                     }
                 } else {

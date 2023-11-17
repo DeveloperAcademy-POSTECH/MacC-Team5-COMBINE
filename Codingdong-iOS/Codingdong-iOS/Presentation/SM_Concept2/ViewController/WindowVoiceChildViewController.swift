@@ -13,12 +13,11 @@ import Speech
 final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizerDelegate, ConfigUI {
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "ko_KR"))!
-    
-    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
-    
+    private var recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
     private var recognitionTask: SFSpeechRecognitionTask?
-    
     private let audioEngine = AVAudioEngine()
+    private let prevCategory = AVAudioSession.sharedInstance().category
+    private let prevOptions = AVAudioSession.sharedInstance().categoryOptions
     
     @available(iOS 17, *)
     private var lmConfiguration: SFSpeechLanguageModel.Configuration {
@@ -28,7 +27,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
         return SFSpeechLanguageModel.Configuration(languageModel: dynamicLanguageModel, vocabulary: dynamicVocabulary)
     }
     
-    let soundManager = SoundManager()
+//    let soundManager = SoundManager()
     
     var mTimer: Timer?
     
@@ -71,7 +70,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     }
     
     func addComponents() {
-        //view.addSubview(containerView)
+        // view.addSubview(containerView)
         [containerView, bgView].forEach { view.addSubview($0) }
         containerView.addSubview(titleLabel)
         
@@ -97,20 +96,18 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     
     @objc func timerCallBack() {
         if initialCountNumber > 0 {
+            self.announceForAccessibility("\(self.initialCountNumber)")
             titleLabel.text = "\(initialCountNumber)"
-            DispatchQueue.main.async {
-                UIAccessibility.post(notification: .announcement, argument: "\(self.initialCountNumber)")
-                self.initialCountNumber -= 1
-            }
+            self.initialCountNumber -= 1
         } else {
+//            self.announceForAccessibility("말해 주세요.")
+            titleLabel.isAccessibilityElement = false
+            HapticManager.shared?.playSplash()
             titleLabel.text = "말해 주세요"
-            DispatchQueue.main.async {
-                self.mTimer?.invalidate()
-                UIAccessibility.post(notification: .announcement, argument: "말해주세요")
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-                self.onTimerEnd()
-            }
+            self.mTimer?.invalidate()
+            self.onTimerEnd()
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//            }
         }
 //        soundManager.playTTS(String(initialCountNumber))
     }
@@ -127,13 +124,7 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     
     /// Speech To Text 기능 구현
     private func startRecording() throws {
-        
-        // 작업중인 task 종료
-//        if let recognitionTask = recognitionTask {
-//            recognitionTask.cancel()
-//            self.recognitionTask = nil
-//        }
-        
+    
         do {
             try AVAudioSession.sharedInstance().setCategory(.record, mode: .measurement, options: .duckOthers)
             try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
@@ -142,10 +133,6 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
         }
         
         let inputNode = audioEngine.inputNode
-
-        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
-        
-        guard let recognitionRequest = recognitionRequest else { fatalError("Unable to created a SFSpeechAudioBufferRecognitionRequest object") }
         
         recognitionRequest.shouldReportPartialResults = true
         
@@ -156,28 +143,24 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
             }
         }
         
-        recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest) { result, error in
+        recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest) { result, _ in
             // Text 일치여부 판별
             if let result = result {
                 Log.t(result.bestTranscription.formattedString)
 
                 if result.bestTranscription.formattedString.trimmingCharacters(in:.whitespacesAndNewlines) == "열어줄래요" {
-                    Log.i("열어줄래용?")
                     inputNode.removeTap(onBus: 0)
-                    self.stopAndChangeView(isSuccess: 0) //0
-                    Log.i("열어줄래요 이후")
+                    self.stopAndChangeView(isSuccess: 0) // 0
                 } else if result.bestTranscription.formattedString == "싫어요" {
-                    self.stopAndChangeView(isSuccess: 1) //1
                     inputNode.removeTap(onBus: 0)
-                    Log.i("싫어요 이후")
-                  
+                    self.stopAndChangeView(isSuccess: 1) // 1
                 }
             }
         }
 
         let recordingFormat = inputNode.outputFormat(forBus: 0)
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, _: AVAudioTime) in
-            self.recognitionRequest?.append(buffer)
+            self.recognitionRequest.append(buffer)
         }
         
         audioEngine.prepare()
@@ -185,16 +168,32 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
     }
     
     private func stopAndChangeView(isSuccess: Int) {
-        recognitionTask?.cancel()  
+        recognitionTask?.finish()
+        recognitionTask = nil
         audioEngine.stop()
         
         do {
-            try AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+            try AVAudioSession.sharedInstance().setCategory(prevCategory, options: prevOptions)
         } catch {
             Log.e(error.localizedDescription)
         }
         
         UserDefaults.standard.set(isSuccess, forKey: "key")
-        self.navigationController?.pushViewController(WindowEndingViewController(), animated: false)
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(WindowEndingViewController(), animated: false)
+        }
+    }
+}
+
+extension UIViewController {
+    func announceForAccessibility(_ string: String) {
+        Task {
+            // Delay the task by 100 milliseconds
+            try await Task.sleep(nanoseconds: UInt64(0.1 * Double(NSEC_PER_SEC)))
+            
+            // Announce the string using VoiceOver
+            let announcementString = NSAttributedString(string: string, attributes: [.accessibilitySpeechQueueAnnouncement : true])
+            UIAccessibility.post(notification: .announcement, argument: announcementString)
+        }
     }
 }
