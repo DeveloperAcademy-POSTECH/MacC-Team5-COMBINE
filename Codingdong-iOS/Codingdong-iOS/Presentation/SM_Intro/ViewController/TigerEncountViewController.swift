@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Log
 
 final class TigerEncountViewController: UIViewController, ConfigUI {
     var viewModel = TigerEncounterViewModel()
@@ -36,41 +37,19 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
         return leftBarButton
     }()
     
-//    private let labelComponents = TigerEncountView()
-    
-    private let firstLabel: UILabel = {
+    private let contentLabel: UILabel = {
         let label = UILabel()
-        label.text = "고개를 넘던 엄마는 호랑이를 마주치고 말았어요."
-        label.font = FontManager.body()
-        label.textColor = .gs10
-        label.numberOfLines = 0
-        label.lineBreakMode = .byCharWrapping
-        return label
-    }()
-    
-    private let secondLabel: UILabel = {
-        let label = UILabel()
-        label.text = "\"떡 하나 주면 안 잡아먹지!\""
-        label.font = FontManager.body()
-        label.textColor = .gs10
-        label.numberOfLines = 0
-        label.lineBreakMode = .byCharWrapping
-        return label
-    }()
-    
-    private let thirdLabel: UILabel = {
-        let label = UILabel()
-        label.text = "호랑이가 엄마에게 떡을 달라며 무섭게 으르렁 거리고 있어요."
-        label.font = FontManager.body()
-        label.textColor = .gs10
-        label.numberOfLines = 0
-        label.lineBreakMode = .byCharWrapping
-        return label
-    }()
-    
-    private let fourthLabel: UILabel = {
-        let label = UILabel()
-        label.text = "호랑이에게 줄 떡꼬치를 만들어야해요!"
+        label.text = """
+                    첫번째 이야기
+
+                    고개를 넘던 엄마는 호랑이를 마주치고 말았어요.
+
+                    “떡 하나 주면 안 잡아먹지!”
+
+                    호랑이가 엄마에게 떡을 달라며 무섭게 으르렁 거리고 있어요.
+
+                    호랑이에게 줄 떡꼬치를 만들어야해요!
+                    """
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
@@ -89,10 +68,10 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
+        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
-        setupAccessibility()
         binding()
     }
     
@@ -109,48 +88,26 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [firstLabel, secondLabel, thirdLabel, fourthLabel, nextButton].forEach { view.addSubview($0) }
+        [contentLabel, nextButton].forEach { view.addSubview($0) }
     }
     
     func setConstraints() {
         nextButton.setup(model: nextButtonViewModel)
         
-        firstLabel.snp.makeConstraints {
+        contentLabel.snp.makeConstraints {
             $0.top.equalTo(naviLine.snp.bottom).offset(basicPadding)
-            $0.left.equalToSuperview().offset(basicPadding)
-            $0.right.equalToSuperview().offset(-basicPadding)
-        }
-        
-        secondLabel.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(basicPadding)
-            $0.right.equalToSuperview().offset(-basicPadding)
-            $0.top.equalTo(firstLabel.snp.bottom).offset(basicPadding * 2)
-        }
-        
-        thirdLabel.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(basicPadding)
-            $0.right.equalToSuperview().offset(-basicPadding)
-            $0.top.equalTo(secondLabel.snp.bottom).offset(basicPadding * 2)
-        }
-        
-        fourthLabel.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(basicPadding)
-            $0.right.equalToSuperview().offset(-basicPadding)
-            $0.top.equalTo(thirdLabel.snp.bottom).offset(basicPadding * 2)
+            $0.left.right.equalToSuperview().inset(basicPadding)
         }
         
         nextButton.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(basicPadding)
-            $0.right.equalToSuperview().offset(-basicPadding)
+            $0.left.right.equalToSuperview().inset(basicPadding)
             $0.bottom.equalToSuperview().offset(-basicPadding * 2)
         }
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [navigationTitle,  leftBarButtonItem]
-        view.accessibilityElements = [firstLabel, secondLabel, thirdLabel, fourthLabel, nextButton]
-//        view.accessibilityElements = [labelComponents.containerView, nextButton]
-        
+        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
+        view.accessibilityElements = [contentLabel, nextButton]
         leftBarButtonItem.accessibilityLabel = "내 책장"
     }
     

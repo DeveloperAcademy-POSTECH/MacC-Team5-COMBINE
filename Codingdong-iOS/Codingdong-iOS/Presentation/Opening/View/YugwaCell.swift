@@ -9,6 +9,18 @@ import UIKit
 
 final class YugwaCell: UICollectionViewCell {
     
+    override var isAccessibilityElement: Bool {
+        get { return true }
+        set { }
+    }
+    
+    override var accessibilityLabel: String? {
+        get {
+            return "\(model.concept) 배지"
+        }
+        set { }
+    }
+    
     static let identifier = "YugwaCell"
     
     var model: Yugwa {

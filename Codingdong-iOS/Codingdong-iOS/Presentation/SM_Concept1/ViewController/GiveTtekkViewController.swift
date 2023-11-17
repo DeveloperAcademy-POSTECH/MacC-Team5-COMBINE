@@ -10,7 +10,7 @@ import CoreMotion
 import Log
 
 final class GiveTtekkViewController: UIViewController, ConfigUI {
-    var viewModel = TtekkkochiViewModel()
+
     private let padding = Constants.View.padding
     
     private let hapticManager = HapticManager()
@@ -68,8 +68,8 @@ final class GiveTtekkViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        setupNavigationBar()
         setupAccessibility()
+        setupNavigationBar()
         addComponents()
         setConstraints()
         countShake()
@@ -78,7 +78,6 @@ final class GiveTtekkViewController: UIViewController, ConfigUI {
     func setupAccessibility() {
         navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
         view.accessibilityElements = [storyLabel, nextButton]
-        
         leftBarButtonItem.accessibilityLabel = "내 책장"
     }
     

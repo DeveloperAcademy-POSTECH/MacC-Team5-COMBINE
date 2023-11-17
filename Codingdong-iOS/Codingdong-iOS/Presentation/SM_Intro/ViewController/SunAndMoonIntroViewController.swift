@@ -27,6 +27,16 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
         return label
     }()
     
+    private lazy var leftBarButtonItem: UIBarButtonItem = {
+        let leftBarButton = UIBarButtonItem(
+            image: UIImage(systemName: "chevron.backward"),
+            style: .plain,
+            target: self,
+            action: #selector(popThisView)
+        )
+        return leftBarButton
+    }()
+    
     // 지우기
     // private let labelComponents = SunAndMoonIntroView()
     private let introLabel: UILabel = {
@@ -111,10 +121,10 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
+        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
-        setupAccessibility()
         binding()
     }
     
@@ -127,12 +137,7 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
         }
         self.navigationController?.navigationBar.tintColor = .gs20
         self.navigationItem.titleView = self.navigationTitle
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "chevron.left"),
-            style: .plain,
-            target: self,
-            action: #selector(popThisView)
-        )
+        self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
     }
     
     func addComponents() {
@@ -185,9 +190,16 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "이전 화면으로 이동"
-        view.accessibilityElements = [introLabel, firstConceptLabel, firstDescriptionLabel, secondConceptLabel, secondDescriptionLabel, thirdConceptLabel, thirdDescriptionLabel, nextButton]
-        
+        leftBarButtonItem.accessibilityLabel = "뒤로가기"
+        let groupedElement = UIAccessibilityElement(accessibilityContainer: self)
+        var groupedFrame = CGRect.zero
+        groupedElement.accessibilityLabel = ""
+        [introLabel, firstConceptLabel, firstDescriptionLabel, secondConceptLabel, secondDescriptionLabel, thirdConceptLabel, thirdDescriptionLabel].forEach {
+            if let labelText = $0.text { groupedElement.accessibilityLabel?.append(contentsOf: "\(labelText)\n") }
+            groupedFrame = groupedFrame == .zero ? $0.frame : groupedFrame.union($0.frame)
+        }
+        groupedElement.accessibilityFrameInContainerSpace = UIAccessibility.convertToScreenCoordinates(groupedFrame, in: view)
+        view.accessibilityElements = [groupedElement, nextButton]
     }
 
     func binding() {
@@ -204,4 +216,5 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     func popThisView() {
         self.navigationController?.popToRootViewController(animated: false)
     }
+    
 }
