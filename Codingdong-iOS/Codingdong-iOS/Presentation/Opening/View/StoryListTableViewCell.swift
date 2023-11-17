@@ -9,6 +9,18 @@ import UIKit
 
 final class StoryListTableViewCell: UITableViewCell {
     
+    override var isAccessibilityElement: Bool {
+        get { return true }
+        set { }
+    }
+    
+    override var accessibilityLabel: String? {
+        get {
+            return model.isRead ? "\(model.title)" : "\(model.title). 잠겨있음."
+        }
+        set { }
+    }
+    
     static let identifier = "StoryListTableViewCell"
     
     private let containerView: UIView = {

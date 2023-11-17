@@ -62,13 +62,32 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
         self?.navigationController?.pushViewController(RepeatConceptViewController(), animated: false)
     }
     
+    lazy var lottieView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        LottieManager.shared.setAnimationForOnui(named: "OnuiAnimation", inView: view)
+        return view
+    }()
+    
     // MARK: - View Init
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
-        setupAccessibility()
+//        playAnimationWithVoiceOver()
+        if UIAccessibility.isVoiceOverRunning {
+            NotificationCenter.default.addObserver(self, selector: #selector(voiceOverFocusChanged), name: UIAccessibility.elementFocusedNotification, object: nil)
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+//                LottieManager.shared.playWithProgressTimeAnimation(inView: self.lottieView, from: 0, to: 0.8, completion: nil)
+            }
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func setupNavigationBar() {
@@ -84,7 +103,7 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [contentLabel, sunmoonImage, nextButton].forEach { view.addSubview($0) }
+        [contentLabel, lottieView, nextButton].forEach { view.addSubview($0) }
     }
     
     func setConstraints() {
@@ -93,10 +112,8 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
             $0.left.right.equalToSuperview().inset(16)
         }
         
-        sunmoonImage.snp.makeConstraints {
-            $0.top.equalTo(contentLabel.snp.bottom).offset(123)
-            $0.left.equalToSuperview().offset(24)
-            $0.right.equalToSuperview().offset(-24)
+        lottieView.snp.makeConstraints {
+            $0.top.left.right.bottom.equalToSuperview()
         }
         
         nextButton.setup(model: nextButtonViewModel)
@@ -116,7 +133,31 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
         sunmoonImage.accessibilityLabel = "해와 달이 된 오누이"
     }
     
+}
+
+extension SunMoonOnuiiViewController {
+    
     @objc private func popThisView() {
         self.navigationController?.popToRootViewController(animated: false)
     }
+    
+    func playAnimationWithVoiceOver() {
+        if UIAccessibility.isVoiceOverRunning {
+            NotificationCenter.default.addObserver(self, selector: #selector(voiceOverFocusChanged), name: UIAccessibility.elementFocusedNotification, object: nil)
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+//                LottieManager.shared.playWithProgressTimeAnimation(inView: self.lottieView, from: 0, to: 0.8, completion: nil)
+            }
+        }
+    }
+    
+    @objc
+    private func voiceOverFocusChanged(_ notification: Notification) {
+        if let focusedElement = notification.userInfo?[UIAccessibility.focusedElementUserInfoKey] as? NSObject, focusedElement === contentLabel {
+            LottieManager.shared.playWithProgressTimeAnimation(inView: self.lottieView, completion: nil)
+            LottieManager.shared.removeAnimation(inView: self.lottieView)
+            UIAccessibility.post(notification: .layoutChanged, argument: nil)
+        }
+    }
+    
 }

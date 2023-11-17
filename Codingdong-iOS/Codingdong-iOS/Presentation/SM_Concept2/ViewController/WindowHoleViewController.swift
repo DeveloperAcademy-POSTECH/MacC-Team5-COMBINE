@@ -80,10 +80,10 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
+        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
-        setupAccessibility()
         setGestureRecognizer()
         nextButton.isHidden = true
         nextButton.setup(model: nextButtonViewModel)
