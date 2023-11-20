@@ -1131,6 +1131,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1189,6 +1190,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1210,6 +1212,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "코딩동";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "음성인식을 위한 마이크 사용 권한";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = Codongdong;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1243,6 +1246,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "코딩동";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "음성인식을 위한 마이크 사용 권한";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = Codongdong;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
