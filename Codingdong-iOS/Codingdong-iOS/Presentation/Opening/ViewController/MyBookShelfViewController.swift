@@ -158,7 +158,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         }
         
         badgeTitle.snp.makeConstraints {
-            $0.top.equalTo(storyList.snp.bottom).offset(32)
+            $0.top.equalTo(naviLine.snp.bottom).offset(280)
             $0.left.equalToSuperview().offset(18)
         }
         
@@ -176,7 +176,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
             $0.top.equalTo(storyTitle.snp.bottom).offset(16)
             $0.left.equalToSuperview().offset(16)
             $0.right.equalToSuperview().offset(-16)
-            $0.height.equalTo(180)
+            $0.height.equalTo(60)
         }
         
         cookieContainer.snp.makeConstraints {
