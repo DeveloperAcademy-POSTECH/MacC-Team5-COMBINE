@@ -191,15 +191,30 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     
     func setupAccessibility() {
         leftBarButtonItem.accessibilityLabel = "뒤로가기"
-        let groupedElement = UIAccessibilityElement(accessibilityContainer: self)
-        var groupedFrame = CGRect.zero
-        groupedElement.accessibilityLabel = ""
-        [introLabel, firstConceptLabel, firstDescriptionLabel, secondConceptLabel, secondDescriptionLabel, thirdConceptLabel, thirdDescriptionLabel].forEach {
-            if let labelText = $0.text { groupedElement.accessibilityLabel?.append(contentsOf: "\(labelText)\n") }
-            groupedFrame = groupedFrame == .zero ? $0.frame : groupedFrame.union($0.frame)
+        
+//        let groupedElement = UIAccessibilityElement(accessibilityContainer: self)
+//        var groupedFrame = CGRect.zero
+//        groupedElement.accessibilityLabel = ""
+//        [introLabel, firstConceptLabel, firstDescriptionLabel, secondConceptLabel, secondDescriptionLabel, thirdConceptLabel, thirdDescriptionLabel].forEach {
+//            if let labelText = $0.text { groupedElement.accessibilityLabel?.append(contentsOf: "\(labelText)\n") }
+//            groupedFrame = groupedFrame == .zero ? $0.frame : groupedFrame.union($0.frame)
+//        }
+//        groupedElement.accessibilityFrameInContainerSpace = UIAccessibility.convertToScreenCoordinates(groupedFrame, in: view)
+//        view.accessibilityElements = [groupedElement, nextButton]
+        
+        // TODO: Refactor 절실,,,
+        view.accessibilityElements = [introLabel]
+        [[firstConceptLabel, firstDescriptionLabel], [secondConceptLabel, secondDescriptionLabel], [thirdConceptLabel, thirdDescriptionLabel]].forEach {
+            let groupedElement = UIAccessibilityElement(accessibilityContainer: self)
+            let labelText: String = "\($0[0].text ?? "")\n\($0[1].text ?? "")"
+            var groupedFrame = CGRect.zero
+            groupedElement.accessibilityLabel = labelText
+            groupedFrame = $0[0].frame.union($0[1].frame)
+            groupedElement.accessibilityFrameInContainerSpace = UIAccessibility.convertToScreenCoordinates(groupedFrame, in: view)
+            view.accessibilityElements?.append(groupedElement)
         }
-        groupedElement.accessibilityFrameInContainerSpace = UIAccessibility.convertToScreenCoordinates(groupedFrame, in: view)
-        view.accessibilityElements = [groupedElement, nextButton]
+        view.accessibilityElements?.append(nextButton)
+        
     }
 
     func binding() {
