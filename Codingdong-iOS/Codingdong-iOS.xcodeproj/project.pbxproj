@@ -54,7 +54,9 @@
 		116A95532ADF72AB0096760A /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A95522ADF72AB0096760A /* FontManager.swift */; };
 		116A95542ADF72AB0096760A /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A95522ADF72AB0096760A /* FontManager.swift */; };
 		116A95552ADF72AB0096760A /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A95522ADF72AB0096760A /* FontManager.swift */; };
+		117D27862B074C5D00AF22B3 /* OnuiAnimation_Fixed.json in Resources */ = {isa = PBXBuildFile; fileRef = 117D27852B074C5D00AF22B3 /* OnuiAnimation_Fixed.json */; };
 		1186768E2AE664290012FAFC /* TigerAnimation_HD.json in Resources */ = {isa = PBXBuildFile; fileRef = 1186768D2AE664290012FAFC /* TigerAnimation_HD.json */; };
+		11CB85D82B069046008BA135 /* OnuiAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 11CB85D72B069046008BA135 /* OnuiAnimation.json */; };
 		11CD0EDC2AFD56B800911B64 /* TigerEncountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */; };
 		11CD0EDF2AFD56D500911B64 /* TigerEncountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EDE2AFD56D500911B64 /* TigerEncountViewController.swift */; };
 		11CD0EE32AFDFCC400911B64 /* MoreTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EE22AFDFCC400911B64 /* MoreTitleViewController.swift */; };
@@ -167,7 +169,9 @@
 		116A95342ADF72560096760A /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		116A95352ADF72560096760A /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		116A95522ADF72AB0096760A /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		117D27852B074C5D00AF22B3 /* OnuiAnimation_Fixed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = OnuiAnimation_Fixed.json; sourceTree = "<group>"; };
 		1186768D2AE664290012FAFC /* TigerAnimation_HD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TigerAnimation_HD.json; sourceTree = "<group>"; };
+		11CB85D72B069046008BA135 /* OnuiAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = OnuiAnimation.json; sourceTree = "<group>"; };
 		11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerEncountView.swift; sourceTree = "<group>"; };
 		11CD0EDE2AFD56D500911B64 /* TigerEncountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerEncountViewController.swift; sourceTree = "<group>"; };
 		11CD0EE22AFDFCC400911B64 /* MoreTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTitleViewController.swift; sourceTree = "<group>"; };
@@ -392,6 +396,8 @@
 			children = (
 				1186768D2AE664290012FAFC /* TigerAnimation_HD.json */,
 				67BAECE82AFFFFC0006FB6D3 /* TigerHandHoleAnimation.json */,
+				117D27852B074C5D00AF22B3 /* OnuiAnimation_Fixed.json */,
+				11CB85D72B069046008BA135 /* OnuiAnimation.json */,
 				67BAECE72AFFFFC0006FB6D3 /* TigerNoseHoleAnimation.json */,
 				67BAECE62AFFFFC0006FB6D3 /* TigerTailHoleAnimation.json */,
 			);
@@ -424,6 +430,13 @@
 				67D89CAA2B021AF600EC68E3 /* PermissionManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		11CB85DB2B069581008BA135 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		11CD0ED92AFD568E00911B64 /* ViewController */ = {
@@ -600,6 +613,7 @@
 		A852B1792B01F8810051BE9E /* SM_Concept3 */ = {
 			isa = PBXGroup;
 			children = (
+				11CB85DB2B069581008BA135 /* View */,
 				A8C00F7C2B01F9A100201EAD /* ViewModel */,
 				A852B17A2B01F88E0051BE9E /* ViewController */,
 			);
@@ -864,6 +878,7 @@
 				67BAECE92AFFFFC0006FB6D3 /* TigerTailHoleAnimation.json in Resources */,
 				A8F41D2D2AE4FC4200BB0260 /* piano.wav in Resources */,
 				116A95452ADF72570096760A /* Pretendard-ExtraLight.otf in Resources */,
+				11CB85D82B069046008BA135 /* OnuiAnimation.json in Resources */,
 				67BAECEA2AFFFFC0006FB6D3 /* TigerNoseHoleAnimation.json in Resources */,
 				A80B883C2ADBA3EC00091FF5 /* .swiftlint.yml in Resources */,
 				A8A482072AE5E7EB00FDE35C /* bell.mp3 in Resources */,
@@ -878,6 +893,7 @@
 				116A95482ADF72570096760A /* Pretendard-Regular.otf in Resources */,
 				A83392A82ADAB35E009BA7E2 /* Assets.xcassets in Resources */,
 				116A954B2ADF72570096760A /* Pretendard-Thin.otf in Resources */,
+				117D27862B074C5D00AF22B3 /* OnuiAnimation_Fixed.json in Resources */,
 				116A953C2ADF72570096760A /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1115,6 +1131,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1173,6 +1190,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1189,11 +1207,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = W43DLLFB4Q;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = XGHDQG66U5;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "코딩동";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "음성인식을 위한 마이크 사용 권한";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = Codongdong;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1208,9 +1227,11 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.combine.CodingDong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1220,11 +1241,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = W43DLLFB4Q;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = XGHDQG66U5;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "코딩동";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "음성인식을 위한 마이크 사용 권한";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = Codongdong;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1239,9 +1261,11 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.combine.CodingDong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

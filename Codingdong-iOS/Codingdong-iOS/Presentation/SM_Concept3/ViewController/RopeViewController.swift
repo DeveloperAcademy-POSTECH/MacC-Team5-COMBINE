@@ -96,10 +96,11 @@ final class RopeViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
-        ropeImage.accessibilityLabel = "동아줄"
+        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
         view.accessibilityElements = [contentLabel, ropeImage]
-        navigationItem.accessibilityElements = [navigationTitle, leftBarButtonItem]
+        leftBarButtonItem.accessibilityLabel = "내 책장"
+        ropeImage.isAccessibilityElement = true
+        ropeImage.accessibilityLabel = "동아줄"
     }
     
     @objc func popThisView() {

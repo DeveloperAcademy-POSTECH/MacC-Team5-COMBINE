@@ -42,6 +42,8 @@ final class OnuiiViewController: UIViewController, ConfigUI {
     private let contentLabel: UILabel = {
        let label = UILabel()
         label.text = """
+         세번째 이야기
+
          오누이는 호랑이를 피하기 위해 동아줄을 붙잡고 올라갔어요.
 
          하지만, 어린 오누이는 동아줄을 잡고 올라가기가 너무 힘들었어요.
@@ -102,9 +104,9 @@ final class OnuiiViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        self.navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
         view.accessibilityElements = [contentLabel, rescueButton]
-        //navigationItem.accessibilityElements = [navigationTitle, leftBarButtonItem]
+        leftBarButtonItem.accessibilityLabel = "내 책장"
     }
     
     @objc func popThisView() {

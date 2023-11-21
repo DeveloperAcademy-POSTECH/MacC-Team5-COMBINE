@@ -80,10 +80,10 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
+        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
-        setupAccessibility()
         setGestureRecognizer()
         nextButton.isHidden = true
         nextButton.setup(model: nextButtonViewModel)
@@ -191,10 +191,13 @@ extension WindowHoleViewController {
             switch type {
             case .hand:
                 LottieManager.shared.playAnimation(inView: tigerHandHoleAnimationView.lottieView, completion: nil)
+                LottieManager.shared.removeAnimation(inView: tigerHandHoleAnimationView.lottieView)
             case .nose:
                 LottieManager.shared.playAnimation(inView: tigerNoseHoleAnimationView.lottieView, completion: nil)
+                LottieManager.shared.removeAnimation(inView: tigerNoseHoleAnimationView.lottieView)
             case .tail:
                 LottieManager.shared.playAnimation(inView: tigerTailHoleAnimationView.lottieView, completion: nil)
+                LottieManager.shared.removeAnimation(inView: tigerTailHoleAnimationView.lottieView)
             }
         }
     }

@@ -24,6 +24,24 @@ final class ReviewViewController: UIViewController, ConfigUI {
         return view
     }()
     
+    private let navigationTitle: UILabel = {
+        let label = UILabel()
+        label.text = "코딩 개념 복습"
+        label.font = FontManager.navigationtitle()
+        label.textColor = .gs20
+        return label
+    }()
+    
+    private lazy var leftBarButtonItem: UIBarButtonItem = {
+        let leftBarButton = UIBarButtonItem(
+            image: UIImage(systemName: "books.vertical"),
+            style: .plain,
+            target: self,
+            action: #selector(popThisView)
+        )
+        return leftBarButton
+    }()
+    
     private let contentLabel: UILabel = {
         let label = UILabel()
         label.text = "해님달님에서 세 가지 개념을 배웠어요"
@@ -64,6 +82,7 @@ final class ReviewViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
+        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
@@ -77,15 +96,9 @@ final class ReviewViewController: UIViewController, ConfigUI {
             $0.left.right.equalToSuperview()
             $0.height.equalTo(0.33)
         }
-        self.title = "코딩 개념 복습"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gs20, .font: FontManager.navigationtitle()]
         self.navigationController?.navigationBar.tintColor = .gs20
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "books.vertical"),
-            style: .plain,
-            target: self,
-            action: #selector(popThisView)
-        )
+        self.navigationItem.titleView = navigationTitle
+        self.navigationItem.leftBarButtonItem = leftBarButtonItem
     }
     
     func addComponents() {
@@ -145,9 +158,9 @@ final class ReviewViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        navigationItem.leftBarButtonItem?.isAccessibilityElement = true
-        navigationItem.leftBarButtonItem?.accessibilityLabel = "내 책장"
+        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
         view.accessibilityElements = [contentLabel, reviewCollectionView, nextButton]
+        leftBarButtonItem.accessibilityLabel = "내 책장"
     }
     
     @objc private func popThisView() {
