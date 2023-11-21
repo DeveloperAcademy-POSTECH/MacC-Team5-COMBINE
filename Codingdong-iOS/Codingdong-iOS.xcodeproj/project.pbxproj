@@ -432,13 +432,6 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		11CB85DB2B069581008BA135 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		11CD0ED92AFD568E00911B64 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -613,7 +606,6 @@
 		A852B1792B01F8810051BE9E /* SM_Concept3 */ = {
 			isa = PBXGroup;
 			children = (
-				11CB85DB2B069581008BA135 /* View */,
 				A8C00F7C2B01F9A100201EAD /* ViewModel */,
 				A852B17A2B01F88E0051BE9E /* ViewController */,
 			);
