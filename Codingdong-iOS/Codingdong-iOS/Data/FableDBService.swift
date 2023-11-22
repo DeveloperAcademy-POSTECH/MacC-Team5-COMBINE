@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 import Log
 
-class FableDBService {
+final class FableDBService {
     static var shared = FableDBService()
     var container: ModelContainer?
     var context: ModelContext?
