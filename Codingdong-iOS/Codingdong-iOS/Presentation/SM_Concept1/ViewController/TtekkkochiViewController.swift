@@ -42,7 +42,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     
     private let titleLabel: UILabel = {
        let label = UILabel()
-        label.text = "하단의 떡 블록을 탭 해서 꼬치에 순서대로 끼워 주세요."
+        label.text = "화면 아래쪽에 노오란 떡들이 놓여져 있어. 아래로 가볼까?"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = FontManager.body()
         label.textColor = .gs10
@@ -70,15 +70,20 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     private let bottomView = TtekkkochiSelectionView()
     
     private let nextButton = CommonButton()
-    private lazy var settingButtonViewModel = CommonbuttonModel(title: "떡을 준다", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
+    private lazy var settingButtonViewModel = CommonbuttonModel(title: "꼬치를 준다", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
        self?.viewModel.selectItem()
     }
 
+    private lazy var ttekkkochiCollectionViewElement: UIAccessibilityElement = {
+        let element = UIAccessibilityElement(accessibilityContainer: self.view!)
+        element.accessibilityLabel = "조금만 더 아래로 가면 돼! '만약에' 떡과, '아니면' 떡을 활용해 순서에 맞게 끼워보렴"
+        return element
+    }()
+    
     // MARK: - View init
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
@@ -88,6 +93,12 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         binding()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupAccessibility()
+        Log.i("didLayout")
     }
     
     func setupNavigationBar() {
@@ -100,6 +111,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         self.navigationController?.navigationBar.tintColor = .gs20
         self.navigationItem.titleView = self.navigationTitle
         self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
+        navigationController?.navigationBar.accessibilityElementsHidden = true
     }
     
     func addComponents() {
@@ -145,12 +157,10 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        leftBarButtonItem.accessibilityLabel = "내 책장"
-        view.accessibilityElements = [titleLabel, ttekkkochiCollectionView, bottomView, nextButton]
-        ttekkkochiCollectionView.isAccessibilityElement = true
-        ttekkkochiCollectionView.accessibilityLabel = "하단의 떡 블록들을 만약, 아니면을 활용해 순서에 맞게 끼워보렴"
-        // TODO: 하단으로 이동시 상단의 떡블록에 대한 라벨 사라져야 함
+        let leftBarButtonElement = setupLeftBackButtonItemAccessibility(label: "내 책장")
+        ttekkkochiCollectionView.isAccessibilityElement = false
+        ttekkkochiCollectionViewElement.accessibilityFrameInContainerSpace = ttekkkochiCollectionView.frame
+        view.accessibilityElements = [titleLabel, ttekkkochiCollectionViewElement, bottomView, nextButton, leftBarButtonElement]
     }
     
     func binding() {
@@ -184,6 +194,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
                         self.bottomView.isHidden = true
                         self.nextButton.isHidden = false
                         nextButton.setup(model: settingButtonViewModel)
+                        setupPraiseLabel()
                         // TODO: 떡 크기 확대, tts
                     default:
                         return
@@ -199,6 +210,12 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     @objc
     func popThisView() {
         self.navigationController?.popToRootViewController(animated: false)
+    }
+    
+    func setupPraiseLabel() {
+        titleLabel.text = "잘했어! 떡꼬치가 잘 만들어졌는지 한번 확인해 봐!"
+        ttekkkochiCollectionViewElement.accessibilityLabel = "만약에\n떡 하나 주면\n안 잡아먹는다\n아니면\n잡아먹는다\n잘 만들었는데? 이제 호랑이에게 주자!"
+        UIAccessibility.post(notification: .layoutChanged, argument: titleLabel)
     }
     
 }

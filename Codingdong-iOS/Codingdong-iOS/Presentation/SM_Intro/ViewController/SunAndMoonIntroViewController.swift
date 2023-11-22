@@ -29,7 +29,7 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     
     private lazy var leftBarButtonItem: UIBarButtonItem = {
         let leftBarButton = UIBarButtonItem(
-            image: UIImage(systemName: "chevron.backward"),
+            image: UIImage(systemName: "books.vertical"),
             style: .plain,
             target: self,
             action: #selector(popThisView)
@@ -41,7 +41,7 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     // private let labelComponents = SunAndMoonIntroView()
     private let introLabel: UILabel = {
         let label = UILabel()
-        label.text = "해님달님에서 아래의 코딩 개념들을 배워 보아요!"
+        label.text = "해님달님의 각 이야기를 읽고, 다음과 같은 코딩 개념들을 함께 배워보자."
         label.isAccessibilityElement = true
         label.font = FontManager.body()
         label.textColor = .gs10
@@ -52,7 +52,7 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     
     private let firstConceptLabel: UILabel = {
         let label = UILabel()
-        label.text = "개념 1. 조건문"
+        label.text = "첫번째 이야기, 조건문."
         label.font = FontManager.title3()
         label.textColor = .gs10
         label.numberOfLines = 0
@@ -72,7 +72,7 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     
     private let secondConceptLabel: UILabel = {
         let label = UILabel()
-        label.text = "개념 2. 연산자"
+        label.text = "두번째 이야기, 연산자."
         label.font = FontManager.title3()
         label.textColor = .gs10
         label.numberOfLines = 0
@@ -92,7 +92,7 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     
     private let thirdConceptLabel: UILabel = {
         let label = UILabel()
-        label.text = "개념 3. 반복문"
+        label.text = "세번째 이야기, 반복문."
         label.font = FontManager.title3()
         label.textColor = .gs10
         label.numberOfLines = 0
@@ -121,11 +121,16 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
         binding()
+    }
+    
+    // Used viewDidLayoutSubView to read the frame of each label
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupAccessibility()
     }
     
     func setupNavigationBar() {
@@ -138,6 +143,7 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
         self.navigationController?.navigationBar.tintColor = .gs20
         self.navigationItem.titleView = self.navigationTitle
         self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
+        navigationController?.navigationBar.accessibilityElementsHidden = true
     }
     
     func addComponents() {
@@ -190,31 +196,16 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        leftBarButtonItem.accessibilityLabel = "뒤로가기"
+        let leftBarButtonElement = setupLeftBackButtonItemAccessibility(label: "내 책장")
         
-//        let groupedElement = UIAccessibilityElement(accessibilityContainer: self)
-//        var groupedFrame = CGRect.zero
-//        groupedElement.accessibilityLabel = ""
-//        [introLabel, firstConceptLabel, firstDescriptionLabel, secondConceptLabel, secondDescriptionLabel, thirdConceptLabel, thirdDescriptionLabel].forEach {
-//            if let labelText = $0.text { groupedElement.accessibilityLabel?.append(contentsOf: "\(labelText)\n") }
-//            groupedFrame = groupedFrame == .zero ? $0.frame : groupedFrame.union($0.frame)
-//        }
-//        groupedElement.accessibilityFrameInContainerSpace = UIAccessibility.convertToScreenCoordinates(groupedFrame, in: view)
-//        view.accessibilityElements = [groupedElement, nextButton]
-        
-        // TODO: Refactor 절실,,,
         view.accessibilityElements = [introLabel]
         [[firstConceptLabel, firstDescriptionLabel], [secondConceptLabel, secondDescriptionLabel], [thirdConceptLabel, thirdDescriptionLabel]].forEach {
-            let groupedElement = UIAccessibilityElement(accessibilityContainer: self)
-            let labelText: String = "\($0[0].text ?? "")\n\($0[1].text ?? "")"
-            var groupedFrame = CGRect.zero
-            groupedElement.accessibilityLabel = labelText
-            groupedFrame = $0[0].frame.union($0[1].frame)
-            groupedElement.accessibilityFrameInContainerSpace = UIAccessibility.convertToScreenCoordinates(groupedFrame, in: view)
+            let groupedElement = UIAccessibilityElement(accessibilityContainer: self.view!)
+            groupedElement.accessibilityLabel = "\($0[0].text ?? "")\n\($0[1].text ?? "")"
+            groupedElement.accessibilityFrameInContainerSpace = $0[0].frame.union($0[1].frame)
             view.accessibilityElements?.append(groupedElement)
         }
-        view.accessibilityElements?.append(nextButton)
-        
+        view.accessibilityElements?.append(contentsOf: [nextButton, leftBarButtonElement])
     }
 
     func binding() {

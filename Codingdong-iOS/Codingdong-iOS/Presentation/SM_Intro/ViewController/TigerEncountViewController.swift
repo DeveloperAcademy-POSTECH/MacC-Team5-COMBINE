@@ -37,18 +37,18 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
         return leftBarButton
     }()
     
+    var allyBarTitle: UIBarButtonItem?
+    
     private let contentLabel: UILabel = {
         let label = UILabel()
         label.text = """
-                    첫번째 이야기
-
-                    고개를 넘던 엄마는 호랑이를 마주치고 말았어요.
+                    고개를 넘던 엄마는, 호랑이를 마주치고 말았어.
 
                     “떡 하나 주면 안 잡아먹지!”
 
-                    호랑이가 엄마에게 떡을 달라며 무섭게 으르렁 거리고 있어요.
+                    호랑이가 엄마에게 떡을 달라며, 무섭게 으르렁 거리고 있어.
 
-                    호랑이에게 줄 떡꼬치를 만들어야해요!
+                    호랑이에게 줄 떡꼬치를 만들어야해!
                     """
         label.font = FontManager.body()
         label.textColor = .gs10
@@ -68,11 +68,17 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
         binding()
+        Log.i("로드")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupAccessibility()
+        navigationController?.navigationBar.accessibilityElementsHidden = true
     }
     
     func setupNavigationBar() {
@@ -106,9 +112,9 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [contentLabel, nextButton]
-        leftBarButtonItem.accessibilityLabel = "내 책장"
+        let naviTitleElement = setupNavigationTitleAccessibility(label: navigationTitle.text ?? "타이틀 없음")
+        let leftBarButtonElement = setupLeftBackButtonItemAccessibility(label: "내 책장")
+        view.accessibilityElements = [naviTitleElement, contentLabel, nextButton, leftBarButtonElement]
     }
     
     func binding() {
