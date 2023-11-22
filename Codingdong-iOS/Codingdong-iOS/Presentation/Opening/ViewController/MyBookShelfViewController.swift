@@ -176,7 +176,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
             $0.top.equalTo(storyTitle.snp.bottom).offset(16)
             $0.left.equalToSuperview().offset(16)
             $0.right.equalToSuperview().offset(-16)
-            $0.height.equalTo(60)
+            $0.height.equalTo(180)
         }
         
         cookieContainer.snp.makeConstraints {
@@ -200,6 +200,8 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     }
     
     func fetchData() {
+        
+        
         if yugwaList.haveYugwa == false {
             innerLabel.isHidden = false
             innerView.isHidden = true
