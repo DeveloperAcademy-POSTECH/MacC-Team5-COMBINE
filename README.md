@@ -14,5 +14,5 @@
 
 
 # 📱 주요 화면
-<img src = "https://github.com/JYPjoy/MacC-Team5-COMBINE/blob/master/screenshot.png?raw=true" width = "1000">
+<img src = "https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/blob/develop/screenshot.png?raw=true" width = "1000">
 
