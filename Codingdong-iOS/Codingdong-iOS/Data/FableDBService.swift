@@ -26,7 +26,7 @@ final class FableDBService {
     }
     
     func fetchFable(onCompletion: @escaping([FableData]?, Error?) -> Void) {
-        let descriptor = FetchDescriptor<FableData>()
+        let descriptor = FetchDescriptor<FableData>(sortBy: [SortDescriptor<FableData>(\.title, order: .reverse)])
         
         if let context {
             do {
