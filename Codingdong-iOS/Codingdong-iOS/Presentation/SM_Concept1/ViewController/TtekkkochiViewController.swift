@@ -7,7 +7,6 @@
 
 import UIKit
 import Combine
-import Log
 
 final class TtekkkochiViewController: UIViewController, ConfigUI {
     var viewModel = TtekkkochiViewModel()
@@ -99,7 +98,6 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupAccessibility()
-        Log.i("didLayout")
     }
     
     func setupNavigationBar() {
@@ -121,38 +119,33 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     
     func setConstraints() {
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(122)
-            $0.left.equalToSuperview().offset(16)
-            $0.right.equalToSuperview().offset(-16)
+            $0.top.equalTo(naviLine.snp.bottom).offset(16)
+            $0.left.right.equalToSuperview().inset(16)
         }
         
         ttekkkochiCollectionView.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(76)
-            $0.left.equalToSuperview().offset(95)
-            $0.right.equalToSuperview().offset(-95)
-            $0.bottom.equalToSuperview().offset(-226)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(32)
+            $0.left.right.equalToSuperview().inset(95)
+            $0.bottom.equalTo(bottomView.snp.top).offset(-122)
         }
         
         stickView.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(70)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(8)
-            $0.bottom.equalTo(bottomView.snp.top).offset(-50)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(28)
+            $0.left.right.equalToSuperview().inset(191)
+            $0.bottom.equalTo(bottomView.snp.top).offset(-72)
         }
         
         self.view.sendSubviewToBack(stickView)
         
         bottomView.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
-            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
-            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
+            $0.left.right.equalToSuperview().inset(Constants.Button.buttonPadding)
+            $0.bottom.equalToSuperview().inset(Constants.Button.buttonPadding * 2)
             $0.height.equalTo(112)
         }
         
         nextButton.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
-            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
-            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
+            $0.left.right.equalToSuperview().inset(Constants.Button.buttonPadding)
+            $0.bottom.equalToSuperview().inset(Constants.Button.buttonPadding * 2)
             $0.height.equalTo(72)
         }
     }
