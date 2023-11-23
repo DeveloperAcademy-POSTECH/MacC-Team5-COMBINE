@@ -29,7 +29,7 @@ final class StoryListTableViewCell: UITableViewCell {
         return view
     }()
     
-    var model: Fable {
+    var model: FableData {
         didSet {
             isReadSymbolImage.image = model.isRead ? UIImage(systemName: "play.square") : UIImage(systemName: "lock.fill")
             titleLabel.text = model.title
@@ -63,7 +63,7 @@ final class StoryListTableViewCell: UITableViewCell {
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        self.model = Fable(isRead: false, title: "")
+        self.model = FableData(title: "", isRead: false)
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(containerView)
         [isReadSymbolImage, titleLabel, isReadChevronImage].forEach { containerView.addSubview($0)

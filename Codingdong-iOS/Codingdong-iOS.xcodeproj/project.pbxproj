@@ -85,6 +85,7 @@
 		A80B882A2ADB9A2400091FF5 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88292ADB9A2400091FF5 /* RxRelay */; };
 		A80B883C2ADBA3EC00091FF5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */; };
 		A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81637232ADFC5FD0070DAC9 /* Constants.swift */; };
+		A827FA252B0DB36300E6B7B8 /* FableDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A827FA242B0DB36300E6B7B8 /* FableDBService.swift */; };
 		A828A66B2AFF05DB00B11D71 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828A66A2AFF05DB00B11D71 /* CardView.swift */; };
 		A832B11A2AFF43E500E1CE9B /* YugwaList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832B1192AFF43E500E1CE9B /* YugwaList.swift */; };
 		A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */; };
@@ -197,6 +198,7 @@
 		A80A05342AFFCE9C00624BBC /* MyBookShelfViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookShelfViewModel.swift; sourceTree = "<group>"; };
 		A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A81637232ADFC5FD0070DAC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A827FA242B0DB36300E6B7B8 /* FableDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FableDBService.swift; sourceTree = "<group>"; };
 		A828A66A2AFF05DB00B11D71 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		A832B1192AFF43E500E1CE9B /* YugwaList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YugwaList.swift; sourceTree = "<group>"; };
 		A833929B2ADAB35D009BA7E2 /* Codingdong-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codingdong-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -432,13 +434,6 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		11CB85DB2B069581008BA135 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		11CD0ED92AFD568E00911B64 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,6 +537,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		A827FA232B0DB33700E6B7B8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A827FA242B0DB36300E6B7B8 /* FableDBService.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		A828A6692AFF054800B11D71 /* SM_Concept1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -587,6 +590,7 @@
 			children = (
 				A80B882B2ADB9A8400091FF5 /* Application */,
 				A8BC0DB02AE33FBB00AD5C9A /* Model */,
+				A827FA232B0DB33700E6B7B8 /* Data */,
 				A80B882E2ADB9ABC00091FF5 /* Presentation */,
 				A80B882C2ADB9A9800091FF5 /* Util */,
 			);
@@ -613,7 +617,6 @@
 		A852B1792B01F8810051BE9E /* SM_Concept3 */ = {
 			isa = PBXGroup;
 			children = (
-				11CB85DB2B069581008BA135 /* View */,
 				A8C00F7C2B01F9A100201EAD /* ViewModel */,
 				A852B17A2B01F88E0051BE9E /* ViewController */,
 			);
@@ -1019,6 +1022,7 @@
 				A80A05352AFFCE9C00624BBC /* MyBookShelfViewModel.swift in Sources */,
 				A8C00F842B021A8200201EAD /* SunMoonOnuiiViewController.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
+				A827FA252B0DB36300E6B7B8 /* FableDBService.swift in Sources */,
 				A8C966F02B011914005105E8 /* CustomCollectionViewFlowLayout.swift in Sources */,
 				67BAECF12B000446006FB6D3 /* TigerHandHoleAnimationView.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
@@ -1219,7 +1223,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1253,7 +1257,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

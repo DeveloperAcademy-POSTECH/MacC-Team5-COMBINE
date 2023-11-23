@@ -11,6 +11,7 @@ import Log
 final class StoryListTableView: UIView {
 
     var viewModel: MyBookShelfViewModelRepresentable?
+    var fableDataList = [FableData]()
     
     // TODO: Separator 오류 해결해야 함
     private lazy var storyListTableView: UITableView = {
@@ -26,35 +27,47 @@ final class StoryListTableView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configUI()
+        fetchData()
+    }
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    func configUI() {
         addSubview(storyListTableView)
         storyListTableView.snp.makeConstraints {
             $0.left.top.right.bottom.equalToSuperview()
         }
         storyListTableView.register(StoryListTableViewCell.self, forCellReuseIdentifier: StoryListTableViewCell.identifier)
-        
     }
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    func fetchData() {
+        FableDBService.shared.fetchFable { data, error in
+            if let error { Log.e(error) }
+            if let data {
+                self.fableDataList = data
+                self.storyListTableView.reloadData()
+            }
+        }
     }
 }
 
 // MARK: - Extension
 extension StoryListTableView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fableList.count
+        return fableDataList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: StoryListTableViewCell.identifier , for: indexPath) as? StoryListTableViewCell else { fatalError() }
-        cell.model = fableList[indexPath.row]
+        cell.model = fableDataList[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if fableList[indexPath.row].title == "해님달님" {
+        if fableDataList[indexPath.row].title == "해님달님" {
             self.viewModel?.moveOn(.sunmoon)
         }
     }
