@@ -61,6 +61,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     private lazy var ttekkkochiCollectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.register(TtekkkochiCollectionViewCell.self, forCellWithReuseIdentifier: TtekkkochiCollectionViewCell.identifier)
+        view.isAccessibilityElement = false
         view.backgroundColor = .clear
         view.dataSource = self
         view.delegate = self
@@ -74,8 +75,8 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
        self?.viewModel.selectItem()
     }
 
-    private lazy var ttekkkochiCollectionViewElement: UIAccessibilityElement = {
-        let element = UIAccessibilityElement(accessibilityContainer: self.view!)
+    private let ttekkkochiCollectionViewElement: UIAccessibilityElement = {
+        let element = UIAccessibilityElement(accessibilityContainer: TtekkkochiViewController.self)
         element.accessibilityLabel = "조금만 더 아래로 가면 돼! '만약에' 떡과, '아니면' 떡을 활용해 순서에 맞게 끼워보렴"
         return element
     }()
@@ -158,7 +159,6 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     
     func setupAccessibility() {
         let leftBarButtonElement = setupLeftBackButtonItemAccessibility(label: "내 책장")
-        ttekkkochiCollectionView.isAccessibilityElement = false
         ttekkkochiCollectionViewElement.accessibilityFrameInContainerSpace = ttekkkochiCollectionView.frame
         view.accessibilityElements = [titleLabel, ttekkkochiCollectionViewElement, bottomView, nextButton, leftBarButtonElement]
     }

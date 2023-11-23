@@ -55,7 +55,7 @@
 		116A95542ADF72AB0096760A /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A95522ADF72AB0096760A /* FontManager.swift */; };
 		116A95552ADF72AB0096760A /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A95522ADF72AB0096760A /* FontManager.swift */; };
 		117D27862B074C5D00AF22B3 /* OnuiAnimation_Fixed.json in Resources */ = {isa = PBXBuildFile; fileRef = 117D27852B074C5D00AF22B3 /* OnuiAnimation_Fixed.json */; };
-		117D27892B0CCE9200AF22B3 /* Accessibility+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D27882B0CCE9200AF22B3 /* Accessibility+.swift */; };
+		117D27892B0CCE9200AF22B3 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D27882B0CCE9200AF22B3 /* UIViewController+.swift */; };
 		1186768E2AE664290012FAFC /* TigerAnimation_HD.json in Resources */ = {isa = PBXBuildFile; fileRef = 1186768D2AE664290012FAFC /* TigerAnimation_HD.json */; };
 		11CB85D82B069046008BA135 /* OnuiAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 11CB85D72B069046008BA135 /* OnuiAnimation.json */; };
 		11CD0EDC2AFD56B800911B64 /* TigerEncountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */; };
@@ -171,7 +171,7 @@
 		116A95352ADF72560096760A /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		116A95522ADF72AB0096760A /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		117D27852B074C5D00AF22B3 /* OnuiAnimation_Fixed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = OnuiAnimation_Fixed.json; sourceTree = "<group>"; };
-		117D27882B0CCE9200AF22B3 /* Accessibility+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Accessibility+.swift"; sourceTree = "<group>"; };
+		117D27882B0CCE9200AF22B3 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		1186768D2AE664290012FAFC /* TigerAnimation_HD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TigerAnimation_HD.json; sourceTree = "<group>"; };
 		11CB85D72B069046008BA135 /* OnuiAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = OnuiAnimation.json; sourceTree = "<group>"; };
 		11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerEncountView.swift; sourceTree = "<group>"; };
@@ -437,7 +437,7 @@
 		117D27872B0CCE8200AF22B3 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				117D27882B0CCE9200AF22B3 /* Accessibility+.swift */,
+				117D27882B0CCE9200AF22B3 /* UIViewController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1014,7 +1014,7 @@
 				A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */,
 				1105EEAA2B06082B001A096C /* KzPzIntroViewController.swift in Sources */,
 				67BAECF72B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift in Sources */,
-				117D27892B0CCE9200AF22B3 /* Accessibility+.swift in Sources */,
+				117D27892B0CCE9200AF22B3 /* UIViewController+.swift in Sources */,
 				A8BC0DB22AE3401800AD5C9A /* CodingBlock.swift in Sources */,
 				A852B17C2B01F90B0051BE9E /* OnuiiViewController.swift in Sources */,
 				1143C68E2AF6B0DE0032CE53 /* StoryTitle.swift in Sources */,
