@@ -47,7 +47,7 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
         label.textColor = .gs10
         label.font = FontManager.body()
         label.numberOfLines = 0
-        label.lineBreakMode = .byCharWrapping
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     

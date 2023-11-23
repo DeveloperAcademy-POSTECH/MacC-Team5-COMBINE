@@ -48,7 +48,7 @@ final class ReviewViewController: UIViewController, ConfigUI {
         label.textColor = .gs10
         label.numberOfLines = 0
         label.font = FontManager.body()
-        label.lineBreakMode = .byCharWrapping
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     

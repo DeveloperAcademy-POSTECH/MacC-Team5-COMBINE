@@ -53,7 +53,7 @@ final class WindowEndingViewController: UIViewController, ConfigUI {
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
-        label.lineBreakMode = .byCharWrapping
+        label.lineBreakMode = .byWordWrapping
         label.sizeToFit()
         return label
     }()
