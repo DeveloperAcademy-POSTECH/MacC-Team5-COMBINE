@@ -18,3 +18,8 @@ class FableData {
         self.isRead = isRead
     }
 }
+
+
+let fables = [FableData(title: "해님달님", isRead: true),
+             FableData(title: "콩쥐팥쥐", isRead: false),
+             FableData(title: "별주부전", isRead: false)]
