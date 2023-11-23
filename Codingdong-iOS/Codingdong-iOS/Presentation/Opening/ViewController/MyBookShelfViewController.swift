@@ -201,8 +201,6 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     }
     
     func fetchData() {
-        
-        
         if yugwaList.haveYugwa == false {
             innerLabel.isHidden = false
             innerView.isHidden = true
