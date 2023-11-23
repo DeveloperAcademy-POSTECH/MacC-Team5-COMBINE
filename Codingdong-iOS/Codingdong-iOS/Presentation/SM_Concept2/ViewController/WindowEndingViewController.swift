@@ -16,7 +16,7 @@ final class WindowEndingViewController: UIViewController, ConfigUI {
     private var isSuccessInt = UserDefaults.standard.integer(forKey: "key")
     let titleLabelText: [String] = ["어맛, 호랑이에게 잡아먹혔어요. 다시 해 볼까요?", "호랑이를 본 오누이는 뒷문으로 도망쳤어요!"] // 0(열어줄래요), 1(싫어요)
     let imageName: [String] = ["tigerEatEnding", "initialDoor"]
-    let buttonName: [String] = ["다시하기", "다음"]
+    let buttonName: [String] = ["다시하기", "다음으로"]
     
     private let naviLine: UIView = {
         let view = UIView()

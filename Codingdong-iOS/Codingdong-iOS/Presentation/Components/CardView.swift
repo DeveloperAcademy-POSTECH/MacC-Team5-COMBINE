@@ -47,14 +47,14 @@ final class CardView: UIView {
     private lazy var conceptImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.isAccessibilityElement = true
+        imageView.isAccessibilityElement = false
         return imageView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupView()
-        accessibilityElements = [titleLabel, contentLabel, conceptImageView]
+        accessibilityElements = [titleLabel, contentLabel]
     }
     
     required init?(coder: NSCoder) {

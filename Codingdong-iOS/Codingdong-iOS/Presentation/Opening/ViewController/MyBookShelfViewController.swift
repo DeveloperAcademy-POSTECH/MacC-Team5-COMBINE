@@ -107,9 +107,8 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        
-        setupRootView()
         setupAccessibility()
+        setupRootView()
         setupNavigationBar()
         addComponents()
         setConstraints()
@@ -136,7 +135,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         }
         self.navigationController?.navigationBar.tintColor = .gs20
         self.navigationItem.titleView = self.navigationTitle
-        self.navigationItem.hidesBackButton = true
+        navigationController?.navigationBar.accessibilityElementsHidden = true
     }
     
     func addComponents() {
@@ -196,7 +195,9 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        view.accessibilityElements = [navigationTitle, storyTitle, storyList, badgeTitle, innerLabel, innerView.badgeCollectionView]
+        let naviTitleElement = setupNavigationTitleAccessibility(label: navigationTitle.text ?? "타이틀 없음")
+        view.accessibilityElements = [naviTitleElement, storyTitle, storyList, badgeTitle, innerLabel, innerView.badgeCollectionView]
+        [storyTitle, badgeTitle].forEach { $0.accessibilityTraits = .header }
     }
     
     func fetchData() {

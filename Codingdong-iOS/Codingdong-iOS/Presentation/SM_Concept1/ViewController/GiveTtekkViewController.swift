@@ -43,7 +43,7 @@ final class GiveTtekkViewController: UIViewController, ConfigUI {
 //    
     private let storyLabel: UILabel = {
         let label = UILabel()
-        label.text = "앗! 호랑이가 또 떡을 요구해요! 기기를 흔들어서 떡을 주세요!"
+        label.text = "호랑이가 떡을 또 달래! 핸드폰을 흔들어서 얼른 떡을 줘버리자!"
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
@@ -61,7 +61,7 @@ final class GiveTtekkViewController: UIViewController, ConfigUI {
     
     private let nextButton = CommonButton()
     
-    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) { [weak self] in
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음으로", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) { [weak self] in
         self?.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
     }
     
@@ -76,9 +76,8 @@ final class GiveTtekkViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [storyLabel, nextButton]
-        leftBarButtonItem.accessibilityLabel = "내 책장"
+        let leftBarButtomElement = setupLeftBackButtonItemAccessibility(label: "내 책장")
+        view.accessibilityElements = [storyLabel, nextButton, leftBarButtomElement]
     }
     
     func setupNavigationBar() {
@@ -152,11 +151,11 @@ extension GiveTtekkViewController {
   
             self.nextButton.isHidden = false
             self.storyLabel.text = """
-                        호랑이는 떡을 먹고도 아직 배가 고픈가 봐요.
+                        욕심쟁이 호랑이는 아직도 배가 고픈가봐.
                             
-                        이제는 떡이 더이상 없는데 어떡하죠?
+                        이제는 떡이 더이상 없는데 어떡하지?
                             
-                        배고픈 호랑이가 엄마를 무섭게 노려보고 있어요.
+                        호랑이가 엄마를 무섭게 노려보고 있어,,,
                         """
             
             UIAccessibility.post(notification: .layoutChanged, argument: self.storyLabel)
@@ -168,7 +167,7 @@ extension GiveTtekkViewController {
         self.hapticManager?.playNomNom()
         
         //        TTS는 iOS 17 이슈로 동작하지 않음.
-        //        SoundManager.shared.playTTS("\(ttekks.count)개")
+//        SoundManager.shared.playTTS("\(ttekks.count)개 남았어")
         
 //        // MARK: 시나리오 추가에 대한 A/B 테스트 코드.
 //        let ttekks = ttekkStackView.arrangedSubviews

@@ -184,16 +184,3 @@ final class WindowVoiceChildViewController: UIViewController, SFSpeechRecognizer
         }
     }
 }
-
-extension UIViewController {
-    func announceForAccessibility(_ string: String) {
-        Task {
-            // Delay the task by 100 milliseconds
-            try await Task.sleep(nanoseconds: UInt64(0.1 * Double(NSEC_PER_SEC)))
-            
-            // Announce the string using VoiceOver
-            let announcementString = NSAttributedString(string: string, attributes: [.accessibilitySpeechQueueAnnouncement : true])
-            UIAccessibility.post(notification: .announcement, argument: announcementString)
-        }
-    }
-}

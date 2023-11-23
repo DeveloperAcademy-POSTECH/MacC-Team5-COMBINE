@@ -37,7 +37,7 @@ final class IfConceptViewController: UIViewController, ConfigUI {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "해님달님의 첫 번째 개념"
+        label.text = "첫 번째 코딩 간식이야"
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
@@ -47,13 +47,13 @@ final class IfConceptViewController: UIViewController, ConfigUI {
     
     private let nextButton = CommonButton()
     
-    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음 챕터로", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2, height: 72, didTouchUpInside: didClickNextButton)
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음 이야기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2, height: 72, didTouchUpInside: didClickNextButton)
     
     private let basicPadding = Constants.Button.buttonPadding
     
     private let cardView = CardView()
     
-    private let cardViewModel = CardViewModel(title: "만약에", content: "‘만약에’와 ‘아니면’으로 엄마가 고개를 넘기 위한 두 가지 상황을 만들어 볼 수 있었어요.", cardImage: "sm_concept1")
+    private let cardViewModel = CardViewModel(title: "만약에와 아니면 떡", content: "만약에 떡과, 아니면 떡으로 엄마가 고개를 넘기 위한 장면을 두개 만들어 봤어.", cardImage: "sm_concept1")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,9 +105,9 @@ final class IfConceptViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        navigationController?.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [titleLabel, cardView, nextButton]
-        leftBarButtonItem.accessibilityLabel = "내 책장"
+        let leftBarButtonElement = setupLeftBackButtonItemAccessibility(label: "내 책장")
+        let naviTitleElement = setupNavigationTitleAccessibility(label: navigationTitle.text ?? "타이틀 없음")
+        view.accessibilityElements = [naviTitleElement, titleLabel, cardView, nextButton, leftBarButtonElement]
     }
 }
 
