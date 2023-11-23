@@ -6,18 +6,20 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Fable {
+@Model
+class FableData {
+    @Attribute(.unique) var title: String
     var isRead: Bool
-    var title: String
+    
+    init(title: String, isRead: Bool) {
+        self.title = title
+        self.isRead = isRead
+    }
 }
 
-var fableList: [Fable] = [
-    Fable(isRead: true, title: "해님달님")
-//    ,
-//    Fable(isRead: false, title: "콩쥐팥쥐"),
-//    Fable(isRead: false, title: "별주부전"),
-//    Fable(isRead: false, title: "선녀와 나무꾼"),
-//    Fable(isRead: false, title: "금도끼 은도끼"),
-//    Fable(isRead: false, title: "심청전")
-]
+
+let fables = [FableData(title: "해님달님", isRead: true),
+             FableData(title: "콩쥐팥쥐", isRead: false),
+             FableData(title: "별주부전", isRead: false)]
