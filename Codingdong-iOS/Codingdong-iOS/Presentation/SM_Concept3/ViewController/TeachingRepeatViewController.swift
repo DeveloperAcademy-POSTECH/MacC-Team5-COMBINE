@@ -108,7 +108,7 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
     
     func setConstraints() {
         contentLabel.snp.makeConstraints {
-            $0.top.equalTo(naviLine.snp.bottom).offset(16)
+            $0.top.equalTo(naviLine.snp.bottom).offset(Constants.Button.buttonPadding)
             $0.left.right.equalToSuperview().inset(16)
         }
         
@@ -127,8 +127,8 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
         
         nextButton.setup(model: nextButtonViewModel)
         nextButton.snp.makeConstraints {
-            $0.top.equalTo(repeatImage.snp.bottom).offset(110)
-            $0.left.right.equalToSuperview().inset(16)
+            $0.left.right.equalToSuperview().inset(Constants.Button.buttonPadding)
+            $0.bottom.equalToSuperview().inset(Constants.Button.buttonPadding * 2)
         }
 
     }
