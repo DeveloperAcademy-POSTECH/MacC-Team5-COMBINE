@@ -7,14 +7,19 @@
 
 import UIKit
 import SnapKit
-import Log
 
 final class WindowEndingViewController: UIViewController, ConfigUI {
     
-    // TODO: isSuccess 값에 따라서 뷰가 바뀌지 않는 문제 해결 필요
-    // 나중에 @Published로 바꾸기, 지금은 일단 급함 ㅠㅠ
     private var isSuccessInt = UserDefaults.standard.integer(forKey: "key")
-    let titleLabelText: [String] = ["어맛, 호랑이에게 잡아먹혔어요. 다시 해 볼까요?", "호랑이를 본 오누이는 뒷문으로 도망쳤어요!"] // 0(열어줄래요), 1(싫어요)
+    let titleLabelText: [String] = [
+        """
+        아앗, 오누이가 호랑이한테 잡아먹히고 말았어.
+        다시 해 볼까?
+        """,
+        """
+        잘했어! 정답이야!
+        호랑이를 본 오누이는 무사히 뒷문으로 도망쳤어!
+        """]
     let imageName: [String] = ["tigerEatEnding", "initialDoor"]
     let buttonName: [String] = ["다시하기", "다음으로"]
     
@@ -44,28 +49,26 @@ final class WindowEndingViewController: UIViewController, ConfigUI {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = titleLabelText[isSuccessInt ?? 1]
+        label.text = titleLabelText[isSuccessInt]
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
         label.lineBreakMode = .byCharWrapping
+        label.sizeToFit()
         return label
     }()
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: imageName[isSuccessInt ?? 1])
+        imageView.image = UIImage(named: imageName[isSuccessInt])
         return imageView
     }()
     
     private let nextButton = CommonButton()
-    private lazy var settingButtonViewModel = CommonbuttonModel(title: buttonName[isSuccessInt ?? 1], font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
-        
-        // isSuccessInt == 1 - 탈출 성공
+    private lazy var settingButtonViewModel = CommonbuttonModel(title: buttonName[isSuccessInt], font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2, height: 72) {[weak self] in
         if self?.isSuccessInt == 1 {
             self?.navigationController?.pushViewController(AndConceptViewController(), animated: false)
         } else {
-            // isSuccessInt == 0 - 탈출실패
             guard let viewControllerStack = self?.navigationController?.viewControllers else { return }
             for viewController in viewControllerStack {
                 if let startView = viewController as? WindowVoiceViewController {
@@ -82,7 +85,6 @@ final class WindowEndingViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         setupAccessibility()
-        nextButton.setup(model: settingButtonViewModel)
     }
     
     func setupNavigationBar() {
@@ -101,34 +103,30 @@ final class WindowEndingViewController: UIViewController, ConfigUI {
         [titleLabel, imageView, nextButton].forEach {
             view.addSubview($0)
         }
+        nextButton.setup(model: settingButtonViewModel)
     }
     
     func setConstraints() {
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(122)
-            $0.left.equalToSuperview().offset(16)
-            $0.right.equalToSuperview().offset(-16)
+            $0.top.equalTo(naviLine.snp.bottom).offset(Constants.View.padding)
+            $0.left.right.equalToSuperview().inset(Constants.View.padding)
         }
         
         imageView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(222)
-            $0.bottom.equalToSuperview().offset(-152)
-            $0.left.equalToSuperview().offset(51)
-            $0.right.equalToSuperview().offset(-51)
+            $0.top.equalToSuperview().offset(256)
+            $0.left.right.equalToSuperview().inset(51)
+            $0.bottom.equalToSuperview().inset(118)
         }
         
         nextButton.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
-            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
-            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
-            $0.height.equalTo(72)
+            $0.left.right.equalToSuperview().inset(Constants.Button.buttonPadding)
+            $0.bottom.equalToSuperview().inset(Constants.Button.buttonPadding * 2)
         }
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [titleLabel, nextButton]
-        leftBarButtonItem.accessibilityLabel = "내 책장"
+        let leftBarButtonElement = setupLeftBackButtonItemAccessibility(label: "내 책장")
+        view.accessibilityElements = [titleLabel, nextButton, leftBarButtonElement]
     }
     
     @objc

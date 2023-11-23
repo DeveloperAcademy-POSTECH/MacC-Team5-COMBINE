@@ -7,7 +7,6 @@
 
 import UIKit
 import CoreMotion
-import Log
 
 final class GiveTtekkViewController: UIViewController, ConfigUI {
 
@@ -56,6 +55,7 @@ final class GiveTtekkViewController: UIViewController, ConfigUI {
         stack.axis = .vertical
         stack.spacing = 6
         stack.distribution = .fillEqually
+        stack.isAccessibilityElement = true
         return stack
     }()
     
@@ -68,16 +68,22 @@ final class GiveTtekkViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
         countShake()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupAccessibility()
+        navigationController?.navigationBar.accessibilityElementsHidden = true
+    }
+    
     func setupAccessibility() {
-        let leftBarButtomElement = setupLeftBackButtonItemAccessibility(label: "내 책장")
-        view.accessibilityElements = [storyLabel, nextButton, leftBarButtomElement]
+        let leftBarButtonElement = setupLeftBackButtonItemAccessibility(label: "내 책장")
+        view.accessibilityElements = [storyLabel, ttekkStackView, nextButton, leftBarButtonElement]
+        ttekkStackView.accessibilityLabel = "떡이 다섯개 남았어. 얼른 호랑이한테 떡을 주자!"
     }
     
     func setupNavigationBar() {
@@ -131,7 +137,6 @@ extension GiveTtekkViewController {
     @objc
     private func didClickNextButton() {
         motionManager.stopAccelerometerUpdates()
-//        self.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
     }
     
     func createTtekkViews(height: CGFloat, cornerRadius: CGFloat) -> UIView {
@@ -145,42 +150,30 @@ extension GiveTtekkViewController {
     func handleShake() {
         let ttekks = ttekkStackView.arrangedSubviews
         
-        guard let poppedView = ttekks.last else {
-            self.hapticManager?.playSplash()
-            self.motionManager.stopAccelerometerUpdates()
-  
-            self.nextButton.isHidden = false
-            self.storyLabel.text = """
+        if ttekks.count > 1 {
+            guard let poppedView = ttekks.last else { return }
+            ttekkStackView.removeArrangedSubview(poppedView)
+            poppedView.removeFromSuperview()
+            hapticManager?.playNomNom()
+            ttekkStackView.accessibilityLabel = "떡이 \(ttekks.count - 1)개 남았어. 얼른 호랑이한테 떡을 주자!"
+        } else {
+            // 다음 뷰
+            ttekkStackView.isHidden = true
+            ttekkStackView.isAccessibilityElement = false
+            hapticManager?.playSplash()
+            motionManager.stopAccelerometerUpdates()
+            nextButton.isHidden = false
+            storyLabel.text = """
                         욕심쟁이 호랑이는 아직도 배가 고픈가봐.
                             
                         이제는 떡이 더이상 없는데 어떡하지?
                             
                         호랑이가 엄마를 무섭게 노려보고 있어,,,
                         """
-            
             UIAccessibility.post(notification: .layoutChanged, argument: self.storyLabel)
-            return
         }
-        
-        ttekkStackView.removeArrangedSubview(poppedView)
-        poppedView.removeFromSuperview()
-        self.hapticManager?.playNomNom()
-        
         //        TTS는 iOS 17 이슈로 동작하지 않음.
 //        SoundManager.shared.playTTS("\(ttekks.count)개 남았어")
-        
-//        // MARK: 시나리오 추가에 대한 A/B 테스트 코드.
-//        let ttekks = ttekkStackView.arrangedSubviews
-//        
-//        guard let poppedView = ttekks.last else {
-//            self.navigationController?.pushViewController(TigerAnimationViewController(), animated: false)
-//            return
-//        }
-//        
-//        ttekkStackView.removeArrangedSubview(poppedView)
-//        poppedView.removeFromSuperview()
-//        self.hapticManager?.playNomNom()
-//        //        SoundManager.shared.playTTS("\(ttekks.count)개")
     }
     
     func countShake() {

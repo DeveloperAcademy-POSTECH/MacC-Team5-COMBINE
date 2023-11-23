@@ -7,7 +7,6 @@
 
 import UIKit
 import Combine
-import Log
 
 final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
 
@@ -39,13 +38,14 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
     private let contentLabel: UILabel = {
        let label = UILabel()
         label.text = """
-        오누이는 동아줄을 올라
-        해와 달이 되었답니다.
+        고마워! 덕분에 오누이는 동아줄을 타고 하늘로 올라갔어.
+        하늘로 올라간 오누이는 해와 달이 되어서
+        너를 밝게 비춰주고 싶대.
         """
         label.textColor = .gs10
         label.font = FontManager.body()
         label.numberOfLines = 0
-        label.lineBreakMode = .byCharWrapping
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
@@ -64,18 +64,17 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
     // MARK: - View Init
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupAccessibility()
+        view.backgroundColor = .gs90
         setupNavigationBar()
         addComponents()
         setConstraints()
-//        playAnimationWithVoiceOver()
-        if UIAccessibility.isVoiceOverRunning {
-            NotificationCenter.default.addObserver(self, selector: #selector(voiceOverFocusChanged), name: UIAccessibility.elementFocusedNotification, object: nil)
-        } else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
-//                LottieManager.shared.playWithProgressTimeAnimation(inView: self.lottieView, from: 0, to: 0.8, completion: nil)
-            }
-        }
+        playAnimationWithVoiceOver()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupAccessibility()
+        navigationController?.navigationBar.accessibilityElementsHidden = true
     }
     
     deinit {
@@ -110,17 +109,24 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
         
         nextButton.setup(model: nextButtonViewModel)
         nextButton.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
-            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
-            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding*2)
+            $0.left.right.equalToSuperview().inset(Constants.Button.buttonPadding)
+            $0.bottom.equalToSuperview().inset(Constants.Button.buttonPadding*2)
         }
         
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [contentLabel, nextButton]
-        leftBarButtonItem.accessibilityLabel = "내 책장"
+        let leftBarButtonElement = setupLeftBackButtonItemAccessibility(label: "내 책장")
+        view.accessibilityElements = [contentLabel, nextButton, leftBarButtonElement]
+        contentLabel.accessibilityLabel = """
+                                        고마워!
+                                        
+                                        덕분에 오누이는 동아줄을 타고 하늘로 올라갔어.
+                                        
+                                        하늘로 올라간 오누이는 해와 달이 되어서
+                                        
+                                        너를 밝게 비춰주고싶대.
+                                        """
     }
     
 }
@@ -136,7 +142,7 @@ extension SunMoonOnuiiViewController {
             NotificationCenter.default.addObserver(self, selector: #selector(voiceOverFocusChanged), name: UIAccessibility.elementFocusedNotification, object: nil)
         } else {
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
-//                LottieManager.shared.playWithProgressTimeAnimation(inView: self.lottieView, from: 0, to: 0.8, completion: nil)
+                LottieManager.shared.playAnimation(inView: self.lottieView, completion: nil)
             }
         }
     }

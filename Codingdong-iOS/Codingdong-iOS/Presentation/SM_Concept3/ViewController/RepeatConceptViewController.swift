@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Log
 import Combine
 
 final class RepeatConceptViewController: UIViewController, ConfigUI {
@@ -39,11 +38,11 @@ final class RepeatConceptViewController: UIViewController, ConfigUI {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "해님달님의 세 번째 개념"
+        label.text = "마지막 코딩 간식이야."
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
-        label.lineBreakMode = .byCharWrapping
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
@@ -52,20 +51,25 @@ final class RepeatConceptViewController: UIViewController, ConfigUI {
     
     // MARK: - ViewModel
     private var viewModel = OnuiiViewModel()
-    private var cardViewModel = CardViewModel(title: "거듭하기", content: "흔들기 동작을 반복하면서 오누이가 동아줄을 오를 수 있게 도와줬어요.", cardImage: "sm_concept3")
+    private var cardViewModel = CardViewModel(title: "거듭하기 젤리", content: "흔들기 동작을 반복하면서 오누이가 동아줄을 오를 수 있게 도와줬어. 고마워!", cardImage: "sm_concept3")
     
     private lazy var nextButtonViewModel = CommonbuttonModel(title: "복습하기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .gs10, height: 72) {[weak self] in
-//        self?.viewModel.moveOn()
         self?.navigationController?.pushViewController(ReviewViewController(), animated: false)
     }
     
     // MARK: - View initializer
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupAccessibility()
+        view.backgroundColor = .gs90
         setupNavigationBar()
         addComponents()
         setConstraints()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupAccessibility()
+        navigationController?.navigationBar.accessibilityElementsHidden = true
     }
     
     func setupNavigationBar() {
@@ -89,13 +93,12 @@ final class RepeatConceptViewController: UIViewController, ConfigUI {
     func setConstraints() {
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(naviLine.snp.bottom).offset(padding)
-            $0.left.equalToSuperview().offset(padding)
-            $0.right.equalToSuperview().offset(-padding)
+            $0.left.right.equalToSuperview().inset(padding)
         }
         
         cardView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(50)
-            $0.bottom.equalToSuperview().offset(-142)
+            $0.bottom.equalToSuperview().inset(142)
             $0.left.right.equalToSuperview()
         }
         
@@ -106,9 +109,9 @@ final class RepeatConceptViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [titleLabel, cardView, nextButton]
-        leftBarButtonItem.accessibilityLabel = "내 책장"
+        let leftBarButtonElement = setupLeftBackButtonItemAccessibility(label: "내 책장")
+        let naviTitleElement = setupNavigationTitleAccessibility(label: navigationTitle.text ?? "타이틀 없음")
+        view.accessibilityElements = [naviTitleElement, titleLabel, cardView, nextButton, leftBarButtonElement]
     }
 
     @objc func popThisView() {
