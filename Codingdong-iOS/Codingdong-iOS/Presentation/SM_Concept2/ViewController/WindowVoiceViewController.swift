@@ -10,7 +10,7 @@ import SnapKit
 import Log
 
 final class WindowVoiceViewController: UIViewController, ConfigUI {
-    
+
     private let naviLine: UIView = {
         let view = UIView()
         view.backgroundColor = .white.withAlphaComponent(0.15)
@@ -38,15 +38,15 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = """
-                    문 밖에 누가 있는지 확인했나요?
-                    
-                    문을 열어줄까요?
-                    '열어줄래요', '싫어요' 중에 대답해주세요.
+                    문 밖을 확인해보니 어때?
+                    엄마일까, 호랑이일까?
+                    문을 열어줘도 될까?
                     """
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
         label.lineBreakMode = .byCharWrapping
+        label.sizeToFit()
         return label
     }()
     
@@ -56,15 +56,24 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
         return imageView
     }()
     
-    private let speechButton = CommonButton()
-    private lazy var speechButtonViewModel = CommonbuttonModel(title: "누르고 말하기", font: FontManager.textbutton(), titleColor: .primary2, backgroundColor: .primary1) { [weak self] in
-            self?.navigationController?.pushViewController(WindowVoiceChildViewController(), animated: false)
+    private let yesButton = CommonButton()
+    private lazy var yesButtonViewModel = CommonbuttonModel(title: "열어줄래", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2, height: 72) { [weak self] in
+        UserDefaults.standard.set(0, forKey: "key")
+        self?.navigationController?.pushViewController(WindowEndingViewController(), animated: false)
     }
-    private let countdownBackgroundView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .black.withAlphaComponent(0.5)
-        
-        return view
+    
+    private let noButton = CommonButton()
+    private lazy var noButtonViewModel = CommonbuttonModel(title: "안 열어줄래", font: FontManager.textbutton(), titleColor: .white, backgroundColor: .primary1, height: 72) { [weak self] in
+        UserDefaults.standard.set(1, forKey: "key")
+        self?.navigationController?.pushViewController(WindowEndingViewController(), animated: false)
+    }
+    
+    private let buttonHorizontalStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.spacing = 10
+        stack.distribution = .fillEqually
+        return stack
     }()
     
     override func viewDidLoad() {
@@ -74,7 +83,7 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
         setupNavigationBar()
         addComponents()
         setConstraints()
-        speechButton.setup(model: speechButtonViewModel)
+        yesButton.setup(model: yesButtonViewModel)
     }
 
     func setupNavigationBar() {
@@ -91,9 +100,10 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [titleLabel, doorWithHolesImageView, speechButton].forEach {
+        [titleLabel, doorWithHolesImageView, buttonHorizontalStack].forEach {
             view.addSubview($0)
         }
+        [yesButton, noButton].forEach(buttonHorizontalStack.addArrangedSubview)
     }
     
     func setConstraints() {
@@ -103,24 +113,28 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
         }
         
         doorWithHolesImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(324)
-            $0.left.right.equalToSuperview().inset(81)
-            $0.bottom.equalToSuperview().offset(-148)
+            $0.top.equalToSuperview().offset(256)
+            $0.left.right.equalToSuperview().inset(51)
+            $0.bottom.equalToSuperview().inset(118)
         }
         
-        speechButton.setup(model: speechButtonViewModel)
+        yesButton.setup(model: yesButtonViewModel)
+        noButton.setup(model: noButtonViewModel)
         
-        speechButton.snp.makeConstraints {
+        buttonHorizontalStack.snp.makeConstraints {
             $0.left.right.equalToSuperview().inset(Constants.Button.buttonPadding)
             $0.bottom.equalToSuperview().inset(Constants.Button.buttonPadding * 2)
-            $0.height.equalTo(72)
         }
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [titleLabel, speechButton]
-        leftBarButtonItem.accessibilityLabel = "내 책장"
+        let leftBarButtonElement = setupLeftBackButtonItemAccessibility(label: "내 책장")
+        view.accessibilityElements = [titleLabel, yesButton, noButton, leftBarButtonElement]
+        titleLabel.accessibilityLabel = """
+                                        문 바끌 확인해보니 어때?
+                                        엄마일까, 호랑이일까?
+                                        문을 열어줘도 될까?
+                                        """
     }
     
     @objc

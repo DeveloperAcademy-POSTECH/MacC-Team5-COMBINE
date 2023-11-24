@@ -62,6 +62,7 @@ final class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .gs90
         setupView()
         binding()
         setupAccessibility()

@@ -35,17 +35,22 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "구멍을 탭해서 문 밖에 누가 있는지 확인해 주세요."
+        label.text = """
+                    창호지 문에 구멍이 뚫려있어. 
+                    구멍을 두번 눌러서 뭐가 보이는지 확인해 봐!
+                    """
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
-        label.lineBreakMode = .byCharWrapping
+        label.lineBreakMode = .byWordWrapping
+        label.sizeToFit()
         return label
     }()
     
     private let windowImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "initialDoor")
+        imageView.isAccessibilityElement = false
         return imageView
     }()
     
@@ -72,7 +77,7 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
     
     private let nextButton = CommonButton()
     
-    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음으로",font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) { [weak self] in
+    private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음으로",font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2, height: 72) { [weak self] in
         self?.navigationController?.pushViewController(WindowVoiceViewController(), animated: false)
     }
     
@@ -80,13 +85,18 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
         setGestureRecognizer()
         nextButton.isHidden = true
         nextButton.setup(model: nextButtonViewModel)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupAccessibility()
+        navigationController?.navigationBar.accessibilityElementsHidden = true
     }
     
     func setupNavigationBar() {
@@ -110,59 +120,47 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
     func setConstraints() {
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(naviLine.snp.bottom).offset(Constants.View.padding)
-            $0.left.equalToSuperview().offset(Constants.View.padding)
-            $0.right.equalToSuperview().offset(-Constants.View.padding)
+            $0.left.right.equalToSuperview().inset(Constants.View.padding)
         }
         
         windowImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(222)
-            $0.left.equalToSuperview().offset(51)
-            $0.right.equalToSuperview().offset(-51)
-            $0.bottom.equalToSuperview().offset(-152)
+            $0.top.equalToSuperview().offset(256)
+            $0.left.right.equalToSuperview().inset(51)
+            $0.bottom.equalToSuperview().inset(118)
         }
         
         tigerHandHoleAnimationView.snp.makeConstraints {
             $0.top.equalTo(windowImageView.snp.top).offset(180)
             $0.left.equalTo(windowImageView.snp.left).offset(52)
-            $0.right.equalTo(windowImageView.snp.right).offset(-186)
-            $0.bottom.equalTo(windowImageView.snp.bottom).offset(-230)
+            $0.right.equalTo(windowImageView.snp.right).inset(186)
+            $0.bottom.equalTo(windowImageView.snp.bottom).inset(230)
             
         }
         
         tigerNoseHoleAnimationView.snp.makeConstraints {
             $0.top.equalTo(windowImageView.snp.top).offset(84)
             $0.left.equalTo(windowImageView.snp.left).offset(176)
-            $0.right.equalTo(windowImageView.snp.right).offset(-48)
-            $0.bottom.equalTo(windowImageView.snp.bottom).offset(-332)
+            $0.right.equalTo(windowImageView.snp.right).inset(48)
+            $0.bottom.equalTo(windowImageView.snp.bottom).inset(332)
         }
         
         tigerTailHoleAnimationView.snp.makeConstraints {
             $0.top.equalTo(windowImageView.snp.top).offset(316)
             $0.left.equalTo(windowImageView.snp.left).offset(153)
-            $0.right.equalTo(windowImageView.snp.right).offset(-75)
-            $0.bottom.equalTo(windowImageView.snp.bottom).offset(-88)
+            $0.right.equalTo(windowImageView.snp.right).inset(75)
+            $0.bottom.equalTo(windowImageView.snp.bottom).inset(88)
         }
         
         nextButton.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
-            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
-            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
-            $0.height.equalTo(72)
+            $0.left.right.equalToSuperview().inset(Constants.Button.buttonPadding)
+            $0.bottom.equalToSuperview().inset(Constants.Button.buttonPadding * 2)
         }
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [titleLabel, tigerHandHoleAnimationView, tigerNoseHoleAnimationView, tigerTailHoleAnimationView, nextButton]
-        leftBarButtonItem.accessibilityLabel = "내 책장"
+        let leftBarButtonElement = setupLeftBackButtonItemAccessibility(label: "내 책장")
         
-        [tigerHandHoleAnimationView.lottieView, tigerNoseHoleAnimationView.lottieView, tigerTailHoleAnimationView.lottieView].forEach {
-            $0.isAccessibilityElement = true
-        }
-        
-        tigerHandHoleAnimationView.lottieView.accessibilityLabel = "첫번째 구멍"
-        tigerNoseHoleAnimationView.lottieView.accessibilityLabel = "두번째 구멍"
-        tigerTailHoleAnimationView.lottieView.accessibilityLabel = "세번째 구멍"
+        view.accessibilityElements = [titleLabel, tigerNoseHoleAnimationView, tigerHandHoleAnimationView, tigerTailHoleAnimationView, nextButton, leftBarButtonElement]
     }
     
 }
@@ -190,12 +188,18 @@ extension WindowHoleViewController {
         if let type = AnimationType(rawValue: sender.view?.tag ?? 1) {
             switch type {
             case .hand:
+                tigerHandHoleAnimationView.lottieView.accessibilityLabel = "손톱이 날카로운 호랑이 손"
+                HapticManager.shared?.playSplash()
                 LottieManager.shared.playAnimation(inView: tigerHandHoleAnimationView.lottieView, completion: nil)
                 LottieManager.shared.removeAnimation(inView: tigerHandHoleAnimationView.lottieView)
             case .nose:
+                tigerNoseHoleAnimationView.lottieView.accessibilityLabel = "킁킁 거리고 있는 호랑이 코"
+                HapticManager.shared?.playSplash()
                 LottieManager.shared.playAnimation(inView: tigerNoseHoleAnimationView.lottieView, completion: nil)
                 LottieManager.shared.removeAnimation(inView: tigerNoseHoleAnimationView.lottieView)
             case .tail:
+                tigerTailHoleAnimationView.lottieView.accessibilityLabel = "살랑살랑 흔들리는 호랑이 꼬리"
+                HapticManager.shared?.playSplash()
                 LottieManager.shared.playAnimation(inView: tigerTailHoleAnimationView.lottieView, completion: nil)
                 LottieManager.shared.removeAnimation(inView: tigerTailHoleAnimationView.lottieView)
             }

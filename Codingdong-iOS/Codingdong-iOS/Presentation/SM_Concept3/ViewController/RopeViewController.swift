@@ -40,11 +40,11 @@ final class RopeViewController: UIViewController, ConfigUI {
     
     private let contentLabel: UILabel = {
        let label = UILabel()
-        label.text = "기기를 100번 흔들어 주세요!"
+        label.text = "휴대폰을 꽉 붙잡고 100번 흔들어보자!"
         label.textColor = .gs10
         label.font = FontManager.body()
         label.numberOfLines = 0
-        label.lineBreakMode = .byCharWrapping
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
@@ -59,11 +59,17 @@ final class RopeViewController: UIViewController, ConfigUI {
     // MARK: - View Init
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .gs90
         setupNavigationBar()
         addComponents()
         setConstraints()
-        setupAccessibility()
         countShake()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupAccessibility()
+        navigationController?.navigationBar.accessibilityElementsHidden = true
     }
     
     func setupNavigationBar() {
@@ -96,11 +102,10 @@ final class RopeViewController: UIViewController, ConfigUI {
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [contentLabel, ropeImage]
-        leftBarButtonItem.accessibilityLabel = "내 책장"
-        ropeImage.isAccessibilityElement = true
-        ropeImage.accessibilityLabel = "동아줄"
+        let leftBarButtonElement = setupLeftBackButtonItemAccessibility(label: "내 책장")
+        view.accessibilityElements = [contentLabel, ropeImage, leftBarButtonElement]
+        ropeImage.accessibilityLabel = "하늘에서 내려온 동아줄이야. 얼른 붙잡고 흔들어서 올라가야해!"
+        ropeImage.accessibilityTraits = .none
     }
     
     @objc func popThisView() {

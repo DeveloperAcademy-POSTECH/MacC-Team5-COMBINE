@@ -42,23 +42,21 @@ final class OnuiiViewController: UIViewController, ConfigUI {
     private let contentLabel: UILabel = {
        let label = UILabel()
         label.text = """
-         세번째 이야기
+         오누이는 호랑이를 피하기 위해 동아줄을 붙잡고 올라갔어.
 
-         오누이는 호랑이를 피하기 위해 동아줄을 붙잡고 올라갔어요.
+         하지만, 어린 오누이가 올라가기에는 너무 힘든 것 같아.
 
-         하지만, 어린 오누이는 동아줄을 잡고 올라가기가 너무 힘들었어요.
-
-         오누이가 무사히 올라갈 수 있도록 도와주세요!
+         오누이가 무사히 올라갈 수 있도록 도와줘!
          """
         label.textColor = .gs10
         label.font = FontManager.body()
         label.numberOfLines = 0
-        label.lineBreakMode = .byCharWrapping
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
     private let rescueButton = CommonButton()
-    private lazy var rescuButtonViewModel = CommonbuttonModel(title: "오누이 구출하기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
+    private lazy var rescuButtonViewModel = CommonbuttonModel(title: "오누이 구출하기", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2, height: 72) {[weak self] in
         
         self?.navigationController?.pushViewController(RopeViewController(), animated: false)
     }
@@ -66,10 +64,16 @@ final class OnuiiViewController: UIViewController, ConfigUI {
     // MARK: - View Init
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .gs90
         setupNavigationBar()
         addComponents()
         setConstraints()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         setupAccessibility()
+        navigationController?.navigationBar.accessibilityElementsHidden = true
     }
     
     func setupNavigationBar() {
@@ -91,22 +95,21 @@ final class OnuiiViewController: UIViewController, ConfigUI {
     func setConstraints() {
         contentLabel.snp.makeConstraints {
             $0.top.equalTo(naviLine.snp.bottom).offset(Constants.Button.buttonPadding)
-            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
-            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
+            $0.left.right.equalToSuperview().inset(Constants.Button.buttonPadding)
         }
         
         rescueButton.setup(model: rescuButtonViewModel)
         
         rescueButton.snp.makeConstraints {
-            $0.left.right.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding*2)
+            $0.left.right.equalToSuperview().inset(Constants.Button.buttonPadding)
+            $0.bottom.equalToSuperview().inset(Constants.Button.buttonPadding*2)
         }
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [contentLabel, rescueButton]
-        leftBarButtonItem.accessibilityLabel = "내 책장"
+        let leftBarButtonElement = setupLeftBackButtonItemAccessibility(label: "내 책장")
+        let naviTitleElement = setupNavigationTitleAccessibility(label: navigationTitle.text ?? "타이틀 없음")
+        view.accessibilityElements = [naviTitleElement, contentLabel, rescueButton, leftBarButtonElement]
     }
     
     @objc func popThisView() {

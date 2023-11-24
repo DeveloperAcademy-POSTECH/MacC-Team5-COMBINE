@@ -38,16 +38,16 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
     private let contentLabel: UILabel = {
        let label = UILabel()
         label.text = """
-         지금까지 10번 흔들었어요.
+         지금까지 10번 흔들었어.
 
-         힘든가요?
+         어때, 힘들지 않아?
 
-         반복문을 사용하면, 편하게 반복할 수 있어요!
+         반복문을 사용하면, 원하는 횟수만큼 자동으로 반복할 수 있어!
          """
         label.textColor = .gs10
         label.font = FontManager.body()
         label.numberOfLines = 0
-        label.lineBreakMode = .byCharWrapping
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
@@ -55,6 +55,7 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "sm_repeat1")
+        imageView.isAccessibilityElement = true
         return imageView
     }()
     
@@ -77,11 +78,16 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
         playAnimationWithVoiceOver()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupAccessibility()
+        navigationController?.navigationBar.accessibilityElementsHidden = true
     }
     
     func setupNavigationBar() {
@@ -102,7 +108,7 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
     
     func setConstraints() {
         contentLabel.snp.makeConstraints {
-            $0.top.equalTo(naviLine.snp.bottom).offset(16)
+            $0.top.equalTo(naviLine.snp.bottom).offset(Constants.Button.buttonPadding)
             $0.left.right.equalToSuperview().inset(16)
         }
         
@@ -118,28 +124,27 @@ final class TeachingRepeatViewController: UIViewController, ConfigUI {
         tenTimesImage.snp.makeConstraints {
             $0.centerY.equalTo(repeatImage)
         }
-//    
+        
         nextButton.setup(model: nextButtonViewModel)
         nextButton.snp.makeConstraints {
-            $0.top.equalTo(repeatImage.snp.bottom).offset(110)
-            $0.left.right.equalToSuperview().inset(16)
+            $0.left.right.equalToSuperview().inset(Constants.Button.buttonPadding)
+            $0.bottom.equalToSuperview().inset(Constants.Button.buttonPadding * 2)
         }
 
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [contentLabel, repeatImage, nextButton]
-        leftBarButtonItem.accessibilityLabel = "내 책장"
+        let leftBarButtonElement = setupLeftBackButtonItemAccessibility(label: "내 책장")
+        view.accessibilityElements = [contentLabel, repeatImage, nextButton, leftBarButtonElement]
+        
         contentLabel.accessibilityLabel = """
-                지금까지 열번 흔들었어요.
+                                         지금까지 열번 흔들었어.
 
-                힘든가요?
+                                         어때, 힘들지 않아?
 
-                반복문을 사용하면, 편하게 반복할 수 있어요!
-                """
-        repeatImage.isAccessibilityElement = true
-        repeatImage.accessibilityLabel = "열번 흔들기를 열번 반복하는걸 보여주는 이미지"
+                                         반복문을 사용하면, 원하는 횟수만큼 자동으로 반복할 수 있어!
+                                         """
+        repeatImage.accessibilityLabel = "그럼 100번 흔드는 것도 금방 할 수 있겠지?"
         repeatImage.accessibilityTraits = .none
     }
     
