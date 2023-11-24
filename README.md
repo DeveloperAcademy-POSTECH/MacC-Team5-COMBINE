@@ -14,5 +14,5 @@
 
 
 # 📱 주요 화면
-<img src = "https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/blob/develop/screenshot.png?raw=true" width = "1000">
+<img src = "https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/128671453/e8e0d7bd-d11e-40f4-87ff-0c74a71f3254" width = "1000">
 
