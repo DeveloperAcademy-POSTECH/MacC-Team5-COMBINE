@@ -8,7 +8,7 @@
 - 디자인 패턴: MVVM
 - 비동기 프로그래밍: Combine, GCD
 - 데이터베이스: SwiftData
-- 애플 고유 기술: UIAccessibility, CoreMotion, CoreHaptic, 
+- 애플 고유 기술: UIAccessibility, CoreMotion, CoreHaptic
 - 사용툴: 노션, 깃, 피그마
 <br/>
 
