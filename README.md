@@ -16,5 +16,10 @@
 # 📱 주요 화면
 <img src = "https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/128671453/e8e0d7bd-d11e-40f4-87ff-0c74a71f3254" width = "1000">
 
-<img src = "https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/128671453/43ae2ace-ea49-4de7-a490-27a0c975729f" width = "500">
-<img src = "https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/128671453/4e66d3c6-1447-4674-84f4-c83b3fcbb3b2" width = "500">
+
+<img src = "https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/128671453/43ae2ace-ea49-4de7-a490-27a0c975729f" width = "500">|<img src = "https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/128671453/4e66d3c6-1447-4674-84f4-c83b3fcbb3b2" width = "500">|
+
+
+
+
+
