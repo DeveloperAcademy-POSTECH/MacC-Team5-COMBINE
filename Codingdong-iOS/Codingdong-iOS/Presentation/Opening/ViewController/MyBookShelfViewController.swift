@@ -235,11 +235,9 @@ extension MyBookShelfViewController {
         if let type = MoreButtonType(rawValue: sender.view?.tag ?? 0) {
             switch type {
             case .moreTitle:
-                Log.i("더보기:스토리")
-                self.navigationController?.pushViewController(MoreTitleViewController(), animated: false)
+                Log.i("스토리 더보기로 이동")
             case .moreBadge:
-                Log.i("더보기:뱃지")
-                self.navigationController?.pushViewController(MoreBadgeViewController(), animated: false)
+                Log.i("개념 간식 모음 더보기로 이동")
             case .defaultValue:
                 Log.c("디폴트")
             }
