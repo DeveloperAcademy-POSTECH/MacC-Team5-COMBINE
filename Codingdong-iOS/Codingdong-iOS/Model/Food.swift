@@ -11,9 +11,9 @@ import SwiftData
 @Model
 class FoodList {
     var haveFood: Bool
-    var food: [Food]
+    @Relationship var food: [Food]
     
-    init(haveFood: Bool, food: [Food]) {
+    init(haveFood: Bool, food: [Food] = []) {
         self.haveFood = haveFood
         self.food = food
     }
@@ -21,13 +21,15 @@ class FoodList {
 
 @Model
 final class Food {
+    @Relationship(inverse: \FoodList.food)
+    var foodList: FoodList?
     var image: String
     var concept: String
     
-    init(image: String, concept: String) {
+    init(image: String, concept: String, foodList: FoodList? = nil) {
         self.image = image
         self.concept = concept
+        self.foodList = foodList
     }
 }
-
 
