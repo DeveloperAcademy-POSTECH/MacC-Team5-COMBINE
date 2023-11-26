@@ -31,5 +31,16 @@ class Food {
 }
 
 
+struct YugwaList {
+    var haveYugwa: Bool
+    var yugwa: [Yugwa]
+}
+
+struct Yugwa {
+    var image: String
+    var concept: String
+}
+
+var yugwaList: YugwaList = YugwaList(haveYugwa: false, yugwa: [])
 
 
