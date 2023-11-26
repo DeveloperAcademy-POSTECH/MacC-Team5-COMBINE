@@ -25,6 +25,7 @@ final class CodingdongDBService {
         } catch { Log.e(error.localizedDescription) }
     }
     
+    // 전래동화
     func fetchFable(onCompletion: @escaping([FableData]?, Error?) -> Void) {
         let descriptor = FetchDescriptor<FableData>(sortBy: [SortDescriptor<FableData>(\.title, order: .reverse)])
         
@@ -41,7 +42,7 @@ final class CodingdongDBService {
         readFable.isRead = checkRead
     }
     
-    
+    // 개념 간식
     func fetchFoodList(onCompletion: @escaping([FoodList]?, Error?) -> Void) {
         let descriptor = FetchDescriptor<FoodList>()
         
@@ -51,5 +52,10 @@ final class CodingdongDBService {
                 onCompletion(data,nil)
             } catch { onCompletion(nil,error) }
         }
+    }
+    
+    func saveFoodList(foodList: FoodList) {
+        guard let context = context else { return }
+        context.insert(foodList)
     }
 }
