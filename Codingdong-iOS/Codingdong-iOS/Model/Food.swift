@@ -20,7 +20,7 @@ class FoodList {
 }
 
 @Model
-class Food {
+final class Food {
     var image: String
     var concept: String
     

@@ -16,7 +16,7 @@ final class CodingdongDBService {
     
     init() {
         do {
-            container = try ModelContainer(for: FableData.self)
+            container = try ModelContainer(for: FableData.self, FoodList.self)
             if let container { context = ModelContext(container) }
             self.fetchFable { data, error in
                 if let error { Log.e(error) }
@@ -39,5 +39,17 @@ final class CodingdongDBService {
     func updateFable(fable: FableData, checkRead: Bool) {
         let readFable = fable
         readFable.isRead = checkRead
+    }
+    
+    
+    func fetchFoodList(onCompletion: @escaping([FoodList]?, Error?) -> Void) {
+        let descriptor = FetchDescriptor<FoodList>()
+        
+        if let context {
+            do {
+                let data = try context.fetch(descriptor)
+                onCompletion(data,nil)
+            } catch { onCompletion(nil,error) }
+        }
     }
 }
