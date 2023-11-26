@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class FableData {
+final class FableData {
     @Attribute(.unique) var title: String
     var isRead: Bool
     

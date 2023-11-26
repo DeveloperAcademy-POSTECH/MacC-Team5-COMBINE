@@ -23,7 +23,7 @@ final class YugwaCell: UICollectionViewCell {
     
     static let identifier = "YugwaCell"
     
-    var model: Yugwa {
+    var model: Food {
         didSet {
             yugwaImage.image = UIImage(named: model.image)
             conceptLabel.text = model.concept
@@ -55,7 +55,7 @@ final class YugwaCell: UICollectionViewCell {
     
     // MARK: - Intializer
     override init(frame: CGRect) {
-        self.model = Yugwa(image: "", concept: "")
+        self.model = Food(image: "", concept: "")
         super.init(frame: frame)
         addSubview(containerView)
         containerView.snp.makeConstraints { $0.left.right.top.bottom.equalToSuperview() }

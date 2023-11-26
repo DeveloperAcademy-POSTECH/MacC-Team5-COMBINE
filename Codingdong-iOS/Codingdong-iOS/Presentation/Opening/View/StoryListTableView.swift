@@ -44,7 +44,7 @@ final class StoryListTableView: UIView {
     }
     
     func fetchData() {
-        FableDBService.shared.fetchFable { data, error in
+        CodingdongDBService.shared.fetchFable { data, error in
             if let error { Log.e(error) }
             if let data {
                 self.fableDataList = data

@@ -201,13 +201,19 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     }
     
     func fetchData() {
-        if yugwaList.haveYugwa == false {
-            innerLabel.isHidden = false
-            innerView.isHidden = true
-        } else {
-            innerView.badgeCollectionView.reloadData()
-            innerLabel.isHidden = true
-            innerView.isHidden = false
+        CodingdongDBService.shared.fetchFoodList { data, error in
+            if let error { Log.e(error) }
+            guard let data = data else { return }
+            
+            if data.isEmpty || data[0].haveFood == false {
+                self.innerLabel.isHidden = false
+                self.innerView.isHidden = true
+            } else {
+                self.innerView.foodList = data
+                self.innerView.badgeCollectionView.reloadData()
+                self.innerLabel.isHidden = true
+                self.innerView.isHidden = false
+            }
         }
     }
     
@@ -235,11 +241,9 @@ extension MyBookShelfViewController {
         if let type = MoreButtonType(rawValue: sender.view?.tag ?? 0) {
             switch type {
             case .moreTitle:
-                Log.i("더보기:스토리")
-                self.navigationController?.pushViewController(MoreTitleViewController(), animated: false)
+                Log.i("스토리 더보기로 이동")
             case .moreBadge:
-                Log.i("더보기:뱃지")
-                self.navigationController?.pushViewController(MoreBadgeViewController(), animated: false)
+                Log.i("개념 간식 모음 더보기로 이동")
             case .defaultValue:
                 Log.c("디폴트")
             }
