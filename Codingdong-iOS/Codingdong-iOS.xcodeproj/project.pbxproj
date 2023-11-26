@@ -79,7 +79,6 @@
 		A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81637232ADFC5FD0070DAC9 /* Constants.swift */; };
 		A827FA252B0DB36300E6B7B8 /* FableDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A827FA242B0DB36300E6B7B8 /* FableDBService.swift */; };
 		A828A66B2AFF05DB00B11D71 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828A66A2AFF05DB00B11D71 /* CardView.swift */; };
-		A832B11A2AFF43E500E1CE9B /* YugwaList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832B1192AFF43E500E1CE9B /* YugwaList.swift */; };
 		A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */; };
 		A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83392A02ADAB35D009BA7E2 /* SceneDelegate.swift */; };
 		A83392A82ADAB35E009BA7E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A83392A72ADAB35E009BA7E2 /* Assets.xcassets */; };
@@ -88,6 +87,7 @@
 		A83392C02ADAB35E009BA7E2 /* Codingdong_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83392BF2ADAB35E009BA7E2 /* Codingdong_iOSUITests.swift */; };
 		A83392C22ADAB35E009BA7E2 /* Codingdong_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83392C12ADAB35E009BA7E2 /* Codingdong_iOSUITestsLaunchTests.swift */; };
 		A852B17C2B01F90B0051BE9E /* OnuiiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A852B17B2B01F90B0051BE9E /* OnuiiViewController.swift */; };
+		A8560F252B1317EF005DB691 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8560F242B1317EF005DB691 /* Food.swift */; };
 		A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864F00C2AE03FC3007F4012 /* ConfigUI.swift */; };
 		A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864F0122AE041C8007F4012 /* CommonButton.swift */; };
 		A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */; };
@@ -184,7 +184,6 @@
 		A81637232ADFC5FD0070DAC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A827FA242B0DB36300E6B7B8 /* FableDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FableDBService.swift; sourceTree = "<group>"; };
 		A828A66A2AFF05DB00B11D71 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		A832B1192AFF43E500E1CE9B /* YugwaList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YugwaList.swift; sourceTree = "<group>"; };
 		A833929B2ADAB35D009BA7E2 /* Codingdong-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codingdong-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A83392A02ADAB35D009BA7E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +196,7 @@
 		A83392BF2ADAB35E009BA7E2 /* Codingdong_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codingdong_iOSUITests.swift; sourceTree = "<group>"; };
 		A83392C12ADAB35E009BA7E2 /* Codingdong_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codingdong_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A852B17B2B01F90B0051BE9E /* OnuiiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnuiiViewController.swift; sourceTree = "<group>"; };
+		A8560F242B1317EF005DB691 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		A864F00C2AE03FC3007F4012 /* ConfigUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigUI.swift; sourceTree = "<group>"; };
 		A864F0122AE041C8007F4012 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
 		A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiViewController.swift; sourceTree = "<group>"; };
@@ -586,8 +586,8 @@
 			isa = PBXGroup;
 			children = (
 				A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */,
-				A832B1192AFF43E500E1CE9B /* YugwaList.swift */,
 				A897A9742AFF6AC000008722 /* Fable.swift */,
+				A8560F242B1317EF005DB691 /* Food.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -880,6 +880,7 @@
 				A8F41D2F2AE5001F00BB0260 /* HapticManager.swift in Sources */,
 				11CD0EDF2AFD56D500911B64 /* TigerEncountViewController.swift in Sources */,
 				A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */,
+				A8560F252B1317EF005DB691 /* Food.swift in Sources */,
 				A8BC0DBE2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift in Sources */,
 				1143C68C2AF6B01E0032CE53 /* StoryListTableViewCell.swift in Sources */,
 				11504B0A2AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift in Sources */,
@@ -900,7 +901,6 @@
 				A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */,
 				670E09A22AFCAF81008AA6D5 /* WindowVoiceViewController.swift in Sources */,
 				112003D12AE574FB00924FAB /* LottieManager.swift in Sources */,
-				A832B11A2AFF43E500E1CE9B /* YugwaList.swift in Sources */,
 				A8B10D3E2AFAAE20009EA3F5 /* SplashViewController.swift in Sources */,
 				A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */,
 				67BAECF72B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift in Sources */,
