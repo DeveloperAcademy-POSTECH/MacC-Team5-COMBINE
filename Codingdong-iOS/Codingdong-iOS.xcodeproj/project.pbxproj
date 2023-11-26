@@ -53,8 +53,6 @@
 		11CD0EDC2AFD56B800911B64 /* TigerEncountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */; };
 		11CD0EDF2AFD56D500911B64 /* TigerEncountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EDE2AFD56D500911B64 /* TigerEncountViewController.swift */; };
 		11CD0EE72AFE031400911B64 /* IfConceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */; };
-		11CD0EEA2AFE668900911B64 /* MoreBadgeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EE92AFE668900911B64 /* MoreBadgeCollectionView.swift */; };
-		11CD0EEC2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */; };
 		670D34D62AF4D0FD00B81A06 /* WindowStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670D34D52AF4D0FD00B81A06 /* WindowStartViewController.swift */; };
 		670E09A22AFCAF81008AA6D5 /* WindowVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670E09A12AFCAF81008AA6D5 /* WindowVoiceViewController.swift */; };
 		670E09A42AFD4540008AA6D5 /* WindowVoiceChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670E09A32AFD4540008AA6D5 /* WindowVoiceChildViewController.swift */; };
@@ -161,8 +159,6 @@
 		11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerEncountView.swift; sourceTree = "<group>"; };
 		11CD0EDE2AFD56D500911B64 /* TigerEncountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerEncountViewController.swift; sourceTree = "<group>"; };
 		11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfConceptViewController.swift; sourceTree = "<group>"; };
-		11CD0EE92AFE668900911B64 /* MoreBadgeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBadgeCollectionView.swift; sourceTree = "<group>"; };
-		11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBadgeCollectionViewCell.swift; sourceTree = "<group>"; };
 		670D34D52AF4D0FD00B81A06 /* WindowStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowStartViewController.swift; sourceTree = "<group>"; };
 		670E09A12AFCAF81008AA6D5 /* WindowVoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowVoiceViewController.swift; sourceTree = "<group>"; };
 		670E09A32AFD4540008AA6D5 /* WindowVoiceChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowVoiceChildViewController.swift; sourceTree = "<group>"; };
@@ -264,8 +260,6 @@
 				1143C6942AF6F3760032CE53 /* YugwaCollectionView.swift */,
 				1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */,
 				1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */,
-				11CD0EE92AFE668900911B64 /* MoreBadgeCollectionView.swift */,
-				11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -892,7 +886,6 @@
 				1143C6882AF6A31F0032CE53 /* StoryListTableView.swift in Sources */,
 				A80A05332AFFCA9000624BBC /* OnboardingViewModel.swift in Sources */,
 				A897A9772AFF6FD200008722 /* YugwaCell.swift in Sources */,
-				11CD0EEC2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift in Sources */,
 				670E09A42AFD4540008AA6D5 /* WindowVoiceChildViewController.swift in Sources */,
 				A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */,
 				A897A9752AFF6AC000008722 /* Fable.swift in Sources */,
@@ -924,7 +917,6 @@
 				67BAECF12B000446006FB6D3 /* TigerHandHoleAnimationView.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
 				A8BE07FD2B00FECA00DD7378 /* ReviewViewModel.swift in Sources */,
-				11CD0EEA2AFE668900911B64 /* MoreBadgeCollectionView.swift in Sources */,
 				67BAECFD2B0039F8006FB6D3 /* AndConceptViewController.swift in Sources */,
 				A8C00F822B0209E000201EAD /* RepeatConceptViewController.swift in Sources */,
 				A8C00F7E2B01FA3500201EAD /* OnuiiViewModel.swift in Sources */,
