@@ -19,8 +19,6 @@ final class ReviewViewModel: ReviewViewModelRepresentable {
     var sendRoute: PassthroughSubject<UIViewController, Never> = .init()
     
     func endStory() {
-        yugwaList.haveYugwa = true
-        yugwaList.yugwa = [Yugwa(image: "img_yugwa1", concept: "반복문"), Yugwa(image: "img_yugwa2", concept: "연산자"), Yugwa(image: "img_yugwa3", concept: "조건문")]
-        // TODO: 해님달님도 읽은 걸로 표시해야 함
+        // TODO: 콩쥐팥쥐 열기, 개념 간식 모음 업데이트
     }
 }
