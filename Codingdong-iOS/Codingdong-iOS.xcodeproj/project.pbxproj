@@ -7,21 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1105EEAA2B06082B001A096C /* KzPzIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1105EEA92B06082B001A096C /* KzPzIntroViewController.swift */; };
-		1105EEAC2B0609FE001A096C /* HouseWorkStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1105EEAB2B0609FE001A096C /* HouseWorkStartViewController.swift */; };
-		1105EEAE2B060A3F001A096C /* WorkingKongZwiStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1105EEAD2B060A3F001A096C /* WorkingKongZwiStartViewController.swift */; };
-		1105EEB02B060A8E001A096C /* KkotSinOwnerStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1105EEAF2B060A8E001A096C /* KkotSinOwnerStartViewController.swift */; };
-		1105EEB22B060B15001A096C /* KzPzReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1105EEB12B060B15001A096C /* KzPzReviewViewController.swift */; };
 		112003D12AE574FB00924FAB /* LottieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112003D02AE574FB00924FAB /* LottieManager.swift */; };
 		112003D42AE5752300924FAB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 112003D32AE5752300924FAB /* Lottie */; };
 		112003D82AE5792600924FAB /* TigerAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112003D72AE5792600924FAB /* TigerAnimationViewController.swift */; };
 		1143C6832AF4D6440032CE53 /* MyBookShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6822AF4D6440032CE53 /* MyBookShelfViewController.swift */; };
 		1143C6882AF6A31F0032CE53 /* StoryListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */; };
 		1143C68C2AF6B01E0032CE53 /* StoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */; };
-		1143C68E2AF6B0DE0032CE53 /* StoryTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C68D2AF6B0DE0032CE53 /* StoryTitle.swift */; };
-		1143C6922AF6ED7B0032CE53 /* BadgeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6912AF6ED7B0032CE53 /* BadgeList.swift */; };
 		1143C6952AF6F3760032CE53 /* YugwaCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6942AF6F3760032CE53 /* YugwaCollectionView.swift */; };
-		1143C6C02AFB666A0032CE53 /* MoreBadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6BF2AFB666A0032CE53 /* MoreBadgeViewController.swift */; };
 		1143C6C42AFB829F0032CE53 /* SunAndMoonIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6C32AFB829F0032CE53 /* SunAndMoonIntroViewController.swift */; };
 		11504B0A2AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */; };
 		116A95362ADF72570096760A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 116A952D2ADF72550096760A /* Pretendard-Black.otf */; };
@@ -60,10 +52,7 @@
 		11CB85D82B069046008BA135 /* OnuiAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 11CB85D72B069046008BA135 /* OnuiAnimation.json */; };
 		11CD0EDC2AFD56B800911B64 /* TigerEncountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */; };
 		11CD0EDF2AFD56D500911B64 /* TigerEncountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EDE2AFD56D500911B64 /* TigerEncountViewController.swift */; };
-		11CD0EE32AFDFCC400911B64 /* MoreTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EE22AFDFCC400911B64 /* MoreTitleViewController.swift */; };
 		11CD0EE72AFE031400911B64 /* IfConceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */; };
-		11CD0EEA2AFE668900911B64 /* MoreBadgeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EE92AFE668900911B64 /* MoreBadgeCollectionView.swift */; };
-		11CD0EEC2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */; };
 		670D34D62AF4D0FD00B81A06 /* WindowStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670D34D52AF4D0FD00B81A06 /* WindowStartViewController.swift */; };
 		670E09A22AFCAF81008AA6D5 /* WindowVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670E09A12AFCAF81008AA6D5 /* WindowVoiceViewController.swift */; };
 		670E09A42AFD4540008AA6D5 /* WindowVoiceChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670E09A32AFD4540008AA6D5 /* WindowVoiceChildViewController.swift */; };
@@ -86,9 +75,8 @@
 		A80B882A2ADB9A2400091FF5 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88292ADB9A2400091FF5 /* RxRelay */; };
 		A80B883C2ADBA3EC00091FF5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */; };
 		A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81637232ADFC5FD0070DAC9 /* Constants.swift */; };
-		A827FA252B0DB36300E6B7B8 /* FableDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A827FA242B0DB36300E6B7B8 /* FableDBService.swift */; };
+		A827FA252B0DB36300E6B7B8 /* CodingdongDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A827FA242B0DB36300E6B7B8 /* CodingdongDBService.swift */; };
 		A828A66B2AFF05DB00B11D71 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828A66A2AFF05DB00B11D71 /* CardView.swift */; };
-		A832B11A2AFF43E500E1CE9B /* YugwaList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832B1192AFF43E500E1CE9B /* YugwaList.swift */; };
 		A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */; };
 		A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83392A02ADAB35D009BA7E2 /* SceneDelegate.swift */; };
 		A83392A82ADAB35E009BA7E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A83392A72ADAB35E009BA7E2 /* Assets.xcassets */; };
@@ -97,6 +85,7 @@
 		A83392C02ADAB35E009BA7E2 /* Codingdong_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83392BF2ADAB35E009BA7E2 /* Codingdong_iOSUITests.swift */; };
 		A83392C22ADAB35E009BA7E2 /* Codingdong_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83392C12ADAB35E009BA7E2 /* Codingdong_iOSUITestsLaunchTests.swift */; };
 		A852B17C2B01F90B0051BE9E /* OnuiiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A852B17B2B01F90B0051BE9E /* OnuiiViewController.swift */; };
+		A8560F252B1317EF005DB691 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8560F242B1317EF005DB691 /* Food.swift */; };
 		A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864F00C2AE03FC3007F4012 /* ConfigUI.swift */; };
 		A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864F0122AE041C8007F4012 /* CommonButton.swift */; };
 		A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */; };
@@ -145,20 +134,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1105EEA92B06082B001A096C /* KzPzIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KzPzIntroViewController.swift; sourceTree = "<group>"; };
-		1105EEAB2B0609FE001A096C /* HouseWorkStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseWorkStartViewController.swift; sourceTree = "<group>"; };
-		1105EEAD2B060A3F001A096C /* WorkingKongZwiStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingKongZwiStartViewController.swift; sourceTree = "<group>"; };
-		1105EEAF2B060A8E001A096C /* KkotSinOwnerStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkotSinOwnerStartViewController.swift; sourceTree = "<group>"; };
-		1105EEB12B060B15001A096C /* KzPzReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KzPzReviewViewController.swift; sourceTree = "<group>"; };
 		112003D02AE574FB00924FAB /* LottieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieManager.swift; sourceTree = "<group>"; };
 		112003D72AE5792600924FAB /* TigerAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerAnimationViewController.swift; sourceTree = "<group>"; };
 		1143C6822AF4D6440032CE53 /* MyBookShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookShelfViewController.swift; sourceTree = "<group>"; };
 		1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListTableView.swift; sourceTree = "<group>"; };
 		1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListTableViewCell.swift; sourceTree = "<group>"; };
-		1143C68D2AF6B0DE0032CE53 /* StoryTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTitle.swift; sourceTree = "<group>"; };
-		1143C6912AF6ED7B0032CE53 /* BadgeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeList.swift; sourceTree = "<group>"; };
 		1143C6942AF6F3760032CE53 /* YugwaCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YugwaCollectionView.swift; sourceTree = "<group>"; };
-		1143C6BF2AFB666A0032CE53 /* MoreBadgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBadgeViewController.swift; sourceTree = "<group>"; };
 		1143C6C32AFB829F0032CE53 /* SunAndMoonIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunAndMoonIntroViewController.swift; sourceTree = "<group>"; };
 		11504B092AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerLottieAnimationVIew.swift; sourceTree = "<group>"; };
 		116A952D2ADF72550096760A /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
@@ -177,10 +158,7 @@
 		11CB85D72B069046008BA135 /* OnuiAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = OnuiAnimation.json; sourceTree = "<group>"; };
 		11CD0EDB2AFD56B800911B64 /* TigerEncountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerEncountView.swift; sourceTree = "<group>"; };
 		11CD0EDE2AFD56D500911B64 /* TigerEncountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerEncountViewController.swift; sourceTree = "<group>"; };
-		11CD0EE22AFDFCC400911B64 /* MoreTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTitleViewController.swift; sourceTree = "<group>"; };
 		11CD0EE62AFE031400911B64 /* IfConceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfConceptViewController.swift; sourceTree = "<group>"; };
-		11CD0EE92AFE668900911B64 /* MoreBadgeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBadgeCollectionView.swift; sourceTree = "<group>"; };
-		11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBadgeCollectionViewCell.swift; sourceTree = "<group>"; };
 		670D34D52AF4D0FD00B81A06 /* WindowStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowStartViewController.swift; sourceTree = "<group>"; };
 		670E09A12AFCAF81008AA6D5 /* WindowVoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowVoiceViewController.swift; sourceTree = "<group>"; };
 		670E09A32AFD4540008AA6D5 /* WindowVoiceChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowVoiceChildViewController.swift; sourceTree = "<group>"; };
@@ -200,9 +178,8 @@
 		A80A05342AFFCE9C00624BBC /* MyBookShelfViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookShelfViewModel.swift; sourceTree = "<group>"; };
 		A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A81637232ADFC5FD0070DAC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		A827FA242B0DB36300E6B7B8 /* FableDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FableDBService.swift; sourceTree = "<group>"; };
+		A827FA242B0DB36300E6B7B8 /* CodingdongDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingdongDBService.swift; sourceTree = "<group>"; };
 		A828A66A2AFF05DB00B11D71 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		A832B1192AFF43E500E1CE9B /* YugwaList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YugwaList.swift; sourceTree = "<group>"; };
 		A833929B2ADAB35D009BA7E2 /* Codingdong-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codingdong-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A83392A02ADAB35D009BA7E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +192,7 @@
 		A83392BF2ADAB35E009BA7E2 /* Codingdong_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codingdong_iOSUITests.swift; sourceTree = "<group>"; };
 		A83392C12ADAB35E009BA7E2 /* Codingdong_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codingdong_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A852B17B2B01F90B0051BE9E /* OnuiiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnuiiViewController.swift; sourceTree = "<group>"; };
+		A8560F242B1317EF005DB691 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		A864F00C2AE03FC3007F4012 /* ConfigUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigUI.swift; sourceTree = "<group>"; };
 		A864F0122AE041C8007F4012 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
 		A87217C62AE212C6003C0D5C /* TtekkkochiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiViewController.swift; sourceTree = "<group>"; };
@@ -275,86 +253,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1105EE9F2B05FB85001A096C /* KZ_Intro */ = {
-			isa = PBXGroup;
-			children = (
-				1105EEA42B060128001A096C /* ViewController */,
-			);
-			path = KZ_Intro;
-			sourceTree = "<group>";
-		};
-		1105EEA02B05FB8F001A096C /* KZ_Concept1 */ = {
-			isa = PBXGroup;
-			children = (
-				1105EEA52B060132001A096C /* ViewController */,
-			);
-			path = KZ_Concept1;
-			sourceTree = "<group>";
-		};
-		1105EEA12B05FB9A001A096C /* KZ_Concept2 */ = {
-			isa = PBXGroup;
-			children = (
-				1105EEA62B060142001A096C /* ViewController */,
-			);
-			path = KZ_Concept2;
-			sourceTree = "<group>";
-		};
-		1105EEA22B05FBA4001A096C /* KZ_Concept3 */ = {
-			isa = PBXGroup;
-			children = (
-				1105EEA72B060147001A096C /* ViewController */,
-			);
-			path = KZ_Concept3;
-			sourceTree = "<group>";
-		};
-		1105EEA32B05FBAD001A096C /* KZ_Ending */ = {
-			isa = PBXGroup;
-			children = (
-				1105EEA82B060150001A096C /* ViewController */,
-			);
-			path = KZ_Ending;
-			sourceTree = "<group>";
-		};
-		1105EEA42B060128001A096C /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				1105EEA92B06082B001A096C /* KzPzIntroViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		1105EEA52B060132001A096C /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				1105EEAB2B0609FE001A096C /* HouseWorkStartViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		1105EEA62B060142001A096C /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				1105EEAD2B060A3F001A096C /* WorkingKongZwiStartViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		1105EEA72B060147001A096C /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				1105EEAF2B060A8E001A096C /* KkotSinOwnerStartViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		1105EEA82B060150001A096C /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				1105EEB12B060B15001A096C /* KzPzReviewViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		1143C6842AF6A1EF0032CE53 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,8 +260,6 @@
 				1143C6942AF6F3760032CE53 /* YugwaCollectionView.swift */,
 				1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */,
 				1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */,
-				11CD0EE92AFE668900911B64 /* MoreBadgeCollectionView.swift */,
-				11CD0EEB2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -527,11 +423,6 @@
 				A828A66C2AFF06B700B11D71 /* SM_Concept2 */,
 				A852B1792B01F8810051BE9E /* SM_Concept3 */,
 				A8BE07F42B00E47700DD7378 /* SM_Ending */,
-				1105EE9F2B05FB85001A096C /* KZ_Intro */,
-				1105EEA02B05FB8F001A096C /* KZ_Concept1 */,
-				1105EEA12B05FB9A001A096C /* KZ_Concept2 */,
-				1105EEA22B05FBA4001A096C /* KZ_Concept3 */,
-				1105EEA32B05FBAD001A096C /* KZ_Ending */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -551,7 +442,7 @@
 		A827FA232B0DB33700E6B7B8 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				A827FA242B0DB36300E6B7B8 /* FableDBService.swift */,
+				A827FA242B0DB36300E6B7B8 /* CodingdongDBService.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -681,8 +572,6 @@
 				A8B10D3D2AFAAE20009EA3F5 /* SplashViewController.swift */,
 				A8B10D422AFAAE88009EA3F5 /* OnboardingViewController.swift */,
 				1143C6822AF4D6440032CE53 /* MyBookShelfViewController.swift */,
-				11CD0EE22AFDFCC400911B64 /* MoreTitleViewController.swift */,
-				1143C6BF2AFB666A0032CE53 /* MoreBadgeViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -691,10 +580,8 @@
 			isa = PBXGroup;
 			children = (
 				A8BC0DB12AE3401800AD5C9A /* CodingBlock.swift */,
-				1143C68D2AF6B0DE0032CE53 /* StoryTitle.swift */,
-				1143C6912AF6ED7B0032CE53 /* BadgeList.swift */,
-				A832B1192AFF43E500E1CE9B /* YugwaList.swift */,
 				A897A9742AFF6AC000008722 /* Fable.swift */,
+				A8560F242B1317EF005DB691 /* Food.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -977,56 +864,47 @@
 				A8BE07F72B00E4E900DD7378 /* ReviewViewController.swift in Sources */,
 				1143C6832AF4D6440032CE53 /* MyBookShelfViewController.swift in Sources */,
 				A864F0132AE041C8007F4012 /* CommonButton.swift in Sources */,
-				1105EEAE2B060A3F001A096C /* WorkingKongZwiStartViewController.swift in Sources */,
 				1143C6952AF6F3760032CE53 /* YugwaCollectionView.swift in Sources */,
 				112003D82AE5792600924FAB /* TigerAnimationViewController.swift in Sources */,
 				11CD0EE72AFE031400911B64 /* IfConceptViewController.swift in Sources */,
-				11CD0EE32AFDFCC400911B64 /* MoreTitleViewController.swift in Sources */,
 				A8E47CCA2B03CFB6008428D4 /* RopeViewController.swift in Sources */,
 				672C12012AF8757E0064AA64 /* WindowHoleViewController.swift in Sources */,
 				A8A725032AE55F7C004840A6 /* TtekkkochiViewModel.swift in Sources */,
 				A828A66B2AFF05DB00B11D71 /* CardView.swift in Sources */,
 				A8F41D2F2AE5001F00BB0260 /* HapticManager.swift in Sources */,
 				11CD0EDF2AFD56D500911B64 /* TigerEncountViewController.swift in Sources */,
-				1105EEB22B060B15001A096C /* KzPzReviewViewController.swift in Sources */,
 				A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */,
+				A8560F252B1317EF005DB691 /* Food.swift in Sources */,
 				A8BC0DBE2AE38FE800AD5C9A /* TtekkkochiSelectionView.swift in Sources */,
 				1143C68C2AF6B01E0032CE53 /* StoryListTableViewCell.swift in Sources */,
 				11504B0A2AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift in Sources */,
 				670D34D62AF4D0FD00B81A06 /* WindowStartViewController.swift in Sources */,
 				A8BC0DB72AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift in Sources */,
 				A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */,
-				1143C6922AF6ED7B0032CE53 /* BadgeList.swift in Sources */,
 				67D89CAB2B021AF600EC68E3 /* PermissionManager.swift in Sources */,
 				A8B10D432AFAAE88009EA3F5 /* OnboardingViewController.swift in Sources */,
 				1143C6882AF6A31F0032CE53 /* StoryListTableView.swift in Sources */,
 				A80A05332AFFCA9000624BBC /* OnboardingViewModel.swift in Sources */,
 				A897A9772AFF6FD200008722 /* YugwaCell.swift in Sources */,
-				11CD0EEC2AFE669600911B64 /* MoreBadgeCollectionViewCell.swift in Sources */,
 				670E09A42AFD4540008AA6D5 /* WindowVoiceChildViewController.swift in Sources */,
 				A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */,
-				1105EEB02B060A8E001A096C /* KkotSinOwnerStartViewController.swift in Sources */,
 				A897A9752AFF6AC000008722 /* Fable.swift in Sources */,
 				116A95532ADF72AB0096760A /* FontManager.swift in Sources */,
 				A8BE07F32B00DBA700DD7378 /* TigerEncounterViewModel.swift in Sources */,
 				A864F00D2AE03FC3007F4012 /* ConfigUI.swift in Sources */,
 				670E09A22AFCAF81008AA6D5 /* WindowVoiceViewController.swift in Sources */,
 				112003D12AE574FB00924FAB /* LottieManager.swift in Sources */,
-				A832B11A2AFF43E500E1CE9B /* YugwaList.swift in Sources */,
 				A8B10D3E2AFAAE20009EA3F5 /* SplashViewController.swift in Sources */,
 				A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */,
-				1105EEAA2B06082B001A096C /* KzPzIntroViewController.swift in Sources */,
 				67BAECF72B0015F2006FB6D3 /* TigerTailHoleAnimationView.swift in Sources */,
 				117D27892B0CCE9200AF22B3 /* UIViewController+.swift in Sources */,
 				A8BC0DB22AE3401800AD5C9A /* CodingBlock.swift in Sources */,
 				A852B17C2B01F90B0051BE9E /* OnuiiViewController.swift in Sources */,
-				1143C68E2AF6B0DE0032CE53 /* StoryTitle.swift in Sources */,
 				67BAECF52B0015BF006FB6D3 /* TigerNoseHoleAnimationView.swift in Sources */,
 				67BAECF92B001FB0006FB6D3 /* WindowEndingViewController.swift in Sources */,
 				A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */,
 				11CD0EDC2AFD56B800911B64 /* TigerEncountView.swift in Sources */,
 				1143C6C42AFB829F0032CE53 /* SunAndMoonIntroViewController.swift in Sources */,
-				1105EEAC2B0609FE001A096C /* HouseWorkStartViewController.swift in Sources */,
 				A8BE07F12B00CA7800DD7378 /* SunAndMoonIntroViewModel.swift in Sources */,
 				A8BE07FA2B00EBF100DD7378 /* ReviewCollectionViewCell.swift in Sources */,
 				A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */,
@@ -1034,13 +912,11 @@
 				A80A05352AFFCE9C00624BBC /* MyBookShelfViewModel.swift in Sources */,
 				A8C00F842B021A8200201EAD /* SunMoonOnuiiViewController.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
-				A827FA252B0DB36300E6B7B8 /* FableDBService.swift in Sources */,
+				A827FA252B0DB36300E6B7B8 /* CodingdongDBService.swift in Sources */,
 				A8C966F02B011914005105E8 /* CustomCollectionViewFlowLayout.swift in Sources */,
 				67BAECF12B000446006FB6D3 /* TigerHandHoleAnimationView.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
-				1143C6C02AFB666A0032CE53 /* MoreBadgeViewController.swift in Sources */,
 				A8BE07FD2B00FECA00DD7378 /* ReviewViewModel.swift in Sources */,
-				11CD0EEA2AFE668900911B64 /* MoreBadgeCollectionView.swift in Sources */,
 				67BAECFD2B0039F8006FB6D3 /* AndConceptViewController.swift in Sources */,
 				A8C00F822B0209E000201EAD /* RepeatConceptViewController.swift in Sources */,
 				A8C00F7E2B01FA3500201EAD /* OnuiiViewModel.swift in Sources */,
