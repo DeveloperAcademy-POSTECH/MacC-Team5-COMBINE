@@ -19,6 +19,7 @@ final class SunAndMoonIntroViewModel: SunAndMoonIntroViewModelRepresentable {
     var sendRoute: PassthroughSubject<UIViewController, Never> = .init()
     
     func moveOn() {
+        CodingdongDBService().updateFood(Food(image: "img_yugwa3", concept: "조건문"))
         sendRoute.send(TigerEncountViewController())
     }
 }

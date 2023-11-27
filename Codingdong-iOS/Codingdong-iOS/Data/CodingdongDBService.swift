@@ -72,5 +72,11 @@ extension CodingdongDBService {
         }
         return foodListData ?? FoodList(id: UUID().uuidString, haveFood: false)
     }
-
+        
+    func updateFood(_ item: Food) {
+        var foodList = self.readFoodListData()
+        foodList.haveFood = true
+        foodList.food?.append(item)
+        item.foodList = foodList
+    }
 }
