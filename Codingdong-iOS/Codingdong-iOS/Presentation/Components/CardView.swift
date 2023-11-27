@@ -66,8 +66,7 @@ final class CardView: UIView {
         addSubview(containerView)
         containerView.snp.makeConstraints {
             $0.top.bottom.equalToSuperview()
-            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
-            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
+            $0.left.right.equalToSuperview().inset(Constants.Button.buttonPadding)
         }
         
         [titleLabel, separator, contentLabel, conceptImageView].forEach { containerView.addSubview($0) }

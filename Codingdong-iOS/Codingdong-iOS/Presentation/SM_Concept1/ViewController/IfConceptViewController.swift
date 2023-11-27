@@ -58,12 +58,17 @@ final class IfConceptViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonViewModel)
         cardView.config(model: cardViewModel)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupAccessibility()
+        navigationController?.navigationBar.accessibilityElementsHidden = true
     }
     
     func setupNavigationBar() {
@@ -114,7 +119,7 @@ final class IfConceptViewController: UIViewController, ConfigUI {
 extension IfConceptViewController {
     @objc
     func didClickNextButton() {
-        // self.navigationController?.pushViewController(WindowStartViewController(), animated: false)
+        CodingdongDBService.shared.saveFoodList(foodList: FoodList(haveFood: true, food: [Food(image: "sm_review1", concept: "조건문")]))
         self.navigationController?.pushViewController(WindowStartViewController(), animated: false)
     }
     

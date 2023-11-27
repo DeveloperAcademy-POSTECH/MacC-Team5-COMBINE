@@ -39,19 +39,18 @@ final class WindowStartViewController: UIViewController, ConfigUI {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = """
-        두번째 이야기
+        아직 배가 고픈 호랑이는 오누이도 잡아먹고 싶어졌어.
 
-        아직 배가 고픈 호랑이는 오누이도 잡아먹고 싶어졌어요.
+        그래서 엄마로 변장하는 꾀를 냈어.
+        
+        과연 오누이는 엄마로 변장한 호랑이를 알아차릴 수 있을까?
 
-        그래서 꾀를 내어 엄마로 변장해 오누이의 집으로 찾아갔어요.
-
-        오누이를 도와 문 밖의 무서운 호랑이의 정체를 밝혀볼까요?
+        오누이를 도와 문 밖의 무서운 호랑이의 정체를 밝혀보자!!
         """
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
-        label.lineBreakMode = .byCharWrapping
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
@@ -65,11 +64,16 @@ final class WindowStartViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gs90
-        setupAccessibility()
         setupNavigationBar()
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonViewModel)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupAccessibility()
+        navigationController?.navigationBar.accessibilityElementsHidden = true
     }
     
     func setupNavigationBar() {
@@ -90,23 +94,21 @@ final class WindowStartViewController: UIViewController, ConfigUI {
     
     func setConstraints() {
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(122)
-            $0.left.equalToSuperview().offset(16)
-            $0.right.equalToSuperview().offset(-16)
+            $0.top.equalTo(naviLine.snp.bottom).offset(Constants.View.padding)
+            $0.left.right.equalToSuperview().inset(Constants.View.padding)
         }
         
         nextButton.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(Constants.Button.buttonPadding)
-            $0.right.equalToSuperview().offset(-Constants.Button.buttonPadding)
-            $0.bottom.equalToSuperview().offset(-Constants.Button.buttonPadding * 2)
+            $0.left.right.equalToSuperview().inset(Constants.Button.buttonPadding)
+            $0.bottom.equalToSuperview().inset(Constants.Button.buttonPadding * 2)
             $0.height.equalTo(72)
         }
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [titleLabel, nextButton]
-        leftBarButtonItem.accessibilityLabel = "내 책장"
+        let leftBarButtonElement = setupLeftBackButtonItemAccessibility(label: "내 책장")
+        let naviTitleElement = setupNavigationTitleAccessibility(label: navigationTitle.text ?? "타이틀 없음")
+        view.accessibilityElements = [naviTitleElement, titleLabel, nextButton, leftBarButtonElement]
     }
     
     @objc

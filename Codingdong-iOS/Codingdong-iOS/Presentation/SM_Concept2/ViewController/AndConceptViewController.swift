@@ -36,7 +36,7 @@ final class AndConceptViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "해님달님의 두 번째 개념"
+        label.text = "두 번째 코딩 간식이야"
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
@@ -52,7 +52,7 @@ final class AndConceptViewController: UIViewController {
     
     private let cardView = CardView()
     
-    private let cardViewModel = CardViewModel(title: "그리고", content: "발톱, 꼬리 그리고 수염을 보고 호랑이임을 판단할 수 있었어요.", cardImage: "sm_concept2")
+    private let cardViewModel = CardViewModel(title: "그리고 과자", content: "호랑이의 발톱, 꼬리 그리고 수염을 보고 호랑이인 걸 알 수 있었어.", cardImage: "sm_concept2")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,9 +60,14 @@ final class AndConceptViewController: UIViewController {
         setupNavigationBar()
         addComponents()
         setConstraints()
-        setupAccessibility()
         nextButton.setup(model: nextButtonViewModel)
         cardView.config(model: cardViewModel)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupAccessibility()
+        navigationController?.navigationBar.accessibilityElementsHidden
     }
     
     func setupNavigationBar() {
@@ -85,28 +90,26 @@ final class AndConceptViewController: UIViewController {
     
     func setConstraints() {
         titleLabel.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(basicPadding)
-            $0.right.equalToSuperview().offset(-basicPadding)
-            $0.top.equalTo(naviLine).offset(basicPadding)
+            $0.top.equalTo(naviLine.snp.bottom).offset(basicPadding)
+            $0.left.right.equalToSuperview().inset(basicPadding)
         }
         
         cardView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(50)
             $0.left.right.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-142)
+            $0.bottom.equalToSuperview().inset(142)
         }
         
         nextButton.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(basicPadding)
-            $0.right.equalToSuperview().offset(-basicPadding)
-            $0.bottom.equalToSuperview().offset(-basicPadding * 2)
+            $0.left.right.equalToSuperview().inset(basicPadding)
+            $0.bottom.equalToSuperview().inset(basicPadding * 2)
         }
     }
     
     func setupAccessibility() {
-        navigationItem.accessibilityElements = [leftBarButtonItem, navigationTitle]
-        view.accessibilityElements = [titleLabel, cardView, nextButton]
-        leftBarButtonItem.accessibilityLabel = "내 책장"
+        let leftBarButtonElement = setupLeftBackButtonItemAccessibility(label: "내 책장")
+        let naviTitleElement = setupNavigationTitleAccessibility(label: navigationTitle.text ?? "타이틀 없음")
+        view.accessibilityElements = [naviTitleElement, titleLabel, cardView, nextButton, leftBarButtonElement]
     }
 }
 
