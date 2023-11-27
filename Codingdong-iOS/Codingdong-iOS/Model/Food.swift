@@ -10,11 +10,13 @@ import SwiftData
 
 @Model
 final class FoodList {
+    var id: UUID
     var haveFood: Bool
     @Relationship(deleteRule: .cascade, inverse: \Food.foodList)
     var food: [Food]?
     
-    init(haveFood: Bool) {
+    init(id: UUID, haveFood: Bool) {
+        self.id = id
         self.haveFood = haveFood
     }
 }

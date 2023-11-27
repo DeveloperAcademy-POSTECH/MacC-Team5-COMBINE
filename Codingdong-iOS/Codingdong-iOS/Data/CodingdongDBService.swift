@@ -42,10 +42,14 @@ struct CodingdongDBService {
 }
 
 extension CodingdongDBService {
-    func initializeFable() {
+    func initializeData() {
         self.readItems(key: [SortDescriptor<FableData>(\.title)]) { data, error in
             if let error { Log.e(error) }
             if data?.count == 0 { fables.forEach { self.context.insert($0) } }
+        }
+        self.readItems(key: [SortDescriptor<FoodList>(\.id)]) { data, error in
+            if let error { Log.e(error) }
+            if data?.count == 0 { self.createItem(FoodList(id: UUID(), haveFood: false)) }
         }
     }
     
