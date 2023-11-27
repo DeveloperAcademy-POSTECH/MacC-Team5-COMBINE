@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 import Log
 
-struct CodingdongDBService {
+struct CddDBService {
     var context: ModelContext
     var container: ModelContainer = {
         let schema = Schema([FableData.self, FoodList.self, Food.self])
@@ -41,7 +41,7 @@ struct CodingdongDBService {
     func deleteItems<T:PersistentModel>(_ item: T) { context.delete(item) }
 }
 
-extension CodingdongDBService {
+extension CddDBService {
     func initializeData() {
         self.readItems(key: [SortDescriptor<FableData>(\.title)]) { data, error in
             if let error { Log.e(error) }

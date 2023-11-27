@@ -201,11 +201,11 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     }
     
     func fetchData() {
-        if (CodingdongDBService().readFoodListData().haveFood == false) {
+        if (CddDBService().readFoodListData().haveFood == false) {
             self.innerLabel.isHidden = false
             self.innerView.isHidden = true
         } else {
-            self.innerView.food = CodingdongDBService().readFoodListData().food
+            self.innerView.food = CddDBService().readFoodListData().food
             self.innerView.badgeCollectionView.reloadData()
             self.innerLabel.isHidden = true
             self.innerView.isHidden = false

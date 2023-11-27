@@ -45,7 +45,7 @@ final class StoryListTableView: UIView {
     }
     
     func fetchData() {
-        self.fableDataList = CodingdongDBService().readFableData()
+        self.fableDataList = CddDBService().readFableData()
         self.storyListTableView.reloadData()
     }
 }
