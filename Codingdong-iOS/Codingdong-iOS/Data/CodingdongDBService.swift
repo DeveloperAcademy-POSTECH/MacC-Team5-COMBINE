@@ -49,7 +49,7 @@ extension CodingdongDBService {
         }
         self.readItems(key: [SortDescriptor<FoodList>(\.id)]) { data, error in
             if let error { Log.e(error) }
-            if data?.count == 0 { self.createItem(FoodList(id: UUID(), haveFood: false)) }
+            if data?.count == 0 { self.createItem(FoodList(id: UUID().uuidString, haveFood: false)) }
         }
     }
     
