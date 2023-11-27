@@ -58,4 +58,14 @@ extension CodingdongDBService {
         }
         return fableData
     }
+    
+    func readFoodListData() -> [FoodList] {
+        var foodListData: [FoodList] = []
+        self.readItems(key: [SortDescriptor<FoodList>(\.id)]) { data, error in
+            if let error { Log.e(error) }
+            guard let data = data else { return }
+            foodListData = data
+        }
+        return foodListData
+    }
 }
