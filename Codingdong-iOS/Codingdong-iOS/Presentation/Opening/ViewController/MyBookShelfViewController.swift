@@ -201,19 +201,14 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     }
     
     func fetchData() {
-        CodingdongDBService.shared.fetchFoodList { data, error in
-            if let error { Log.e(error) }
-            guard let data = data else { return }
-            
-            if data.isEmpty || data[0].haveFood == false {
-                self.innerLabel.isHidden = false
-                self.innerView.isHidden = true
-            } else {
-                self.innerView.foodList = data
-                self.innerView.badgeCollectionView.reloadData()
-                self.innerLabel.isHidden = true
-                self.innerView.isHidden = false
-            }
+        if (CodingdongDBService().readFoodListData()[0].haveFood == false) {
+            self.innerLabel.isHidden = false
+            self.innerView.isHidden = true
+        } else {
+            self.innerView.food = CodingdongDBService().readFoodListData()[0].food
+            self.innerView.badgeCollectionView.reloadData()
+            self.innerLabel.isHidden = true
+            self.innerView.isHidden = false
         }
     }
     

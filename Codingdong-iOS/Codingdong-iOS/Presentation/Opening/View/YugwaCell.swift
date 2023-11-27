@@ -55,7 +55,7 @@ final class YugwaCell: UICollectionViewCell {
     
     // MARK: - Intializer
     override init(frame: CGRect) {
-        self.model = Food(image: "", concept: "")
+        self.model = Food(foodList: nil, image: "", concept: "")
         super.init(frame: frame)
         addSubview(containerView)
         containerView.snp.makeConstraints { $0.left.right.top.bottom.equalToSuperview() }
