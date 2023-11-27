@@ -25,7 +25,7 @@ final class FoodList {
 final class Food {
     var foodList: FoodList?
     var image: String
-    var concept: String
+    @Attribute(.unique)var concept: String
     
     init(foodList: FoodList? = nil, image: String, concept: String) {
         self.image = image
