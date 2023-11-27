@@ -67,7 +67,6 @@ final class OnboardingViewController: UIViewController {
         binding()
         setupAccessibility()
         permissionManager.requestMicPermission()
-        CddDBService().initializeData()
     }
     
     private func setupView() {
