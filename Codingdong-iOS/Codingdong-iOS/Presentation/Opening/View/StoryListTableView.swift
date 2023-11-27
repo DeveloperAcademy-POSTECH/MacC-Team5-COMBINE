@@ -7,6 +7,7 @@
 
 import UIKit
 import Log
+import SwiftData
 
 final class StoryListTableView: UIView {
 
@@ -44,13 +45,8 @@ final class StoryListTableView: UIView {
     }
     
     func fetchData() {
-        CodingdongDBService.shared.fetchFable { data, error in
-            if let error { Log.e(error) }
-            if let data {
-                self.fableDataList = data
-                self.storyListTableView.reloadData()
-            }
-        }
+        self.fableDataList = CodingdongDBService().readFableData()
+        self.storyListTableView.reloadData()
     }
 }
 

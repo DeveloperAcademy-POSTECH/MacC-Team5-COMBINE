@@ -9,9 +9,7 @@ import Foundation
 import SwiftData
 import Log
 
-final class CodingdongDBService {
-    static var shared = CodingdongDBService()
-
+struct CodingdongDBService {
     var context: ModelContext
     var container: ModelContainer = {
         let schema = Schema([FableData.self, FoodList.self, Food.self])
@@ -26,9 +24,7 @@ final class CodingdongDBService {
     init() { context = ModelContext(container) }
     
     /// CREATE
-    func createItem<T: PersistentModel> (_ item: T) {
-        context.insert(item)
-    }
+    func createItem<T: PersistentModel> (_ item: T) { context.insert(item) }
     
     /// READ
     func readItems<T: PersistentModel>(key: [SortDescriptor<T>]?, onCompletion: @escaping([T]?, Error?) -> ()) {
@@ -43,4 +39,23 @@ final class CodingdongDBService {
     }
     /// DELETE
     func deleteItems<T:PersistentModel>(_ item: T) { context.delete(item) }
+}
+
+extension CodingdongDBService {
+    func initializeFable() {
+        self.readItems(key: [SortDescriptor<FableData>(\.title)]) { data, error in
+            if let error { Log.e(error) }
+            if data?.count == 0 { fables.forEach { self.context.insert($0) } }
+        }
+    }
+    
+    func readFableData() -> [FableData] {
+        var fableData: [FableData] = []
+        self.readItems(key: [SortDescriptor<FableData>(\.title, order: .reverse)]) { data, error in
+            if let error { Log.e(error) }
+            guard let data = data else { return }
+            fableData = data
+        }
+        return fableData
+    }
 }
