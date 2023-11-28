@@ -10,6 +10,7 @@
 		112003D12AE574FB00924FAB /* LottieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112003D02AE574FB00924FAB /* LottieManager.swift */; };
 		112003D42AE5752300924FAB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 112003D32AE5752300924FAB /* Lottie */; };
 		112003D82AE5792600924FAB /* TigerAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112003D72AE5792600924FAB /* TigerAnimationViewController.swift */; };
+		113B202D2B150C5F0089C61B /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B202C2B150C5F0089C61B /* CustomAlert.swift */; };
 		1143C6832AF4D6440032CE53 /* MyBookShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6822AF4D6440032CE53 /* MyBookShelfViewController.swift */; };
 		1143C6882AF6A31F0032CE53 /* StoryListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */; };
 		1143C68C2AF6B01E0032CE53 /* StoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */; };
@@ -136,6 +137,7 @@
 /* Begin PBXFileReference section */
 		112003D02AE574FB00924FAB /* LottieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieManager.swift; sourceTree = "<group>"; };
 		112003D72AE5792600924FAB /* TigerAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerAnimationViewController.swift; sourceTree = "<group>"; };
+		113B202C2B150C5F0089C61B /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		1143C6822AF4D6440032CE53 /* MyBookShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookShelfViewController.swift; sourceTree = "<group>"; };
 		1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListTableView.swift; sourceTree = "<group>"; };
 		1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListTableViewCell.swift; sourceTree = "<group>"; };
@@ -253,6 +255,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		113B202A2B150C3C0089C61B /* CumstomAlert */ = {
+			isa = PBXGroup;
+			children = (
+				113B202B2B150C4C0089C61B /* ViewController */,
+			);
+			path = CumstomAlert;
+			sourceTree = "<group>";
+		};
+		113B202B2B150C4C0089C61B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				113B202C2B150C5F0089C61B /* CustomAlert.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		1143C6842AF6A1EF0032CE53 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				A81637202ADFC51F0070DAC9 /* Components */,
+				113B202A2B150C3C0089C61B /* CumstomAlert */,
 				A8B10D3C2AFAAE10009EA3F5 /* Opening */,
 				1143C6C12AFB822E0032CE53 /* SM_Intro */,
 				A828A6692AFF054800B11D71 /* SM_Concept1 */,
@@ -1100,7 +1119,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_TEAM = XGHDQG66U5;
+				DEVELOPMENT_TEAM = W43DLLFB4Q;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
@@ -1134,7 +1153,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_TEAM = XGHDQG66U5;
+				DEVELOPMENT_TEAM = W43DLLFB4Q;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";

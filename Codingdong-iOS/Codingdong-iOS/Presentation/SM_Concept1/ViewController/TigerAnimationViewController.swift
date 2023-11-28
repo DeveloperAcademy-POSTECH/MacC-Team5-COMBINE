@@ -157,7 +157,7 @@ extension TigerAnimationViewController {
     
     @objc
     private func popThisView() {
-        self.navigationController?.popToRootViewController(animated: false)
+        self.navigationController?.pushViewController(CustomAlert(), animated: false)
     }
     
 }

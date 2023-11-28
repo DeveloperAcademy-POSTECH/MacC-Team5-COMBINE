@@ -202,11 +202,11 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     
     @objc
     func popThisView() {
-        self.navigationController?.popToRootViewController(animated: false)
+        self.navigationController?.pushViewController(CustomAlert(), animated: false)
     }
     
     func setupPraiseLabel() {
-        titleLabel.text = "잘했어! 떡꼬치가 잘 만들어졌는지 한번 확인해 봐!"
+        titleLabel.text = "잘했어! 떡꼬치가 잘 만들어졌는지 한번 잘 들어봐!"
         ttekkkochiCollectionViewElement.accessibilityLabel = "만약에\n떡 하나 주면\n안 잡아먹는다\n아니면\n잡아먹는다\n잘 만들었는데? 이제 호랑이에게 주자!"
         UIAccessibility.post(notification: .layoutChanged, argument: titleLabel)
     }

@@ -37,7 +37,7 @@ final class WindowHoleViewController: UIViewController, ConfigUI {
         let label = UILabel()
         label.text = """
                     창호지 문에 구멍이 뚫려있어. 
-                    구멍을 두번 눌러서 뭐가 보이는지 확인해 봐!
+                    구멍을 두번 누르면 밖에 누가 있는지 알 수 있어!
                     """
         label.font = FontManager.body()
         label.textColor = .gs10
@@ -173,7 +173,7 @@ extension WindowHoleViewController {
     }
     
     @objc func popThisView() {
-        self.navigationController?.popToRootViewController(animated: false)
+        self.navigationController?.pushViewController(CustomAlert(), animated: false)
     }
     
     func setGestureRecognizer() {
