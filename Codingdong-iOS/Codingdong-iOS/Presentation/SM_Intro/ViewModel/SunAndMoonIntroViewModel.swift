@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Log
 
 protocol SunAndMoonIntroViewModelRepresentable {
     func moveOn()
@@ -19,8 +20,6 @@ final class SunAndMoonIntroViewModel: SunAndMoonIntroViewModelRepresentable {
     var sendRoute: PassthroughSubject<UIViewController, Never> = .init()
     
     func moveOn() {
-        // TODO: 위치 옮기기(조건문 학습 이후로), 지금 여러 개 들어감, 데이터 로드 시점 바꾸기
-        CddDBService().updateFood(Food(image: "img_yugwa3", concept: "조건문"))
         sendRoute.send(TigerEncountViewController())
     }
 }

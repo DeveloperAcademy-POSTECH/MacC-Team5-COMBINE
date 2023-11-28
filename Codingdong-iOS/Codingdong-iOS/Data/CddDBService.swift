@@ -13,7 +13,7 @@ struct CddDBService {
     var context: ModelContext
     var container: ModelContainer = {
         let schema = Schema([FableData.self, FoodList.self, Food.self])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+        let modelConfiguration = ModelConfiguration(schema: schema)
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])
         } catch {
@@ -49,7 +49,9 @@ extension CddDBService {
         }
         self.readItems(key: [SortDescriptor<FoodList>(\.id)]) { data, error in
             if let error { Log.e(error) }
-            if data?.count == 0 { self.createItem(FoodList(id: UUID().uuidString, haveFood: false)) }
+            if data?.count == 0 {
+                self.context.insert(FoodList(id: UUID().uuidString, haveFood: false))
+            }
         }
     }
     
@@ -64,7 +66,7 @@ extension CddDBService {
     }
     
     func readFoodListData() -> FoodList {
-        var foodListData: FoodList?
+        var foodListData: FoodList?	
         self.readItems(key: [SortDescriptor<FoodList>(\.id)]) { data, error in
             if let error { Log.e(error) }
             guard let data = data else { return }
@@ -76,7 +78,13 @@ extension CddDBService {
     func updateFood(_ item: Food) {
         let foodList = self.readFoodListData()
         foodList.haveFood = true
-        foodList.food?.append(item) 
+        foodList.food?.append(item)
         item.foodList = foodList
+        context.insert(foodList)
+        do { 
+            try context.save()
+        } catch {
+            fatalError(error.localizedDescription)
+        }
     }
 }

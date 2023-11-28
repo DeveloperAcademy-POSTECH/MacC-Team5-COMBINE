@@ -72,7 +72,6 @@ final class TigerEncountViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         binding()
-        Log.i("로드")
     }
     
     override func viewDidAppear(_ animated: Bool) {

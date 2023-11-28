@@ -75,7 +75,7 @@
 		A80B882A2ADB9A2400091FF5 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88292ADB9A2400091FF5 /* RxRelay */; };
 		A80B883C2ADBA3EC00091FF5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */; };
 		A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81637232ADFC5FD0070DAC9 /* Constants.swift */; };
-		A827FA252B0DB36300E6B7B8 /* CodingdongDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A827FA242B0DB36300E6B7B8 /* CodingdongDBService.swift */; };
+		A827FA252B0DB36300E6B7B8 /* CddDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A827FA242B0DB36300E6B7B8 /* CddDBService.swift */; };
 		A828A66B2AFF05DB00B11D71 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828A66A2AFF05DB00B11D71 /* CardView.swift */; };
 		A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */; };
 		A83392A12ADAB35D009BA7E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83392A02ADAB35D009BA7E2 /* SceneDelegate.swift */; };
@@ -178,7 +178,7 @@
 		A80A05342AFFCE9C00624BBC /* MyBookShelfViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookShelfViewModel.swift; sourceTree = "<group>"; };
 		A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A81637232ADFC5FD0070DAC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		A827FA242B0DB36300E6B7B8 /* CodingdongDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingdongDBService.swift; sourceTree = "<group>"; };
+		A827FA242B0DB36300E6B7B8 /* CddDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CddDBService.swift; sourceTree = "<group>"; };
 		A828A66A2AFF05DB00B11D71 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		A833929B2ADAB35D009BA7E2 /* Codingdong-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codingdong-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A833929E2ADAB35D009BA7E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -442,7 +442,7 @@
 		A827FA232B0DB33700E6B7B8 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				A827FA242B0DB36300E6B7B8 /* CodingdongDBService.swift */,
+				A827FA242B0DB36300E6B7B8 /* CddDBService.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -912,7 +912,7 @@
 				A80A05352AFFCE9C00624BBC /* MyBookShelfViewModel.swift in Sources */,
 				A8C00F842B021A8200201EAD /* SunMoonOnuiiViewController.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
-				A827FA252B0DB36300E6B7B8 /* CodingdongDBService.swift in Sources */,
+				A827FA252B0DB36300E6B7B8 /* CddDBService.swift in Sources */,
 				A8C966F02B011914005105E8 /* CustomCollectionViewFlowLayout.swift in Sources */,
 				67BAECF12B000446006FB6D3 /* TigerHandHoleAnimationView.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
