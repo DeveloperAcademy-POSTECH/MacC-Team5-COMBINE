@@ -74,9 +74,9 @@ extension CddDBService {
     }
         
     func updateFood(_ item: Food) {
-        var foodList = self.readFoodListData()
+        let foodList = self.readFoodListData()
         foodList.haveFood = true
-        foodList.food?.append(item) // append 1번만 되도록 바꿔야 함
+        foodList.food?.append(item) 
         item.foodList = foodList
     }
 }
