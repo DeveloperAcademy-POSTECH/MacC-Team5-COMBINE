@@ -51,6 +51,7 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
     
     private let nextButton = CommonButton()
     private lazy var nextButtonViewModel = CommonbuttonModel(title: "다음으로", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
+        CddDBService().updateFood(Food(image: "img_yugwa1", concept: "반복문"))
         self?.navigationController?.pushViewController(RepeatConceptViewController(), animated: false)
     }
     
