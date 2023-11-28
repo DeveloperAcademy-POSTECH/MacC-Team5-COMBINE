@@ -10,7 +10,6 @@
 		112003D12AE574FB00924FAB /* LottieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112003D02AE574FB00924FAB /* LottieManager.swift */; };
 		112003D42AE5752300924FAB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 112003D32AE5752300924FAB /* Lottie */; };
 		112003D82AE5792600924FAB /* TigerAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112003D72AE5792600924FAB /* TigerAnimationViewController.swift */; };
-		113B202D2B150C5F0089C61B /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B202C2B150C5F0089C61B /* CustomAlert.swift */; };
 		1143C6832AF4D6440032CE53 /* MyBookShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6822AF4D6440032CE53 /* MyBookShelfViewController.swift */; };
 		1143C6882AF6A31F0032CE53 /* StoryListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */; };
 		1143C68C2AF6B01E0032CE53 /* StoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */; };
@@ -94,6 +93,7 @@
 		A897A9752AFF6AC000008722 /* Fable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897A9742AFF6AC000008722 /* Fable.swift */; };
 		A897A9772AFF6FD200008722 /* YugwaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897A9762AFF6FD200008722 /* YugwaCell.swift */; };
 		A8A482072AE5E7EB00FDE35C /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A8A482062AE5E7EA00FDE35C /* bell.mp3 */; };
+		A8A53A102B169010006DD7E3 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A53A0F2B169010006DD7E3 /* CustomAlert.swift */; };
 		A8A725032AE55F7C004840A6 /* TtekkkochiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A725022AE55F7C004840A6 /* TtekkkochiViewModel.swift */; };
 		A8A979832B0285E1006A86FB /* TeachingRepeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A979822B0285E1006A86FB /* TeachingRepeatViewController.swift */; };
 		A8B10D3E2AFAAE20009EA3F5 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B10D3D2AFAAE20009EA3F5 /* SplashViewController.swift */; };
@@ -137,7 +137,6 @@
 /* Begin PBXFileReference section */
 		112003D02AE574FB00924FAB /* LottieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieManager.swift; sourceTree = "<group>"; };
 		112003D72AE5792600924FAB /* TigerAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerAnimationViewController.swift; sourceTree = "<group>"; };
-		113B202C2B150C5F0089C61B /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		1143C6822AF4D6440032CE53 /* MyBookShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookShelfViewController.swift; sourceTree = "<group>"; };
 		1143C6872AF6A31F0032CE53 /* StoryListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListTableView.swift; sourceTree = "<group>"; };
 		1143C68B2AF6B01E0032CE53 /* StoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListTableViewCell.swift; sourceTree = "<group>"; };
@@ -201,6 +200,7 @@
 		A897A9742AFF6AC000008722 /* Fable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fable.swift; sourceTree = "<group>"; };
 		A897A9762AFF6FD200008722 /* YugwaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YugwaCell.swift; sourceTree = "<group>"; };
 		A8A482062AE5E7EA00FDE35C /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
+		A8A53A0F2B169010006DD7E3 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		A8A725022AE55F7C004840A6 /* TtekkkochiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiViewModel.swift; sourceTree = "<group>"; };
 		A8A979822B0285E1006A86FB /* TeachingRepeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachingRepeatViewController.swift; sourceTree = "<group>"; };
 		A8B10D3D2AFAAE20009EA3F5 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -266,7 +266,7 @@
 		113B202B2B150C4C0089C61B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				113B202C2B150C5F0089C61B /* CustomAlert.swift */,
+				A8A53A0F2B169010006DD7E3 /* CustomAlert.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -932,6 +932,7 @@
 				A8C00F842B021A8200201EAD /* SunMoonOnuiiViewController.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
 				A827FA252B0DB36300E6B7B8 /* CddDBService.swift in Sources */,
+				A8A53A102B169010006DD7E3 /* CustomAlert.swift in Sources */,
 				A8C966F02B011914005105E8 /* CustomCollectionViewFlowLayout.swift in Sources */,
 				67BAECF12B000446006FB6D3 /* TigerHandHoleAnimationView.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
@@ -1119,7 +1120,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_TEAM = W43DLLFB4Q;
+				DEVELOPMENT_TEAM = XGHDQG66U5;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
@@ -1153,7 +1154,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_TEAM = W43DLLFB4Q;
+				DEVELOPMENT_TEAM = XGHDQG66U5;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Codingdong-iOS/Util/Resources/Info.plist";
