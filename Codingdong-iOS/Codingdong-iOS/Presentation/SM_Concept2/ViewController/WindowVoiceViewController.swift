@@ -38,7 +38,7 @@ final class WindowVoiceViewController: UIViewController, ConfigUI {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = """
-                    문 밖을 확인해보니 어때?
+                    어때? 밖에 있는게
                     엄마일까, 호랑이일까?
                     문을 열어줘도 될까?
                     """

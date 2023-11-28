@@ -52,7 +52,7 @@ final class AndConceptViewController: UIViewController {
     
     private let cardView = CardView()
     
-    private let cardViewModel = CardViewModel(title: "그리고 과자", content: "호랑이의 발톱, 꼬리 그리고 수염을 보고 호랑이인 걸 알 수 있었어.", cardImage: "sm_concept2")
+    private let cardViewModel = CardViewModel(title: "그리고 과자", content: "발톱, 꼬리 그리고 수염을 확인해서 호랑이인 걸 알 수 있었어.", cardImage: "sm_concept2")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,6 +121,6 @@ extension AndConceptViewController {
     
     @objc
     func popThisView() {
-        self.navigationController?.popToRootViewController(animated: false)
+        self.navigationController?.pushViewController(CustomAlert(), animated: false)
     }
 }
