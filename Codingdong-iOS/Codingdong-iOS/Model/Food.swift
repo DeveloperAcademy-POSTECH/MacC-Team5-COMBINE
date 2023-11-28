@@ -9,25 +9,28 @@ import Foundation
 import SwiftData
 
 @Model
-class FoodList {
+final class FoodList {
+    var id: String
     var haveFood: Bool
-    var food: [Food]
+    @Relationship(deleteRule: .cascade, inverse: \Food.foodList)
+    var food: [Food]?
     
-    init(haveFood: Bool, food: [Food]) {
+    init(id: String, haveFood: Bool) {
+        self.id = id
         self.haveFood = haveFood
-        self.food = food
     }
 }
 
 @Model
 final class Food {
+    var foodList: FoodList?
     var image: String
-    var concept: String
+    @Attribute(.unique)var concept: String
     
-    init(image: String, concept: String) {
+    init(foodList: FoodList? = nil, image: String, concept: String) {
         self.image = image
         self.concept = concept
+        self.foodList = foodList
     }
 }
-
 

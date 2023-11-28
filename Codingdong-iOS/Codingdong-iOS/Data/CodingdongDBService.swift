@@ -9,53 +9,74 @@ import Foundation
 import SwiftData
 import Log
 
-final class CodingdongDBService {
-    static var shared = CodingdongDBService()
-    var container: ModelContainer?
-    var context: ModelContext?
-    
-    init() {
+struct CddDBService {
+    var context: ModelContext
+    var container: ModelContainer = {
+        let schema = Schema([FableData.self, FoodList.self, Food.self])
+        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
         do {
-            container = try ModelContainer(for: FableData.self, FoodList.self)
-            if let container { context = ModelContext(container) }
-            self.fetchFable { data, error in
-                if let error { Log.e(error) }
-                if data?.count == 0 { fables.forEach { self.context?.insert($0) } }
-            }
-        } catch { Log.e(error.localizedDescription) }
-    }
+            return try ModelContainer(for: schema, configurations: [modelConfiguration])
+        } catch {
+            fatalError("Could not create ModelContainer: \(error)")
+        }
+    }()
     
-    // 전래동화
-    func fetchFable(onCompletion: @escaping([FableData]?, Error?) -> Void) {
-        let descriptor = FetchDescriptor<FableData>(sortBy: [SortDescriptor<FableData>(\.title, order: .reverse)])
-        
-        if let context {
-            do {
-                let data = try context.fetch(descriptor)
-                onCompletion(data,nil)
-            } catch { onCompletion(nil,error) }
+    init() { context = ModelContext(container) }
+    
+    /// CREATE
+    func createItem<T: PersistentModel> (_ item: T) { context.insert(item) }
+    
+    /// READ
+    func readItems<T: PersistentModel>(key: [SortDescriptor<T>]?, onCompletion: @escaping([T]?, Error?) -> ()) {
+        guard let key = key else { return }
+        let descriptor = FetchDescriptor<T>(sortBy: key)
+        do {
+            let data = try context.fetch(descriptor)
+            onCompletion(data,nil)
+        } catch {
+            onCompletion(nil,error)
+        }
+    }
+    /// DELETE
+    func deleteItems<T:PersistentModel>(_ item: T) { context.delete(item) }
+}
+
+extension CddDBService {
+    func initializeData() {
+        self.readItems(key: [SortDescriptor<FableData>(\.title)]) { data, error in
+            if let error { Log.e(error) }
+            if data?.count == 0 { fables.forEach { self.context.insert($0) } }
+        }
+        self.readItems(key: [SortDescriptor<FoodList>(\.id)]) { data, error in
+            if let error { Log.e(error) }
+            if data?.count == 0 { self.createItem(FoodList(id: UUID().uuidString, haveFood: false)) }
         }
     }
     
-    func updateFable(fable: FableData, checkRead: Bool) {
-        let readFable = fable
-        readFable.isRead = checkRead
-    }
-    
-    // 개념 간식
-    func fetchFoodList(onCompletion: @escaping([FoodList]?, Error?) -> Void) {
-        let descriptor = FetchDescriptor<FoodList>()
-        
-        if let context {
-            do {
-                let data = try context.fetch(descriptor)
-                onCompletion(data,nil)
-            } catch { onCompletion(nil,error) }
+    func readFableData() -> [FableData] {
+        var fableData: [FableData] = []
+        self.readItems(key: [SortDescriptor<FableData>(\.title, order: .reverse)]) { data, error in
+            if let error { Log.e(error) }
+            guard let data = data else { return }
+            fableData = data
         }
+        return fableData
     }
     
-    func saveFoodList(foodList: FoodList) {
-        guard let context = context else { return }
-        context.insert(foodList)
+    func readFoodListData() -> FoodList {
+        var foodListData: FoodList?
+        self.readItems(key: [SortDescriptor<FoodList>(\.id)]) { data, error in
+            if let error { Log.e(error) }
+            guard let data = data else { return }
+            foodListData = data[0]
+        }
+        return foodListData ?? FoodList(id: UUID().uuidString, haveFood: false)
+    }
+        
+    func updateFood(_ item: Food) {
+        var foodList = self.readFoodListData()
+        foodList.haveFood = true
+        foodList.food?.append(item) // append 1번만 되도록 바꿔야 함
+        item.foodList = foodList
     }
 }

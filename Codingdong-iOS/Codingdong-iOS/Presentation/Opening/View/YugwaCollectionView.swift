@@ -3,7 +3,7 @@ import Log
 
 final class YugwaCollectionView: UIView {
     
-    @Published var foodList: [FoodList]?
+    @Published var food: [Food]?
     
     private let containerView: UIView = {
         let view = UIView()
@@ -48,12 +48,12 @@ final class YugwaCollectionView: UIView {
 
 extension YugwaCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return foodList?[0].food.count ?? 0
+        return food?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: YugwaCell.identifier, for: indexPath) as? YugwaCell else { fatalError() }
-        cell.model = foodList?[0].food[indexPath.row] ?? Food(image: "", concept: "")
+        cell.model = food?[indexPath.row] ?? Food(image: "", concept: "")
         return cell
     }
 }
