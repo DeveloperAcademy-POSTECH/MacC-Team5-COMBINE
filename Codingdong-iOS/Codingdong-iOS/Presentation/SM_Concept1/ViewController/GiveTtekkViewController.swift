@@ -131,7 +131,7 @@ extension GiveTtekkViewController {
     
     @objc
     func popThisView() {
-        self.navigationController?.popToRootViewController(animated: false)
+        self.navigationController?.pushViewController(CustomAlert(), animated: false)
     }
     
     @objc

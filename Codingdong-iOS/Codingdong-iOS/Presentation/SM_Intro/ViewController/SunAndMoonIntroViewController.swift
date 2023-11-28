@@ -220,7 +220,7 @@ final class SunAndMoonIntroViewController: UIViewController, ConfigUI {
     
     @objc
     func popThisView() {
-        self.navigationController?.popToRootViewController(animated: false)
+        navigationController?.pushViewController(CustomAlert(), animated: false)
     }
     
 }

@@ -134,7 +134,7 @@ final class SunMoonOnuiiViewController: UIViewController, ConfigUI {
 extension SunMoonOnuiiViewController {
     
     @objc private func popThisView() {
-        self.navigationController?.popToRootViewController(animated: false)
+        self.navigationController?.pushViewController(CustomAlert(), animated: false)
     }
     
     func playAnimationWithVoiceOver() {

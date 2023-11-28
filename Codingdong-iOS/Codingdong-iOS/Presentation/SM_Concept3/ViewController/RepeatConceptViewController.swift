@@ -115,6 +115,6 @@ final class RepeatConceptViewController: UIViewController, ConfigUI {
     }
 
     @objc func popThisView() {
-        self.navigationController?.popToRootViewController(animated: false)
+        self.navigationController?.pushViewController(CustomAlert(), animated: false)
     }
 }

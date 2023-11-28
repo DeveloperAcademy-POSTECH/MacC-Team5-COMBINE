@@ -90,6 +90,12 @@ final class CustomAlert:UIViewController, ConfigUI {
         setupAccessibility()
         addComponents()
         setConstraints()
+        setupNavigationBar()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.isNavigationBarHidden = false
     }
     
     func setConstraints() {
@@ -133,11 +139,10 @@ final class CustomAlert:UIViewController, ConfigUI {
             $0.centerX.equalToSuperview().multipliedBy(1.5)
             $0.bottom.equalToSuperview().inset(9)
         }
-        
     }
     
     func setupAccessibility() {
-            
+        
     }
     
     func addComponents() {
@@ -145,7 +150,9 @@ final class CustomAlert:UIViewController, ConfigUI {
         [alertTitle, alertContent, horizontalLine, verticalLine, cancelLabel, applyLabel].forEach { alertContainer.addSubview($0) }
     }
     
-    func setupNavigationBar() {}
+    func setupNavigationBar() {
+        navigationController?.isNavigationBarHidden = true
+    }
 }
 
 extension CustomAlert {
@@ -159,14 +166,10 @@ extension CustomAlert {
         if let type = AlertButtonType(rawValue: sender.view?.tag ?? 0) {
             switch type {
             case .stay:
-                Log.i("남기")
+                self.navigationController?.popViewController(animated: false)
             case .leave:
-                Log.i("돌아가기")
+                self.navigationController?.popToRootViewController(animated: false)
             }
         }
     }
-}
-
-#Preview {
-    CustomAlert()
 }
