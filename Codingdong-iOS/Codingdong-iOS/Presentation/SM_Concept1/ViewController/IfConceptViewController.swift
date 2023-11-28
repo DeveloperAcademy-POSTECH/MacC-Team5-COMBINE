@@ -119,7 +119,7 @@ final class IfConceptViewController: UIViewController, ConfigUI {
 extension IfConceptViewController {
     @objc
     func didClickNextButton() {
-//        CodingdongDBService.shared.saveFoodList(foodList: FoodList(haveFood: true, food: [Food(image: "sm_review1", concept: "조건문")]))
+        CddDBService().updateFood(Food(image: "img_yugwa3", concept: "조건문"))
         self.navigationController?.pushViewController(WindowStartViewController(), animated: false)
     }
     
