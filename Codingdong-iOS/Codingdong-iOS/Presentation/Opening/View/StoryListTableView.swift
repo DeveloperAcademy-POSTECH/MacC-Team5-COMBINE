@@ -65,6 +65,8 @@ extension StoryListTableView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if fableDataList[indexPath.row].title == "해님달님" {
             self.viewModel?.moveOn(.sunmoon)
+        } else if fableDataList[indexPath.row].title == "콩쥐팥쥐" {
+            self.viewModel?.moveOn(.kongjipatji)
         }
     }
     
