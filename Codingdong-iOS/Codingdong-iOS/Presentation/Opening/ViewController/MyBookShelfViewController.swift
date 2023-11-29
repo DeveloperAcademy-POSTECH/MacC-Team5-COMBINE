@@ -205,8 +205,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
             self.innerLabel.isHidden = false
             self.innerView.isHidden = true
         } else {
-            
-            self.innerView.food = CddDBService().readFoodListData().food
+            self.innerView.food = CddDBService().readFoodListData().food?.sorted(by: {$0.image < $1.image})
             self.innerView.badgeCollectionView.reloadData()
             self.innerLabel.isHidden = true
             self.innerView.isHidden = false
