@@ -1,10 +1,3 @@
-//
-//  StoryListTableView.swift
-//  Codingdong-iOS
-//
-//  Created by BAE on 2023/11/05.
-//
-
 import UIKit
 import Log
 import SwiftData
@@ -30,6 +23,11 @@ final class StoryListTableView: UIView {
         super.init(frame: frame)
         configUI()
         fetchData()
+        fableDataList?.forEach {
+            Log.n($0.title)
+            Log.d($0.isRead)
+        }
+        
     }
     
     required init?(coder: NSCoder) {
@@ -45,7 +43,6 @@ final class StoryListTableView: UIView {
     }
     
     func fetchData() {
-        self.fableDataList = CddDBService().readFableData()
         self.storyListTableView.reloadData()
     }
 }

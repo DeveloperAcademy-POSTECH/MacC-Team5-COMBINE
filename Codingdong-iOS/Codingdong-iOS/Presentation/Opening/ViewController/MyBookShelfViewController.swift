@@ -206,6 +206,8 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     }
     
     func fetchData() {
+        self.storyList.fableDataList = CddDBService().readFableData()
+        
         if (CddDBService().readFoodListData().haveFood == false) {
             self.innerLabel.isHidden = false
             self.innerView.isHidden = true
