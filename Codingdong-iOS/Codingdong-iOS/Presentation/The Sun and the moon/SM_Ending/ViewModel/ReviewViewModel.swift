@@ -19,6 +19,6 @@ final class ReviewViewModel: ReviewViewModelRepresentable {
     var sendRoute: PassthroughSubject<UIViewController, Never> = .init()
     
     func endStory() {
-        // TODO: 콩쥐팥쥐 열기, 개념 간식 모음 업데이트
+        CddDBService().updateFable(FableData(title: "콩쥐팥쥐", isRead: true))
     }
 }

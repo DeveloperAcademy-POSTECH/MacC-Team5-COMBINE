@@ -1,10 +1,3 @@
-//
-//  StoryListTableView.swift
-//  Codingdong-iOS
-//
-//  Created by BAE on 2023/11/05.
-//
-
 import UIKit
 import Log
 import SwiftData
@@ -12,7 +5,7 @@ import SwiftData
 final class StoryListTableView: UIView {
 
     var viewModel: MyBookShelfViewModelRepresentable?
-    var fableDataList = [FableData]()
+    @Published var fableDataList: [FableData]?
     
     // TODO: Separator 오류 해결해야 함
     private lazy var storyListTableView: UITableView = {
@@ -30,6 +23,11 @@ final class StoryListTableView: UIView {
         super.init(frame: frame)
         configUI()
         fetchData()
+        fableDataList?.forEach {
+            Log.n($0.title)
+            Log.d($0.isRead)
+        }
+        
     }
     
     required init?(coder: NSCoder) {
@@ -45,7 +43,6 @@ final class StoryListTableView: UIView {
     }
     
     func fetchData() {
-        self.fableDataList = CddDBService().readFableData()
         self.storyListTableView.reloadData()
     }
 }
@@ -53,18 +50,20 @@ final class StoryListTableView: UIView {
 // MARK: - Extension
 extension StoryListTableView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fableDataList.count
+        return fableDataList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: StoryListTableViewCell.identifier , for: indexPath) as? StoryListTableViewCell else { fatalError() }
-        cell.model = fableDataList[indexPath.row]
+        cell.model = fableDataList?[indexPath.row] ?? FableData(title: "", isRead: false)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if fableDataList[indexPath.row].title == "해님달님" {
+        if fableDataList?[indexPath.row].title == "해님달님" {
             self.viewModel?.moveOn(.sunmoon)
+        } else if fableDataList?[indexPath.row].title == "콩쥐팥쥐" {
+            self.viewModel?.moveOn(.kongjipatji)
         }
     }
     

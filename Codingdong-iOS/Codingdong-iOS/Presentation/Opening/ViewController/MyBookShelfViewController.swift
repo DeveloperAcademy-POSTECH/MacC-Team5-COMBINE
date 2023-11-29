@@ -7,13 +7,17 @@ import UIKit
 import Combine
 import Log
 
+// TODO: 나중에 바꿀 예정
 enum NextViewType {
     case sunmoon
+    case kongjipatji
     
     fileprivate var viewController: UIViewController {
         switch self {
         case .sunmoon:
             return SunAndMoonIntroViewController()
+        case .kongjipatji:
+            return KPIntroViewController()
         }
     }
 }
@@ -112,11 +116,12 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
         setupNavigationBar()
         addComponents()
         setConstraints()
+        binding()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         fetchData()
-        binding()
+      
     }
     
     func setupRootView() {
@@ -201,6 +206,8 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     }
     
     func fetchData() {
+        self.storyList.fableDataList = CddDBService().readFableData()
+        
         if (CddDBService().readFoodListData().haveFood == false) {
             self.innerLabel.isHidden = false
             self.innerView.isHidden = true
@@ -213,8 +220,6 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     }
     
     func binding() {
-//        storyList.setup(with: viewModel)
-        
         viewModel.route
             .receive(on: DispatchQueue.main)
             .sink { [weak self] route in
