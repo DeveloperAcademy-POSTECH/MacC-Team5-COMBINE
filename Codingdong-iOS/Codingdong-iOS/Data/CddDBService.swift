@@ -87,4 +87,15 @@ extension CddDBService {
             fatalError(error.localizedDescription)
         }
     }
+    
+    func updateFable(_ item: FableData) {
+        let fableData = self.readFableData()
+        item.isRead = true
+        context.insert(item)
+        do {
+            try context.save()
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+    }
 }

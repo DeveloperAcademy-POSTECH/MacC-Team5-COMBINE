@@ -94,6 +94,7 @@
 		A897A9772AFF6FD200008722 /* YugwaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897A9762AFF6FD200008722 /* YugwaCell.swift */; };
 		A8A482072AE5E7EB00FDE35C /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A8A482062AE5E7EA00FDE35C /* bell.mp3 */; };
 		A8A53A102B169010006DD7E3 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A53A0F2B169010006DD7E3 /* CustomAlert.swift */; };
+		A8A53A1E2B16FF4D006DD7E3 /* KPIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A53A1D2B16FF4D006DD7E3 /* KPIntroViewController.swift */; };
 		A8A725032AE55F7C004840A6 /* TtekkkochiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A725022AE55F7C004840A6 /* TtekkkochiViewModel.swift */; };
 		A8A979832B0285E1006A86FB /* TeachingRepeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A979822B0285E1006A86FB /* TeachingRepeatViewController.swift */; };
 		A8B10D3E2AFAAE20009EA3F5 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B10D3D2AFAAE20009EA3F5 /* SplashViewController.swift */; };
@@ -110,6 +111,10 @@
 		A8C00F7E2B01FA3500201EAD /* OnuiiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C00F7D2B01FA3500201EAD /* OnuiiViewModel.swift */; };
 		A8C00F822B0209E000201EAD /* RepeatConceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C00F812B0209E000201EAD /* RepeatConceptViewController.swift */; };
 		A8C00F842B021A8200201EAD /* SunMoonOnuiiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C00F832B021A8200201EAD /* SunMoonOnuiiViewController.swift */; };
+		A8C2A8BE2B1720EC00EEDA53 /* KPHouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C2A8BD2B1720EC00EEDA53 /* KPHouseViewController.swift */; };
+		A8C2A8C02B17212100EEDA53 /* KPWorkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C2A8BF2B17212100EEDA53 /* KPWorkViewController.swift */; };
+		A8C2A8C22B17215400EEDA53 /* KPShoeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C2A8C12B17215400EEDA53 /* KPShoeViewController.swift */; };
+		A8C2A8C42B17217600EEDA53 /* KPEndingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C2A8C32B17217600EEDA53 /* KPEndingViewController.swift */; };
 		A8C966F02B011914005105E8 /* CustomCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C966EF2B011914005105E8 /* CustomCollectionViewFlowLayout.swift */; };
 		A8E47CCA2B03CFB6008428D4 /* RopeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E47CC92B03CFB6008428D4 /* RopeViewController.swift */; };
 		A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F41D252AE4F94400BB0260 /* SoundManager.swift */; };
@@ -201,6 +206,7 @@
 		A897A9762AFF6FD200008722 /* YugwaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YugwaCell.swift; sourceTree = "<group>"; };
 		A8A482062AE5E7EA00FDE35C /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
 		A8A53A0F2B169010006DD7E3 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		A8A53A1D2B16FF4D006DD7E3 /* KPIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPIntroViewController.swift; sourceTree = "<group>"; };
 		A8A725022AE55F7C004840A6 /* TtekkkochiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtekkkochiViewModel.swift; sourceTree = "<group>"; };
 		A8A979822B0285E1006A86FB /* TeachingRepeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachingRepeatViewController.swift; sourceTree = "<group>"; };
 		A8B10D3D2AFAAE20009EA3F5 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +224,10 @@
 		A8C00F7D2B01FA3500201EAD /* OnuiiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnuiiViewModel.swift; sourceTree = "<group>"; };
 		A8C00F812B0209E000201EAD /* RepeatConceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatConceptViewController.swift; sourceTree = "<group>"; };
 		A8C00F832B021A8200201EAD /* SunMoonOnuiiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunMoonOnuiiViewController.swift; sourceTree = "<group>"; };
+		A8C2A8BD2B1720EC00EEDA53 /* KPHouseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPHouseViewController.swift; sourceTree = "<group>"; };
+		A8C2A8BF2B17212100EEDA53 /* KPWorkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPWorkViewController.swift; sourceTree = "<group>"; };
+		A8C2A8C12B17215400EEDA53 /* KPShoeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPShoeViewController.swift; sourceTree = "<group>"; };
+		A8C2A8C32B17217600EEDA53 /* KPEndingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPEndingViewController.swift; sourceTree = "<group>"; };
 		A8C966EF2B011914005105E8 /* CustomCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		A8E47CC92B03CFB6008428D4 /* RopeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RopeViewController.swift; sourceTree = "<group>"; };
 		A8F41D252AE4F94400BB0260 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
@@ -437,11 +447,8 @@
 				A81637202ADFC51F0070DAC9 /* Components */,
 				113B202A2B150C3C0089C61B /* CumstomAlert */,
 				A8B10D3C2AFAAE10009EA3F5 /* Opening */,
-				1143C6C12AFB822E0032CE53 /* SM_Intro */,
-				A828A6692AFF054800B11D71 /* SM_Concept1 */,
-				A828A66C2AFF06B700B11D71 /* SM_Concept2 */,
-				A852B1792B01F8810051BE9E /* SM_Concept3 */,
-				A8BE07F42B00E47700DD7378 /* SM_Ending */,
+				A8C2A8C52B172BAA00EEDA53 /* The Sun and the moon */,
+				A8C2A8C62B172BCA00EEDA53 /* Kongji Patji */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -575,6 +582,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		A8A53A162B16F891006DD7E3 /* KP_Intro */ = {
+			isa = PBXGroup;
+			children = (
+				A8A53A172B16F891006DD7E3 /* ViewController */,
+			);
+			path = KP_Intro;
+			sourceTree = "<group>";
+		};
+		A8A53A172B16F891006DD7E3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A8A53A1D2B16FF4D006DD7E3 /* KPIntroViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		A8B10D3C2AFAAE10009EA3F5 /* Opening */ = {
 			isa = PBXGroup;
 			children = (
@@ -665,6 +688,94 @@
 				A8C00F7D2B01FA3500201EAD /* OnuiiViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A8C2A8B52B171FBB00EEDA53 /* KP_Concept1 */ = {
+			isa = PBXGroup;
+			children = (
+				A8C2A8B62B171FD700EEDA53 /* ViewController */,
+			);
+			path = KP_Concept1;
+			sourceTree = "<group>";
+		};
+		A8C2A8B62B171FD700EEDA53 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A8C2A8BD2B1720EC00EEDA53 /* KPHouseViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A8C2A8B72B17202F00EEDA53 /* KP_Concept2 */ = {
+			isa = PBXGroup;
+			children = (
+				A8C2A8B82B17204300EEDA53 /* ViewController */,
+			);
+			path = KP_Concept2;
+			sourceTree = "<group>";
+		};
+		A8C2A8B82B17204300EEDA53 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A8C2A8BF2B17212100EEDA53 /* KPWorkViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A8C2A8B92B17204D00EEDA53 /* KP_Concept3 */ = {
+			isa = PBXGroup;
+			children = (
+				A8C2A8BA2B17205A00EEDA53 /* ViewController */,
+			);
+			path = KP_Concept3;
+			sourceTree = "<group>";
+		};
+		A8C2A8BA2B17205A00EEDA53 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A8C2A8C12B17215400EEDA53 /* KPShoeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A8C2A8BB2B17207100EEDA53 /* KP_Ending */ = {
+			isa = PBXGroup;
+			children = (
+				A8C2A8BC2B17209F00EEDA53 /* ViewController */,
+			);
+			path = KP_Ending;
+			sourceTree = "<group>";
+		};
+		A8C2A8BC2B17209F00EEDA53 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A8C2A8C32B17217600EEDA53 /* KPEndingViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A8C2A8C52B172BAA00EEDA53 /* The Sun and the moon */ = {
+			isa = PBXGroup;
+			children = (
+				1143C6C12AFB822E0032CE53 /* SM_Intro */,
+				A828A6692AFF054800B11D71 /* SM_Concept1 */,
+				A828A66C2AFF06B700B11D71 /* SM_Concept2 */,
+				A852B1792B01F8810051BE9E /* SM_Concept3 */,
+				A8BE07F42B00E47700DD7378 /* SM_Ending */,
+			);
+			path = "The Sun and the moon";
+			sourceTree = "<group>";
+		};
+		A8C2A8C62B172BCA00EEDA53 /* Kongji Patji */ = {
+			isa = PBXGroup;
+			children = (
+				A8A53A162B16F891006DD7E3 /* KP_Intro */,
+				A8C2A8B52B171FBB00EEDA53 /* KP_Concept1 */,
+				A8C2A8B72B17202F00EEDA53 /* KP_Concept2 */,
+				A8C2A8B92B17204D00EEDA53 /* KP_Concept3 */,
+				A8C2A8BB2B17207100EEDA53 /* KP_Ending */,
+			);
+			path = "Kongji Patji";
 			sourceTree = "<group>";
 		};
 		A8F41D2B2AE4FC3900BB0260 /* Sound */ = {
@@ -891,6 +1002,7 @@
 				A8A725032AE55F7C004840A6 /* TtekkkochiViewModel.swift in Sources */,
 				A828A66B2AFF05DB00B11D71 /* CardView.swift in Sources */,
 				A8F41D2F2AE5001F00BB0260 /* HapticManager.swift in Sources */,
+				A8C2A8C22B17215400EEDA53 /* KPShoeViewController.swift in Sources */,
 				11CD0EDF2AFD56D500911B64 /* TigerEncountViewController.swift in Sources */,
 				A833929F2ADAB35D009BA7E2 /* AppDelegate.swift in Sources */,
 				A8560F252B1317EF005DB691 /* Food.swift in Sources */,
@@ -899,12 +1011,14 @@
 				11504B0A2AE57DE900AED5C0 /* TigerLottieAnimationVIew.swift in Sources */,
 				670D34D62AF4D0FD00B81A06 /* WindowStartViewController.swift in Sources */,
 				A8BC0DB72AE3571D00AD5C9A /* TtekkkochiCollectionViewCell.swift in Sources */,
+				A8C2A8BE2B1720EC00EEDA53 /* KPHouseViewController.swift in Sources */,
 				A8F41D262AE4F94400BB0260 /* SoundManager.swift in Sources */,
 				67D89CAB2B021AF600EC68E3 /* PermissionManager.swift in Sources */,
 				A8B10D432AFAAE88009EA3F5 /* OnboardingViewController.swift in Sources */,
 				1143C6882AF6A31F0032CE53 /* StoryListTableView.swift in Sources */,
 				A80A05332AFFCA9000624BBC /* OnboardingViewModel.swift in Sources */,
 				A897A9772AFF6FD200008722 /* YugwaCell.swift in Sources */,
+				A8A53A1E2B16FF4D006DD7E3 /* KPIntroViewController.swift in Sources */,
 				670E09A42AFD4540008AA6D5 /* WindowVoiceChildViewController.swift in Sources */,
 				A87217C72AE212C6003C0D5C /* TtekkkochiViewController.swift in Sources */,
 				A897A9752AFF6AC000008722 /* Fable.swift in Sources */,
@@ -924,6 +1038,7 @@
 				A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */,
 				11CD0EDC2AFD56B800911B64 /* TigerEncountView.swift in Sources */,
 				1143C6C42AFB829F0032CE53 /* SunAndMoonIntroViewController.swift in Sources */,
+				A8C2A8C42B17217600EEDA53 /* KPEndingViewController.swift in Sources */,
 				A8BE07F12B00CA7800DD7378 /* SunAndMoonIntroViewModel.swift in Sources */,
 				A8BE07FA2B00EBF100DD7378 /* ReviewCollectionViewCell.swift in Sources */,
 				A8BC0DB92AE358BF00AD5C9A /* BasePaddingLabel.swift in Sources */,
@@ -932,8 +1047,10 @@
 				A8C00F842B021A8200201EAD /* SunMoonOnuiiViewController.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
 				A827FA252B0DB36300E6B7B8 /* CddDBService.swift in Sources */,
+				A827FA252B0DB36300E6B7B8 /* CddDBService.swift in Sources */,
 				A8A53A102B169010006DD7E3 /* CustomAlert.swift in Sources */,
 				A8C966F02B011914005105E8 /* CustomCollectionViewFlowLayout.swift in Sources */,
+				A8C2A8C02B17212100EEDA53 /* KPWorkViewController.swift in Sources */,
 				67BAECF12B000446006FB6D3 /* TigerHandHoleAnimationView.swift in Sources */,
 				67816A4A2AE26FEF00B121B6 /* GiveTtekkViewController.swift in Sources */,
 				A8BE07FD2B00FECA00DD7378 /* ReviewViewModel.swift in Sources */,
