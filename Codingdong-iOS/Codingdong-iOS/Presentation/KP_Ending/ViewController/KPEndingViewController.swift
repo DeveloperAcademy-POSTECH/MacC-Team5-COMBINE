@@ -7,6 +7,6 @@
 
 import UIKit
 
-class KPEndingViewController: UIViewController {
+final class KPEndingViewController: UIViewController {
 
 }
