@@ -184,6 +184,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
                     
                     switch index {
                     case 4:
+                        answerBlocks[index].isShowing = false
                         self.bottomView.isHidden = true
                         self.nextButton.isHidden = false
                         nextButton.setup(model: settingButtonViewModel)
@@ -202,6 +203,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     
     @objc
     func popThisView() {
+        (0...4).forEach { answerBlocks[$0].isShowing = false }
         self.navigationController?.pushViewController(CustomAlert(), animated: false)
     }
     
