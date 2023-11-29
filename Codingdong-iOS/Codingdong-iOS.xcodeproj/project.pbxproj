@@ -447,16 +447,8 @@
 				A81637202ADFC51F0070DAC9 /* Components */,
 				113B202A2B150C3C0089C61B /* CumstomAlert */,
 				A8B10D3C2AFAAE10009EA3F5 /* Opening */,
-				1143C6C12AFB822E0032CE53 /* SM_Intro */,
-				A828A6692AFF054800B11D71 /* SM_Concept1 */,
-				A828A66C2AFF06B700B11D71 /* SM_Concept2 */,
-				A852B1792B01F8810051BE9E /* SM_Concept3 */,
-				A8BE07F42B00E47700DD7378 /* SM_Ending */,
-				A8A53A162B16F891006DD7E3 /* KP_Intro */,
-				A8C2A8B52B171FBB00EEDA53 /* KP_Concept1 */,
-				A8C2A8B72B17202F00EEDA53 /* KP_Concept2 */,
-				A8C2A8B92B17204D00EEDA53 /* KP_Concept3 */,
-				A8C2A8BB2B17207100EEDA53 /* KP_Ending */,
+				A8C2A8C52B172BAA00EEDA53 /* The Sun and the moon */,
+				A8C2A8C62B172BCA00EEDA53 /* Kongji Patji */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -760,6 +752,30 @@
 				A8C2A8C32B17217600EEDA53 /* KPEndingViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A8C2A8C52B172BAA00EEDA53 /* The Sun and the moon */ = {
+			isa = PBXGroup;
+			children = (
+				1143C6C12AFB822E0032CE53 /* SM_Intro */,
+				A828A6692AFF054800B11D71 /* SM_Concept1 */,
+				A828A66C2AFF06B700B11D71 /* SM_Concept2 */,
+				A852B1792B01F8810051BE9E /* SM_Concept3 */,
+				A8BE07F42B00E47700DD7378 /* SM_Ending */,
+			);
+			path = "The Sun and the moon";
+			sourceTree = "<group>";
+		};
+		A8C2A8C62B172BCA00EEDA53 /* Kongji Patji */ = {
+			isa = PBXGroup;
+			children = (
+				A8A53A162B16F891006DD7E3 /* KP_Intro */,
+				A8C2A8B52B171FBB00EEDA53 /* KP_Concept1 */,
+				A8C2A8B72B17202F00EEDA53 /* KP_Concept2 */,
+				A8C2A8B92B17204D00EEDA53 /* KP_Concept3 */,
+				A8C2A8BB2B17207100EEDA53 /* KP_Ending */,
+			);
+			path = "Kongji Patji";
 			sourceTree = "<group>";
 		};
 		A8F41D2B2AE4FC3900BB0260 /* Sound */ = {
