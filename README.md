@@ -17,7 +17,8 @@
 
 <!--<img src = "https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/128671453/43ae2ace-ea49-4de7-a490-27a0c975729f" width = "500">|<img src = "https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/128671453/4e66d3c6-1447-4674-84f4-c83b3fcbb3b2" width = "500">|-->
 
+<br/>
 
-
-
+# 🛒 AppStore
+[AppStore](https://apps.apple.com/kr/app/%EC%BD%94%EB%94%A9%EB%8F%99/id6469955220)
 
