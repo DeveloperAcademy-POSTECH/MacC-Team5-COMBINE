@@ -9,18 +9,6 @@ import UIKit
 
 final class YugwaCell: UICollectionViewCell {
     
-    override var isAccessibilityElement: Bool {
-        get { return true }
-        set { }
-    }
-    
-    override var accessibilityLabel: String? {
-        get {
-            return "\(model.concept) 배지"
-        }
-        set { }
-    }
-    
     static let identifier = "YugwaCell"
     
     var model: Food {
@@ -28,6 +16,16 @@ final class YugwaCell: UICollectionViewCell {
             yugwaImage.image = UIImage(named: model.image)
             conceptLabel.text = model.concept
         }
+    }
+    
+    override var isAccessibilityElement: Bool {
+        get { return true }
+        set { _ = newValue }
+    }
+    
+    override var accessibilityLabel: String? {
+        get { return "\(model.concept) 쿠키" }
+        set { _ = newValue }
     }
     
     // MARK: - Components
