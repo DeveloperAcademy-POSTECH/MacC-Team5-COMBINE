@@ -21,6 +21,7 @@ final class YugwaCollectionView: UIView {
         view.dataSource = self
         view.delegate = self
         view.backgroundColor = .clear
+        view.isScrollEnabled = false
         return view
     }()
     
