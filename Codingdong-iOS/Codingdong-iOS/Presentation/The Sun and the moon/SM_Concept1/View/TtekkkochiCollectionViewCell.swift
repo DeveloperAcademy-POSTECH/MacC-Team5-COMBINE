@@ -16,6 +16,7 @@ final class TtekkkochiCollectionViewCell: UICollectionViewCell {
             nameLabel.text = block.value
             nameLabel.textColor = block.isShowing ? .gs70 : .clear
             nameLabel.backgroundColor = block.isShowing ? block.bgColor : .gs60.withAlphaComponent(0.8)
+            nameLabel.isAccessibilityElement = block.isAccessible ? true : false
         }
     }
     
@@ -30,7 +31,7 @@ final class TtekkkochiCollectionViewCell: UICollectionViewCell {
     }()
     
     override init(frame: CGRect) {
-        self.block = CodingBlock(value: "", isShowing: false, bgColor: .gs70)
+        self.block = CodingBlock(value: "", isShowing: false, bgColor: .gs70, isAccessible: true)
         super.init(frame: frame)
         addSubview(nameLabel)
         nameLabel.snp.makeConstraints {
