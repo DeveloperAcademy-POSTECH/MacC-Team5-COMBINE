@@ -47,14 +47,6 @@ final class TtekkkochiSelectionView: UIView {
             $0.bottom.equalToSuperview().offset(-8)
             $0.left.right.equalToSuperview()
         }
-        
-        for idx in (0...4) {
-
-            print("================")
-            Log.c(selectBlocks[idx].value)
-            Log.c(selectBlocks[idx].isAccessible)
-            print("================")
-        }
     }
     
     required init?(coder: NSCoder) {
