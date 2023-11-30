@@ -16,7 +16,6 @@ final class BasePaddingLabel: UILabel {
         self.padding = padding
         self.accessibilityTraits = .none
         self.isAccessibilityElement = true
-        self.accessibilityLabel = "선택된 블록" // 이미 선택된 블록
     }
     
     override func drawText(in rect: CGRect) {

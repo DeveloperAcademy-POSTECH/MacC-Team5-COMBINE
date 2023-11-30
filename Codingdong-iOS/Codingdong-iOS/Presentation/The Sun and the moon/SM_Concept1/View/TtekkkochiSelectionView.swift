@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Log
 
 final class TtekkkochiSelectionView: UIView {
     
@@ -45,8 +46,14 @@ final class TtekkkochiSelectionView: UIView {
             $0.top.equalToSuperview().offset(8)
             $0.bottom.equalToSuperview().offset(-8)
             $0.left.right.equalToSuperview()
-//            $0.left.equalToSuperview().offset(16)
-//            $0.right.equalToSuperview().offset(-16)
+        }
+        
+        for idx in (0...4) {
+
+            print("================")
+            Log.c(selectBlocks[idx].value)
+            Log.c(selectBlocks[idx].isAccessible)
+            print("================")
         }
     }
     
