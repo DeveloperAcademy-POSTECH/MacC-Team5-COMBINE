@@ -180,11 +180,9 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
                         SoundManager.shared.playSound(sound: .bell)
                     }
 
-                    for idx in (0...4) {
-                        if selectBlocks[idx].value == value.0 {
-                            selectBlocks[idx].isAccessible = false
-                            selectBlocks[idx].isShowing = false
-                        }
+                    for idx in (0...4) where selectBlocks[idx].value == value.0 {
+                        selectBlocks[idx].isAccessible = false
+                        selectBlocks[idx].isShowing = false
                     }
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
