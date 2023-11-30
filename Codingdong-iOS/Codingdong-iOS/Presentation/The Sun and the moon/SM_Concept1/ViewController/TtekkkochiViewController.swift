@@ -183,12 +183,14 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
                     for idx in (0...4) {
                         if selectBlocks[idx].value == value.0 {
                             selectBlocks[idx].isAccessible = false
+                            selectBlocks[idx].isShowing = false
                         }
                     }
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         self.bottomView.ttekkkochiCollectionView.reloadData()
                     }
+                    
                     self.ttekkkochiCollectionView.reloadData()
                     self.blockIndex += 1
                     
