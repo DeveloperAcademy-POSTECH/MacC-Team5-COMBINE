@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BasePaddingLabel: UILabel {
+final class BasePaddingLabel: UILabel {
     
     private var padding = UIEdgeInsets(top: 2.0, left: 10.0, bottom: 2.0, right: 10.0)
     
@@ -15,6 +15,8 @@ class BasePaddingLabel: UILabel {
         self.init()
         self.padding = padding
         self.accessibilityTraits = .none
+        self.isAccessibilityElement = true
+        self.accessibilityLabel = "선택된 블록" // 이미 선택된 블록
     }
     
     override func drawText(in rect: CGRect) {
