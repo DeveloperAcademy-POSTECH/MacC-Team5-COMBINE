@@ -42,11 +42,16 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     
     private let titleLabel: UILabel = {
        let label = UILabel()
-        label.text = "화면 아래쪽에 노오란 떡들이 놓여져 있어. 아래로 가볼까?"
+        label.text = """
+        화면 중앙에 다섯 개의 떡들로 이루어진 떡꼬치가 있어.
+        
+        핸드폰 화면이 하늘을 바라보도록 해 볼까?
+        """
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = FontManager.body()
         label.textColor = .gs10
         label.numberOfLines = 0
+        label.textAlignment = .center
         label.lineBreakMode = .byWordWrapping
         return label
     }()
@@ -63,6 +68,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         view.register(TtekkkochiCollectionViewCell.self, forCellWithReuseIdentifier: TtekkkochiCollectionViewCell.identifier)
         view.isAccessibilityElement = false
         view.backgroundColor = .clear
+        //view.backgroundColor = .systemRed
         view.dataSource = self
         view.delegate = self
         return view
@@ -123,15 +129,15 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         }
         
         ttekkkochiCollectionView.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(32)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(40)
             $0.left.right.equalToSuperview().inset(95)
-            $0.bottom.equalToSuperview().offset(-270)
+            $0.bottom.equalToSuperview().offset(-150)
         }
         
         stickView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(28)
             $0.left.right.equalToSuperview().inset(191)
-            $0.bottom.equalToSuperview().offset(-224)
+            $0.bottom.equalToSuperview().offset(-130)
         }
         
         self.view.sendSubviewToBack(stickView)
