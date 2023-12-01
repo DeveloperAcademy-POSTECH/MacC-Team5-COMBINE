@@ -74,6 +74,7 @@
 		A80B88282ADB9A2400091FF5 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88272ADB9A2400091FF5 /* RxCocoa */; };
 		A80B882A2ADB9A2400091FF5 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88292ADB9A2400091FF5 /* RxRelay */; };
 		A80B883C2ADBA3EC00091FF5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */; };
+		A81018552B196EFA007E8475 /* tiger.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A81018542B196EFA007E8475 /* tiger.mp3 */; };
 		A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81637232ADFC5FD0070DAC9 /* Constants.swift */; };
 		A827FA252B0DB36300E6B7B8 /* CddDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A827FA242B0DB36300E6B7B8 /* CddDBService.swift */; };
 		A828A66B2AFF05DB00B11D71 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828A66A2AFF05DB00B11D71 /* CardView.swift */; };
@@ -183,6 +184,7 @@
 		A80A05322AFFCA9000624BBC /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		A80A05342AFFCE9C00624BBC /* MyBookShelfViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookShelfViewModel.swift; sourceTree = "<group>"; };
 		A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		A81018542B196EFA007E8475 /* tiger.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tiger.mp3; sourceTree = "<group>"; };
 		A81637232ADFC5FD0070DAC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A827FA242B0DB36300E6B7B8 /* CddDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CddDBService.swift; sourceTree = "<group>"; };
 		A828A66A2AFF05DB00B11D71 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -781,6 +783,7 @@
 		A8F41D2B2AE4FC3900BB0260 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				A81018542B196EFA007E8475 /* tiger.mp3 */,
 				A8A482062AE5E7EA00FDE35C /* bell.mp3 */,
 				A8F41D2C2AE4FC4200BB0260 /* piano.wav */,
 			);
@@ -920,6 +923,7 @@
 				116A953F2ADF72570096760A /* Pretendard-ExtraBold.otf in Resources */,
 				116A954E2ADF72570096760A /* Pretendard-Light.otf in Resources */,
 				116A95392ADF72570096760A /* Pretendard-SemiBold.otf in Resources */,
+				A81018552B196EFA007E8475 /* tiger.mp3 in Resources */,
 				116A95362ADF72570096760A /* Pretendard-Black.otf in Resources */,
 				116A95482ADF72570096760A /* Pretendard-Regular.otf in Resources */,
 				A83392A82ADAB35E009BA7E2 /* Assets.xcassets in Resources */,

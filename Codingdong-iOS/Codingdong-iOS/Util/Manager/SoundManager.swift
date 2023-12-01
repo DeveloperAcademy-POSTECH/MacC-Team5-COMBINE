@@ -15,6 +15,7 @@ class SoundManager {
     enum SoundList: String {
         case piano
         case bell
+        case tiger
     }
     
     func playSound(sound: SoundList) {
