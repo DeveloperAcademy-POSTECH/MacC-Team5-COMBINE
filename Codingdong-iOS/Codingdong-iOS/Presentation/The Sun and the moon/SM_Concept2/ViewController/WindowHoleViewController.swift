@@ -190,16 +190,19 @@ extension WindowHoleViewController {
             case .hand:
                 tigerHandHoleAnimationView.lottieView.accessibilityLabel = "손톱이 날카로운 호랑이 손"
                 HapticManager.shared?.playSplash()
+                SoundManager.shared.playSound(sound: .tiger)
                 LottieManager.shared.playAnimation(inView: tigerHandHoleAnimationView.lottieView, completion: nil)
                 LottieManager.shared.removeAnimation(inView: tigerHandHoleAnimationView.lottieView)
             case .nose:
                 tigerNoseHoleAnimationView.lottieView.accessibilityLabel = "킁킁 거리고 있는 호랑이 코"
                 HapticManager.shared?.playSplash()
+                SoundManager.shared.playSound(sound: .tiger)
                 LottieManager.shared.playAnimation(inView: tigerNoseHoleAnimationView.lottieView, completion: nil)
                 LottieManager.shared.removeAnimation(inView: tigerNoseHoleAnimationView.lottieView)
             case .tail:
                 tigerTailHoleAnimationView.lottieView.accessibilityLabel = "살랑살랑 흔들리는 호랑이 꼬리"
                 HapticManager.shared?.playSplash()
+                SoundManager.shared.playSound(sound: .tiger)
                 LottieManager.shared.playAnimation(inView: tigerTailHoleAnimationView.lottieView, completion: nil)
                 LottieManager.shared.removeAnimation(inView: tigerTailHoleAnimationView.lottieView)
             }
