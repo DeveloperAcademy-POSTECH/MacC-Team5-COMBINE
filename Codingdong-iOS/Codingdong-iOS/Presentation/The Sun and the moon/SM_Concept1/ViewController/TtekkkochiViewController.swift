@@ -158,15 +158,16 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     }
     
     func binding() {
+        initializeView()
         self.bottomView.setup(with: viewModel)
         self.viewModel.route
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] nextView in
-                for index in (0...4) { answerBlocks[index].isShowing = false }
                 self?.navigationController?.pushViewController(nextView, animated: false)
             })
             .store(in: &cancellable)
-    
+            
+        
         self.bottomView.$selectedValue
             .zip(bottomView.$initialValue)
             .sink { [weak self] value in
@@ -174,6 +175,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
                 guard value.1 else { return }
                 guard let self = self else { return }
         
+                // 정답일 때
                 if (index > -1 && index < 5) && (answerBlocks[index].value == value.0) {
                     answerBlocks[index].isShowing = true
                     DispatchQueue.global().async {
@@ -213,15 +215,22 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
             .store(in: &cancellable)
     }
     
-    @objc
-    func popThisView() {
+    func initializeView() {
         (0...4).forEach {
             answerBlocks[$0].isShowing = false
             selectBlocks[$0].isAccessible = true
             selectBlocks[$0].isShowing = true
+            
+            ttekkkochiCollectionView.reloadData()
+            bottomView.ttekkkochiCollectionView.reloadData()
         }
+    }
+    
+    @objc
+    func popThisView() {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.ttekkkochiCollectionView.reloadData()
             self.bottomView.ttekkkochiCollectionView.reloadData()
         }
         
