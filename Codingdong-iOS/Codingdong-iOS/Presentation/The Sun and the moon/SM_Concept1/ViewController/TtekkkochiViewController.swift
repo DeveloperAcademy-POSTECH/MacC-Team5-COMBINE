@@ -215,7 +215,16 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     
     @objc
     func popThisView() {
-        (0...4).forEach { answerBlocks[$0].isShowing = false }
+        (0...4).forEach {
+            answerBlocks[$0].isShowing = false
+            selectBlocks[$0].isAccessible = true
+            selectBlocks[$0].isShowing = true
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.bottomView.ttekkkochiCollectionView.reloadData()
+        }
+        
         self.navigationController?.pushViewController(CustomAlert(), animated: false)
     }
 }
