@@ -68,8 +68,6 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         return view
     }()
     
-    private let bottomView = TtekkkochiSelectionView()
-    
     private let nextButton = CommonButton()
     private lazy var settingButtonViewModel = CommonbuttonModel(title: "꼬치를 준다", font: FontManager.textbutton(), titleColor: .primary1, backgroundColor: .primary2) {[weak self] in
        self?.viewModel.selectItem()
@@ -115,7 +113,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        [titleLabel, ttekkkochiCollectionView, bottomView, nextButton, stickView].forEach { view.addSubview($0) }
+        [titleLabel, ttekkkochiCollectionView, nextButton, stickView].forEach { view.addSubview($0) }
     }
     
     func setConstraints() {
@@ -127,22 +125,16 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         ttekkkochiCollectionView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(32)
             $0.left.right.equalToSuperview().inset(95)
-            $0.bottom.equalTo(bottomView.snp.top).offset(-122)
+            $0.bottom.equalToSuperview().offset(-270)
         }
         
         stickView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(28)
             $0.left.right.equalToSuperview().inset(191)
-            $0.bottom.equalTo(bottomView.snp.top).offset(-72)
+            $0.bottom.equalToSuperview().offset(-224)
         }
         
         self.view.sendSubviewToBack(stickView)
-        
-        bottomView.snp.makeConstraints {
-            $0.left.right.equalToSuperview().inset(Constants.Button.buttonPadding)
-            $0.bottom.equalToSuperview().inset(Constants.Button.buttonPadding * 2)
-            $0.height.equalTo(112)
-        }
         
         nextButton.snp.makeConstraints {
             $0.left.right.equalToSuperview().inset(Constants.Button.buttonPadding)
@@ -154,12 +146,11 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
     func setupAccessibility() {
         let leftBarButtonElement = setupLeftBackButtonItemAccessibility(label: "내 책장")
         ttekkkochiCollectionViewElement.accessibilityFrameInContainerSpace = ttekkkochiCollectionView.frame
-        view.accessibilityElements = [titleLabel, ttekkkochiCollectionViewElement, bottomView, nextButton, leftBarButtonElement]
+        view.accessibilityElements = [titleLabel, ttekkkochiCollectionViewElement, nextButton, leftBarButtonElement]
     }
     
     func binding() {
         initializeView()
-        self.bottomView.setup(with: viewModel)
         self.viewModel.route
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] nextView in
@@ -168,51 +159,47 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
             .store(in: &cancellable)
             
         
-        self.bottomView.$selectedValue
-            .zip(bottomView.$initialValue)
-            .sink { [weak self] value in
-                guard let index = self?.blockIndex else { return }
-                guard value.1 else { return }
-                guard let self = self else { return }
-        
-                // 정답일 때
-                if (index > -1 && index < 5) && (answerBlocks[index].value == value.0) {
-                    answerBlocks[index].isShowing = true
-                    DispatchQueue.global().async {
-                        SoundManager.shared.playSound(sound: .bell)
-                    }
-
-                    for idx in (0...4) where selectBlocks[idx].value == value.0 {
-                        selectBlocks[idx].isAccessible = false
-                        selectBlocks[idx].isShowing = false
-                    }
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self.bottomView.ttekkkochiCollectionView.reloadData()
-                    }
-                    
-                    self.ttekkkochiCollectionView.reloadData()
-                    self.blockIndex += 1
-                    
-                    switch index {
-                    case 4:
-                        answerBlocks[index].isShowing = true
-                        self.bottomView.isHidden = true
-                        self.nextButton.isHidden = false
-                        nextButton.setup(model: settingButtonViewModel)
-                        self.ttekkkochiCollectionView.reloadData()
-                        titleLabel.text = "잘했어! 떡꼬치가 잘 만들어졌는지 한번 잘 들어봐!"
-                        ttekkkochiCollectionViewElement.accessibilityLabel = "만약에\n떡 하나 주면\n안 잡아먹는다\n아니면\n잡아먹는다\n잘 만들었는데? 이제 호랑이에게 주자!"
-                        UIAccessibility.post(notification: .layoutChanged, argument: titleLabel)
-                    default:
-                        return
-                    }
-                } else {
-                    self.hapticManager = HapticManager()
-                    self.hapticManager?.playNomNom()
-                }
-            }
-            .store(in: &cancellable)
+//        self.bottomView.$selectedValue
+//            .zip(bottomView.$initialValue)
+//            .sink { [weak self] value in
+//                guard let index = self?.blockIndex else { return }
+//                guard value.1 else { return }
+//                guard let self = self else { return }
+//        
+//                // 정답일 때
+//                if (index > -1 && index < 5) && (answerBlocks[index].value == value.0) {
+//                    answerBlocks[index].isShowing = true
+//                    DispatchQueue.global().async {
+//                        SoundManager.shared.playSound(sound: .bell)
+//                    }
+//
+//                    for idx in (0...4) where selectBlocks[idx].value == value.0 {
+//                        selectBlocks[idx].isAccessible = false
+//                        selectBlocks[idx].isShowing = false
+//                    }
+//                    
+//                    self.ttekkkochiCollectionView.reloadData()
+//                    self.blockIndex += 1
+//                    
+//                    switch index {
+//                    case 4:
+//                        answerBlocks[index].isShowing = true
+//                        self.bottomView.isHidden = true
+//                        self.nextButton.isHidden = false
+//                        nextButton.setup(model: settingButtonViewModel)
+//                        self.ttekkkochiCollectionView.reloadData()
+//                        titleLabel.text = "잘했어! 떡꼬치가 잘 만들어졌는지 한번 잘 들어봐!"
+//                        ttekkkochiCollectionViewElement.accessibilityLabel = "만약에\n떡 하나 주면\n안 잡아먹는다\n아니면\n잡아먹는다\n잘 만들었는데? 이제 호랑이에게 주자!"
+//                        UIAccessibility.post(notification: .layoutChanged, argument: titleLabel)
+//                    default:
+//                        return
+//                    }
+//                } else {
+//                    self.hapticManager = HapticManager()
+//                    self.hapticManager?.playNomNom()
+//                }
+//            }
+//            .store(in: &cancellable)
     }
     
     func initializeView() {
@@ -220,9 +207,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
             answerBlocks[$0].isShowing = false
             selectBlocks[$0].isAccessible = true
             selectBlocks[$0].isShowing = true
-            
             ttekkkochiCollectionView.reloadData()
-            bottomView.ttekkkochiCollectionView.reloadData()
         }
     }
     
@@ -231,7 +216,6 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.ttekkkochiCollectionView.reloadData()
-            self.bottomView.ttekkkochiCollectionView.reloadData()
         }
         
         self.navigationController?.pushViewController(CustomAlert(), animated: false)
