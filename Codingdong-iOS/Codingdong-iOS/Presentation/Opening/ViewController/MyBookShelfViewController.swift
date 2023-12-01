@@ -180,7 +180,7 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
             $0.top.equalTo(storyTitle.snp.bottom).offset(16)
             $0.left.equalToSuperview().offset(16)
             $0.right.equalToSuperview().offset(-16)
-            $0.height.equalTo(180)
+            $0.height.equalTo(60)
         }
         
         cookieContainer.snp.makeConstraints {
