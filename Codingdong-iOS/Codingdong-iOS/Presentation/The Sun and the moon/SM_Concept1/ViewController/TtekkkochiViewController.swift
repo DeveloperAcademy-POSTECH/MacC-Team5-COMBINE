@@ -8,12 +8,15 @@
 import UIKit
 import Combine
 import Log
+import CoreMotion
 
 final class TtekkkochiViewController: UIViewController, ConfigUI {
     var viewModel = TtekkkochiViewModel()
     private var cancellable = Set<AnyCancellable>()
     private var blockIndex: Int = 0
     private var hapticManager: HapticManager?
+    private let motionManager = CMMotionManager()
+    private var motionCount: Int = 0
     
     // MARK: - Components
     private let naviLine: UIView = {
@@ -45,7 +48,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         label.text = """
         화면 중앙에 다섯 개의 떡들로 이루어진 떡꼬치가 있어.
         
-        핸드폰 화면이 하늘을 바라보도록 해 볼까?
+        핸드폰 화면이 하늘을 바라보도록 아주 사알짝 딱 한 번만 뒤로 젖혀볼까?
         """
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = FontManager.body()
@@ -131,13 +134,13 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
         ttekkkochiCollectionView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(40)
             $0.left.right.equalToSuperview().inset(95)
-            $0.bottom.equalToSuperview().offset(-150)
+            $0.bottom.equalToSuperview().offset(-100)
         }
         
         stickView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(28)
             $0.left.right.equalToSuperview().inset(191)
-            $0.bottom.equalToSuperview().offset(-130)
+            $0.bottom.equalToSuperview().offset(-90)
         }
         
         self.view.sendSubviewToBack(stickView)
@@ -164,6 +167,7 @@ final class TtekkkochiViewController: UIViewController, ConfigUI {
             })
             .store(in: &cancellable)
             
+        startRecordingDeviceMotion() // 조건 걸어서 1번만 실행되도록 해야 함
         
 //        self.bottomView.$selectedValue
 //            .zip(bottomView.$initialValue)
@@ -245,5 +249,50 @@ extension TtekkkochiViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = collectionView.frame.size.width
         return CGSize(width: cellWidth, height: cellWidth/3.2)
+    }
+}
+
+extension TtekkkochiViewController {
+    func startRecordingDeviceMotion() {
+        // Device motion을 수집 가능한지 확인
+        guard motionManager.isDeviceMotionAvailable else {
+            Log.e("Device motion data is not available")
+            return
+        }
+        
+        // 모션 갱신 주기 설정 (10Hz)
+        motionManager.deviceMotionUpdateInterval = 0.1
+        // Device motion 업데이트 받기 시작
+        motionManager.startDeviceMotionUpdates(to: .main) { (deviceMotion: CMDeviceMotion?, error: Error?) in
+            guard let data = deviceMotion, error == nil else {
+                print("Failed to get device motion data: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+            // 필요한 센서값 불러오기
+            let acceleration = data.userAcceleration
+            let shakeThreshold = 0.5  // 흔들기 인식 강도
+            if acceleration.x >= shakeThreshold || acceleration.y >= shakeThreshold || acceleration.z >= shakeThreshold {
+                
+                if acceleration.y > 1 && acceleration.z < 0 {
+//                    print("==============")
+//                    Log.c(acceleration.x)
+//                    Log.c(acceleration.y)
+//                    Log.c(acceleration.z)
+//                    print("==============")
+//                    
+                    (0...2).forEach { answerBlocks[$0].isShowing = true }
+                    DispatchQueue.global().async {
+                        SoundManager.shared.playSound(sound: .bell)
+                    }
+                    self.ttekkkochiCollectionView.reloadData()
+                }
+            }
+            
+            self.motionManager.stopAccelerometerUpdates()
+        }
+    }
+    
+    func stopRecordingDeviceMotion() {
+        motionManager.stopDeviceMotionUpdates()
     }
 }
