@@ -38,6 +38,7 @@
 
 
 # 🛒 AppStore
+수정 예정
 |APPSTORE 페이지|서비스 소개 페이지|
 |:----:|:---:|
 |<img src="https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/84610593/8bdde528-9af8-4466-a216-720a4aa7e10b" width=250>|<img src="https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/84610593/2c6aea44-b4f1-4cc0-815f-7a3f32bf28bd" width=250>|
