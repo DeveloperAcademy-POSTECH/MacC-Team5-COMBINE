@@ -19,6 +19,24 @@
 
 <br/>
 
+
+# 👥 팀원 소개
+수정 예정
+
+|김규리 (Liv)|김하정 (Hazel)|박지영 (Joy)|
+|:----:|:---:|:---:|
+|`Product Manager`|`Designer`|`Developer`|
+|<img width="480" alt="스크린샷 2023-12-03 오후 12 19 12" src="https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/84610593/7fa34c72-4663-486b-8f48-21bd260159fa">|<img width="480" alt="스크린샷 2023-12-03 오후 12 19 12" src="https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/84610593/7fa34c72-4663-486b-8f48-21bd260159fa">|<img width="480" alt="스크린샷 2023-12-03 오후 12 19 12" src="https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/84610593/7fa34c72-4663-486b-8f48-21bd260159fa">|
+
+|배정훈 (Sean)|이승용 (Noah))|정유빈 (Anna)|
+|:----:|:---:|:---:|
+|`Developer`|`Developer`|`Designer`|
+|<img width="480" alt="스크린샷 2023-12-03 오후 12 19 12" src="https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/84610593/7fa34c72-4663-486b-8f48-21bd260159fa">|<img width="480" alt="스크린샷 2023-12-03 오후 12 19 12" src="https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/84610593/7fa34c72-4663-486b-8f48-21bd260159fa">|<img width="480" alt="스크린샷 2023-12-03 오후 12 19 12" src="https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/84610593/7fa34c72-4663-486b-8f48-21bd260159fa">|
+
+
+<br/>
+
+
 # 🛒 AppStore
 |APPSTORE 페이지|서비스 소개 페이지|
 |:----:|:---:|
