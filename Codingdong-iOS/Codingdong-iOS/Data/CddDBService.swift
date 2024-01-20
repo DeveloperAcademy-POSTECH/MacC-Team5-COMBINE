@@ -80,7 +80,6 @@ extension CddDBService {
     }
     
     func updateFable(_ item: FableData) {
-        let fableData = self.readFableData()
         item.isRead = true
         context.insert(item)
         do {
