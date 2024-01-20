@@ -42,10 +42,10 @@ extension CddDBService {
     
     func initializeData() {
         do {
-            var fableData = try self.readItems(key: [SortDescriptor<FableData>(\.title)]) ?? [FableData(title: "", isRead: true)]
+            let fableData = try self.readItems(key: [SortDescriptor<FableData>(\.title)]) ?? [FableData(title: "", isRead: true)]
             if fableData.count == 0 { fables.forEach { self.context.insert($0) } }
             
-            var foodList = try self.readItems(key: [SortDescriptor<FoodList>(\.id)]) ?? [FoodList(id: "", haveFood: true)]
+            let foodList = try self.readItems(key: [SortDescriptor<FoodList>(\.id)]) ?? [FoodList(id: "", haveFood: true)]
             if foodList.count == 0 { self.context.insert(FoodList(id: UUID().uuidString, haveFood: false)) }
         } catch { fatalError(error.localizedDescription) }
     }
