@@ -24,7 +24,7 @@
 |김규리 (Liv)|김하정 (Hazel)|박지영 (Joy)|
 |:----:|:---:|:---:|
 |`Product Manager`|`Designer`|`Tech Leader`, `Developer`|
-|<img width="480" alt="스크린샷 2023-12-03 오후 12 19 12" src="https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/84610593/7fa34c72-4663-486b-8f48-21bd260159fa">|<img width="480" alt="스크린샷 2023-12-03 오후 12 19 12" src="https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/84610593/7fa34c72-4663-486b-8f48-21bd260159fa">|<img width="480" alt="스크린샷 2023-12-03 오후 12 19 12" src="https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/84610593/7fa34c72-4663-486b-8f48-21bd260159fa">|
+|<img width="480" alt="스크린샷 2023-12-03 오후 12 19 12" src="https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/84610593/04baf25d-c80f-44ef-a98d-49be2cd2787f">|<img width="480" alt="스크린샷 2023-12-03 오후 12 19 12" src="https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/84610593/0bbe3986-e43a-4014-98e7-844072d17edf">|<img width="480" alt="스크린샷 2023-12-03 오후 12 19 12" src="https://github.com/DeveloperAcademy-POSTECH/MacC-Team5-COMBINE/assets/84610593/b087e37c-9c1f-4a1d-893a-3e6c19bcc2d5">|
 
 |배정훈 (Sean)|이승용 (Noah))|정유빈 (Anna)|
 |:----:|:---:|:---:|
