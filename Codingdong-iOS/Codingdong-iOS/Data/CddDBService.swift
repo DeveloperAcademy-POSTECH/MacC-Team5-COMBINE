@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftData
-import Log
 
 struct CddDBService {
     var context: ModelContext
@@ -27,14 +26,12 @@ struct CddDBService {
     func createItem<T: PersistentModel> (_ item: T) { context.insert(item) }
     
     /// READ
-    func readItems<T: PersistentModel>(key: [SortDescriptor<T>]?, onCompletion: @escaping([T]?, Error?) -> ()) {
-        guard let key = key else { return }
-        let descriptor = FetchDescriptor<T>(sortBy: key)
+    func readItems<T: PersistentModel>(key: [SortDescriptor<T>]?) throws -> [T]? {
+        guard let key = key else { fatalError() }
         do {
-            let data = try context.fetch(descriptor)
-            onCompletion(data,nil)
+            return try context.fetch(FetchDescriptor<T>(sortBy: key))
         } catch {
-            onCompletion(nil,error)
+            fatalError(error.localizedDescription)
         }
     }
     /// DELETE
@@ -42,37 +39,31 @@ struct CddDBService {
 }
 
 extension CddDBService {
+    
     func initializeData() {
-        self.readItems(key: [SortDescriptor<FableData>(\.title)]) { data, error in
-            if let error { Log.e(error) }
-            if data?.count == 0 { fables.forEach { self.context.insert($0) } }
-        }
-        self.readItems(key: [SortDescriptor<FoodList>(\.id)]) { data, error in
-            if let error { Log.e(error) }
-            if data?.count == 0 {
-                self.context.insert(FoodList(id: UUID().uuidString, haveFood: false))
-            }
-        }
+        do {
+            let fableData = try self.readItems(key: [SortDescriptor<FableData>(\.title)]) ?? [FableData(title: "", isRead: true)]
+            if fableData.count == 0 { fables.forEach { self.context.insert($0) } }
+            
+            let foodList = try self.readItems(key: [SortDescriptor<FoodList>(\.id)]) ?? [FoodList(id: "", haveFood: true)]
+            if foodList.count == 0 { self.context.insert(FoodList(id: UUID().uuidString, haveFood: false)) }
+        } catch { fatalError(error.localizedDescription) }
     }
     
     func readFableData() -> [FableData] {
-        var fableData: [FableData] = []
-        self.readItems(key: [SortDescriptor<FableData>(\.title, order: .reverse)]) { data, error in
-            if let error { Log.e(error) }
-            guard let data = data else { return }
-            fableData = data
+        do {
+            return try self.readItems(key: [SortDescriptor<FableData>(\.title, order: .reverse)]) ?? [FableData(title: "", isRead: true)]
+        } catch {
+            fatalError(error.localizedDescription)
         }
-        return fableData
     }
     
     func readFoodListData() -> FoodList {
-        var foodListData: FoodList?	
-        self.readItems(key: [SortDescriptor<FoodList>(\.id)]) { data, error in
-            if let error { Log.e(error) }
-            guard let data = data else { return }
-            foodListData = data[0]
+        do {
+            return try self.readItems(key: [SortDescriptor<FoodList>(\.id)])?[0] ?? FoodList(id: UUID().uuidString, haveFood: true)
+        } catch {
+            fatalError(error.localizedDescription)
         }
-        return foodListData ?? FoodList(id: UUID().uuidString, haveFood: false)
     }
         
     func updateFood(_ item: Food) {
@@ -89,7 +80,6 @@ extension CddDBService {
     }
     
     func updateFable(_ item: FableData) {
-        let fableData = self.readFableData()
         item.isRead = true
         context.insert(item)
         do {

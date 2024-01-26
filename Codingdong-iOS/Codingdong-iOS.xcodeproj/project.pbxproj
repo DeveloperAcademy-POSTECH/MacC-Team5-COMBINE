@@ -267,22 +267,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		113B202A2B150C3C0089C61B /* CumstomAlert */ = {
-			isa = PBXGroup;
-			children = (
-				113B202B2B150C4C0089C61B /* ViewController */,
-			);
-			path = CumstomAlert;
-			sourceTree = "<group>";
-		};
-		113B202B2B150C4C0089C61B /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				A8A53A0F2B169010006DD7E3 /* CustomAlert.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		1143C6842AF6A1EF0032CE53 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,7 +431,6 @@
 			isa = PBXGroup;
 			children = (
 				A81637202ADFC51F0070DAC9 /* Components */,
-				113B202A2B150C3C0089C61B /* CumstomAlert */,
 				A8B10D3C2AFAAE10009EA3F5 /* Opening */,
 				A8C2A8C52B172BAA00EEDA53 /* The Sun and the moon */,
 				A8C2A8C62B172BCA00EEDA53 /* Kongji Patji */,
@@ -463,6 +446,7 @@
 				A828A66A2AFF05DB00B11D71 /* CardView.swift */,
 				A864F0122AE041C8007F4012 /* CommonButton.swift */,
 				A8BC0DB82AE358BF00AD5C9A /* BasePaddingLabel.swift */,
+				A8A53A0F2B169010006DD7E3 /* CustomAlert.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
