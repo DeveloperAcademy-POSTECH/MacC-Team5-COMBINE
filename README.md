@@ -16,7 +16,7 @@
 <br/>
 
 # 🛠️ 기술 스택
-- MVVM
+- MVC
 - UIkit
 - SwiftData
 - Combine, GCD
