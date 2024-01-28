@@ -18,7 +18,7 @@
 <br/>
 
 # 🛠️ 기술 스택
-<img width="80" src="https://img.shields.io/badge/IOS-17.0%2B-silver"> <img width="80" src="https://img.shields.io/badge/Xcode-15.0-blue">
+<img width="80" src="https://img.shields.io/badge/iOS-17.0%2B-silver"> <img width="80" src="https://img.shields.io/badge/Xcode-15.0-blue">
 - MVC
 - UIkit
 - SwiftData
