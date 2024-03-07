@@ -71,8 +71,6 @@
 		A80A05332AFFCA9000624BBC /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80A05322AFFCA9000624BBC /* OnboardingViewModel.swift */; };
 		A80A05352AFFCE9C00624BBC /* MyBookShelfViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80A05342AFFCE9C00624BBC /* MyBookShelfViewModel.swift */; };
 		A80B88252ADB99CA00091FF5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88242ADB99CA00091FF5 /* SnapKit */; };
-		A80B88282ADB9A2400091FF5 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88272ADB9A2400091FF5 /* RxCocoa */; };
-		A80B882A2ADB9A2400091FF5 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A80B88292ADB9A2400091FF5 /* RxRelay */; };
 		A80B883C2ADBA3EC00091FF5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A80B883B2ADBA3EC00091FF5 /* .swiftlint.yml */; };
 		A81018552B196EFA007E8475 /* tiger.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A81018542B196EFA007E8475 /* tiger.mp3 */; };
 		A81637242ADFC5FD0070DAC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81637232ADFC5FD0070DAC9 /* Constants.swift */; };
@@ -242,8 +240,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A80B882A2ADB9A2400091FF5 /* RxRelay in Frameworks */,
-				A80B88282ADB9A2400091FF5 /* RxCocoa in Frameworks */,
 				A89384582AF9516C00F2DC77 /* Log in Frameworks */,
 				A80B88252ADB99CA00091FF5 /* SnapKit in Frameworks */,
 				112003D42AE5752300924FAB /* Lottie in Frameworks */,
@@ -793,8 +789,6 @@
 			name = "Codingdong-iOS";
 			packageProductDependencies = (
 				A80B88242ADB99CA00091FF5 /* SnapKit */,
-				A80B88272ADB9A2400091FF5 /* RxCocoa */,
-				A80B88292ADB9A2400091FF5 /* RxRelay */,
 				112003D32AE5752300924FAB /* Lottie */,
 				A89384572AF9516C00F2DC77 /* Log */,
 			);
@@ -873,7 +867,6 @@
 			mainGroup = A83392922ADAB35D009BA7E2;
 			packageReferences = (
 				A80B88232ADB99CA00091FF5 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				A80B88262ADB9A2400091FF5 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				112003D22AE5752300924FAB /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				A89384562AF9516C00F2DC77 /* XCRemoteSwiftPackageReference "Log" */,
 			);
@@ -1420,14 +1413,6 @@
 				minimumVersion = 5.6.0;
 			};
 		};
-		A80B88262ADB9A2400091FF5 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.6.0;
-			};
-		};
 		A89384562AF9516C00F2DC77 /* XCRemoteSwiftPackageReference "Log" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/JYPjoy/Log.git";
@@ -1448,16 +1433,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A80B88232ADB99CA00091FF5 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		A80B88272ADB9A2400091FF5 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A80B88262ADB9A2400091FF5 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		A80B88292ADB9A2400091FF5 /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A80B88262ADB9A2400091FF5 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
 		};
 		A89384572AF9516C00F2DC77 /* Log */ = {
 			isa = XCSwiftPackageProductDependency;
