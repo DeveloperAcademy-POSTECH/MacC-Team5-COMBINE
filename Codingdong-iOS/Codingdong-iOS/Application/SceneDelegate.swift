@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         // 시작 화면 추가
-        CddDBService().initializeData()
+        CddDBService.shared.initializeData()
         window.rootViewController = UINavigationController(rootViewController: SplashViewController())
         window.makeKeyAndVisible()
 

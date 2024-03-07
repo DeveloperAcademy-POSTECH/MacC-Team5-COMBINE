@@ -116,7 +116,7 @@ final class AndConceptViewController: UIViewController {
 extension AndConceptViewController {
     @objc
     func didClickNextButton() {
-        CddDBService().updateFood(Food(image: "img_yugwa2", concept: "연산자"))
+        CddDBService.shared.updateFood(Food(image: "img_yugwa2", concept: "연산자"))
         self.navigationController?.pushViewController(OnuiiViewController(), animated: false)
     }
     
