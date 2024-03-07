@@ -8,7 +8,7 @@
 import Foundation
 import SwiftData
 
-struct CddDBService {
+final class CddDBService {
     var context: ModelContext
     var container: ModelContainer = {
         let schema = Schema([FableData.self, FoodList.self, Food.self])
@@ -19,6 +19,8 @@ struct CddDBService {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    
+    static let shared = CddDBService()
     
     init() { context = ModelContext(container) }
     

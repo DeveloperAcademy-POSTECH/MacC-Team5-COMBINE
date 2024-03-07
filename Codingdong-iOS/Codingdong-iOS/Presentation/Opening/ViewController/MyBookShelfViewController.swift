@@ -206,13 +206,13 @@ final class MyBookShelfViewController: UIViewController, ConfigUI {
     }
     
     func fetchData() {
-        self.storyList.fableDataList = CddDBService().readFableData()
+        self.storyList.fableDataList = CddDBService.shared.readFableData()
         
-        if (CddDBService().readFoodListData().haveFood == false) {
+        if (CddDBService.shared.readFoodListData().haveFood == false) {
             self.innerLabel.isHidden = false
             self.innerView.isHidden = true
         } else {
-            self.innerView.food = CddDBService().readFoodListData().food?.sorted(by: {$0.image < $1.image})
+            self.innerView.food = CddDBService.shared.readFoodListData().food?.sorted(by: {$0.image < $1.image})
             self.innerView.badgeCollectionView.reloadData()
             self.innerLabel.isHidden = true
             self.innerView.isHidden = false
